@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
 {
-
+    public Transform cam;
+    float heading = 0;
     public float speed = 10.0f;
 
     // Start is called before the first frame update
@@ -16,8 +17,12 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dPadInput = new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
-        Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        Vector3 camF = cam.forward;
+        camF.y = 0;
+        camF = camF.normalized;
+
+        Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
+        Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 nothing = new Vector3(0, 0, 0);
 
         if (dPadInput != nothing) {
