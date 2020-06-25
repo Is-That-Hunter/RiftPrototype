@@ -5,7 +5,6 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
     public Transform cam;
-    float heading = 0;
     public float speed = 10.0f;
 
     // Start is called before the first frame update
@@ -17,6 +16,7 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //X Z MOVEMENT
         Vector3 camF = cam.forward;
         camF.y = 0;
         camF = camF.normalized;
