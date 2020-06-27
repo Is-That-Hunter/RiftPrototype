@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rift Point
+  - Ground
   layers:
   - Default
   - TransparentFX
