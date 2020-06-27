@@ -12,12 +12,14 @@ public class RiftCast : MonoBehaviour
     private bool riftInitialized;
     Vector3 nothing = new Vector3(0, 0, 0);
     private LineRenderer lineRend;
+    private bool downLastFrame;
+    private bool upLastFrame;
 
     // Start is called before the first frame update
     void Start()
     {
-        line.start = nothing;
-        line.end = nothing;
+        line.start = null;
+        line.end = null;
         lineRend = GetComponent<LineRenderer>();
         lineRend.positionCount = 2;
         lineRend.enabled = false;
@@ -32,14 +34,18 @@ public class RiftCast : MonoBehaviour
         newRet.x -= Screen.width / 2;
         newRet.y -= Screen.height / 2;
         Ray ray = cam.ScreenPointToRay(reticle.transform.position);
+        RaycastHit hitAgain;
+        Physics.Raycast(ray, out hitAgain);
+        Debug.DrawLine(cam.transform.position, hitAgain.transform.position, Color.green);
 
         if (triggerDown && riftInitialized)
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Rift Point" && line.start == nothing)
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Rift Point" && line.start == null && !downLastFrame)
             {
-                line.start = hit.transform.position;
+                line.start = hit.collider;
+                Debug.Log("Setting Line.Start to " + line.start.transform.position);
             }
         }
 
@@ -47,35 +53,33 @@ public class RiftCast : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Rift Point" && line.start != nothing && line.end == nothing)
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Rift Point" && line.start != null && line.end == null && !upLastFrame)
             {
-                line.end = hit.transform.position;
+                line.end = hit.collider;
+                Debug.Log("Setting Line.End to " + line.end.transform.position);
             }
             else
             {
-                line.end = nothing;
-                line.start = nothing;
+                line.end = null;
+                line.start = null;
             }
         }
 
-        if(line.start != nothing && line.end != nothing && line.start != line.end)
+        if(line.start != null && line.end != null && line.start != line.end)
         {
             BuildRift();
         }
+
+        downLastFrame = triggerDown;
+        upLastFrame = triggerUp;
     }
 
     void BuildRift()
     {
-        Debug.Log("You made a line from " + line.start + " to " + line.end);
-
         //build shit
         lineRend.enabled = true;
-        lineRend.SetPosition(0, line.start);
-        lineRend.SetPosition(1, line.end);
-
-
-        line.start = nothing;
-        line.end = nothing;
+        lineRend.SetPosition(0, line.start.transform.position);
+        lineRend.SetPosition(1, line.end.transform.position);
     }
 
     public void Click()
@@ -84,8 +88,8 @@ public class RiftCast : MonoBehaviour
         if(!riftInitialized)
         {
             reticle.transform.position = new Vector3(Screen.width/2, Screen.height/2, 0);
-            line.start = nothing;
-            line.end = nothing;
+            line.start = null;
+            line.end = null;
         }
     }
 
@@ -93,6 +97,6 @@ public class RiftCast : MonoBehaviour
 
 public struct RiftPoints
 {
-    public Vector3 start;
-    public Vector3 end;
+    public Collider start;
+    public Collider end;
 }
