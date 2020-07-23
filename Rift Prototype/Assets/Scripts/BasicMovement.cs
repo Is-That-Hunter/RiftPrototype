@@ -38,7 +38,7 @@ public class BasicMovement : MonoBehaviour
         Vector3 velo = new Vector3(0, 0, 0);
         velo.y = body.velocity.y; 
         body.velocity = velo;
-        Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
+        Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, Input.GetAxisRaw("PS4_DPadVertical"));
         Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 nothing = new Vector3(0, 0, 0);
 
