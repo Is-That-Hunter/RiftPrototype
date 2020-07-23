@@ -5,31 +5,59 @@ using System;
 using System.IO;
 using UnityEditor;
 
+[ExecuteInEditMode]
 public class CraftingMaterial : MonoBehaviour
 {
     public TextAsset tagStuff;
-    private Tags allTags;
-    // Start is called before the first frame update
-    void Start()
+    public Craft itemTags;
+
+    private Tags allTags = new Tags();
+
+    //dictionary stuff
+    public List<string> sizeTags = new List<string>();
+    public List<string> typeTags = new List<string>();
+    public List<string> materialTags = new List<string>();
+
+    private void OnEnable()
     {
-        string tagDirection = AssetDatabase.GetAssetPath(tagStuff);
-        StreamReader stream = new StreamReader(tagDirection);
-        string tagJSON = stream.ReadToEnd();
-        allTags = JsonUtility.FromJson<Tags>(tagJSON);
-        Debug.Log(allTags.size.ToString());
-        foreach (Stringable thing in allTags.size)
+        //Reading in the types of tags available
+        allTags = JsonUtility.FromJson<Tags>(tagStuff.text);
+        foreach (Stringable item in allTags.size)
         {
-            Debug.Log("sizes: " + thing);
+            sizeTags.Add(item.thing);
         }
-        foreach (Stringable thing in allTags.type)
+        foreach (Stringable item in allTags.type)
         {
-            Debug.Log("types: " + thing);
+            typeTags.Add(item.thing);
         }
-        foreach (Stringable thing in allTags.material)
+        foreach (Stringable item in allTags.material)
         {
-            Debug.Log("materials: " + thing);
+            materialTags.Add(item.thing);
         }
 
+    }
+}
+
+[CustomEditor(typeof(Craft))]
+public class CraftEditor : Editor
+{
+    private int sizeIdx = 0;
+    private int typeIdx = 0;
+    private int materialIdx = 0;
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        CraftingMaterial script = (CraftingMaterial)target;
+
+        GUIContent sizeList = new GUIContent("Size");
+        sizeIdx = EditorGUILayout.Popup(sizeList, sizeIdx, script.sizeTags.ToArray());
+
+        GUIContent typeList = new GUIContent("Type");
+        typeIdx = EditorGUILayout.Popup(typeList, typeIdx, script.typeTags.ToArray());
+
+        GUIContent materialList = new GUIContent("Material");
+        materialIdx = EditorGUILayout.Popup(materialList, materialIdx, script.materialTags.ToArray());
     }
 }
 
@@ -47,4 +75,12 @@ public class Tags
 public class Stringable
 {
     public string thing;
+}
+
+[Serializable]
+public class Craft : MonoBehaviour
+{
+    public string size;
+    public string type;
+    public string material;
 }
