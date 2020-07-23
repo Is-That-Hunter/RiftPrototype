@@ -1,0 +1,26 @@
+{
+   "Tags": [
+         "size": [
+			 {"thing":"small"}, 
+			 {"thing":"medium"},
+			 {"thing":"large"}
+		 ],
+
+         "type": [
+			 {"thing":"electric"}, 
+			 {"thing":"corrosive"}, 
+			 {"thing":"sharp"}, 
+			 {"thing":"shiny"}, 
+			 {"thing":"explosive"}, 
+			 {"thing":"dull"}
+		 ],
+
+         "material": [
+			 {"thing":"wood"}, 
+			 {"thing":"metal"}, 
+			 {"thing":"plastic"}, 
+			 {"thing":"wool"}, 
+			 {"thing":"fabric"}
+		 ]
+   ]
+}
