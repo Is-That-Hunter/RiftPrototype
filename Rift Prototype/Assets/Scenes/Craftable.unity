@@ -120,18 +120,293 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &62734539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62734540}
+  - component: {fileID: 62734542}
+  - component: {fileID: 62734541}
+  - component: {fileID: 62734543}
+  m_Layer: 0
+  m_Name: typeSlotBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &62734540
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62734539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1130555697}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &62734541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62734539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.5283019, b: 0.10354974, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &62734542
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62734539}
+  m_CullTransparentMesh: 0
+--- !u!114 &62734543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62734539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f87dd7ee462904fb6e6d8d032920e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &111563167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
     type: 3}
   m_PrefabInstance: {fileID: 1124243469}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &214627650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214627651}
+  m_Layer: 0
+  m_Name: craftingSlots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &214627651
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214627650}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1893165562}
+  - {fileID: 1130555697}
+  - {fileID: 897450667}
+  m_Father: {fileID: 246037218}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &246037217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246037218}
+  - component: {fileID: 246037219}
+  m_Layer: 0
+  m_Name: UI_Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &246037218
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246037217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 214627651}
+  - {fileID: 940666286}
+  - {fileID: 2011871343}
+  m_Father: {fileID: 317420529}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &246037219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246037217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0dab1230a05ca4f99a958927d866f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &301281103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4934765016191789234, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
     type: 3}
   m_PrefabInstance: {fileID: 1385527074}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &317420528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 317420529}
+  - component: {fileID: 317420532}
+  - component: {fileID: 317420531}
+  - component: {fileID: 317420530}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &317420529
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317420528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 246037218}
+  m_Father: {fileID: 430051360}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &317420530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317420528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &317420531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317420528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &317420532
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317420528}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &328340483
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c46c48d3e900444a35000c4e929364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: 0
+  type: 0
+  material: 0
 --- !u!114 &328340485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +489,1222 @@ MonoBehaviour:
   - small
   - medium
   - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
   typeTags:
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
   - electric
   - corrosive
   - sharp
@@ -323,6 +1816,681 @@ MonoBehaviour:
   - plastic
   - wool
   - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
 --- !u!4 &328340486
 Transform:
   m_ObjectHideFlags: 0
@@ -349,6 +2517,296 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10f398ac49d99a4f925adc26bcdeb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &404858120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404858122}
+  - component: {fileID: 404858121}
+  m_Layer: 0
+  m_Name: ItemAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &404858121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404858120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6a479e6fb73c648bbf94152050975c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockSprite: {fileID: 21300000, guid: 6bfd03b405c17254aa82c0bea5a6c45d, type: 3}
+  batterySprite: {fileID: 21300000, guid: 779bd563912312740be7585dc0cc7923, type: 3}
+  metalSprite: {fileID: 21300000, guid: 7af740b5cedca9241986897e4d9efd83, type: 3}
+--- !u!4 &404858122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404858120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 453, y: 215, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &430051359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430051360}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430051360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430051359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 453, y: 215, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 317420529}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &538280304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538280305}
+  m_Layer: 0
+  m_Name: itemSlotTemplate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &538280305
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538280304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1573955775}
+  - {fileID: 1257139496}
+  m_Father: {fileID: 2011871343}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -374, y: 136}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &794298539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794298542}
+  - component: {fileID: 794298541}
+  - component: {fileID: 794298540}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &794298540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794298539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &794298541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794298539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &794298542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794298539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &897450666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897450667}
+  m_Layer: 0
+  m_Name: materialSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &897450667
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897450666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2028712787}
+  m_Father: {fileID: 214627651}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 379, y: -56}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &940666285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940666286}
+  - component: {fileID: 940666288}
+  - component: {fileID: 940666287}
+  m_Layer: 0
+  m_Name: background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &940666286
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940666285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246037218}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -201, y: 4}
+  m_SizeDelta: {x: 500, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &940666287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940666285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &940666288
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940666285}
+  m_CullTransparentMesh: 0
 --- !u!1 &1055718910
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +2913,7 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.028352926
+      value: 0.028504923
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -470,22 +2928,22 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00014758727
+      value: -0.0001483857
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9945648
+      value: 0.99456483
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.104109764
+      value: -0.104109704
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0014099072
+      value: -0.0014175356
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -525,32 +2983,32 @@ PrefabInstance:
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000000037252734
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.187383e-12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0333586e-11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.035724264
+      value: -0.035724215
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00006270001
+      value: 0.00006285438
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0017550534
+      value: 0.0017573851
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -560,37 +3018,37 @@ PrefabInstance:
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000024074069
+      value: -0.0000000039274397
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000051921234
+      value: 0.000000046449713
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0003719146
+      value: 0.0003715105
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.06613852
+      value: -0.06613848
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000050502833
+      value: 0.000050616218
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0007624345
+      value: 0.0007630761
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -614,6 +3072,129 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dd0a4dd296b4064ba78e0da887afa3a, type: 3}
+--- !u!1 &1130555696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130555697}
+  m_Layer: 0
+  m_Name: typeSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1130555697
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130555696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 62734540}
+  m_Father: {fileID: 214627651}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 121, y: -55}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1149547388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149547389}
+  - component: {fileID: 1149547391}
+  - component: {fileID: 1149547390}
+  - component: {fileID: 1149547392}
+  m_Layer: 0
+  m_Name: sizeSlotBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1149547389
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149547388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1893165562}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1149547390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149547388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1149547391
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149547388}
+  m_CullTransparentMesh: 0
+--- !u!114 &1149547392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149547388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f87dd7ee462904fb6e6d8d032920e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196101742
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +3230,411 @@ MonoBehaviour:
   tagStuff: {fileID: 4900000, guid: c489b372f1417f24eb8d3286437bf0de, type: 3}
   itemTags: {fileID: 0}
   sizeTags:
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
   - small
   - medium
   - large
@@ -830,7 +3816,1492 @@ MonoBehaviour:
   - shiny
   - explosive
   - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
   materialTags:
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
   - wood
   - metal
   - plastic
@@ -1003,6 +5474,107 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1257139495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257139496}
+  - component: {fileID: 1257139498}
+  - component: {fileID: 1257139497}
+  - component: {fileID: 1257139499}
+  - component: {fileID: 1257139500}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1257139496
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257139495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 538280305}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: -2}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1257139497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257139495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 779bd563912312740be7585dc0cc7923, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1257139498
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257139495}
+  m_CullTransparentMesh: 0
+--- !u!114 &1257139499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257139495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3a876011b426841a5722f3ff482c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 317420532}
+--- !u!225 &1257139500
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257139495}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1385527074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1169,3 +5741,281 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1573955774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573955775}
+  - component: {fileID: 1573955777}
+  - component: {fileID: 1573955776}
+  - component: {fileID: 1573955778}
+  m_Layer: 0
+  m_Name: itemSlotBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1573955775
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573955774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 538280305}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: -2}
+  m_SizeDelta: {x: 110, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1573955776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573955774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1573955777
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573955774}
+  m_CullTransparentMesh: 0
+--- !u!114 &1573955778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573955774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f87dd7ee462904fb6e6d8d032920e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1893165561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893165562}
+  m_Layer: 0
+  m_Name: sizeSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1893165562
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893165561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1149547389}
+  m_Father: {fileID: 214627651}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 258, y: 139}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2011871342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011871343}
+  - component: {fileID: 2011871344}
+  m_Layer: 0
+  m_Name: itemSlotContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2011871343
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011871342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 538280305}
+  m_Father: {fileID: 246037218}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2011871344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011871342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f87dd7ee462904fb6e6d8d032920e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2028712786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028712787}
+  - component: {fileID: 2028712789}
+  - component: {fileID: 2028712788}
+  - component: {fileID: 2028712790}
+  m_Layer: 0
+  m_Name: materialSlotBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2028712787
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028712786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 897450667}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2028712788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028712786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.00058877916, b: 0.6320754, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &2028712789
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028712786}
+  m_CullTransparentMesh: 0
+--- !u!114 &2028712790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028712786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f87dd7ee462904fb6e6d8d032920e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2097913853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4934765016191789238, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1385527074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097913859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097913853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cee57b95984794e9d3f49a078e415c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiInventory: {fileID: 246037219}
