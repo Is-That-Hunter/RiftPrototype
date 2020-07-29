@@ -6,17 +6,19 @@ using UnityEngine;
 public class InventoryManagement : MonoBehaviour
 {
     Dictionary<InventoryItem, int> Inventory = new Dictionary<InventoryItem, int>();
-    public TextAsset AngelaInventoryJSON; //MUST BE CALLED
 
     private void OnEnable()
     {
-        string AngelaInventoryString = AngelaInventoryJSON.text;
+        string AngelaInventoryString = System.IO.File.ReadAllText(Application.persistentDataPath + "/AngelaInventory.json");
         //Load as Array
-        InventoryItem[] _tempLoadListData = JsonHelper.FromJson<InventoryItem>(AngelaInventoryString);
+        InvArray _tempLoadListData = new InvArray();
+        JsonUtility.FromJsonOverwrite(AngelaInventoryString, _tempLoadListData);
+        Debug.Log(_tempLoadListData);
         //Convert to List
-        List<InventoryItem> loadInventory = _tempLoadListData.ToList<InventoryItem>();
+        List<InventoryItem> loadInventory = _tempLoadListData.InventoryStuff.ToList<InventoryItem>();
         //Convert to dict
         foreach (InventoryItem thing in loadInventory) {
+            Debug.Log(thing.nameAgain);
             if(Inventory.ContainsKey(thing))
             {
                 Inventory[thing] = Inventory[thing]++;
@@ -59,15 +61,18 @@ public class InventoryManagement : MonoBehaviour
         List<InventoryItem> stuffAngelaCollected = new List<InventoryItem>();
         foreach(KeyValuePair<InventoryItem, int> thing in Inventory)
         {
-            for(int i = 0; i < thing.Value; i++)
+            stuffAngelaCollected.Add(thing.Key);
+            for (int i = 1; i < thing.Value; i++)
             {
                 stuffAngelaCollected.Add(thing.Key);
             }
         }
 
-        InventoryItem[] things = stuffAngelaCollected.ToArray();
+        InvArray things = new InvArray();
+        things.InventoryStuff = stuffAngelaCollected.ToArray();
         string writeIt = JsonUtility.ToJson(things, true);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/Assets/JSON/AngelaInventory.json", writeIt);
+        Debug.Log(writeIt);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/AngelaInventory.json", writeIt);
     }
 }
 
@@ -83,6 +88,13 @@ public class InventoryItem
         type = _type;
         material = _material;
     }
+}
+
+//Because Unity hates me
+[System.Serializable]
+public class InvArray
+{
+    public InventoryItem[] InventoryStuff;
 }
 
 //https://stackoverflow.com/questions/36239705/serialize-and-deserialize-json-and-json-array-in-unity/36244111#36244111

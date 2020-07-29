@@ -132,381 +132,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1385527074}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &328340483
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 328340486}
-  - component: {fileID: 328340485}
-  - component: {fileID: 328340487}
-  - component: {fileID: 328340484}
-  m_Layer: 0
-  m_Name: sourceCraftItemBase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &328340484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328340483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c46c48d3e900444a35000c4e929364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  size: 0
-  type: 0
-  material: 0
---- !u!114 &328340485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328340483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fcbe1cc05bef2499b7f3b14ad219f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagStuff: {fileID: 4900000, guid: c489b372f1417f24eb8d3286437bf0de, type: 3}
-  itemTags: {fileID: 0}
-  sizeTags:
-  - 
-  - 
-  - 
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  - small
-  - medium
-  - large
-  typeTags:
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  - electric
-  - corrosive
-  - sharp
-  - shiny
-  - explosive
-  - dull
-  materialTags:
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
-  - wood
-  - metal
-  - plastic
-  - wool
-  - fabric
---- !u!4 &328340486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328340483}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5747638, y: 0.83, z: -5.964655}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &328340487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328340483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f10f398ac49d99a4f925adc26bcdeb4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &721346279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,7 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13fab16a9d84454c8994e924e20f607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AngelaInventoryJSON: {fileID: 4900000, guid: 6bbaf0fa2cb3e7d458be97fb0205f3dc, type: 3}
 --- !u!1 &1055718910
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +350,7 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.028356835
+      value: 0.028359156
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -741,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00014761528
+      value: -0.00014761974
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -756,7 +380,7 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0014101749
+      value: -0.001410217
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -801,27 +425,27 @@ PrefabInstance:
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1875691e-12
+      value: 2.1878614e-12
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0334467e-11
+      value: 1.0335848e-11
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.035724264
+      value: -0.035724267
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00006277696
+      value: 0.00006270502
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0017551044
+      value: 0.0017551485
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -831,17 +455,17 @@ PrefabInstance:
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000024118066
+      value: -0.000000024187216
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000051688403
+      value: -0.000000050640665
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00037189276
+      value: 0.00037191453
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -856,12 +480,12 @@ PrefabInstance:
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00005057594
+      value: 0.000050499923
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0007624347
+      value: 0.0007624468
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
