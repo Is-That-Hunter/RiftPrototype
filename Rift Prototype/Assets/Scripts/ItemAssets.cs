@@ -21,4 +21,6 @@ public class ItemAssets : MonoBehaviour
 
     public Sprite metalSprite;
 
+    public Sprite flashlightSprite;
+
 }

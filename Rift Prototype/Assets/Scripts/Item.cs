@@ -21,12 +21,12 @@ public class Item
 
     public enum ItemType
     {
-        electric,
-		corrosive,
-		sharp,
-		shiny, 
-		explosive,
-		dull,
+        Electric,
+		Corrosive,
+		Sharp,
+		Shiny, 
+		Explosive,
+		Dull,
     }
 
     public enum ItemMaterial
@@ -54,6 +54,8 @@ public class Item
             case ItemName.Rock:       return ItemAssets.Instance.rockSprite;
 
             case ItemName.SmallMetal: return ItemAssets.Instance.metalSprite;
+
+            case ItemName.Flashlight: return ItemAssets.Instance.flashlightSprite;
         }
     }
 }

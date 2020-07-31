@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+
 public class CraftDatabase : MonoBehaviour
 {
-    //All right lets make our selves a dictionary of what we can craft
-    //Already tested whether this will carry over to future copies of this object, and it should
-    //The goal of this script is to make it so we can easily reference the key(Three Component Types) to the value (the game Object it will refer to)
-    //Preferably we probably want to make the value the crafted game object but for the time being I'll be using Strings of their names
 
-    private void OnEnable()
+    private Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> data;
+
+    public CraftDatabase()
     {
-        Dictionary<(string, string, string), string> data = new Dictionary<(string, string, string), string>
+
+        data = new Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName>
         {
-            { ("small", "electric", "metal"), "flashlight" },
+            { (Item.ItemSize.Small, Item.ItemType.Electric, Item.ItemMaterial.Metal), Item.ItemName.Flashlight},
         };
 
+    }
+
+    public Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> GetRecipe()
+    {
+        return data;
     }
 }
