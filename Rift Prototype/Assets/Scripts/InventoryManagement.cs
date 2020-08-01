@@ -71,7 +71,7 @@ public class InventoryManagement : MonoBehaviour
         InvArray things = new InvArray();
         things.InventoryStuff = stuffAngelaCollected.ToArray();
         string writeIt = JsonUtility.ToJson(things, true);
-        Debug.Log(writeIt);
+        Debug.Log(Application.persistentDataPath);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/AngelaInventory.json", writeIt);
     }
 }
