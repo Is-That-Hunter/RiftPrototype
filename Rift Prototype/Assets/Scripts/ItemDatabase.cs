@@ -17,6 +17,8 @@ public class ItemDatabase
             {Item.ItemName.SmallMetal, new Item { name = Item.ItemName.SmallMetal, size = Item.ItemSize.Small, type = Item.ItemType.Sharp, material = Item.ItemMaterial.Metal } },
 
             {Item.ItemName.Flashlight, new Item { name = Item.ItemName.Flashlight, size = Item.ItemSize.Small, type = Item.ItemType.Electric, material = Item.ItemMaterial.Metal } },
+
+            {Item.ItemName.Resetcraft, new Item { name = Item.ItemName.Resetcraft} }
         };
     }
 

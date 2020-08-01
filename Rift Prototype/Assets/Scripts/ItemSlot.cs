@@ -26,6 +26,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 case "sizeSlot":
                     Debug.Log("This landed in the size slot");
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = parent.GetComponent<RectTransform>().anchoredPosition - pointerParent.GetComponent<RectTransform>().anchoredPosition;
+                    eventData.pointerDrag.GetComponent<ImageItem>().SetItemSlot(parent);
                     craftBehavior.SetSize(currentImageItem);
                     craftBehavior.Update();
                     Debug.Log(currentImageItem.size);
@@ -33,6 +34,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 case "typeSlot":
                     Debug.Log("This landed in the type slot");
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = parent.GetComponent<RectTransform>().anchoredPosition - pointerParent.GetComponent<RectTransform>().anchoredPosition;
+                    eventData.pointerDrag.GetComponent<ImageItem>().SetItemSlot(parent);
                     craftBehavior.SetType(currentImageItem);
                     craftBehavior.Update();
                     Debug.Log(currentImageItem.type);
@@ -40,6 +42,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 case "materialSlot":
                     Debug.Log("This landed in the material slot");
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = parent.GetComponent<RectTransform>().anchoredPosition - pointerParent.GetComponent<RectTransform>().anchoredPosition;
+                    eventData.pointerDrag.GetComponent<ImageItem>().SetItemSlot(parent);
                     craftBehavior.SetMaterial(currentImageItem);
                     craftBehavior.Update();
                     Debug.Log(currentImageItem.material);
@@ -49,6 +52,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                     if (parent == pointerParent)
                     {
                         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                        eventData.pointerDrag.GetComponent<ImageItem>().SetItemSlot(pointerParent);
                     }
                     else
                     {
@@ -56,6 +60,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                         //Later I'll be modifying this section so that the whole ItemSlotTemplate Objects switch positions 
                         //It's the easiest and causes the least amount of potential problems
                         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(-7, -2);
+                        eventData.pointerDrag.GetComponent<ImageItem>().SetItemSlot(pointerParent);
                     }
                     break;
             }

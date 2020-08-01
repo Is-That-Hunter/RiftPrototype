@@ -11,6 +11,8 @@ public class CraftBehavior : MonoBehaviour
 
     private Item requestedMaterial = null;
 
+    private Item resetHelper;
+
     private Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> recipe;
 
     private Inventory inventory;
@@ -21,7 +23,7 @@ public class CraftBehavior : MonoBehaviour
 
     public void Update()
     {
-        if(requestedSize != null && requestedType != null && requestedMaterial != null)
+        if(requestedSize != resetHelper && requestedType != resetHelper && requestedMaterial != resetHelper)
         {
             gameObject.SetActive(true);
         }
@@ -40,6 +42,17 @@ public class CraftBehavior : MonoBehaviour
     public void SetItemDatabase(ItemDatabase data)
     {
         this.allItems = data;
+    }
+
+    public void Setreset()
+    {
+        resetHelper = allItems.FindItem(Item.ItemName.Resetcraft);
+
+        requestedSize = resetHelper;
+
+        requestedType = resetHelper;
+
+        requestedMaterial = resetHelper;
     }
 
     public void Craft()
@@ -77,5 +90,10 @@ public class CraftBehavior : MonoBehaviour
     public void SetRecipe(Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> data)
     {
         recipe = data;
+    }
+
+    public void ResetMaterial()
+    {
+        requestedMaterial = resetHelper;
     }
 }

@@ -1100,6 +1100,66 @@ MonoBehaviour:
   - small
   - medium
   - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
   typeTags:
   - electric
   - corrosive
@@ -2379,7 +2439,227 @@ MonoBehaviour:
   - shiny
   - explosive
   - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
   materialTags:
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
   - wood
   - metal
   - plastic
@@ -3883,7 +4163,7 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00014837881
+      value: -0.00014837882
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -3898,7 +4178,7 @@ PrefabInstance:
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0014174698
+      value: -0.0014174699
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420535633952, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -3958,12 +4238,12 @@ PrefabInstance:
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00006278849
+      value: 0.00006278767
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0017574026
+      value: 0.0017574085
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420608030343, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -3973,17 +4253,17 @@ PrefabInstance:
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0000000039101025
+      value: -0.000000003900169
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000046333298
+      value: -0.000000047381036
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0003715005
+      value: 0.00037149328
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -3998,12 +4278,12 @@ PrefabInstance:
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000050547067
+      value: 0.000050545903
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0007630862
+      value: 0.0007630857
       objectReference: {fileID: 0}
     - target: {fileID: 8810382419691220976, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -4855,7 +5135,187 @@ MonoBehaviour:
   - small
   - medium
   - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
+  - small
+  - medium
+  - large
   typeTags:
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
+  - electric
+  - corrosive
+  - sharp
+  - shiny
+  - explosive
+  - dull
   - electric
   - corrosive
   - sharp
@@ -7310,6 +7770,106 @@ MonoBehaviour:
   - plastic
   - wool
   - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
+  - wood
+  - metal
+  - plastic
+  - wool
+  - fabric
 --- !u!65 &1196101744
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7472,6 +8032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 317420532}
+  craftBehavior: {fileID: 1686940184}
 --- !u!225 &1257139500
 CanvasGroup:
   m_ObjectHideFlags: 0

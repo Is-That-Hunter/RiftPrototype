@@ -20,5 +20,6 @@ public class TestingSetUp : MonoBehaviour
         craftBehavior.SetRecipe(craftDatabase.GetRecipe());
         craftBehavior.SetInventory(inventory);
         craftBehavior.SetItemDatabase(allItems);
+        craftBehavior.Setreset();
     }
 }

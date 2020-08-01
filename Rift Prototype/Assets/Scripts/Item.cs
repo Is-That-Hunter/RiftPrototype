@@ -10,6 +10,7 @@ public class Item
         SmallMetal,
         Rock,
         Flashlight,
+        Resetcraft
     }
 
     public enum ItemSize

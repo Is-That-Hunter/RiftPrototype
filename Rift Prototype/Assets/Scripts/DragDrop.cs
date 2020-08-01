@@ -7,6 +7,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
 
     [SerializeField] Canvas canvas;
+    [SerializeField] CraftBehavior craftBehavior;
 
     private bool landedOnItemSlot;
     private GameObject itemSlot;
@@ -32,6 +33,25 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         itemSlotContainerT.SetAsLastSibling();
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+
+        switch (eventData.pointerDrag.GetComponent<ImageItem>().GetItemSlot().name)
+        {
+            case "sizeSlot":
+                craftBehavior.SetSize(null);
+                craftBehavior.Update();
+                break;
+            case "typeSlot":
+                craftBehavior.SetType(null);
+                craftBehavior.Update();
+                break;
+            case "materialSlot":
+                craftBehavior.ResetMaterial();
+                craftBehavior.Update();
+                break;
+        }
+
+        eventData.pointerDrag.GetComponent<ImageItem>().SetItemSlot(itemSlot);
+
         Debug.Log("I Begin Drag");
     }
 
