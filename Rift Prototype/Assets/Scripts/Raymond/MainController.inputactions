@@ -2,7 +2,7 @@
     "name": "MainController",
     "maps": [
         {
-            "name": "PlayerMovment",
+            "name": "PlayerMovement",
             "id": "9a221ac5-c676-47d7-912f-bdf05666828b",
             "actions": [
                 {
@@ -26,6 +26,54 @@
                     "type": "Value",
                     "id": "3502a555-4205-49c1-8bbd-5b4cb8012d0a",
                     "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RiftLeft",
+                    "type": "Button",
+                    "id": "1a470466-84f4-4381-a928-18bd09b4f8f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "RiftRight",
+                    "type": "Button",
+                    "id": "a0740960-69a9-4517-8d63-798dcee5fec0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "RiftCast",
+                    "type": "Value",
+                    "id": "e005eeb0-c49f-42b3-9c1d-69e0744f2ee7",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Running",
+                    "type": "Button",
+                    "id": "95ca9876-e2b5-4696-b9c8-70338cd6ef22",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Crouching",
+                    "type": "Button",
+                    "id": "3dd40ee3-7cdf-441f-94b5-97073d3286cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "38b7b38d-b3c3-4e9f-bafb-f72717bd6c53",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -72,6 +120,83 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f404112-ccf5-44f3-aa8d-d71a9debb87b",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RiftLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d7804aa-4879-454b-ad76-311e23a60221",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RiftRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "924d6379-3412-4f4a-b653-4f970b2d974b",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RiftCast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c946285f-2711-4863-8968-68b8139006d9",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RiftCast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72b2d912-5bc7-4ff2-9d36-a33f476aaf6d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Running",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4c7a9b2-9be4-4d55-ae0a-36682b834c73",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouching",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e960b14c-1e5c-4f47-bbf3-3cb9e490827a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

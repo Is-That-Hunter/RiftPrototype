@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class RiftCast : MonoBehaviour
 {
     public GameObject reticle;
+    public GameObject Jax;
     public Camera cam;
     private RiftPoints line;
     private bool riftInitialized;
@@ -23,6 +24,7 @@ public class RiftCast : MonoBehaviour
         lineRend = GetComponent<LineRenderer>();
         lineRend.positionCount = 2;
         lineRend.enabled = false;
+        Jax = GameObject.Find("Jax");
     }
 
     // Update is called once per frame
@@ -58,8 +60,9 @@ public class RiftCast : MonoBehaviour
 
     void CalculateRift()
     {
-        bool triggerDown = (Input.GetAxis("PS4_R2") >= 0.09); //true if pressed fully
-        bool triggerUp = (Input.GetAxis("PS4_R2") <= -0.09); //true if not pressed fully
+        var basicMovement = Jax.GetComponent<BasicMovement>();
+        bool triggerDown = (basicMovement.leftTriggerValue >= 0.09); //true if pressed fully
+        bool triggerUp = (basicMovement.rightTriggerValue <= -0.09); //true if not pressed fully
         Vector3 newRet = reticle.transform.position;
         newRet.x -= Screen.width / 2;
         newRet.y -= Screen.height / 2;

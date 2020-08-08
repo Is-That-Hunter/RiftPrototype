@@ -11,6 +11,13 @@ public class BasicMovement : MonoBehaviour
     MainController controls;
     Vector2 movement;
     Vector2 cameraAngle;
+    public bool rightStickPressed;
+    public bool leftStickPressed;
+    public bool isRunnning;
+    public bool isCrouching;
+    public bool isDash;
+    public float rightTriggerValue;
+    public float leftTriggerValue;
     CinemachineFreeLook freeLook;
     public GameObject mainCamera;
     public Transform cam;
@@ -19,6 +26,7 @@ public class BasicMovement : MonoBehaviour
     public float jumpHeight = 0.1f;
     private int jumpNumber = 0;
     public int totalJumps = 2;
+    public float dashForce = 50.0f;
     public bool playerMove = true;
     private float distanceToGround;
     private Rigidbody body;
@@ -50,7 +58,16 @@ public class BasicMovement : MonoBehaviour
         {
             jumpNumber = totalJumps;
         }
-
+        
+        //Determine running or walking or crouch
+        var currentSpeed = speed;
+        if(isRunnning){
+            currentSpeed = speed * 2;
+        }else if(isCrouching){
+            currentSpeed = speed / 2;
+        }else if(isDash){
+            StartCoroutine(CastDash());
+        }
         Vector3 velo = new Vector3(0, 0, 0);
         velo.y = body.velocity.y; 
         body.velocity = velo;
@@ -62,18 +79,12 @@ public class BasicMovement : MonoBehaviour
         {
             if (dPadInput != nothing)
             {
-                body.MovePosition(body.position + (dPadInput * speed * Time.deltaTime));
+                body.MovePosition(body.position + (dPadInput * currentSpeed * Time.deltaTime));
             }
             else
             {
-                body.MovePosition(body.position + (input * speed * Time.deltaTime));
+                body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
             }
-        }
-
-        //reeeaallll basic jump script
-        if (Input.GetButtonDown("PS4_X"))
-        {
-            //Jump();
         }
 
     }
@@ -111,17 +122,52 @@ public class BasicMovement : MonoBehaviour
         movement = value.Get<Vector2>();
     }
 
+    public void OnRunning(){
+
+    }
+
+    public void OnDash(){
+        //StartCoroutine(CastDash());
+    }
+
+    IEnumerator CastDash(){
+        Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
+        Debug.Log(input);
+        body.AddForce(input * dashForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.2f);
+        body.velocity = Vector3.zero;
+        isDash = false;
+    }
+
     public void OnCameraMove(InputValue value){
+        
         cameraAngle = value.Get<Vector2>();
 
     }
+
+    public void OnRiftCast(){
+        var gamepad = Gamepad.current;
+        leftTriggerValue = gamepad.leftTrigger.ReadValue();
+        rightTriggerValue = gamepad.rightTrigger.ReadValue();
+    }
+
     
     void OnEnable(){
-        controls.PlayerMovment.Enable();
+        controls.PlayerMovement.Enable();
+        controls.PlayerMovement.RiftLeft.performed += ctx => leftStickPressed = true;
+        controls.PlayerMovement.RiftRight.performed += ctx => rightStickPressed = true;
+        controls.PlayerMovement.RiftLeft.canceled += ctx => leftStickPressed = false;
+        controls.PlayerMovement.RiftRight.canceled += ctx => rightStickPressed = false;
+        controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
+        controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
+        controls.PlayerMovement.Crouching.performed += ctx => isCrouching = true;
+        controls.PlayerMovement.Crouching.canceled += ctx => isCrouching = false;
+        controls.PlayerMovement.Dash.performed += ctx => isDash = true;
+        
     }
 
     void OnDisable(){
-        controls.PlayerMovment.Disable();
+        controls.PlayerMovement.Disable();
     }
 
     //End
