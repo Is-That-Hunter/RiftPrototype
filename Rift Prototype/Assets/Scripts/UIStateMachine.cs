@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIStateMachine : MonoBehaviour
 {
-    public string state;
+    public static string state;
     bool DPadDown;
     bool DPadUp;
     bool DPadRight;
@@ -75,6 +75,6 @@ public class UIStateMachine : MonoBehaviour
             state = changeTo;
         }
 
-        Debug.Log("state is " + state);
+       // Debug.Log("state is " + state);
     }
 }
