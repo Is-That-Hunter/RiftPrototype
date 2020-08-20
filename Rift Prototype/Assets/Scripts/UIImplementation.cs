@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIImplementation : MonoBehaviour
 {
+    public GameObject playingState;
 	// Ok, hunter, this is the file I want you to modify. 
     private string state;
     /*
@@ -34,25 +35,39 @@ public class UIImplementation : MonoBehaviour
        	switch (state) 
        	{
        		case "Playing":
-       			//indent code and put it here
-       			Debug.Log("Changing to " + state);
+                turnOffAllStates();
+                playingState.SetActive(true);
+                //indent code and put it here
+                Debug.Log("Changing to " + state);
        			break;
        		case "Crafting":
-       			//indent code and put it here
-       			Debug.Log("Changing to " + state);
+                turnOffAllStates();
+                //indent code and put it here
+                Debug.Log("Changing to " + state);
        			break;
        		case "Inventory":
-       			//indent code and put it here
-       			Debug.Log("Changing to " + state);
+                turnOffAllStates();
+                //indent code and put it here
+                Debug.Log("Changing to " + state);
        			break;
-       		case "Platform Creation": 
-       			//indent code and put it here
-       			Debug.Log("Changing to " + state);
+       		case "Platform Creation":
+                turnOffAllStates();
+                //indent code and put it here
+                Debug.Log("Changing to " + state);
        			break;
        		case "Clues":
-       			//indent code and put it here
-       			Debug.Log("Changing to " + state);
+                turnOffAllStates();
+                //indent code and put it here
+                Debug.Log("Changing to " + state);
        			break;
        	}
     }
+
+    void turnOffAllStates()
+    {
+        playingState.SetActive(false);
+        //EVERY TIME YOU IMPLEMENT A STATE, BE SURE TO TURN IT OFF HERE
+    }
+
+    //throw any extra methods down here.
 }
