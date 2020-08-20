@@ -23,9 +23,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
         canvasGroup = GetComponent<CanvasGroup>();
         rectT = GetComponent<RectTransform>();
+        // transform gets the location of the object in the heirarchy
         itemSlotContainerT = transform.parent;
         itemSlot = itemSlotContainerT.transform.GetChild(0).gameObject;
+        // getchild is grabbing at the 0th index
         beginningLayer = rectT.GetSiblingIndex();
+        // GetSiblingIndex is getting the current location of this object on hierarchy 
         landedOnItemSlot = false;
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -59,6 +62,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         Debug.Log("Currently Dragging");
         rectT.anchoredPosition += eventData.delta;
+        // delta follows the mouse
     }
 
     public void OnEndDrag(PointerEventData eventData)
