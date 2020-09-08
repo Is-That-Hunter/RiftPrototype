@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIImplementation : MonoBehaviour
 {
     public GameObject playingState;
+    // create a GameObject for each state
 	// Ok, hunter, this is the file I want you to modify. 
     private string state;
     /*
@@ -42,6 +43,7 @@ public class UIImplementation : MonoBehaviour
        			break;
        		case "Crafting":
                 turnOffAllStates();
+                //set the current state to Active
                 //indent code and put it here
                 Debug.Log("Changing to " + state);
        			break;
@@ -66,6 +68,7 @@ public class UIImplementation : MonoBehaviour
     void turnOffAllStates()
     {
         playingState.SetActive(false);
+        //set all states Active(false)
         //EVERY TIME YOU IMPLEMENT A STATE, BE SURE TO TURN IT OFF HERE
     }
 
