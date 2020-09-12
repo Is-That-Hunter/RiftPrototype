@@ -5,8 +5,13 @@ using UnityEngine;
 public class UIImplementation : MonoBehaviour
 {
     public GameObject playingState;
+    public GameObject craftingState;
+    public GameObject inventoryState;
+    public GameObject platformCreationState;
+    public GameObject cluesState;
+
     // create a GameObject for each state
-	// Ok, hunter, this is the file I want you to modify. 
+    // Ok, hunter, this is the file I want you to modify. 
     private string state;
     /*
     ^^this string will contain the state that we're switching between within UIStateMachine.
@@ -43,22 +48,26 @@ public class UIImplementation : MonoBehaviour
        			break;
        		case "Crafting":
                 turnOffAllStates();
+                craftingState.SetActive(true);
                 //set the current state to Active
                 //indent code and put it here
                 Debug.Log("Changing to " + state);
        			break;
        		case "Inventory":
                 turnOffAllStates();
+                inventoryState.SetActive(true);
                 //indent code and put it here
                 Debug.Log("Changing to " + state);
        			break;
        		case "Platform Creation":
                 turnOffAllStates();
+                platformCreationState.SetActive(true);
                 //indent code and put it here
                 Debug.Log("Changing to " + state);
        			break;
        		case "Clues":
                 turnOffAllStates();
+                cluesState.SetActive(true);
                 //indent code and put it here
                 Debug.Log("Changing to " + state);
        			break;
@@ -68,6 +77,10 @@ public class UIImplementation : MonoBehaviour
     void turnOffAllStates()
     {
         playingState.SetActive(false);
+        craftingState.SetActive(false);
+        inventoryState.SetActive(false);
+        platformCreationState.SetActive(false);
+        cluesState.SetActive(false);
         //set all states Active(false)
         //EVERY TIME YOU IMPLEMENT A STATE, BE SURE TO TURN IT OFF HERE
     }
