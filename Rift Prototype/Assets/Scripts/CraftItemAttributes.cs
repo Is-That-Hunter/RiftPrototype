@@ -12,7 +12,6 @@ using UnityEditor;
 
 public class CraftItemAttributes : MonoBehaviour
 {
-    public string name;
     public ItemSize size;
     public ItemType type;
     public ItemMaterial material;
@@ -21,3 +20,4 @@ public class CraftItemAttributes : MonoBehaviour
     public enum ItemType { electric, corrosive, sharp, shiny, explosive, dull }
     public enum ItemMaterial { wood, metal, plastic, wool, fabric }
 }
+
