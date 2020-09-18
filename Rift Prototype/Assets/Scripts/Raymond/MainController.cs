@@ -43,30 +43,6 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""RiftLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""1a470466-84f4-4381-a928-18bd09b4f8f6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""RiftRight"",
-                    ""type"": ""Button"",
-                    ""id"": ""a0740960-69a9-4517-8d63-798dcee5fec0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""RiftCast"",
-                    ""type"": ""Value"",
-                    ""id"": ""e005eeb0-c49f-42b3-9c1d-69e0744f2ee7"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Running"",
                     ""type"": ""Button"",
                     ""id"": ""95ca9876-e2b5-4696-b9c8-70338cd6ef22"",
@@ -126,6 +102,61 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""e8797ec4-bedb-4668-a8b5-d70bf97c91d5"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""aec6e32e-1682-4f4e-b090-52b16a0921a4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e687c1cb-bff4-4609-bbe8-632e0e049ff2"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f0146af4-84fa-49c0-b393-c766c9234a7c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""22b8a7dc-6553-4887-86bf-666e22f674e1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""17fa6c35-84c8-485c-b3ab-79ed827c4dc8"",
                     ""path"": ""<Gamepad>/rightStick"",
@@ -138,52 +169,19 @@ public class @MainController : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2f404112-ccf5-44f3-aa8d-d71a9debb87b"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RiftLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6d7804aa-4879-454b-ad76-311e23a60221"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RiftRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""924d6379-3412-4f4a-b653-4f970b2d974b"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RiftCast"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c946285f-2711-4863-8968-68b8139006d9"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RiftCast"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""72b2d912-5bc7-4ff2-9d36-a33f476aaf6d"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Running"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c905ca4-186d-4761-8d7a-5699369c9d57"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -194,7 +192,18 @@ public class @MainController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f4c7a9b2-9be4-4d55-ae0a-36682b834c73"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouching"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cafd842b-79ad-41af-9414-707b4178ff69"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -212,6 +221,17 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79071ebb-9f8b-46d9-b84b-9f5eaa331c2a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -223,9 +243,6 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_Jump = m_PlayerMovement.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
         m_PlayerMovement_CameraMove = m_PlayerMovement.FindAction("CameraMove", throwIfNotFound: true);
-        m_PlayerMovement_RiftLeft = m_PlayerMovement.FindAction("RiftLeft", throwIfNotFound: true);
-        m_PlayerMovement_RiftRight = m_PlayerMovement.FindAction("RiftRight", throwIfNotFound: true);
-        m_PlayerMovement_RiftCast = m_PlayerMovement.FindAction("RiftCast", throwIfNotFound: true);
         m_PlayerMovement_Running = m_PlayerMovement.FindAction("Running", throwIfNotFound: true);
         m_PlayerMovement_Crouching = m_PlayerMovement.FindAction("Crouching", throwIfNotFound: true);
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
@@ -281,9 +298,6 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Jump;
     private readonly InputAction m_PlayerMovement_Move;
     private readonly InputAction m_PlayerMovement_CameraMove;
-    private readonly InputAction m_PlayerMovement_RiftLeft;
-    private readonly InputAction m_PlayerMovement_RiftRight;
-    private readonly InputAction m_PlayerMovement_RiftCast;
     private readonly InputAction m_PlayerMovement_Running;
     private readonly InputAction m_PlayerMovement_Crouching;
     private readonly InputAction m_PlayerMovement_Dash;
@@ -294,9 +308,6 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerMovement_Jump;
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
         public InputAction @CameraMove => m_Wrapper.m_PlayerMovement_CameraMove;
-        public InputAction @RiftLeft => m_Wrapper.m_PlayerMovement_RiftLeft;
-        public InputAction @RiftRight => m_Wrapper.m_PlayerMovement_RiftRight;
-        public InputAction @RiftCast => m_Wrapper.m_PlayerMovement_RiftCast;
         public InputAction @Running => m_Wrapper.m_PlayerMovement_Running;
         public InputAction @Crouching => m_Wrapper.m_PlayerMovement_Crouching;
         public InputAction @Dash => m_Wrapper.m_PlayerMovement_Dash;
@@ -318,15 +329,6 @@ public class @MainController : IInputActionCollection, IDisposable
                 @CameraMove.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCameraMove;
                 @CameraMove.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCameraMove;
                 @CameraMove.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCameraMove;
-                @RiftLeft.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftLeft;
-                @RiftLeft.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftLeft;
-                @RiftLeft.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftLeft;
-                @RiftRight.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftRight;
-                @RiftRight.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftRight;
-                @RiftRight.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftRight;
-                @RiftCast.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftCast;
-                @RiftCast.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftCast;
-                @RiftCast.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRiftCast;
                 @Running.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRunning;
                 @Running.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRunning;
                 @Running.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRunning;
@@ -349,15 +351,6 @@ public class @MainController : IInputActionCollection, IDisposable
                 @CameraMove.started += instance.OnCameraMove;
                 @CameraMove.performed += instance.OnCameraMove;
                 @CameraMove.canceled += instance.OnCameraMove;
-                @RiftLeft.started += instance.OnRiftLeft;
-                @RiftLeft.performed += instance.OnRiftLeft;
-                @RiftLeft.canceled += instance.OnRiftLeft;
-                @RiftRight.started += instance.OnRiftRight;
-                @RiftRight.performed += instance.OnRiftRight;
-                @RiftRight.canceled += instance.OnRiftRight;
-                @RiftCast.started += instance.OnRiftCast;
-                @RiftCast.performed += instance.OnRiftCast;
-                @RiftCast.canceled += instance.OnRiftCast;
                 @Running.started += instance.OnRunning;
                 @Running.performed += instance.OnRunning;
                 @Running.canceled += instance.OnRunning;
@@ -376,9 +369,6 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnCameraMove(InputAction.CallbackContext context);
-        void OnRiftLeft(InputAction.CallbackContext context);
-        void OnRiftRight(InputAction.CallbackContext context);
-        void OnRiftCast(InputAction.CallbackContext context);
         void OnRunning(InputAction.CallbackContext context);
         void OnCrouching(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);

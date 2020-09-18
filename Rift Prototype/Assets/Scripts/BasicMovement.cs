@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 
+//Add by Raymond
+//Verson 1.0, Last edited on 9/17/2020
+//This script will handle most of the movement and key binding from input system
+//which works for both controller and keyboard
 public class BasicMovement : MonoBehaviour
 {
     //Add by Raymond
@@ -11,11 +15,14 @@ public class BasicMovement : MonoBehaviour
     MainController controls;
     Vector2 movement;
     Vector2 cameraAngle;
+    //Booleans for detecting the pressed key at the moment
+    //Same as GetKeyDown
     public bool rightStickPressed;
     public bool leftStickPressed;
     public bool isRunnning;
     public bool isCrouching;
     public bool isDash;
+    public bool isSliding;
     public float rightTriggerValue;
     public float leftTriggerValue;
     CinemachineFreeLook freeLook;
@@ -45,6 +52,7 @@ public class BasicMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Cursor.lockState = CursorLockMode.Locked;
         body = GetComponent<Rigidbody>();
         Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
@@ -63,11 +71,16 @@ public class BasicMovement : MonoBehaviour
         var currentSpeed = speed;
         if(isRunnning){
             currentSpeed = speed * 2;
-        }else if(isCrouching){
+            if(isCrouching){
+            }
+        }
+        if(isCrouching){
             currentSpeed = speed / 2;
-        }else if(isDash){
+        }
+        if(isDash){
             StartCoroutine(CastDash());
         }
+        //Calculate the movement for this frame
         Vector3 velo = new Vector3(0, 0, 0);
         velo.y = body.velocity.y; 
         body.velocity = velo;
@@ -98,7 +111,7 @@ public class BasicMovement : MonoBehaviour
         return Physics.Raycast(body.transform.position, -Vector3.up, distanceToGround + 0.1f);
     }
 
-    //Add by Raymond Liu
+    //Add by Raymond
     //Following functions are related to the input system package
     //Those functions will only be called when input system sending messages
     public void OnJump(){
@@ -126,22 +139,27 @@ public class BasicMovement : MonoBehaviour
 
     }
 
-    public void OnDash(){
-        //StartCoroutine(CastDash());
-    }
-
+    //Add by Guanchen
+    //This function will caculate dash if dash button pressed
     IEnumerator CastDash(){
         Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
-        Debug.Log(input);
         body.AddForce(input * dashForce, ForceMode.Impulse);
         yield return new WaitForSeconds(0.2f);
         body.velocity = Vector3.zero;
         isDash = false;
     }
 
+    IEnumerator CastSlide(){
+        Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
+        body.MovePosition(body.position  + (input * speed * Time.deltaTime));
+        yield return new WaitForSeconds(0.5f);
+        isRunnning = false;
+    }
+
     public void OnCameraMove(InputValue value){
         
         cameraAngle = value.Get<Vector2>();
+        Debug.Log(cameraAngle);
 
     }
 
@@ -154,14 +172,10 @@ public class BasicMovement : MonoBehaviour
     
     void OnEnable(){
         controls.PlayerMovement.Enable();
-        controls.PlayerMovement.RiftLeft.performed += ctx => leftStickPressed = true;
-        controls.PlayerMovement.RiftRight.performed += ctx => rightStickPressed = true;
-        controls.PlayerMovement.RiftLeft.canceled += ctx => leftStickPressed = false;
-        controls.PlayerMovement.RiftRight.canceled += ctx => rightStickPressed = false;
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
+        controls.PlayerMovement.Running.performed += ctx => isCrouching = false;
         controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
-        controls.PlayerMovement.Crouching.performed += ctx => isCrouching = true;
-        controls.PlayerMovement.Crouching.canceled += ctx => isCrouching = false;
+        controls.PlayerMovement.Crouching.performed += ctx => isCrouching = !isCrouching;
         controls.PlayerMovement.Dash.performed += ctx => isDash = true;
         
     }
