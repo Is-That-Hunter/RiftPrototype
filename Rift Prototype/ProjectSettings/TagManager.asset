@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rift Point
   - Ground
+  - Item
   layers:
   - Default
   - TransparentFX
