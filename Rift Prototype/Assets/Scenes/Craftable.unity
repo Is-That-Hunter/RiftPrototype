@@ -1231,8 +1231,53 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c816e5895c104312b8a5d224359e2ae,
+        type: 3}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff066b33842944d29b50ece1f603006e, type: 3}
+--- !u!1 &826428852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2318002607696997404, guid: ff066b33842944d29b50ece1f603006e,
+    type: 3}
+  m_PrefabInstance: {fileID: 826428851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &826428853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826428852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c46c48d3e900444a35000c4e929364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Flashlight
+  size: 0
+  type: 0
+  material: 1
+--- !u!114 &826428854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826428852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049d92356eb374748b3419a6e8b5571f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &839847009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1610,8 +1655,53 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: beaa0abc610c34bf1a0f261672bdbb24,
+        type: 3}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff066b33842944d29b50ece1f603006e, type: 3}
+--- !u!1 &1031368256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2318002607696997404, guid: ff066b33842944d29b50ece1f603006e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031368255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031368257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031368256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c46c48d3e900444a35000c4e929364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Hammer
+  size: 1
+  type: 5
+  material: 1
+--- !u!114 &1031368258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031368256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049d92356eb374748b3419a6e8b5571f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1051473174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2019,7 +2109,7 @@ PrefabInstance:
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0000000039882906
+      value: -0.00000000398812
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -2029,7 +2119,7 @@ PrefabInstance:
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00037155655
+      value: 0.00037155644
       objectReference: {fileID: 0}
     - target: {fileID: 8810382420261031437, guid: 0dd0a4dd296b4064ba78e0da887afa3a,
         type: 3}
@@ -2666,8 +2756,73 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8c942f3b84e44c5abd09c99afe15721,
+        type: 3}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318002607696997406, guid: ff066b33842944d29b50ece1f603006e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff066b33842944d29b50ece1f603006e, type: 3}
+--- !u!1 &2318002607311918533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2318002607696997404, guid: ff066b33842944d29b50ece1f603006e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2318002607311918532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2318002607311918534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318002607311918533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c46c48d3e900444a35000c4e929364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Bottle
+  size: 0
+  type: 3
+  material: 5
+--- !u!114 &2318002607311918535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318002607311918533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049d92356eb374748b3419a6e8b5571f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8214079888586330948
 PrefabInstance:
   m_ObjectHideFlags: 0

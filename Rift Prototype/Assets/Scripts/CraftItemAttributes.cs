@@ -19,5 +19,5 @@ public class CraftItemAttributes : MonoBehaviour
 
     public enum ItemSize { small, medium, large }
     public enum ItemType { electric, corrosive, sharp, shiny, explosive, dull }
-    public enum ItemMaterial { wood, metal, plastic, wool, fabric }
+    public enum ItemMaterial { wood, metal, plastic, wool, fabric, glass }
 }
