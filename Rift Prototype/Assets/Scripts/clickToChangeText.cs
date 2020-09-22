@@ -8,9 +8,14 @@ using TMPro;
 public class clickToChangeText : MonoBehaviour
 {
 
-    public TextMeshProUGUI textshown = null;
-    public void changeWord (string word)
+    public TextMeshProUGUI desctextshown = null;
+    public TextMeshProUGUI tagtextshown = null;
+    public void changeDesc (string desc)
     {
-        textshown.text = word;
+        desctextshown.text = desc;
+    }
+    public void changeTags(string tags)
+    {
+        tagtextshown.text = tags;
     }
 }
