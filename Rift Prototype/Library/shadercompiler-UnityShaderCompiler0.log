@@ -2,3 +2,7 @@ Base path: /Applications/Unity/Hub/Editor/2019.1.6f1/Unity.app/Contents
 Cmd: initializeCompiler
 Cmd: preprocessCompute
   insize=1953 outsize=1957 ok=1
+Cmd: preprocess
+  insize=3207 outsize=1205 ok=1
+Cmd: preprocess
+  insize=1495 outsize=207 ok=1
