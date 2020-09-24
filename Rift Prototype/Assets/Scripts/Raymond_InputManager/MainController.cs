@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Raymond/MainController.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Raymond_InputManager/MainController.inputactions'
 
 using System;
 using System.Collections;
