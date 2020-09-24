@@ -41,6 +41,7 @@ public class BasicMovement : MonoBehaviour
     public void LockPlayer()
     {
         playerMove = !playerMove;
+        freeLook.enabled = playerMove;
     }
 
     void Awake()
