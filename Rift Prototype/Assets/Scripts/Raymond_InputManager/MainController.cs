@@ -234,6 +234,183 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""InventoryCraftNav"",
+            ""id"": ""2417baee-f954-4de2-9aa7-44e4ef6a1048"",
+            ""actions"": [
+                {
+                    ""name"": ""NavigateInv"",
+                    ""type"": ""Value"",
+                    ""id"": ""8800217e-86b1-4b13-9b94-32412492409e"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Craft"",
+                    ""type"": ""Button"",
+                    ""id"": ""9aed6952-94d2-416f-985d-31836c53b6ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MaterialSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f9e9796-b9d7-4945-807a-69f78fd60c73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TypeSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c907510-7e69-4a60-a190-eb0dafa1703b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SizeSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""024f7fd3-c009-49b6-bf4c-bb9903d90a23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""NavigateSort"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f430a2b-12a6-4fb7-9e02-fcc922a6b39a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""417b4ea4-2654-47a8-ae09-b251f2a6448b"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateInv"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""e956170d-b7b5-4c8b-bbc8-9bdad3023134"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateInv"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""85a3c7db-857b-4e68-b3e3-82393427a662"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateInv"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""4f2fbc2a-02b1-4a5a-9490-5de89af83b74"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateInv"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0f50b12d-2e1b-4d17-89dc-6004dcaa509e"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateInv"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""90afe807-fe2b-40c1-a60e-7b6b58ce5f3e"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateInv"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bea11bdd-a831-4ec2-a8b1-ffb2afc8824f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Craft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4da5e5e1-30b7-4800-8e1c-53ff6f7f707c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MaterialSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27d2b7fe-1b42-4731-bfa0-86f6942f3760"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TypeSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcb0d315-e9d5-47fb-813c-ec4b01bb7c18"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SizeSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b821ebee-c40c-4a51-8246-e48b21a2db2a"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NavigateSort"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -246,6 +423,14 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_Running = m_PlayerMovement.FindAction("Running", throwIfNotFound: true);
         m_PlayerMovement_Crouching = m_PlayerMovement.FindAction("Crouching", throwIfNotFound: true);
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
+        // InventoryCraftNav
+        m_InventoryCraftNav = asset.FindActionMap("InventoryCraftNav", throwIfNotFound: true);
+        m_InventoryCraftNav_NavigateInv = m_InventoryCraftNav.FindAction("NavigateInv", throwIfNotFound: true);
+        m_InventoryCraftNav_Craft = m_InventoryCraftNav.FindAction("Craft", throwIfNotFound: true);
+        m_InventoryCraftNav_MaterialSelect = m_InventoryCraftNav.FindAction("MaterialSelect", throwIfNotFound: true);
+        m_InventoryCraftNav_TypeSelect = m_InventoryCraftNav.FindAction("TypeSelect", throwIfNotFound: true);
+        m_InventoryCraftNav_SizeSelect = m_InventoryCraftNav.FindAction("SizeSelect", throwIfNotFound: true);
+        m_InventoryCraftNav_NavigateSort = m_InventoryCraftNav.FindAction("NavigateSort", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -364,6 +549,79 @@ public class @MainController : IInputActionCollection, IDisposable
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // InventoryCraftNav
+    private readonly InputActionMap m_InventoryCraftNav;
+    private IInventoryCraftNavActions m_InventoryCraftNavActionsCallbackInterface;
+    private readonly InputAction m_InventoryCraftNav_NavigateInv;
+    private readonly InputAction m_InventoryCraftNav_Craft;
+    private readonly InputAction m_InventoryCraftNav_MaterialSelect;
+    private readonly InputAction m_InventoryCraftNav_TypeSelect;
+    private readonly InputAction m_InventoryCraftNav_SizeSelect;
+    private readonly InputAction m_InventoryCraftNav_NavigateSort;
+    public struct InventoryCraftNavActions
+    {
+        private @MainController m_Wrapper;
+        public InventoryCraftNavActions(@MainController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NavigateInv => m_Wrapper.m_InventoryCraftNav_NavigateInv;
+        public InputAction @Craft => m_Wrapper.m_InventoryCraftNav_Craft;
+        public InputAction @MaterialSelect => m_Wrapper.m_InventoryCraftNav_MaterialSelect;
+        public InputAction @TypeSelect => m_Wrapper.m_InventoryCraftNav_TypeSelect;
+        public InputAction @SizeSelect => m_Wrapper.m_InventoryCraftNav_SizeSelect;
+        public InputAction @NavigateSort => m_Wrapper.m_InventoryCraftNav_NavigateSort;
+        public InputActionMap Get() { return m_Wrapper.m_InventoryCraftNav; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryCraftNavActions set) { return set.Get(); }
+        public void SetCallbacks(IInventoryCraftNavActions instance)
+        {
+            if (m_Wrapper.m_InventoryCraftNavActionsCallbackInterface != null)
+            {
+                @NavigateInv.started -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnNavigateInv;
+                @NavigateInv.performed -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnNavigateInv;
+                @NavigateInv.canceled -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnNavigateInv;
+                @Craft.started -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnCraft;
+                @Craft.performed -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnCraft;
+                @Craft.canceled -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnCraft;
+                @MaterialSelect.started -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnMaterialSelect;
+                @MaterialSelect.performed -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnMaterialSelect;
+                @MaterialSelect.canceled -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnMaterialSelect;
+                @TypeSelect.started -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnTypeSelect;
+                @TypeSelect.performed -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnTypeSelect;
+                @TypeSelect.canceled -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnTypeSelect;
+                @SizeSelect.started -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnSizeSelect;
+                @SizeSelect.performed -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnSizeSelect;
+                @SizeSelect.canceled -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnSizeSelect;
+                @NavigateSort.started -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnNavigateSort;
+                @NavigateSort.performed -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnNavigateSort;
+                @NavigateSort.canceled -= m_Wrapper.m_InventoryCraftNavActionsCallbackInterface.OnNavigateSort;
+            }
+            m_Wrapper.m_InventoryCraftNavActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @NavigateInv.started += instance.OnNavigateInv;
+                @NavigateInv.performed += instance.OnNavigateInv;
+                @NavigateInv.canceled += instance.OnNavigateInv;
+                @Craft.started += instance.OnCraft;
+                @Craft.performed += instance.OnCraft;
+                @Craft.canceled += instance.OnCraft;
+                @MaterialSelect.started += instance.OnMaterialSelect;
+                @MaterialSelect.performed += instance.OnMaterialSelect;
+                @MaterialSelect.canceled += instance.OnMaterialSelect;
+                @TypeSelect.started += instance.OnTypeSelect;
+                @TypeSelect.performed += instance.OnTypeSelect;
+                @TypeSelect.canceled += instance.OnTypeSelect;
+                @SizeSelect.started += instance.OnSizeSelect;
+                @SizeSelect.performed += instance.OnSizeSelect;
+                @SizeSelect.canceled += instance.OnSizeSelect;
+                @NavigateSort.started += instance.OnNavigateSort;
+                @NavigateSort.performed += instance.OnNavigateSort;
+                @NavigateSort.canceled += instance.OnNavigateSort;
+            }
+        }
+    }
+    public InventoryCraftNavActions @InventoryCraftNav => new InventoryCraftNavActions(this);
     public interface IPlayerMovementActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -372,5 +630,14 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnRunning(InputAction.CallbackContext context);
         void OnCrouching(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+    }
+    public interface IInventoryCraftNavActions
+    {
+        void OnNavigateInv(InputAction.CallbackContext context);
+        void OnCraft(InputAction.CallbackContext context);
+        void OnMaterialSelect(InputAction.CallbackContext context);
+        void OnTypeSelect(InputAction.CallbackContext context);
+        void OnSizeSelect(InputAction.CallbackContext context);
+        void OnNavigateSort(InputAction.CallbackContext context);
     }
 }
