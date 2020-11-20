@@ -47,6 +47,6 @@ Rift Prototype/*
 #Rift Prototype/Temp/* 
 Rift Prototype/Temp/
 Rift Prototype/.vs
-!git config advice.addIgnoredFile false
+!Rift Prototype/Library
 *.log
 
