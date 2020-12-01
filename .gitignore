@@ -3,9 +3,9 @@
 ###
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
-#[Ll]ibrary/
+[Ll]ibrary/
 [Ll]ocal[Cc]ache/
-#[Oo]bj/
+[Oo]bj/
 [Tt]emp/
 [Uu]nityGenerated/
 # file on crash reports
@@ -41,11 +41,11 @@ Rift Prototype/ProjectSettings/EditorBuildSettings.asset
 Icon?
 ehthumbs.db
 Thumbs.db
-#Rift Prototype/*
-#Rift Prototype/Library
-# Rift Prototype/Assets
-#Rift Prototype/Temp/* 
-#Rift Prototype/Temp/
-#Rift Prototype/.vs
+Rift Prototype/*
+Rift Prototype/Library
+ Rift Prototype/Assets
+Rift Prototype/Temp/* 
+Rift Prototype/Temp/
+Rift Prototype/.vs
 *.log
 
