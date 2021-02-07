@@ -24,6 +24,8 @@ public class BasicMovement : MonoBehaviour
     public bool isCrouching;
     public bool isDash;
     public bool isSliding;
+    public bool yInverted;
+    public bool xInverted;
     public float rightTriggerValue;
     public float leftTriggerValue;
     CinemachineFreeLook freeLook;
@@ -48,7 +50,7 @@ public class BasicMovement : MonoBehaviour
     void Awake()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        freeLook = mainCamera.GetComponent<CinemachineFreeLook>();
+        //freeLook = mainCamera.GetComponent<CinemachineFreeLook>();
         controls = new MainController();
     }
     // Start is called before the first frame update
@@ -64,6 +66,7 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //transform.rotation = Quaternion.LookRotation(mainCamera.transform.position);
         if(isGrounded())
         {
             jumpNumber = totalJumps;
@@ -83,16 +86,24 @@ public class BasicMovement : MonoBehaviour
             StartCoroutine(CastDash());
         }
         //Calculate the movement for this frame
-        Vector3 velo = new Vector3(0, 0, 0);
+        Vector3 velo = Vector3.zero;
         velo.y = body.velocity.y; 
         body.velocity = velo;
         Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
-        Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
-        Vector3 nothing = new Vector3(0, 0, 0);
+        //Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
+        Vector3 input = new Vector3(movement.x, 0, movement.y);
         //Player movement in a left right forward back space
         if (playerMove)
         {
-            if (dPadInput != nothing)
+            if(yInverted)
+            {
+
+            }
+            if(xInverted)
+            {
+                
+            }
+            if (dPadInput != Vector3.zero)
             {
                 body.MovePosition(body.position + (dPadInput * currentSpeed * Time.deltaTime));
             }
@@ -104,8 +115,8 @@ public class BasicMovement : MonoBehaviour
 
     }
     void LateUpdate(){
-        freeLook.m_XAxis.Value = Quaternion.Lerp(Quaternion.Euler(0, freeLook.m_XAxis.Value, 0), Quaternion.Euler(0, cameraAngle.x * cameraSpeed, 0), 5 * Time.deltaTime).eulerAngles.y;
-        freeLook.m_YAxis.Value -= cameraAngle.y * 2f * Time.deltaTime;
+        //freeLook.m_XAxis.Value = Quaternion.Lerp(Quaternion.Euler(0, freeLook.m_XAxis.Value, 0), Quaternion.Euler(0, cameraAngle.x * cameraSpeed, 0), 5 * Time.deltaTime).eulerAngles.y;
+        //freeLook.m_YAxis.Value -= cameraAngle.y * 2f * Time.deltaTime;
     }
 
     //Ground Check
