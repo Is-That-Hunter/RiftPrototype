@@ -13,6 +13,7 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     private Transform inventory_Slots;
     private Transform item_Slot_Base;
+    public EventSystem m_EventSystem;
 
     private void Awake()
     {
@@ -62,14 +63,14 @@ public class UI_Inventory : MonoBehaviour
             RectTransform itemSlotRectTransform = Instantiate(item_Slot_Base, inventory_Slots).GetComponent<RectTransform>();
             if (selector)
             {
-                EventSystem.current.SetSelectedGameObject(itemSlotRectTransform.GetChild(0).GetChild(0).gameObject);
+                m_EventSystem.SetSelectedGameObject(itemSlotRectTransform.GetChild(0).GetChild(0).gameObject);
                 selector = false;
             }
             itemSlotRectTransform.gameObject.SetActive(true);
 
             // VVVV This is Yucky hardcoded BS will need to change later, but its pretty easy its just refering to the coordinates (x, y) of the itemSlotTemplate
             // VVVV Will change in the future but leaving it for now for simplicity 
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize - 456, y * itemSlotCellSize + 90);
+            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize - 456, y * itemSlotCellSize - 26);
 
             Image image = itemSlotRectTransform.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
             image.GetComponent<ImageItem>().SetItem(item);

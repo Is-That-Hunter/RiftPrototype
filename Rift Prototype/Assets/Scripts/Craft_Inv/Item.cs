@@ -74,4 +74,36 @@ public class Item
             case ItemName.Flashlight: return ItemAssets.Instance.flashlightSprite;
         }
     }
+
+    public string GetDesc()
+    {
+        switch (name)
+        {
+            default:
+
+            case ItemName.Battery: return "It Batter";
+
+            case ItemName.Rock: return "It Rock";
+
+            case ItemName.SmallMetal: return "It Metal";
+
+            case ItemName.Flashlight: return "It Flashlight";
+        }
+    }
+
+    public string GetAttr()
+    {
+        switch (name)
+        {
+            default:
+
+            case ItemName.Battery: return "Size: small\nType: Electric\nMaterial: Metal";
+
+            case ItemName.Rock: return "Size: small\nType: Dull\nMaterial: Metal";
+
+            case ItemName.SmallMetal: return "Size: small\nType: Sharp\nMaterial: Metal";
+
+            case ItemName.Flashlight: return "Size: small\nType: Electric\nMaterial: Metal";
+        }
+    }
 }
