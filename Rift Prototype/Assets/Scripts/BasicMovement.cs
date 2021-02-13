@@ -18,6 +18,10 @@ public class BasicMovement : MonoBehaviour
     Vector2 cameraAngle;
     //Booleans for detecting the pressed key at the moment
     //Same as GetKeyDown
+    public Simple_State_M state_m;
+
+    public GameObject global_variables;
+
     public bool rightStickPressed;
     public bool leftStickPressed;
     public bool isRunnning;
@@ -171,6 +175,21 @@ public class BasicMovement : MonoBehaviour
         rightTriggerValue = gamepad.rightTrigger.ReadValue();
     }
 
+    public void Switch_State()
+    {
+        state_m.Switch_State();
+    }
+
+    public void Item_Pickup()
+    {
+        if(gameObject.GetComponent<Item_Detector>().currentCol != null)
+        {
+            global_variables.GetComponent<Global_Script>().inventory.AddItem(gameObject.GetComponent<Item_Detector>().currentCol.gameObject.GetComponent<Item_Pickup_Var>().attachedItem);
+            Destroy(gameObject.GetComponent<Item_Detector>().currentCol.gameObject);
+            gameObject.GetComponent<Item_Detector>().currentCol = null;
+        }
+    }
+
     
     void OnEnable(){
         controls.PlayerMovement.Enable();
@@ -179,7 +198,8 @@ public class BasicMovement : MonoBehaviour
         controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
         controls.PlayerMovement.Crouching.performed += ctx => isCrouching = !isCrouching;
         controls.PlayerMovement.Dash.performed += ctx => isDash = true;
-        
+        controls.PlayerMovement.State_Switch.performed += ctxe => Switch_State();
+        controls.PlayerMovement.Pickup.performed += ctxe => Item_Pickup();
     }
 
     void OnDisable(){

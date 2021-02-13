@@ -17,6 +17,7 @@ public class Cft_Ctrl_Bhv : MonoBehaviour
     public GameObject material_Slot;
     public GameObject type_Slot;
     public GameObject size_Slot;
+    public Simple_State_M state_m;
 
     public Transform inventory_Slots;
 
@@ -41,6 +42,13 @@ public class Cft_Ctrl_Bhv : MonoBehaviour
 
         controls.Inventory_Craft.Type_Select.performed += set_Type => Set_Type();
 
+        controls.Inventory_Craft.State_Switch.performed += ctx => Switch_State();
+
+    }
+
+    public void Switch_State()
+    {
+        state_m.Switch_State();
     }
 
     //Crafts the item if the Type, Material, and Size can result in another Item

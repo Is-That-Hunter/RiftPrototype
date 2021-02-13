@@ -19,7 +19,7 @@ public class Item_Desc_Update : MonoBehaviour
 
     private void Start()
     {
-        currentSelected = m_EventSystem.currentSelectedGameObject;
+        //currentSelected = m_EventSystem.currentSelectedGameObject;
     }
 
     // Update is called once per frame
@@ -37,6 +37,8 @@ public class Item_Desc_Update : MonoBehaviour
             Item_Descr.text = currentItem.GetDesc();
 
             Item_Attr.text = currentItem.GetAttr();
+
+            Debug.Log("Hello?");
 
         }
     }

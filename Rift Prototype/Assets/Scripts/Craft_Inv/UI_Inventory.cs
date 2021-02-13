@@ -41,6 +41,16 @@ public class UI_Inventory : MonoBehaviour
         RefreshInventoryItems();
     }
 
+    private void OnEnable()
+    {
+        //Debug.Log("This is enabled" + inventory);
+        //Debug.Log(inventory);
+        if(inventory != null)
+        {
+            RefreshInventoryItems();
+        }
+    }
+
     //Refreshes the UI to display the current inventory in the form of Inventory Slot, and Images within those Slots
     private void RefreshInventoryItems()
     {
@@ -84,7 +94,7 @@ public class UI_Inventory : MonoBehaviour
             if(x > 3)
             {
                 x = 0;
-                y++;
+                y--;
             }
         }
     }
