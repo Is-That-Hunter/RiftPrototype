@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//The crafting behavior, this script is the core of the crafting system
+
 public class CraftBehavior : MonoBehaviour
 {
 
@@ -46,13 +48,13 @@ public class CraftBehavior : MonoBehaviour
 
     public void Setreset()
     {
-        resetHelper = allItems.FindItem(Item.ItemName.Resetcraft);
+        //resetHelper = allItems.FindItem(Item.ItemName.Resetcraft);
 
-        requestedSize = resetHelper;
+        requestedSize = null;
 
-        requestedType = resetHelper;
+        requestedType = null;
 
-        requestedMaterial = resetHelper;
+        requestedMaterial = null;
     }
 
     public void Craft()
