@@ -65,6 +65,22 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""State_Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""55fcfbab-326e-47ee-8b0f-12ab55c5265a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b7d0cc5-58d2-43c6-b515-d343c1d20b84"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -230,6 +246,28 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4185bff-864c-4ea5-9092-5908d423b2ed"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""State_Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a629994e-9821-4616-9394-30712a8c4cfe"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -423,6 +461,8 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_Running = m_PlayerMovement.FindAction("Running", throwIfNotFound: true);
         m_PlayerMovement_Crouching = m_PlayerMovement.FindAction("Crouching", throwIfNotFound: true);
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerMovement_State_Switch = m_PlayerMovement.FindAction("State_Switch", throwIfNotFound: true);
+        m_PlayerMovement_Pickup = m_PlayerMovement.FindAction("Pickup", throwIfNotFound: true);
         // InventoryCraftNav
         m_InventoryCraftNav = asset.FindActionMap("InventoryCraftNav", throwIfNotFound: true);
         m_InventoryCraftNav_NavigateInv = m_InventoryCraftNav.FindAction("NavigateInv", throwIfNotFound: true);
@@ -486,6 +526,8 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Running;
     private readonly InputAction m_PlayerMovement_Crouching;
     private readonly InputAction m_PlayerMovement_Dash;
+    private readonly InputAction m_PlayerMovement_State_Switch;
+    private readonly InputAction m_PlayerMovement_Pickup;
     public struct PlayerMovementActions
     {
         private @MainController m_Wrapper;
@@ -496,6 +538,8 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @Running => m_Wrapper.m_PlayerMovement_Running;
         public InputAction @Crouching => m_Wrapper.m_PlayerMovement_Crouching;
         public InputAction @Dash => m_Wrapper.m_PlayerMovement_Dash;
+        public InputAction @State_Switch => m_Wrapper.m_PlayerMovement_State_Switch;
+        public InputAction @Pickup => m_Wrapper.m_PlayerMovement_Pickup;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -523,6 +567,12 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnDash;
+                @State_Switch.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnState_Switch;
+                @State_Switch.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnState_Switch;
+                @State_Switch.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnState_Switch;
+                @Pickup.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPickup;
+                @Pickup.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPickup;
+                @Pickup.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPickup;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -545,6 +595,12 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @State_Switch.started += instance.OnState_Switch;
+                @State_Switch.performed += instance.OnState_Switch;
+                @State_Switch.canceled += instance.OnState_Switch;
+                @Pickup.started += instance.OnPickup;
+                @Pickup.performed += instance.OnPickup;
+                @Pickup.canceled += instance.OnPickup;
             }
         }
     }
@@ -630,6 +686,8 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnRunning(InputAction.CallbackContext context);
         void OnCrouching(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnState_Switch(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
     }
     public interface IInventoryCraftNavActions
     {
