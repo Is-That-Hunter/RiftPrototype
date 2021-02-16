@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9c816e5895c104312b8a5d224359e2ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 868441947ceca4952a3f0dc5b00da662, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -186,10 +186,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e977b390cba444503a1594f8c4856e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   dialogueObj: {fileID: 0}
   dialogueText: {fileID: 0}
   characterHead: {fileID: 0}
-  isPlaying: 0
+  mainCamera: {fileID: 0}
+  state_m: {fileID: 0}
 --- !u!1 &5615506153995731343
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5615506153995731336}
   - component: {fileID: 5615506153995731338}
-  - component: {fileID: 5615506153995731339}
   - component: {fileID: 5615506153995731337}
   m_Layer: 0
   m_Name: DialogueText
@@ -236,14 +237,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5615506153995731343}
   m_CullTransparentMesh: 0
---- !u!33 &5615506153995731339
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5615506153995731343}
-  m_Mesh: {fileID: 0}
 --- !u!114 &5615506153995731337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +292,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -383,7 +376,7 @@ RectTransform:
   m_GameObject: {fileID: 5615506154179975913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3531, y: 1.3531, z: 1.3531}
   m_Children:
   - {fileID: 5615506153320201987}
   - {fileID: 5615506153995731336}
@@ -392,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -140.5}
+  m_AnchoredPosition: {x: 0, y: -125}
   m_SizeDelta: {x: 394.1, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5615506154179975925

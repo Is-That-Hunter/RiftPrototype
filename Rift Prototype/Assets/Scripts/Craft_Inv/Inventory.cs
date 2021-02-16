@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //This is the Inventory Object
@@ -21,18 +22,6 @@ public class Inventory
     public Inventory()
     {
         itemList = new List<Item>();
-
-        //Debug.Log("Inventory");
-
-        AddItem(new Item { name = Item.ItemName.SmallMetal, size = Item.ItemSize.Small, type = Item.ItemType.Sharp, material = Item.ItemMaterial.Metal });
-
-        AddItem(new Item { name = Item.ItemName.Battery, size = Item.ItemSize.Small, type = Item.ItemType.Electric, material = Item.ItemMaterial.Metal });
-
-        AddItem(new Item { name = Item.ItemName.Rock, size = Item.ItemSize.Small, type = Item.ItemType.Dull, material = Item.ItemMaterial.Metal });
-
-        AddItem(new Item { name = Item.ItemName.Rock, size = Item.ItemSize.Small, type = Item.ItemType.Dull, material = Item.ItemMaterial.Metal });
-
-        //Debug.Log(itemList.Count);
     }
 
     //Adds Items to Inventory and updates the inventory organization UI
@@ -56,5 +45,13 @@ public class Inventory
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    public bool itemInInventory(string itemName)
+    {
+        Item invItem = itemList.FirstOrDefault(i=>i.itemName == itemName);
+        if(invItem != null)
+            return true;
+        return false;
     }
 }

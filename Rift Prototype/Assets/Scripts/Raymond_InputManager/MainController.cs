@@ -75,7 +75,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pickup"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""4b7d0cc5-58d2-43c6-b515-d343c1d20b84"",
                     ""expectedControlType"": ""Button"",
@@ -267,7 +267,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pickup"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -462,7 +462,7 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_Crouching = m_PlayerMovement.FindAction("Crouching", throwIfNotFound: true);
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
         m_PlayerMovement_State_Switch = m_PlayerMovement.FindAction("State_Switch", throwIfNotFound: true);
-        m_PlayerMovement_Pickup = m_PlayerMovement.FindAction("Pickup", throwIfNotFound: true);
+        m_PlayerMovement_Interact = m_PlayerMovement.FindAction("Interact", throwIfNotFound: true);
         // InventoryCraftNav
         m_InventoryCraftNav = asset.FindActionMap("InventoryCraftNav", throwIfNotFound: true);
         m_InventoryCraftNav_NavigateInv = m_InventoryCraftNav.FindAction("NavigateInv", throwIfNotFound: true);
@@ -527,7 +527,7 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Crouching;
     private readonly InputAction m_PlayerMovement_Dash;
     private readonly InputAction m_PlayerMovement_State_Switch;
-    private readonly InputAction m_PlayerMovement_Pickup;
+    private readonly InputAction m_PlayerMovement_Interact;
     public struct PlayerMovementActions
     {
         private @MainController m_Wrapper;
@@ -539,7 +539,7 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @Crouching => m_Wrapper.m_PlayerMovement_Crouching;
         public InputAction @Dash => m_Wrapper.m_PlayerMovement_Dash;
         public InputAction @State_Switch => m_Wrapper.m_PlayerMovement_State_Switch;
-        public InputAction @Pickup => m_Wrapper.m_PlayerMovement_Pickup;
+        public InputAction @Interact => m_Wrapper.m_PlayerMovement_Interact;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,9 +570,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @State_Switch.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnState_Switch;
                 @State_Switch.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnState_Switch;
                 @State_Switch.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnState_Switch;
-                @Pickup.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPickup;
-                @Pickup.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPickup;
-                @Pickup.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPickup;
+                @Interact.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -598,9 +598,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @State_Switch.started += instance.OnState_Switch;
                 @State_Switch.performed += instance.OnState_Switch;
                 @State_Switch.canceled += instance.OnState_Switch;
-                @Pickup.started += instance.OnPickup;
-                @Pickup.performed += instance.OnPickup;
-                @Pickup.canceled += instance.OnPickup;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -687,7 +687,7 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnCrouching(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnState_Switch(InputAction.CallbackContext context);
-        void OnPickup(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IInventoryCraftNavActions
     {

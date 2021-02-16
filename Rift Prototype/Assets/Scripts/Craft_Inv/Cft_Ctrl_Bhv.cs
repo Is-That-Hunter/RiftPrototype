@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 //Script for defining controls for Crafting/Inv System
 //Attatch to Inv_Craft_Table
 
-public class Cft_Ctrl_Bhv : MonoBehaviour
+public class Cft_Ctrl_Bhv : stateInterface
 {
     //Uses the Craft_Controls input system
     public Craft_Controls controls;
@@ -48,7 +48,7 @@ public class Cft_Ctrl_Bhv : MonoBehaviour
 
     public void Switch_State()
     {
-        state_m.Switch_State();
+        state_m.popState();
     }
 
     //Crafts the item if the Type, Material, and Size can result in another Item
@@ -56,13 +56,13 @@ public class Cft_Ctrl_Bhv : MonoBehaviour
     {
         CraftDatabase craftDatabase = global_Variable_Obj.GetComponent<Global_Script>().CraftDatabase;
         Inventory inventory = global_Variable_Obj.GetComponent<Global_Script>().inventory;
-        Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> recipe = craftDatabase.GetRecipe();
+        Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
         ItemDatabase allItems = global_Variable_Obj.GetComponent<Global_Script>().itemDatabase;
 
         if (requested_Size != null && requested_Material != null && requested_Type != null)
         {
-            Debug.Log(requested_Size.size + " " + requested_Type.type + " " + requested_Material.material);
-            if (recipe.TryGetValue((requested_Size.size, requested_Type.type, requested_Material.material), out Item.ItemName value))
+            Debug.Log(requested_Size.itemSize + " " + requested_Type.itemType + " " + requested_Material.itemMaterial);
+            if (recipe.TryGetValue((requested_Size.itemSize, requested_Type.itemType, requested_Material.itemMaterial), out string value))
             {
                 // Key was in dictionary; "value" contains corresponding value
                 Debug.Log("craft Success: You made " + value);
@@ -86,7 +86,6 @@ public class Cft_Ctrl_Bhv : MonoBehaviour
     //Sets the Item and its Size used for crafting
     void Set_Size()
     {
-        //Debug.Log("HELLO");
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         bool craft_Available = requester_ImIt.GetCraftBool();
         if (craft_Available && requested_Size == null)

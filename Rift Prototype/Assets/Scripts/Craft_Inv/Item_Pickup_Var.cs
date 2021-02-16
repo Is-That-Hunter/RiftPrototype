@@ -6,14 +6,6 @@ using UnityEngine;
 
 public class Item_Pickup_Var : MonoBehaviour
 {
-    public Item.ItemName attachedItemName;
+    public string attachedItemName;
 
-    public Item attachedItem;
-
-    private void Awake()
-    {
-        ItemDatabase data = new ItemDatabase();
-
-        attachedItem = data.FindItem(attachedItemName);
-    }
 }

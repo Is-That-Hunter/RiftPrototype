@@ -62,7 +62,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Pickup",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "4b7d0cc5-58d2-43c6-b515-d343c1d20b84",
                     "expectedControlType": "Button",
@@ -254,7 +254,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pickup",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

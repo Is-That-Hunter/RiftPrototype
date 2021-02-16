@@ -15,7 +15,7 @@ public class CraftBehavior : MonoBehaviour
 
     private Item resetHelper;
 
-    private Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> recipe;
+    private Dictionary<(string, string, string), string> recipe;
 
     private Inventory inventory;
 
@@ -48,7 +48,6 @@ public class CraftBehavior : MonoBehaviour
 
     public void Setreset()
     {
-        //resetHelper = allItems.FindItem(Item.ItemName.Resetcraft);
 
         requestedSize = null;
 
@@ -59,8 +58,8 @@ public class CraftBehavior : MonoBehaviour
 
     public void Craft()
     {
-        Debug.Log(requestedSize.size + " " + requestedType.type + " " + requestedMaterial.material);
-        if (recipe.TryGetValue((requestedSize.size, requestedType.type, requestedMaterial.material), out Item.ItemName value))
+        Debug.Log(requestedSize.itemSize + " " + requestedType.itemType + " " + requestedMaterial.itemMaterial);
+        if (recipe.TryGetValue((requestedSize.itemSize, requestedType.itemType, requestedMaterial.itemMaterial), out string value))
         {
             // Key was in dictionary; "value" contains corresponding value
             Debug.Log("craft Success: You made " + value);
@@ -89,7 +88,8 @@ public class CraftBehavior : MonoBehaviour
         requestedMaterial = item;
     }
 
-    public void SetRecipe(Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> data)
+    //public void SetRecipe(Dictionary<(Item.ItemSize, Item.ItemType, Item.ItemMaterial), Item.ItemName> data)
+    public void SetRecipe(Dictionary<(string, string, string), string> data)
     {
         recipe = data;
     }

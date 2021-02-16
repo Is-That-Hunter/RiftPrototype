@@ -1,57 +1,80 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
+using UnityEditor;
 
 //Attach to Global Variable Object
-
-public class Simple_State_M : MonoBehaviour
+[System.Serializable]
+public class State 
 {
-    public GameObject jax;
-    public GameObject inventory;
-
-    public enum State
+    public string stateName;
+    public GameObject stateObject;
+    public stateInterface script;
+    
+    public State(string _state, GameObject obj)
     {
-        Craft,
-        Player
+        stateName = _state;
+        stateObject = obj;
+        script = obj.GetComponent<stateInterface>();
     }
 
-    State currentState;
+    public void changeActive(bool active, bool disableObj = false)
+    {
+        script.isActive = active;
+        script.enabled = active;
+        stateObject.SetActive(true);
+        if(disableObj) {
+            stateObject.SetActive(false);
+        }
+    }
+}
+public class Simple_State_M : MonoBehaviour
+{
+    public List<State> states = new List<State>();
+    public GameObject player;
+    public GameObject inventory;
+    public GameObject dialogue;
+    public GameObject overlay;
+    public Stack<State> stateStack = new Stack<State>();
+
     // Start is called before the first frame update
     void Start()
     {
-        currentState = State.Player;
-        jax.GetComponent<BasicMovement>().enabled = true;
-        inventory.GetComponent<Cft_Ctrl_Bhv>().enabled = false;
-        inventory.SetActive(false);
-    }
-
-    // Update is called once per frame
-    public void Switch_State()
-    {
-        //Debug.Log(Input.GetKeyDown("q"));
-        //Debug.Log("HELLO");
-        if (currentState == State.Player)
+        states.Add(new State("Player", player));
+        states.Add(new State("Inventory", inventory));
+        states.Add(new State("Dialogue", dialogue));
+        stateStack.Push(states.FirstOrDefault(i=>i.stateName == "Player"));
+        foreach(State _state in states)
         {
-            inventory.SetActive(true);
-            jax.GetComponent<BasicMovement>().enabled = false;
-            inventory.GetComponent<Cft_Ctrl_Bhv>().enabled = true;
-            currentState = State.Craft;
-        } else if (currentState == State.Craft)
-        {
-            jax.GetComponent<BasicMovement>().enabled = true;
-            inventory.GetComponent<Cft_Ctrl_Bhv>().enabled = false;
-            inventory.SetActive(false);
-            currentState = State.Player;
+            if(stateStack.Peek() == _state)
+                _state.changeActive(true);
+            else
+                _state.changeActive(false, true);
         }
     }
-
-    /*public State GetCurrentState()
+    public void pushState(string newState, bool disableObj = true, bool overlayActive = false)
     {
-        return currentState;
+        State _newState = states.FirstOrDefault(i=>i.stateName == newState);
+        if(_newState == stateStack.Peek())
+            return;
+        stateStack.Peek().changeActive(false, disableObj);
+        _newState.changeActive(true);
+        stateStack.Push(_newState);
+        overlay.SetActive(overlayActive);
+
     }
-
-    public void updateCurrentState(State newState)
+    public void popState(bool disableObj = true, bool overlayActive = true)
     {
-        currentState = newState;
-    }*/
+        State x = stateStack.Pop();
+        x.changeActive(false, disableObj);
+        stateStack.Peek().changeActive(true);
+        overlay.SetActive(overlayActive);
+    }
+    public State peekState()
+    {
+        return stateStack.Peek();
+    }
 }
+

@@ -65,6 +65,14 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""97b3e921-0452-43ab-83af-8fadb0bb851a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -177,6 +185,17 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
                     ""action"": ""State_Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""033a3b0b-8df3-4730-bb63-e76465a8b79e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -191,6 +210,7 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
         m_Inventory_Craft_Material_Select = m_Inventory_Craft.FindAction("Material_Select", throwIfNotFound: true);
         m_Inventory_Craft_Type_Select = m_Inventory_Craft.FindAction("Type_Select", throwIfNotFound: true);
         m_Inventory_Craft_State_Switch = m_Inventory_Craft.FindAction("State_Switch", throwIfNotFound: true);
+        m_Inventory_Craft_Click = m_Inventory_Craft.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -246,6 +266,7 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Inventory_Craft_Material_Select;
     private readonly InputAction m_Inventory_Craft_Type_Select;
     private readonly InputAction m_Inventory_Craft_State_Switch;
+    private readonly InputAction m_Inventory_Craft_Click;
     public struct Inventory_CraftActions
     {
         private @Craft_Controls m_Wrapper;
@@ -256,6 +277,7 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
         public InputAction @Material_Select => m_Wrapper.m_Inventory_Craft_Material_Select;
         public InputAction @Type_Select => m_Wrapper.m_Inventory_Craft_Type_Select;
         public InputAction @State_Switch => m_Wrapper.m_Inventory_Craft_State_Switch;
+        public InputAction @Click => m_Wrapper.m_Inventory_Craft_Click;
         public InputActionMap Get() { return m_Wrapper.m_Inventory_Craft; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -283,6 +305,9 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
                 @State_Switch.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
                 @State_Switch.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
                 @State_Switch.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
+                @Click.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnClick;
             }
             m_Wrapper.m_Inventory_CraftActionsCallbackInterface = instance;
             if (instance != null)
@@ -305,6 +330,9 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
                 @State_Switch.started += instance.OnState_Switch;
                 @State_Switch.performed += instance.OnState_Switch;
                 @State_Switch.canceled += instance.OnState_Switch;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
             }
         }
     }
@@ -317,5 +345,6 @@ public class @Craft_Controls : IInputActionCollection, IDisposable
         void OnMaterial_Select(InputAction.CallbackContext context);
         void OnType_Select(InputAction.CallbackContext context);
         void OnState_Switch(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-using UnityEditor;
 
+//Parsing Dialogue Text Files
 [System.Serializable]
 public class twine
 {
@@ -20,6 +20,7 @@ public class passage
     public links[] links;
     public string name;
     public string pid;
+    public bool hasVar;
 }
 [System.Serializable]
 public class links
@@ -29,12 +30,7 @@ public class links
     public string link;
     public string pid;
 }
-[System.Serializable]
-public class dialogueVariables
-{
-    public string name;
-    public bool isActive;
-}
+//For Displaying Portraits next to Dialogue
 [System.Serializable]
 public class characterPortraits
 {
@@ -45,31 +41,29 @@ public class characterPortraits
 public class twineParser : MonoBehaviour
 {
     private twine dialogueTree;
-    public TextAsset dialogueJson;
+    public string dialogueJson;
     public int currPid;
-    public dialogueVariables[] vars;
     public GameObject mainCamera;
     public characterPortraits[] characters;
-    // Start is called before the first frame update
+    public bool inArea = false;
+    public Global_Script global_variables;
     void Start()
     {
+        global_variables = gameObject.GetComponent<Global_Script>();
         FromJson();
     }
 
     void FromJson() 
     {
-        string dialoguePath = AssetDatabase.GetAssetPath(dialogueJson);
-        using (StreamReader r = new StreamReader(dialoguePath))
-        {
-            string json = r.ReadToEnd();
-            twine dialogue = JsonUtility.FromJson<twine>(json);
-            this.dialogueTree = dialogue;
-        }
+        string dialoguePath = Resources.Load<TextAsset>("JSON/"+dialogueJson).text;
+        twine dialogue = JsonUtility.FromJson<twine>(dialoguePath);
+        this.dialogueTree = dialogue;
+    }
+    public void parseAllDialogue() {
         foreach(passage p in this.dialogueTree.passages)
         {
-            p.parsedText = this.formatTextForClickable(p.text);
+            p.parsedText = this.formatTextForClickable(p);
         }
-
     }
     public passage getCurrPassage() {
         foreach(passage p in this.dialogueTree.passages)
@@ -96,7 +90,10 @@ public class twineParser : MonoBehaviour
     }
 
     public string getCurrText() {
-        return this.getCurrPassage().parsedText;
+        passage p = this.getCurrPassage();
+        if(p.hasVar)
+            return formatTextForClickable(this.getCurrPassage());
+        return p.parsedText;
     }
 
     public bool chooseOption(string option) {
@@ -121,9 +118,8 @@ public class twineParser : MonoBehaviour
     //compares variable in text to see if it exists and is true
     private bool compareStringAndVariable(string parseThis)
     {
-        dialogueVariables var = this.vars.FirstOrDefault(i=>i.name == parseThis);
-        if(var != null)
-            return var.isActive;
+        if(global_variables.inventory.itemInInventory(parseThis))
+            return true;
         return false;
     }
     //formats links so that they link to something and are colored correctly
@@ -136,13 +132,14 @@ public class twineParser : MonoBehaviour
         string temp = "<link=\""+parseThis[1]+"\"><color="+color+">"+parseThis[0]+"</color></link>";
         return temp;
     }
-    public string formatTextForClickable(string text)
+    public string formatTextForClickable(passage p)
     {
+        string text = p.text;
         string[] textArr = text.Split('\n');
-        Debug.Log(textArr.Length);
         List<string> textLinks = new List<string>();
         string ret = "";
         for(int i = 0; i < textArr.Length; i++) {
+            bool newline = true;
             //For If Statements in Text
             if(textArr[i].Contains("(if:"))
             {
@@ -157,9 +154,12 @@ public class twineParser : MonoBehaviour
                 //Parse If and String
                 string[] nameAndLink = this.getNameAndLink(fullLink);
                 bool isActive = compareStringAndVariable(varName);
+                p.hasVar = true;
                 if(isActive) {
                     ret += this.linkToHTML(nameAndLink);
                 }
+                else
+                    newline = false;
             }
             //For Links in Text
             else if(textArr[i].Contains("[["))
@@ -178,18 +178,13 @@ public class twineParser : MonoBehaviour
                 ret += textArr[i];
             }
             //Add NewLine unless last line
-            ret += "\n";
+            if(newline)
+                ret += "\n";
         }
         return ret;
     }
 
     public void changePid(int pid) {
         this.currPid = pid;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

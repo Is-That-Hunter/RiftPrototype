@@ -17,11 +17,8 @@ public class UI_Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Woohoo");
         inventory_Slots = transform.Find("Inventory_Slots");
         item_Slot_Base = inventory_Slots.Find("Item_Slot_Base");
-        Debug.Log(inventory_Slots);
-        Debug.Log(item_Slot_Base);
     }
 
     //Sets the Inventory for the UI Instance -> Inventory Database instance stored in Global_Script.cs
@@ -32,7 +29,6 @@ public class UI_Inventory : MonoBehaviour
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
         RefreshInventoryItems();
-        //EventSystem.current.SetSelectedGameObject(inventory_Slots.GetChild(1).GetChild(0).GetChild(0).gameObject);
     }
 
     //Called in the event the Inventory is changed (Event part of Inventory Object (Inventory.cs))
@@ -43,8 +39,6 @@ public class UI_Inventory : MonoBehaviour
 
     private void OnEnable()
     {
-        //Debug.Log("This is enabled" + inventory);
-        //Debug.Log(inventory);
         if(inventory != null)
         {
             RefreshInventoryItems();
