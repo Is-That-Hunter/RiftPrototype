@@ -4,5 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Entrance.unity
+    guid: dc6691f8f7aab4cd8857fcdde33599b2
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 71fd0f03b33881c42845acf3adf57382,
+      type: 2}

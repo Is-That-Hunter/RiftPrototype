@@ -9,7 +9,7 @@ using Cinemachine;
 //Verson 1.0, Last edited on 9/17/2020
 //This script will handle most of the movement and key binding from input system
 //which works for both controller and keyboard
-public class BasicMovement : MonoBehaviour
+public class BasicMovement : stateInterface
 {
     //Add by Raymond
     //Inital the input system package
@@ -18,6 +18,10 @@ public class BasicMovement : MonoBehaviour
     Vector2 cameraAngle;
     //Booleans for detecting the pressed key at the moment
     //Same as GetKeyDown
+    public Simple_State_M state_m;
+
+    public GameObject global_variables;
+
     public bool rightStickPressed;
     public bool leftStickPressed;
     public bool isRunnning;
@@ -182,6 +186,47 @@ public class BasicMovement : MonoBehaviour
         rightTriggerValue = gamepad.rightTrigger.ReadValue();
     }
 
+    public void Switch_State()
+    {
+        state_m.pushState("Inventory", false);
+    }
+
+    public void Item_Pickup(Collider itemCollider)
+    {
+        //Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<Item_Detector>().currentCol;
+        if(itemCollider != null)
+        {
+            ItemDatabase ItemDB = global_variables.GetComponent<Global_Script>().itemDatabase;
+            GameObject itemObject = itemCollider.gameObject;
+            Item itemGrab = null;
+            if(itemObject.tag != "Item")
+            {
+                itemGrab = ItemDB.FindItem(itemObject.transform.GetChild(0).GetComponent<Item_Pickup_Var>().attachedItemName);
+            }
+            else
+            {
+                itemGrab = ItemDB.FindItem(itemObject.GetComponent<Item_Pickup_Var>().attachedItemName);
+            }
+            global_variables.GetComponent<Global_Script>().inventory.AddItem(itemGrab);
+            Destroy(itemObject.gameObject.transform.parent.gameObject);
+            gameObject.transform.GetChild(0).GetComponent<Item_Detector>().currentCol = null;
+            global_variables.GetComponent<Global_Script>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+        }
+    }
+
+    public void Interact()
+    {
+        Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<Item_Detector>().currentCol;
+        bool inDialogueTrigger = global_variables.GetComponent<twineParser>().inArea;
+        if(inDialogueTrigger) {
+            state_m.pushState("Dialogue", false);
+        }
+        else if(itemCollider != null)
+        {
+            Item_Pickup(itemCollider);
+        }
+    }
+
     
     void OnEnable(){
         controls.PlayerMovement.Enable();
@@ -190,7 +235,8 @@ public class BasicMovement : MonoBehaviour
         controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
         controls.PlayerMovement.Crouching.performed += ctx => isCrouching = !isCrouching;
         controls.PlayerMovement.Dash.performed += ctx => isDash = true;
-        
+        controls.PlayerMovement.State_Switch.performed += ctxe => Switch_State();
+        controls.PlayerMovement.Interact.performed += ctxe => Interact();
     }
 
     void OnDisable(){

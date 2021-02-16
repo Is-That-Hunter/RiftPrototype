@@ -1,0 +1,102 @@
+{
+   "items": [
+    {
+       "itemName":"Pink Slip",
+       "itemSize":"Small",
+       "itemType":"Authoritative",
+       "itemMaterial":"Paper",
+       "itemDescription":"Its a Pink Slip",
+       "spriteName":"pinkslip",
+       "craftable":false
+    },
+    {
+       "itemName":"Coffee Cup (empty)",
+       "itemSize":"Small",
+       "itemType":"Flammable",
+       "itemMaterial":"Paper",
+       "itemDescription":"It Coffee",
+       "spriteName":"coffeecup",
+       "craftable":false
+    },
+    {
+       "itemName":"Lightbulb",
+       "itemSize":"Small",
+       "itemType":"Radiant",
+       "itemMaterial":"Glass",
+       "itemDescription":"It Lightbulb",
+       "spriteName":"lightbulb",
+       "craftable":false
+    },
+    {
+       "itemName":"TrashCan",
+       "itemSize":"Large",
+       "itemType":"Neutral",
+       "itemMaterial":"Metal",
+       "itemDescription":"It Trashcan",
+       "spriteName":"trashcan",
+       "craftable":false
+    },
+    {
+       "itemName":"Pen",
+       "itemSize":"Small",
+       "itemType":"Writing",
+       "itemMaterial":"Plastic",
+       "itemDescription":"Pen",
+       "spriteName":"lockpick",
+       "craftable":false
+    },
+    {
+       "itemName":"Blueprints",
+       "itemSize":"Medium",
+       "itemType":"Authoritative",
+       "itemMaterial":"Paper",
+       "itemDescription":"Blueprints to.. something?",
+       "spriteName":"blueprint",
+       "craftable":false
+    },
+    {
+       "itemName":"Fake ID",
+       "itemSize":"Small",
+       "itemType":"Authoritative",
+       "itemMaterial":"Plastic",
+       "itemDescription":"Looks just like the guards IDs.. I think?",
+       "spriteName":"ID",
+       "craftable":true
+    },
+    {
+       "itemName":"Shoe",
+       "itemSize":"Small",
+       "itemType":"Sturdy",
+       "itemMaterial":"Leather",
+       "itemDescription":"Who's shoe?",
+       "spriteName":"shoe",
+       "craftable":false
+    },
+    {
+       "itemName":"Cleaning Rag",
+       "itemSize":"Small",
+       "itemType":"Sanitary",
+       "itemMaterial":"Fabric",
+       "itemDescription":"I hope its not dirty",
+       "spriteName":"blueprint",
+       "craftable":false
+    },
+    {
+       "itemName":"Stray Jacket",
+       "itemSize":"Large",
+       "itemType":"Neutral",
+       "itemMaterial":"Fabric",
+       "itemDescription":"Not bad looking",
+       "spriteName":"jacket",
+       "craftable":false
+    },
+    {
+       "itemName":"Police Uniform",
+       "itemSize":"Medium",
+       "itemType":"Authoritative",
+       "itemMaterial":"Fabric",
+       "itemDescription":"You look just like them now!",
+       "spriteName":"ID",
+       "craftable":true
+    }
+ ]}
