@@ -42,6 +42,5 @@ public class Global_Script : MonoBehaviour
         inventory.AddItem(itemDatabase.FindItem("Coffee Cup (empty)"));
         inventory.AddItem(itemDatabase.FindItem("Blueprints"));
         inventory.AddItem(itemDatabase.FindItem("Pen"));
-        gameObject.GetComponent<twineParser>().parseAllDialogue();
     }
 }

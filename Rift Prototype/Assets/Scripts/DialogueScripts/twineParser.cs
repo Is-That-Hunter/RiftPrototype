@@ -51,6 +51,7 @@ public class twineParser : MonoBehaviour
     {
         global_variables = gameObject.GetComponent<Global_Script>();
         FromJson();
+        parseAllDialogue();
     }
 
     void FromJson() 
