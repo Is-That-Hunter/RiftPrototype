@@ -1,0 +1,58 @@
+{
+    "name": "sequence",
+    "type": "object",
+    "properties": {
+        "tid": {
+            "name": "tid",
+            "type": "string"
+        },
+        "triggerType": {
+            "name": "triggerType",
+            "type": "string",
+            "enum": [
+                "dialogue",
+                "inventory",
+                "zoom",
+                "pan"
+            ]
+        },
+        "triggerInfo": {
+            "name": "triggerInfo",
+            "type": "object",
+            "properties": {
+                "target1": {
+                    "name": "target1",
+                    "type": "string"
+                },
+                "target2": {
+                    "name": "target2",
+                    "type": "string"
+                },
+                "tid": {
+                    "name": "tid",
+                    "type": "int"
+                },
+                "pid": {
+                    "name": "pid",
+                    "type": "int"
+                },
+                "onLeave": {
+                    "name": "onLeave",
+                    "type": "bool"
+                },
+                "onEnter": {
+                    "name": "onEnter",
+                    "type": "bool"
+                },
+                "onFinish": {
+                    "name": "onFinish",
+                    "type": "bool"
+                },
+                "onAction": {
+                    "name": "onAction",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
