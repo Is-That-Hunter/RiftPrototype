@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 //This script handles the loading and behaviors of the Inventory UI
 //This script is kept attatched to the Inventory Table
 
-public class UI_Inventory : MonoBehaviour
+public class UIInventory : MonoBehaviour
 {
     //The UI consists of the current Inventory, The base empty object of each item slot, and the Item_Slot itself
     private Inventory inventory;
@@ -21,7 +21,7 @@ public class UI_Inventory : MonoBehaviour
         item_Slot_Base = inventory_Slots.Find("Item_Slot_Base");
     }
 
-    //Sets the Inventory for the UI Instance -> Inventory Database instance stored in Global_Script.cs
+    //Sets the Inventory for the UI Instance -> Inventory Database instance stored in GlobalScript.cs
     //We do this to keep the inventory object instance the same whenever called
     public void SetInventory(Inventory inventory)
     {

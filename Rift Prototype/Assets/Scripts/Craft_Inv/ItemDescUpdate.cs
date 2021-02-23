@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Item_Desc_Update : MonoBehaviour
+public class ItemDescUpdate : MonoBehaviour
 {
     public GameObject Item_Display;
 

@@ -10,16 +10,16 @@ using System.IO;
 //variable examples include Inventory, and Databases
 //Ensures constant data remains constant among scenes
 
-public class Global_Script : MonoBehaviour
+public class GlobalScript : MonoBehaviour
 {
-
+    
     public Inventory inventory;
     public ItemDatabase itemDatabase;
     public CraftDatabase CraftDatabase;
     public string itemsJson;
     public Item[] items;
     //private UI_Inventory ui_Inventory;
-    public UI_Inventory ui_Inventory;
+    public UIInventory ui_Inventory;
     public GameObject Overlay;
 
     //Uses Start to let the other scripts load with Awake functions

@@ -2,6 +2,7 @@
   "passages": [
     {
       "character": "Angela",
+      "zoom": true,
       "text": "[[What's going on here?]]",
       "links": [
         {
@@ -16,6 +17,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "Sorry maam, park's condemned. Never actually opened in the first place.\n[[Can I go in?]]",
       "links": [
         {
@@ -30,6 +32,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "Sorry, authorized personal only.\n[[Continue->Options_1]]",
       "links": [
         {
@@ -44,6 +47,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "Pfft yeah right, you're not even in uniform! Come back with ID or something and we can talk.\n[[Look around for clues]]",
       "links": [
         {
@@ -58,6 +62,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "And I need a drink, so I guess we're both dissapointed tonight sweetheart.\n[[Look around for clues]] ",
       "links": [
         {
@@ -72,6 +77,7 @@
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "(if:Police Uniform)[[[Play Pretend->Play Pretend]]]\n(if:Fake ID)[[[Flash Fake ID->Fake Id 1]]]\n[[Talk to the guards again]]",
       "links": [
         {
@@ -98,6 +104,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "You again? I thought you'd fucked off already.\n[[Continue->Question Guards]]",
       "links": [
         {
@@ -112,6 +119,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "Sure, here ya go. *Angela recieves a pen*\n[[Thanks, I'll be going now.]]",
       "links": [
         {
@@ -126,6 +134,7 @@
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "[[Right, I'll be going now->Look around for clues]]",
       "links": [
         {
@@ -140,6 +149,7 @@
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "Angela flashes the fake ID which now claims her to be a municipal safety inspector. \n[[Continue->Fake Id 2]]",
       "links": [
         {
@@ -154,12 +164,14 @@
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "*Angela succsefully makes her way into the park*",
       "name": "Enter the park",
       "pid": "13"
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "How do you do fellow officers? I am here for a shift change.\n[[Continue->Play Pretend 2]]",
       "links": [
         {
@@ -174,6 +186,7 @@
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "[[Lie - I am authorized, the precinct sent me to relieve you of your shift.]]\n[[I need to take a look around, can I please go in?]]",
       "links": [
         {
@@ -194,6 +207,7 @@
     },
     {
       "character": "Angela",
+      "zoom": true,
       "text": "[[I'll leave soon, I just wanted to ask what's up with this place?->What's Going On 1]]\n[[I will, I just need to borrow a pen real quick]]\n[[ (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.->Lie_1]]\n[[Sorry, I was just going - leave->Look around for clues]]",
       "links": [
         {
@@ -226,6 +240,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "It's a crime scene is all you need to know, now please maam, move along. \n[[Continue->What's Going on 2]]",
       "links": [
         {
@@ -240,6 +255,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "Crime scene? Ha! Yeah some crime scene, a fuckin' clown got turned into jelly a year ago and now we gotta freeze our asses off so nobody can see the splat mark. \n[[Continue->What's Going on 3]]",
       "links": [
         {
@@ -254,6 +270,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "*Sigh* All you need to know, maam, is that it's a crime scene, and it's closed.\n[[Right, I'll be going now->Look around for clues]]",
       "links": [
         {
@@ -268,6 +285,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "What? The wind blew your jacket over the fence? Did you really think that would work?\n[[Continue->Lie_2]]",
       "links": [
         {
@@ -282,6 +300,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "Sorry, we can't let you in, you can check the lost and found bin if you want, maybe you can find a replacement. *He gestures towards a ratty plastic bin sitting near the park's entrance*\n[[Look around for clues]]",
       "links": [
         {
@@ -296,6 +315,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "Municipal Safety Inspector? Woof and I thought I had a shit job.\n[[Continue->Fake Id 3]]",
       "links": [
         {
@@ -310,6 +330,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "Go on through maam, and be careful, this place wasn't exactly well built. \n[[Enter the park]]",
       "links": [
         {
@@ -324,6 +345,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "'Bout fuckin' time! Ten more minutes and I would've frozen to that chair.\n[[Continue->Play Pretend 3]]",
       "links": [
         {
@@ -338,6 +360,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "*Checks his watch* Huh, earlier than usual, you sure this is right?\n[[Positive, I'd enjoy the time off if I were you->Play Pretend 4]]",
       "links": [
         {
@@ -352,6 +375,7 @@
     },
     {
       "character": "Guard 2",
+      "zoom": true,
       "text": "Don't gotta tell me twice, good luck.\n[[Continue->Play Pretend 5]]",
       "links": [
         {
@@ -366,6 +390,7 @@
     },
     {
       "character": "Guard 1",
+      "zoom": true,
       "text": "Safe watch, maam.\n[[Enter the park]] ",
       "links": [
         {

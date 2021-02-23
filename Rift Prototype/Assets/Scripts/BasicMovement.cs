@@ -9,7 +9,7 @@ using Cinemachine;
 //Verson 1.0, Last edited on 9/17/2020
 //This script will handle most of the movement and key binding from input system
 //which works for both controller and keyboard
-public class BasicMovement : stateInterface
+public class BasicMovement : StateInterface
 {
     //Add by Raymond
     //Inital the input system package
@@ -18,7 +18,7 @@ public class BasicMovement : stateInterface
     Vector2 cameraAngle;
     //Booleans for detecting the pressed key at the moment
     //Same as GetKeyDown
-    public Simple_State_M state_m;
+    public StateMachine state_m;
 
     public GameObject global_variables;
 
@@ -193,31 +193,31 @@ public class BasicMovement : stateInterface
 
     public void Item_Pickup(Collider itemCollider)
     {
-        //Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<Item_Detector>().currentCol;
+        //Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol;
         if(itemCollider != null)
         {
-            ItemDatabase ItemDB = global_variables.GetComponent<Global_Script>().itemDatabase;
+            ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
             GameObject itemObject = itemCollider.gameObject;
             Item itemGrab = null;
             if(itemObject.tag != "Item")
             {
-                itemGrab = ItemDB.FindItem(itemObject.transform.GetChild(0).GetComponent<Item_Pickup_Var>().attachedItemName);
+                itemGrab = ItemDB.FindItem(itemObject.transform.GetChild(0).GetComponent<ItemPickupVar>().attachedItemName);
             }
             else
             {
-                itemGrab = ItemDB.FindItem(itemObject.GetComponent<Item_Pickup_Var>().attachedItemName);
+                itemGrab = ItemDB.FindItem(itemObject.GetComponent<ItemPickupVar>().attachedItemName);
             }
-            global_variables.GetComponent<Global_Script>().inventory.AddItem(itemGrab);
+            global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
             Destroy(itemObject.gameObject.transform.parent.gameObject);
-            gameObject.transform.GetChild(0).GetComponent<Item_Detector>().currentCol = null;
-            global_variables.GetComponent<Global_Script>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol = null;
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
         }
     }
 
     public void Interact()
     {
-        Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<Item_Detector>().currentCol;
-        bool inDialogueTrigger = global_variables.GetComponent<twineParser>().inArea;
+        Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol;
+        bool inDialogueTrigger = global_variables.GetComponent<TwineParser>().inArea;
         if(inDialogueTrigger) {
             state_m.pushState("Dialogue", false);
         }

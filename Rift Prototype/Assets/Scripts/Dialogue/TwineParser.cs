@@ -7,23 +7,26 @@ using UnityEngine;
 
 //Parsing Dialogue Text Files
 [System.Serializable]
-public class twine
+public class Twine
 {
-    public passage[] passages;
+    public string name;
+    public Passage[] passages;
+    public int currPid;
 }
 [System.Serializable]
-public class passage
+public class Passage
 {
+    public bool zoom;
     public string character;
     public string parsedText;
     public string text;
-    public links[] links;
+    public Link[] links;
     public string name;
     public string pid;
     public bool hasVar;
 }
 [System.Serializable]
-public class links
+public class Link
 {
     public bool leave;
     public string name;
@@ -32,81 +35,85 @@ public class links
 }
 //For Displaying Portraits next to Dialogue
 [System.Serializable]
-public class characterPortraits
+public class CharacterPortrait
 {
     public string name;
     public Sprite portrait;
     public GameObject character;
 }
-public class twineParser : MonoBehaviour
+public class TwineParser : MonoBehaviour
 {
-    private twine dialogueTree;
-    public string dialogueJson;
-    public int currPid;
+    private List<Twine> dialogueTrees = new List<Twine>();
+    public string[] dialogueJsons;
     public GameObject mainCamera;
-    public characterPortraits[] characters;
-    public bool inArea = false;
-    public Global_Script global_variables;
+    public CharacterPortrait[] characters;
+    public GlobalScript global_variables;
+    public bool inArea;
     void Start()
     {
-        global_variables = gameObject.GetComponent<Global_Script>();
-        FromJson();
-        parseAllDialogue();
+        global_variables = gameObject.GetComponent<GlobalScript>();
+        foreach(string json in dialogueJsons)
+        {
+            Twine tree = FromJson(json);
+            this.dialogueTrees.Add(tree);
+            parseAllDialogue(tree);
+        }
     }
 
-    void FromJson() 
+    Twine FromJson(string file) 
     {
-        string dialoguePath = Resources.Load<TextAsset>("JSON/"+dialogueJson).text;
-        twine dialogue = JsonUtility.FromJson<twine>(dialoguePath);
-        this.dialogueTree = dialogue;
+        string dialoguePath = Resources.Load<TextAsset>("JSON/"+file).text;
+        Twine tree = JsonUtility.FromJson<Twine>(dialoguePath);
+        return tree;
     }
-    public void parseAllDialogue() {
-        foreach(passage p in this.dialogueTree.passages)
+
+    public void parseAllDialogue(Twine tree) {
+        foreach(Passage p in tree.passages)
         {
             p.parsedText = this.formatTextForClickable(p);
         }
     }
-    public passage getCurrPassage() {
-        foreach(passage p in this.dialogueTree.passages)
+
+    public Passage getCurrPassage(string tree) {
+        Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
+        if(thisTree != null)
         {
-            if(Int32.Parse(p.pid)==this.currPid)
-                return p;
+            foreach(Passage p in thisTree.passages)
+            {
+                if(Int32.Parse(p.pid)==thisTree.currPid)
+                    return p;
+            }
         }
         return null;
     }
-    public characterPortraits getCurrCharacterPortraits() {
-        passage p = getCurrPassage();
-        foreach(characterPortraits charPortrait in this.characters)
-        {
-            if(p.character == charPortrait.name)
-                return charPortrait;
-        }
-        return null;
-    }
-    public Sprite getCurrPortrait() {
-        return getCurrCharacterPortraits().portrait;
-    }
-    public GameObject getCurrCharacterFocus() {
-        return getCurrCharacterPortraits().character;
+    public CharacterPortrait getCharacterPortrait(string character) {
+        CharacterPortrait charPortrait = characters.FirstOrDefault(i=>i.name == character);
+        return charPortrait;
     }
 
-    public string getCurrText() {
-        passage p = this.getCurrPassage();
+    public string getCurrText(string tree) {
+        Passage p = this.getCurrPassage(tree);
         if(p.hasVar)
-            return formatTextForClickable(this.getCurrPassage());
+            return formatTextForClickable(p);
         return p.parsedText;
     }
 
-    public bool chooseOption(string option) {
-        links[] options = this.getCurrPassage().links;
-        links choice = options.FirstOrDefault(i=>i.link == option);
-        if (choice != null)
+    public bool chooseOption(string tree, string option) {
+        Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
+        if(thisTree != null)
         {
-            this.currPid = Int32.Parse(choice.pid);
-            return choice.leave;
+            Passage p = this.getCurrPassage(tree);
+            Link[] options = p.links;
+            Link choice = options.FirstOrDefault(i=>i.link == option);
+            if (choice != null)
+            {
+                thisTree.currPid = Int32.Parse(choice.pid);
+                return choice.leave;
+            }
         }
         return false;
     }
+    
     //index 0 = name, index 1 = link
     //returns name and link from link in text
     private string[] getNameAndLink(string parseThis)
@@ -133,7 +140,8 @@ public class twineParser : MonoBehaviour
         string temp = "<link=\""+parseThis[1]+"\"><color="+color+">"+parseThis[0]+"</color></link>";
         return temp;
     }
-    public string formatTextForClickable(passage p)
+    //Parses out the dialogue to be clickable if it is a link
+    public string formatTextForClickable(Passage p)
     {
         string text = p.text;
         string[] textArr = text.Split('\n');
@@ -185,7 +193,11 @@ public class twineParser : MonoBehaviour
         return ret;
     }
 
-    public void changePid(int pid) {
-        this.currPid = pid;
+    public void changePid(string tree, int pid) {
+        Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
+        if(thisTree != null)
+        {
+            thisTree.currPid = pid;
+        }
     }
 }
