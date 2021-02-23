@@ -50,8 +50,16 @@ public class SequenceHandler : MonoBehaviour
             activateTrig = activateTrig || (trigInfo.onStart & trig.triggerInfo.onStart);
             activateTrig = activateTrig || (trigInfo.onAction != "" & trigInfo.onAction == trig.triggerInfo.onAction);
             if(activateTrig)
-                doTrigger(trig.triggerAction);
-                changeCurrTid(trig.triggerAction.tid);
+                if(trigType == "Dialogue" & trigInfo.pid == trig.triggerInfo.pid)
+                {
+                    doTrigger(trig.triggerAction);
+                    changeCurrTid(trig.triggerAction.tid);
+                }
+                else if(trigType != "Dialogue")
+                {
+                    doTrigger(trig.triggerAction);
+                    changeCurrTid(trig.triggerAction.tid);
+                }
         }
     }
     void doTrigger(TriggerAction action)
@@ -66,6 +74,12 @@ public class SequenceHandler : MonoBehaviour
                 break;
             case "changeSeq":
                 currentSequence = action.sequence;
+                break;
+            case "Zoom":
+                mainCamera.GetComponent<CameraController>().focusObject = getZoomObject(action.targetObj).target.transform;
+                twineParser.currTree = action.tree;
+                twineParser.changePid(action.tree,action.pid);
+                stateMachine.pushState("Dialogue",false);
                 break;
 
         }

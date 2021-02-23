@@ -47,6 +47,14 @@ public class TwineParser : MonoBehaviour
         }
     }
 
+    public int getCurrPid(string tree = "")
+    {
+        if(tree == "")
+            tree = this.currTree;
+        Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
+        return thisTree.currPid;
+    }
+
     public Passage getCurrPassage(string tree = "") {
         if(tree == "")
             tree = this.currTree;

@@ -40,11 +40,13 @@ public class StateMachine : MonoBehaviour
     public GameObject overlay;
     public SequenceHandler seqHandler;
     public Stack<State> stateStack = new Stack<State>();
+    private TwineParser twineParser;
 
     // Start is called before the first frame update
     void Start()
     {
         seqHandler = gameObject.GetComponent<SequenceHandler>();
+        twineParser = gameObject.GetComponent<TwineParser>();
         states.Add(new State("Player", player));
         states.Add(new State("Inventory", inventory));
         states.Add(new State("Dialogue", dialogue));
@@ -81,7 +83,10 @@ public class StateMachine : MonoBehaviour
         x.changeActive(false, disableObj);
         stateStack.Peek().changeActive(true);
         overlay.SetActive(overlayActive);
-        handleAction(x.stateName, onLeave: true);
+        if(x.stateName=="Dialogue")
+            handleAction(x.stateName, onLeave: true, pid: twineParser.getCurrPid());
+        else
+            handleAction(x.stateName, onLeave: true);
         string prnt = "";
         foreach(State s in stateStack.ToArray())
         {

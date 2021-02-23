@@ -107,6 +107,36 @@
                     "pid": "6"
                 }
             ]
+        },
+        {
+            "character": "Angela",
+            "zoom": true,
+            "text": "Pick Up This Object\n[[Okay->Tutorial 6]]",
+            "name": "Tutorial Pick Up",
+            "pid": "7",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Thanks",
+                    "link": "Tutorial 6",
+                    "pid": "7"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": true,
+            "text": "This Should be useful\n[[Okay->Tutorial 6]]",
+            "name": "Tutorial Pick Up",
+            "pid": "8",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Thanks",
+                    "link": "Tutorial 6",
+                    "pid": "8"
+                }
+            ]
         }
     ]
 }

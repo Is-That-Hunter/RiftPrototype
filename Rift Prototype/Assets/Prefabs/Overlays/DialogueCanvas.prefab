@@ -187,11 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  dialogueObj: {fileID: 0}
-  dialogueText: {fileID: 0}
-  characterHead: {fileID: 0}
+  globalObj: {fileID: 0}
   mainCamera: {fileID: 0}
-  state_m: {fileID: 0}
 --- !u!1 &5615506153995731343
 GameObject:
   m_ObjectHideFlags: 0

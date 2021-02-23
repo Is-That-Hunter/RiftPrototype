@@ -129,7 +129,7 @@
         },
         "triggerAction":{
             "type":"Dialogue",
-            "tid":7,
+            "tid":8,
             "pid":6,
             "tree":"Tutorial",
             "targetObj":""
@@ -152,7 +152,67 @@
             "tid":0,
             "pid":0,
             "tree":"",
-            "targetObj":"Guard 1"
+            "targetObj":""
+        }
+    },
+    {
+        "tid":8,
+        "triggerType":"Inventory",
+        "triggerInfo":{
+            "pid":0,
+            "onLeave":true,
+            "onEnter":false,
+            "onFinish":false,
+            "onStart":false,
+            "onAction":""
+        },
+        "triggerAction":{
+            "type":"Zoom",
+            "sequence":"",
+            "tid":10,
+            "pid":7,
+            "tree":"Tutorial",
+            "targetObj":"Pink Slip"
+        }
+    },
+    {
+        "tid":9,
+        "triggerType":"Dialogue",
+        "triggerInfo":{
+            "pid":8,
+            "onLeave":true,
+            "onEnter":false,
+            "onFinish":false,
+            "onStart":false,
+            "onAction":""
+        },
+        "triggerAction":{
+            "type":"changeSeq",
+            "sequence":"Universal",
+            "tid":0,
+            "pid":0,
+            "tree":"",
+            "targetObj":""
+        }
+    },
+    {
+        "tid":10,
+        "triggerType":"Player",
+        "triggerInfo":{
+            "pid":7,
+            "onLeave":false,
+            "onEnter":false,
+            "onFinish":false,
+            "onStart":false,
+            "onAction":"PickUp Pink Slip"
+        },
+        "triggerAction":{
+            "type":"Dialogue",
+            "sequence":"",
+            "tid":9,
+            "pid":8,
+            "tree":"Tutorial",
+            "targetObj":""
         }
     }
     ]
