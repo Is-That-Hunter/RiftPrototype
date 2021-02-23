@@ -3,44 +3,6 @@
     "currTid": 2,
     "triggers":[
     {
-        "tid":0,
-        "triggerType":"Player",
-        "triggerInfo":{
-            "pid":0,
-            "onLeave":false,
-            "onEnter":true,
-            "onFinish":false,
-            "onStart":false,
-            "onAction":""
-        },
-        "triggerAction":{
-            "type":"Dialogue",
-            "tid":1,
-            "pid":0,
-            "tree":"Tutorial",
-            "targetObj":""
-        }
-    },
-    {
-        "tid":1,
-        "triggerType":"Inventory",
-        "triggerInfo":{
-            "pid":0,
-            "onLeave":false,
-            "onEnter":true,
-            "onFinish":false,
-            "onStart":false,
-            "onAction":""
-        },
-        "triggerAction":{
-            "type":"Dialogue",
-            "tid":2,
-            "pid":4,
-            "tree":"Tutorial",
-            "targetObj":""
-        }
-    },
-    {
         "tid":2,
         "triggerType":"Inventory",
         "triggerInfo":{
@@ -129,7 +91,7 @@
         },
         "triggerAction":{
             "type":"Dialogue",
-            "tid":8,
+            "tid":7,
             "pid":6,
             "tree":"Tutorial",
             "targetObj":""
@@ -147,32 +109,32 @@
             "onAction":""
         },
         "triggerAction":{
-            "type":"changeSeq",
-            "sequence":"Universal",
-            "tid":0,
-            "pid":0,
-            "tree":"",
-            "targetObj":""
+            "type":"Zoom",
+            "sequence":"",
+            "tid":8,
+            "pid":7,
+            "tree":"Tutorial",
+            "targetObj":"Pink Slip"
         }
     },
     {
         "tid":8,
-        "triggerType":"Inventory",
+        "triggerType":"Player",
         "triggerInfo":{
-            "pid":0,
-            "onLeave":true,
+            "pid":7,
+            "onLeave":false,
             "onEnter":false,
             "onFinish":false,
             "onStart":false,
-            "onAction":""
+            "onAction":"PickUp Pink Slip"
         },
         "triggerAction":{
-            "type":"Zoom",
+            "type":"Dialogue",
             "sequence":"",
-            "tid":10,
-            "pid":7,
+            "tid":9,
+            "pid":8,
             "tree":"Tutorial",
-            "targetObj":"Pink Slip"
+            "targetObj":""
         }
     },
     {
@@ -192,26 +154,6 @@
             "tid":0,
             "pid":0,
             "tree":"",
-            "targetObj":""
-        }
-    },
-    {
-        "tid":10,
-        "triggerType":"Player",
-        "triggerInfo":{
-            "pid":7,
-            "onLeave":false,
-            "onEnter":false,
-            "onFinish":false,
-            "onStart":false,
-            "onAction":"PickUp Pink Slip"
-        },
-        "triggerAction":{
-            "type":"Dialogue",
-            "sequence":"",
-            "tid":9,
-            "pid":8,
-            "tree":"Tutorial",
             "targetObj":""
         }
     }
