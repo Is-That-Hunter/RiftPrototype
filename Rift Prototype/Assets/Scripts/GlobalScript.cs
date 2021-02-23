@@ -40,7 +40,7 @@ public class GlobalScript : MonoBehaviour
         itemDatabase = new ItemDatabase(items);
         CraftDatabase = new CraftDatabase(items.Where(item => item.craftable == true).ToArray());
         inventory.AddItem(itemDatabase.FindItem("Coffee Cup (empty)"));
-        inventory.AddItem(itemDatabase.FindItem("Blueprints"));
         inventory.AddItem(itemDatabase.FindItem("Pen"));
+        inventory.AddItem(itemDatabase.FindItem("Pink Slip"));
     }
 }

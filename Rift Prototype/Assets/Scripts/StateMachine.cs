@@ -23,6 +23,7 @@ public class State
     public void changeActive(bool active, bool disableObj = false)
     {
         script.isActive = active;
+        script.changeActive(active);
         script.enabled = active;
         stateObject.SetActive(true);
         if(disableObj) {
@@ -37,11 +38,13 @@ public class StateMachine : MonoBehaviour
     public GameObject inventory;
     public GameObject dialogue;
     public GameObject overlay;
+    public SequenceHandler seqHandler;
     public Stack<State> stateStack = new Stack<State>();
 
     // Start is called before the first frame update
     void Start()
     {
+        seqHandler = gameObject.GetComponent<SequenceHandler>();
         states.Add(new State("Player", player));
         states.Add(new State("Inventory", inventory));
         states.Add(new State("Dialogue", dialogue));
@@ -63,6 +66,13 @@ public class StateMachine : MonoBehaviour
         _newState.changeActive(true);
         stateStack.Push(_newState);
         overlay.SetActive(overlayActive);
+        handleAction(newState, onEnter: true);
+        string prnt = "";
+        foreach(State x in stateStack.ToArray())
+        {
+            prnt += x.stateName + "\n";
+        }
+        Debug.Log(prnt);
 
     }
     public void popState(bool disableObj = true, bool overlayActive = true)
@@ -71,10 +81,22 @@ public class StateMachine : MonoBehaviour
         x.changeActive(false, disableObj);
         stateStack.Peek().changeActive(true);
         overlay.SetActive(overlayActive);
+        handleAction(x.stateName, onLeave: true);
+        string prnt = "";
+        foreach(State s in stateStack.ToArray())
+        {
+            prnt += s.stateName + "\n";
+        }
+        Debug.Log(prnt);
     }
     public State peekState()
     {
         return stateStack.Peek();
+    }
+    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, bool onFinish = false, bool onStart = false, string onAction = "", int pid = -1)
+    {
+        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onFinish,onStart,onAction,pid);
+        seqHandler.handleAction(trigInfo, triggerType);
     }
 }
 

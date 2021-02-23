@@ -38,7 +38,8 @@ public class DialogueScript : StateInterface, IPointerClickHandler
     {
         if(isActive)
             this.mainCamera.GetComponent<CameraController>().focus = true;
-            this.mainCamera.GetComponent<CameraController>().zoomIn = true;
+            Passage p = twineParser.getCurrPassage();
+            this.mainCamera.GetComponent<CameraController>().zoomIn = p.zoom;
             string text = twineParser.getCurrText();
             this.dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = text;
     }
@@ -53,9 +54,12 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         TMP_Text pTextMeshPro = this.dialogueText.GetComponent<TMP_Text>();
         int linkIndex = TMP_TextUtilities.FindIntersectingLink(pTextMeshPro, eventData.position, null);  // If you are not in a Canvas using Screen Overlay, put your camera instead of null
         if (linkIndex != -1) {
+            Debug.Log("Clicked");
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             var linkId = linkInfo.GetLinkID();
-            bool leave = twineParser.chooseOption("Guard", linkId);
+            Debug.Log(linkId);
+            bool leave = twineParser.chooseOption(linkId);
+            Debug.Log(leave);
             changePortrait();
             if(leave)
             {

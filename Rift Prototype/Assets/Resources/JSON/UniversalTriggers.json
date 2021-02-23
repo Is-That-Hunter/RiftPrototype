@@ -1,0 +1,25 @@
+{
+    "name": "Universal",
+    "currTid": 0,
+    "triggers":[
+        {
+            "tid":0,
+            "triggerType":"Player",
+            "triggerInfo":{
+                "pid":0,
+                "onLeave":false,
+                "onEnter":false,
+                "onFinish":false,
+                "onStart":false,
+                "onAction":""
+            },
+            "triggerAction":{
+                "type":"",
+                "tid":0,
+                "pid":0,
+                "tree":"",
+                "targetObj":""
+            }
+        }
+    ]
+}

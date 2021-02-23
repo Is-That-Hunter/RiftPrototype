@@ -49,20 +49,13 @@ public class UIInventory : MonoBehaviour
     private void RefreshInventoryItems()
     {
         bool selector = true;
-        //First to ensure no duplicates within the inventory display we destroy all current objects in the UI
         foreach(Transform child in inventory_Slots)
         {
             if (child == item_Slot_Base) continue;
             Destroy(child.gameObject);
         }
-        int x = 0;
-        int y = 0;
 
-        //This will adaptively need to be changed to fit the size of the inventory slots just a heads up
-        //I wonder if theres a way to make it less hardcoded, will have to check that out, maybe have it compared to the width/height of the background image in
-        //itemSlotTemplate hmmmmm
-        float itemSlotCellSize = 120f; 
-        foreach (Item item in inventory.GetItemList())
+        foreach (InventoryItem InvItem in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(item_Slot_Base, inventory_Slots).GetComponent<RectTransform>();
             if (selector)
@@ -72,24 +65,9 @@ public class UIInventory : MonoBehaviour
             }
             itemSlotRectTransform.gameObject.SetActive(true);
 
-            // VVVV This is Yucky hardcoded BS will need to change later, but its pretty easy its just refering to the coordinates (x, y) of the itemSlotTemplate
-            // VVVV Will change in the future but leaving it for now for simplicity 
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize - 456, y * itemSlotCellSize - 26);
-
             Image image = itemSlotRectTransform.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
-            image.GetComponent<ImageItem>().SetItem(item);
-            image.sprite = item.GetSprite();
-
-            x++;
-
-            //Similar to the above this'll have to change dependent on the number of items that can fit per row
-            //Honestly there's probably a quick equation we can use to determine the total number that can fit per row
-            //Will have to change in the future for simplicity in UI modification
-            if(x > 3)
-            {
-                x = 0;
-                y--;
-            }
+            image.GetComponent<ImageItem>().SetItem(InvItem);
+            image.sprite = InvItem.item.GetSprite();
         }
     }
 }
