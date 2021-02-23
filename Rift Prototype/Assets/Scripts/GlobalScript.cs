@@ -20,7 +20,7 @@ public class GlobalScript : MonoBehaviour
     public Item[] items;
     //private UI_Inventory ui_Inventory;
     public UIInventory ui_Inventory;
-    public GameObject Overlay;
+    public Overlay Overlay;
 
     //Uses Start to let the other scripts load with Awake functions
     private void Start()

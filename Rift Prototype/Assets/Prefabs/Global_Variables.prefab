@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2894699587889440564}
-  - component: {fileID: 2894699587889440566}
   - component: {fileID: 5658435759530871631}
   - component: {fileID: 3781443065532321444}
+  - component: {fileID: 8002069152022301764}
   m_Layer: 0
   m_Name: Global_Variables
   m_TagString: Untagged
@@ -33,22 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2894699587889440566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2894699587889440565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a309d02b74b2a2d4d9c39e52cc440db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsJson: ItemDatabase
-  items: []
-  ui_Inventory: {fileID: 0}
-  Overlay: {fileID: 0}
 --- !u!114 &5658435759530871631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,8 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f66376be43714ce7887474d2075eb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueJson: GuardInteraction
-  currPid: 1
+  dialogueJsons: []
   mainCamera: {fileID: 0}
   characters:
   - name: Angela
@@ -91,5 +74,21 @@ MonoBehaviour:
   - name: Guard 2
     portrait: {fileID: 21300000, guid: 66059810f40414701b527279b439bf7e, type: 3}
     character: {fileID: 0}
-  inArea: 0
   global_variables: {fileID: 0}
+  inArea: 0
+--- !u!114 &8002069152022301764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894699587889440565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d5cb0d7d50047b793647cffabb72be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsJson: ItemDatabase
+  items: []
+  ui_Inventory: {fileID: 0}
+  Overlay: {fileID: 0}

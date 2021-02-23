@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 public class CftCtrlBhv : StateInterface
 {
     //Uses the CraftControls input system
-    public CraftControls controls;
+    public MainController controls;
 
     //Set to the crafting slots in editor
     public GameObject material_Slot;
@@ -32,7 +32,7 @@ public class CftCtrlBhv : StateInterface
     {
         //Each special action is defined, set to a filler variable, and assigned to a function to perform
         //When the button is pressed
-        controls = new CraftControls();
+        controls = new MainController();
 
         controls.Inventory_Craft.Craft.performed += craft_Behavior => Craft();
 
@@ -169,7 +169,7 @@ public class CftCtrlBhv : StateInterface
     {
         if (controls == null)
         {
-            controls = new CraftControls();
+            controls = new MainController();
             // Tell the "gameplay" action map that we want to get told about
             // when actions get triggered.
             //controls.gameplay.SetCallbacks(this);

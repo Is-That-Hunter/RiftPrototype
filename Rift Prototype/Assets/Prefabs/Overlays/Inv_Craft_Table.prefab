@@ -314,10 +314,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8471932447331667921}
-  - component: {fileID: 8471932447331667926}
   - component: {fileID: 3576289977764309118}
   - component: {fileID: 836834313824471030}
   - component: {fileID: 5147598139818608352}
+  - component: {fileID: 1134479299210655426}
   m_Layer: 5
   m_Name: Inv_Craft_Table
   m_TagString: Untagged
@@ -346,25 +346,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8471932447331667926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8471932447331667920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f63263f5b2ba94fafde68c14573241, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 0
-  material_Slot: {fileID: 8471932447981448754}
-  type_Slot: {fileID: 8471932447721841530}
-  size_Slot: {fileID: 8471932447922441478}
-  state_m: {fileID: 0}
-  inventory_Slots: {fileID: 8471932448579656751}
-  global_Variable_Obj: {fileID: 0}
 --- !u!223 &3576289977764309118
 Canvas:
   m_ObjectHideFlags: 0
@@ -425,6 +406,25 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &1134479299210655426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471932447331667920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e42b323f8ea42ee970c141401b6d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  material_Slot: {fileID: 8471932448014161519}
+  type_Slot: {fileID: 8471932447399999096}
+  size_Slot: {fileID: 8471932447348427127}
+  state_m: {fileID: 0}
+  inventory_Slots: {fileID: 8471932448579656751}
+  global_Variable_Obj: {fileID: 0}
 --- !u!1 &8471932447348427127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1361,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8471932448130154034}
   - component: {fileID: 8471932448130154035}
-  - component: {fileID: 8471932448130154032}
   m_Layer: 5
   m_Name: Inventory_Table
   m_TagString: Untagged
@@ -1405,22 +1404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0dab1230a05ca4f99a958927d866f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventSystem: {fileID: 0}
---- !u!114 &8471932448130154032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8471932448130154045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07ecc9e3574555040a09742185ab97ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item_Display: {fileID: 8471932446659258919}
-  Item_Descr: {fileID: 8471932447694032478}
-  Item_Attr: {fileID: 8471932446740809837}
   m_EventSystem: {fileID: 0}
 --- !u!1 &8471932448451809904
 GameObject:
