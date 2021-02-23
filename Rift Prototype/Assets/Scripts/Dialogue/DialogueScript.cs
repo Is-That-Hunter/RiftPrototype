@@ -7,11 +7,12 @@ using UnityEngine.EventSystems;
 
 public class DialogueScript : StateInterface, IPointerClickHandler
 {
-    public GameObject dialogueObj;
-    public GameObject dialogueText; 
-    public GameObject characterHead;
+    public GameObject globalObj;
+    private GameObject dialogueText; 
+    private GameObject characterHead;
     public GameObject mainCamera;
-    public StateMachine state_m;
+    private StateMachine stateMachine;
+    private TwineParser twineParser;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,8 @@ public class DialogueScript : StateInterface, IPointerClickHandler
                 this.dialogueText = t.gameObject;
             }
         }
+        this.twineParser = this.globalObj.GetComponent<TwineParser>();
+        this.stateMachine = this.globalObj.GetComponent<StateMachine>();
         changePortrait();
     }
 
@@ -36,14 +39,14 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         if(isActive)
             this.mainCamera.GetComponent<CameraController>().focus = true;
             this.mainCamera.GetComponent<CameraController>().zoomIn = true;
-            string text = this.dialogueObj.GetComponent<TwineParser>().getCurrText("Guard");
+            string text = twineParser.getCurrText();
             this.dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = text;
     }
 
     public void changePortrait() {
-        //CharacterPortrait char = this.dialogueObj.GetComponent<TwineParser>().getCharacterPortrait("Guard");
-        //this.characterHead.GetComponent<Image>().sprite = char.portrait;
-        //this.mainCamera.GetComponent<CameraController>().focusObject = char.character;
+        CharacterPortrait charPortrait = twineParser.getCurrCharacterPortrait();
+        this.characterHead.GetComponent<Image>().sprite = charPortrait.portrait;
+        this.mainCamera.GetComponent<CameraController>().focusObject = charPortrait.character.transform;
     }
 
     public void OnPointerClick(PointerEventData eventData) {
@@ -52,13 +55,13 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         if (linkIndex != -1) {
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             var linkId = linkInfo.GetLinkID();
-            bool leave = this.dialogueObj.GetComponent<TwineParser>().chooseOption("Guard", linkId);
+            bool leave = twineParser.chooseOption("Guard", linkId);
             changePortrait();
             if(leave)
             {
                 this.mainCamera.GetComponent<CameraController>().focus = false;
                 this.mainCamera.GetComponent<CameraController>().zoomIn = false;
-                state_m.popState();
+                stateMachine.popState();
             }
         }
     }

@@ -23,7 +23,7 @@ public class ItemDetector : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Item Detected");
-            string itemPrompt = "Press 'E' to pick up " + collision.gameObject.GetComponent<ItemPickupVar>().attachedItemName;
+            string itemPrompt = "Press 'E' to pick up " + collision.gameObject.GetComponent<ItemTag>().attachedItemName;
             global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
             global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
             currentCol = collision;

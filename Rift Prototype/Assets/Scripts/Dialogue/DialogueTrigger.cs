@@ -6,11 +6,16 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public GameObject global_variables;
+    private GlobalScript globalScript;
+    private TwineParser twineParser;
+    private Overlay overlay;
     
     void Start() 
     {
-        global_variables = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
+        GameObject globalObj = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
+        this.globalScript = globalObj.GetComponent<GlobalScript>();
+        this.twineParser = globalObj.GetComponent<TwineParser>();
+        this.overlay = globalScript.Overlay.GetComponent<Overlay>();
     }
 
     //Detect collisions between the GameObjects with Colliders attached
@@ -21,17 +26,19 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Dialogue")
         {
             //If the GameObject has the same tag as specified, output this message in the console
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt("Press 'E' To Talk to Guards");
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-            global_variables.GetComponent<TwineParser>().inArea = true;
+            DialogueTag tag = collision.gameObject.GetComponent<DialogueTag>();
+            this.overlay.changePrompt(tag.overlayText);
+            this.overlay.changePromptActive(true);
+            this.twineParser.currTree = tag.treeName;
+            this.twineParser.inArea = true;
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Dialogue")
         {
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
-            global_variables.GetComponent<TwineParser>().inArea = false;
+            this.overlay.changePromptActive(false);
+            this.twineParser.inArea = false;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Attatch to Item Tagged Objects and edit its name for each item
 
-public class ItemPickupVar : MonoBehaviour
+public class ItemTag : MonoBehaviour
 {
     public string attachedItemName;
 

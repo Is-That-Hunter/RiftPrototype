@@ -1,4 +1,7 @@
 {
+  "name": "Guard",
+  "currPid": 1,
+  "type": "dialogue",
   "passages": [
     {
       "character": "Angela",

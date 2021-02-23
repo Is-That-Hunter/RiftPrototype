@@ -49,6 +49,7 @@ public class TwineParser : MonoBehaviour
     public CharacterPortrait[] characters;
     public GlobalScript global_variables;
     public bool inArea;
+    public string currTree;
     void Start()
     {
         global_variables = gameObject.GetComponent<GlobalScript>();
@@ -74,7 +75,9 @@ public class TwineParser : MonoBehaviour
         }
     }
 
-    public Passage getCurrPassage(string tree) {
+    public Passage getCurrPassage(string tree = "") {
+        if(tree == "")
+            tree = this.currTree;
         Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
         if(thisTree != null)
         {
@@ -90,8 +93,15 @@ public class TwineParser : MonoBehaviour
         CharacterPortrait charPortrait = characters.FirstOrDefault(i=>i.name == character);
         return charPortrait;
     }
+    public CharacterPortrait getCurrCharacterPortrait(string tree = "") {
+        if(tree == "")
+            tree = this.currTree;
+        return this.getCharacterPortrait(this.getCurrPassage(tree).character);
+    }
 
-    public string getCurrText(string tree) {
+    public string getCurrText(string tree = "") {
+        if(tree == "")
+            tree = this.currTree;
         Passage p = this.getCurrPassage(tree);
         if(p.hasVar)
             return formatTextForClickable(p);
@@ -147,6 +157,7 @@ public class TwineParser : MonoBehaviour
         string[] textArr = text.Split('\n');
         List<string> textLinks = new List<string>();
         string ret = "";
+        p.hasVar = false;
         for(int i = 0; i < textArr.Length; i++) {
             bool newline = true;
             //For If Statements in Text

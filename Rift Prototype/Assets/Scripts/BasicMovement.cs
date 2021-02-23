@@ -201,11 +201,11 @@ public class BasicMovement : StateInterface
             Item itemGrab = null;
             if(itemObject.tag != "Item")
             {
-                itemGrab = ItemDB.FindItem(itemObject.transform.GetChild(0).GetComponent<ItemPickupVar>().attachedItemName);
+                itemGrab = ItemDB.FindItem(itemObject.transform.GetChild(0).GetComponent<ItemTag>().attachedItemName);
             }
             else
             {
-                itemGrab = ItemDB.FindItem(itemObject.GetComponent<ItemPickupVar>().attachedItemName);
+                itemGrab = ItemDB.FindItem(itemObject.GetComponent<ItemTag>().attachedItemName);
             }
             global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
             Destroy(itemObject.gameObject.transform.parent.gameObject);

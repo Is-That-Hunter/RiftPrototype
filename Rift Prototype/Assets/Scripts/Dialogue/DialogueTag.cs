@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class DialogueTag : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string treeName;
+    public int pid = -1;
+    public string overlayText = "Interact with thign";
 }
