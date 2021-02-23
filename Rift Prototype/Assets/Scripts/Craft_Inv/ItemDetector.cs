@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Attach to Player to detect Item collisions
 
-public class Item_Detector : MonoBehaviour
+public class ItemDetector : MonoBehaviour
 {
     public Collider currentCol = null;
     public GameObject global_variables;
@@ -23,9 +23,9 @@ public class Item_Detector : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Item Detected");
-            string itemPrompt = "Press 'E' to pick up " + collision.gameObject.GetComponent<Item_Pickup_Var>().attachedItemName;
-            global_variables.GetComponent<Global_Script>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-            global_variables.GetComponent<Global_Script>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+            string itemPrompt = "Press 'E' to pick up " + collision.gameObject.GetComponent<ItemTag>().attachedItemName;
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
             currentCol = collision;
         }
     }
@@ -35,7 +35,7 @@ public class Item_Detector : MonoBehaviour
         if (other.gameObject.tag == "Item")
         {
             Debug.Log("Left Item Collider Area");
-            global_variables.GetComponent<Global_Script>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
             currentCol = null;
         }
     }

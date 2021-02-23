@@ -8,16 +8,16 @@ using UnityEngine.EventSystems;
 //Script for defining controls for Crafting/Inv System
 //Attatch to Inv_Craft_Table
 
-public class Cft_Ctrl_Bhv : stateInterface
+public class CftCtrlBhv : StateInterface
 {
-    //Uses the Craft_Controls input system
-    public Craft_Controls controls;
+    //Uses the CraftControls input system
+    public MainController controls;
 
     //Set to the crafting slots in editor
     public GameObject material_Slot;
     public GameObject type_Slot;
     public GameObject size_Slot;
-    public Simple_State_M state_m;
+    public StateMachine state_m;
 
     public Transform inventory_Slots;
 
@@ -32,7 +32,7 @@ public class Cft_Ctrl_Bhv : stateInterface
     {
         //Each special action is defined, set to a filler variable, and assigned to a function to perform
         //When the button is pressed
-        controls = new Craft_Controls();
+        controls = new MainController();
 
         controls.Inventory_Craft.Craft.performed += craft_Behavior => Craft();
 
@@ -54,10 +54,10 @@ public class Cft_Ctrl_Bhv : stateInterface
     //Crafts the item if the Type, Material, and Size can result in another Item
     void Craft()
     {
-        CraftDatabase craftDatabase = global_Variable_Obj.GetComponent<Global_Script>().CraftDatabase;
-        Inventory inventory = global_Variable_Obj.GetComponent<Global_Script>().inventory;
+        CraftDatabase craftDatabase = global_Variable_Obj.GetComponent<GlobalScript>().CraftDatabase;
+        Inventory inventory = global_Variable_Obj.GetComponent<GlobalScript>().inventory;
         Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
-        ItemDatabase allItems = global_Variable_Obj.GetComponent<Global_Script>().itemDatabase;
+        ItemDatabase allItems = global_Variable_Obj.GetComponent<GlobalScript>().itemDatabase;
 
         if (requested_Size != null && requested_Material != null && requested_Type != null)
         {
@@ -169,7 +169,7 @@ public class Cft_Ctrl_Bhv : stateInterface
     {
         if (controls == null)
         {
-            controls = new Craft_Controls();
+            controls = new MainController();
             // Tell the "gameplay" action map that we want to get told about
             // when actions get triggered.
             //controls.gameplay.SetCallbacks(this);

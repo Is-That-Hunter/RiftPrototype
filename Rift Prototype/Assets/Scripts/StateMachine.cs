@@ -11,13 +11,13 @@ public class State
 {
     public string stateName;
     public GameObject stateObject;
-    public stateInterface script;
+    public StateInterface script;
     
     public State(string _state, GameObject obj)
     {
         stateName = _state;
         stateObject = obj;
-        script = obj.GetComponent<stateInterface>();
+        script = obj.GetComponent<StateInterface>();
     }
 
     public void changeActive(bool active, bool disableObj = false)
@@ -30,7 +30,7 @@ public class State
         }
     }
 }
-public class Simple_State_M : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
     public List<State> states = new List<State>();
     public GameObject player;
