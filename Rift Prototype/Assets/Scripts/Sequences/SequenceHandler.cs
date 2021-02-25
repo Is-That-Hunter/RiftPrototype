@@ -43,13 +43,15 @@ public class SequenceHandler : MonoBehaviour
     public void handleAction(TriggerInfo trigInfo, string trigType) 
     {
         Trigger trig = getCurrTrigger();
+        if(trigInfo.onAction != "")
+            Debug.Log(trigInfo.onAction);
         if(trigType == trig.triggerType)
         {
             bool activateTrig = trigInfo.onLeave & trig.triggerInfo.onLeave;
             activateTrig = activateTrig || (trigInfo.onEnter & trig.triggerInfo.onEnter);
             activateTrig = activateTrig || (trigInfo.onFinish & trig.triggerInfo.onFinish);
             activateTrig = activateTrig || (trigInfo.onStart & trig.triggerInfo.onStart);
-            activateTrig = activateTrig || (trigInfo.onAction != "" & trigInfo.onAction == trig.triggerInfo.onAction);
+            activateTrig = activateTrig || (trigInfo.onAction != "" & checkOnAction(trig.triggerInfo.onAction, trigInfo.onAction));
             if(activateTrig)
                 if(trigType == "Dialogue" & trigInfo.pid == trig.triggerInfo.pid)
                 {
@@ -62,6 +64,14 @@ public class SequenceHandler : MonoBehaviour
                     changeCurrTid(trig.triggerAction.tid);
                 }
         }
+    }
+    private bool checkOnAction(string dbOnAction, string onActionTrigger)
+    {
+        if(onActionTrigger.Contains(dbOnAction))
+        {
+            return true;
+        }
+        return false;
     }
     void doTrigger(TriggerAction action)
     {

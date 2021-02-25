@@ -4,10 +4,11 @@ using UnityEngine;
 
 //Attach to Player to detect Item collisions
 
-public class ItemDetector : MonoBehaviour
+public class ItemTrigger : MonoBehaviour
 {
     public Collider currentCol = null;
-    public GameObject global_variables;
+    public ItemTag currentItem = null;
+    private GameObject global_variables;
     
     void Start()
     {
@@ -23,20 +24,36 @@ public class ItemDetector : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Item Detected");
-            string itemPrompt = "Press 'E' to pick up " + collision.gameObject.GetComponent<ItemTag>().attachedItemName;
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+            ItemTag item = collision.gameObject.GetComponent<ItemTag>();
+            currentItem = item;
+            item.setIndicator(true);
+
+            if(item.placeable)
+            {
+
+            }
+            else
+            {
+                //Set Overlay
+                string itemPrompt = "Press 'E' to pick up " + item.attachedItemName;
+                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
+                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+            }
             currentCol = collision;
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider collision)
     {
-        if (other.gameObject.tag == "Item")
+        if (collision.gameObject.tag == "Item")
         {
             Debug.Log("Left Item Collider Area");
+            ItemTag item = collision.gameObject.GetComponent<ItemTag>();
+            item.setIndicator(false);
+
             global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
             currentCol = null;
+            currentItem = null;
         }
     }
 }

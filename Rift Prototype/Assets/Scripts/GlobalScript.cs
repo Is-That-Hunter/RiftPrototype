@@ -24,12 +24,15 @@ public class GlobalScript : MonoBehaviour
     public Overlay Overlay;
     public TwineParser twineParser;
     public SequenceHandler sequenceHandler;
+    public SceneScript sceneScript;
 
     //Uses Start to let the other scripts load with Awake functions
     private void Start()
     {
+        sceneScript = SceneObj.GetComponent<SceneScript>();
         twineParser = SceneObj.GetComponent<TwineParser>();
         sequenceHandler = SceneObj.GetComponent<SequenceHandler>();
+        
         inventory = new Inventory();
         FromJson();
 
@@ -44,8 +47,8 @@ public class GlobalScript : MonoBehaviour
         items= _items.items;
         itemDatabase = new ItemDatabase(items);
         CraftDatabase = new CraftDatabase(items.Where(item => item.craftable == true).ToArray());
-        inventory.AddItem(itemDatabase.FindItem("Coffee Cup (empty)"));
-        inventory.AddItem(itemDatabase.FindItem("Pen"));
-        inventory.AddItem(itemDatabase.FindItem("Pink Slip"));
+        inventory.AddItem(itemDatabase.FindItem("TrashCan"));
+        inventory.AddItem(itemDatabase.FindItem("Chair"));
+        inventory.AddItem(itemDatabase.FindItem("Shoe"));
     }
 }

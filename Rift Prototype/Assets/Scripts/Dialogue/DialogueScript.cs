@@ -12,7 +12,7 @@ public class DialogueScript : StateInterface, IPointerClickHandler
     private GameObject characterHead;
     public GameObject mainCamera;
     private StateMachine stateMachine;
-    public TwineParser twineParser;
+    private TwineParser twineParser;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +62,7 @@ public class DialogueScript : StateInterface, IPointerClickHandler
             {
                 this.mainCamera.GetComponent<CameraController>().focus = false;
                 this.mainCamera.GetComponent<CameraController>().zoomIn = false;
-                stateMachine.popState();
+                stateMachine.popState(pid: twineParser.getCurrPid());
             }
         }
     }
