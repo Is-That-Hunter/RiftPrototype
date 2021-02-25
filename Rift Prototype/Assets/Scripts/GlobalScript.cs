@@ -16,15 +16,20 @@ public class GlobalScript : MonoBehaviour
     public Inventory inventory;
     public ItemDatabase itemDatabase;
     public CraftDatabase CraftDatabase;
+    public GameObject SceneObj;
     public string itemsJson;
     public Item[] items;
     //private UI_Inventory ui_Inventory;
     public UIInventory ui_Inventory;
     public Overlay Overlay;
+    public TwineParser twineParser;
+    public SequenceHandler sequenceHandler;
 
     //Uses Start to let the other scripts load with Awake functions
     private void Start()
     {
+        twineParser = SceneObj.GetComponent<TwineParser>();
+        sequenceHandler = SceneObj.GetComponent<SequenceHandler>();
         inventory = new Inventory();
         FromJson();
 
@@ -40,7 +45,7 @@ public class GlobalScript : MonoBehaviour
         itemDatabase = new ItemDatabase(items);
         CraftDatabase = new CraftDatabase(items.Where(item => item.craftable == true).ToArray());
         inventory.AddItem(itemDatabase.FindItem("Coffee Cup (empty)"));
-        inventory.AddItem(itemDatabase.FindItem("Blueprints"));
         inventory.AddItem(itemDatabase.FindItem("Pen"));
+        inventory.AddItem(itemDatabase.FindItem("Pink Slip"));
     }
 }

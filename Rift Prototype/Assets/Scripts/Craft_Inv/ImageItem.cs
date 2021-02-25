@@ -9,25 +9,21 @@ using UnityEngine;
 
 public class ImageItem : MonoBehaviour
 {
-    private Item attachedItem;
+    private InventoryItem attachedItem;
 
     private GameObject currentItemSlot;
-
-    private bool craft_Available = true;
-
-    public GameObject assigned_Craft = null;
 
     private void Awake()
     {
         currentItemSlot = transform.parent.gameObject;
     }
 
-    public void SetItem(Item item)
+    public void SetItem(InventoryItem item)
     {
         attachedItem = item;
     }
 
-    public Item GetItem()
+    public InventoryItem GetItem()
     {
         return attachedItem;
     }
@@ -40,15 +36,5 @@ public class ImageItem : MonoBehaviour
     public GameObject GetItemSlot()
     {
         return currentItemSlot;
-    }
-
-    public bool GetCraftBool()
-    {
-        return craft_Available;
-    }
-
-    public void SetCraftBool(bool var)
-    {
-        craft_Available = var;
     }
 }

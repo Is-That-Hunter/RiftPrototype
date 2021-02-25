@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eaf7b60fc1041d19e5b38827cd1c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  global_variables: {fileID: 0}
+  twineParser: {fileID: 0}
 --- !u!114 &1781973446765125043
 MonoBehaviour:
   m_ObjectHideFlags: 0

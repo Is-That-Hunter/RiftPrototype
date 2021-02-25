@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
 
 //Add by Raymond
 //Verson 1.0, Last edited on 9/17/2020
@@ -32,7 +31,6 @@ public class BasicMovement : StateInterface
     public bool xInverted;
     public float rightTriggerValue;
     public float leftTriggerValue;
-    CinemachineFreeLook freeLook;
     public GameObject mainCamera;
     public Transform cam;
     public float speed = 10.0f;
@@ -48,7 +46,6 @@ public class BasicMovement : StateInterface
     public void LockPlayer()
     {
         playerMove = !playerMove;
-        freeLook.enabled = playerMove;
     }
 
     void Awake()
@@ -201,11 +198,15 @@ public class BasicMovement : StateInterface
             Item itemGrab = null;
             if(itemObject.tag != "Item")
             {
-                itemGrab = ItemDB.FindItem(itemObject.transform.GetChild(0).GetComponent<ItemTag>().attachedItemName);
+                string itemName = itemObject.transform.GetChild(0).GetComponent<ItemTag>().attachedItemName;
+                itemGrab = ItemDB.FindItem(itemName);
+                state_m.handleAction("Player", onAction: "PickUp " + itemName);
             }
             else
             {
-                itemGrab = ItemDB.FindItem(itemObject.GetComponent<ItemTag>().attachedItemName);
+                string itemName = itemObject.GetComponent<ItemTag>().attachedItemName;
+                itemGrab = ItemDB.FindItem(itemName);
+                state_m.handleAction("Player", onAction: "PickUp " + itemName);
             }
             global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
             Destroy(itemObject.gameObject.transform.parent.gameObject);
@@ -217,7 +218,7 @@ public class BasicMovement : StateInterface
     public void Interact()
     {
         Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol;
-        bool inDialogueTrigger = global_variables.GetComponent<TwineParser>().inArea;
+        bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
         if(inDialogueTrigger) {
             state_m.pushState("Dialogue", false);
         }

@@ -1,0 +1,142 @@
+{
+    "name": "Tutorial",
+    "currPid": 0,
+    "type": "",
+    "passages": [
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press Q to enter your Inventory.\n[[Okay->Tutorial Move]]",
+            "name": "Tutorial 1",
+            "pid": "0",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Tutorial Move",
+                    "pid": "4"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press Left Arrow Key to select current objects Size for crafting.\n[[Okay->Tutorial 3]]",
+            "name": "Tutorial 2",
+            "pid": "1",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Tutorial 3",
+                    "pid": "2"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press Up Arrow Key to select current objects Material for crafting.\n[[Okay->Tutorial 4]]",
+            "name": "Tutorial 3",
+            "pid": "2",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Tutorial 4",
+                    "pid": "3"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press Right Arrow Key to select current objects Type.\n[[Okay->Tutorial 5]]",
+            "name": "Tutorial 4",
+            "pid": "3",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Tutorial 5",
+                    "pid": "5"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press A and D to move through inventory\n[[Okay->Tutorial 3]]",
+            "name": "Tutorial Move",
+            "pid": "4",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Tutorial 3",
+                    "pid": "1"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press Space to Craft Item\n[[Okay->Tutorial 6]]",
+            "name": "Tutorial 5",
+            "pid": "5",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Tutorial 6",
+                    "pid": "6"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Nice Job!\n[[Thanks->Tutorial 6]]",
+            "name": "Tutorial 6",
+            "pid": "6",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Thanks",
+                    "link": "Tutorial 6",
+                    "pid": "6"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": true,
+            "text": "Pick Up This Object\n[[Okay->Tutorial 6]]",
+            "name": "Tutorial Pick Up",
+            "pid": "7",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Thanks",
+                    "link": "Tutorial 6",
+                    "pid": "7"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": true,
+            "text": "This Should be useful\n[[Okay->Tutorial 6]]",
+            "name": "Tutorial Pick Up",
+            "pid": "8",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Thanks",
+                    "link": "Tutorial 6",
+                    "pid": "8"
+                }
+            ]
+        }
+    ]
+}

@@ -5,34 +5,6 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-//Parsing Dialogue Text Files
-[System.Serializable]
-public class Twine
-{
-    public string name;
-    public Passage[] passages;
-    public int currPid;
-}
-[System.Serializable]
-public class Passage
-{
-    public bool zoom;
-    public string character;
-    public string parsedText;
-    public string text;
-    public Link[] links;
-    public string name;
-    public string pid;
-    public bool hasVar;
-}
-[System.Serializable]
-public class Link
-{
-    public bool leave;
-    public string name;
-    public string link;
-    public string pid;
-}
 //For Displaying Portraits next to Dialogue
 [System.Serializable]
 public class CharacterPortrait
@@ -43,7 +15,7 @@ public class CharacterPortrait
 }
 public class TwineParser : MonoBehaviour
 {
-    private List<Twine> dialogueTrees = new List<Twine>();
+    public List<Twine> dialogueTrees = new List<Twine>();
     public string[] dialogueJsons;
     public GameObject mainCamera;
     public CharacterPortrait[] characters;
@@ -52,7 +24,7 @@ public class TwineParser : MonoBehaviour
     public string currTree;
     void Start()
     {
-        global_variables = gameObject.GetComponent<GlobalScript>();
+        global_variables = gameObject.GetComponent<SceneScript>().globalScript;
         foreach(string json in dialogueJsons)
         {
             Twine tree = FromJson(json);
@@ -73,6 +45,14 @@ public class TwineParser : MonoBehaviour
         {
             p.parsedText = this.formatTextForClickable(p);
         }
+    }
+
+    public int getCurrPid(string tree = "")
+    {
+        if(tree == "")
+            tree = this.currTree;
+        Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
+        return thisTree.currPid;
     }
 
     public Passage getCurrPassage(string tree = "") {
@@ -108,7 +88,8 @@ public class TwineParser : MonoBehaviour
         return p.parsedText;
     }
 
-    public bool chooseOption(string tree, string option) {
+    public bool chooseOption(string option) {
+        string tree = currTree;
         Twine thisTree = dialogueTrees.FirstOrDefault(i=>i.name == tree);
         if(thisTree != null)
         {

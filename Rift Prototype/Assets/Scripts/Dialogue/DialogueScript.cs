@@ -12,7 +12,7 @@ public class DialogueScript : StateInterface, IPointerClickHandler
     private GameObject characterHead;
     public GameObject mainCamera;
     private StateMachine stateMachine;
-    private TwineParser twineParser;
+    public TwineParser twineParser;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +28,7 @@ public class DialogueScript : StateInterface, IPointerClickHandler
                 this.dialogueText = t.gameObject;
             }
         }
-        this.twineParser = this.globalObj.GetComponent<TwineParser>();
+        this.twineParser = this.globalObj.GetComponent<GlobalScript>().twineParser;
         this.stateMachine = this.globalObj.GetComponent<StateMachine>();
         changePortrait();
     }
@@ -38,7 +38,8 @@ public class DialogueScript : StateInterface, IPointerClickHandler
     {
         if(isActive)
             this.mainCamera.GetComponent<CameraController>().focus = true;
-            this.mainCamera.GetComponent<CameraController>().zoomIn = true;
+            Passage p = twineParser.getCurrPassage();
+            this.mainCamera.GetComponent<CameraController>().zoomIn = p.zoom;
             string text = twineParser.getCurrText();
             this.dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = text;
     }
@@ -55,7 +56,7 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         if (linkIndex != -1) {
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             var linkId = linkInfo.GetLinkID();
-            bool leave = twineParser.chooseOption("Guard", linkId);
+            bool leave = twineParser.chooseOption(linkId);
             changePortrait();
             if(leave)
             {

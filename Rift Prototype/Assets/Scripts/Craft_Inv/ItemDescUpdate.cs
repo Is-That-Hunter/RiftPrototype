@@ -25,7 +25,7 @@ public class ItemDescUpdate : MonoBehaviour
         {
             currentSelected = m_EventSystem.currentSelectedGameObject;
 
-            Item currentItem = currentSelected.GetComponent<ImageItem>().GetItem();
+            Item currentItem = currentSelected.GetComponent<ImageItem>().GetItem().item;
 
             Item_Display.GetComponent<Image>().sprite = currentItem.GetSprite();
 
