@@ -90,28 +90,13 @@ public class BasicMovement : StateInterface
         Vector3 velo = Vector3.zero;
         velo.y = body.velocity.y; 
         body.velocity = velo;
-        Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
+        //Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
         //Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
         Vector3 input = new Vector3(movement.x, 0, movement.y);
         //Player movement in a left right forward back space
         if (playerMove)
         {
-            if(yInverted)
-            {
-
-            }
-            if(xInverted)
-            {
-                
-            }
-            if (dPadInput != Vector3.zero)
-            {
-                body.MovePosition(body.position + (dPadInput * currentSpeed * Time.deltaTime));
-            }
-            else
-            {
-                body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
-            }
+            body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
         }
 
     }
