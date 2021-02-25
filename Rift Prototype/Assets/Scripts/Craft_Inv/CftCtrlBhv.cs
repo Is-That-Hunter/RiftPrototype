@@ -21,6 +21,7 @@ public class CftCtrlBhv : StateInterface
     private UIInventory uiInventory;
 
     private Transform inventory_Slots;
+    private Transform toolTip;
 
     //Set to Global_Variable Object
     public GameObject global_Variable_Obj;
@@ -44,6 +45,10 @@ public class CftCtrlBhv : StateInterface
             {
                 uiInventory = t.gameObject.GetComponent<UIInventory>();
                 inventory_Slots = t.Find("Inventory_Slots").gameObject.transform;
+            }
+            if(t.gameObject.name == "ToolTip")
+            {
+                toolTip = t;
             }
         }
         //Each special action is defined, set to a filler variable, and assigned to a function to perform
@@ -220,9 +225,6 @@ public class CftCtrlBhv : StateInterface
         if (controls == null)
         {
             controls = new MainController();
-            // Tell the "gameplay" action map that we want to get told about
-            // when actions get triggered.
-            //controls.gameplay.SetCallbacks(this);
         }
         if(uiInventory == null)
         {
@@ -230,12 +232,23 @@ public class CftCtrlBhv : StateInterface
         }
         controls.Enable();
         uiInventory.enabled = true;
+        ChangeRaycast(true);
     }
 
     private void OnDisable()
     {
         controls.Disable();
+        ChangeRaycast(false);
         uiInventory.enabled = false;
+    }
+    private void ChangeRaycast(bool active)
+    {
+        material_Slot.GetComponent<Image>().raycastTarget = active;
+        material_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
+        type_Slot.GetComponent<Image>().raycastTarget = active;
+        type_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
+        size_Slot.GetComponent<Image>().raycastTarget = active;
+        size_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
     }
     public void changeActive(bool _isActive) {
         isActive = _isActive;
