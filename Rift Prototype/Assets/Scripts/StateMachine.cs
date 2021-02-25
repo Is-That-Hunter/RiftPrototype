@@ -38,15 +38,17 @@ public class StateMachine : MonoBehaviour
     public GameObject inventory;
     public GameObject dialogue;
     public GameObject overlay;
-    public SequenceHandler seqHandler;
+    private GlobalScript globalScript;
+    private SequenceHandler seqHandler;
     public Stack<State> stateStack = new Stack<State>();
     private TwineParser twineParser;
 
     // Start is called before the first frame update
     void Start()
     {
-        seqHandler = gameObject.GetComponent<SequenceHandler>();
-        twineParser = gameObject.GetComponent<TwineParser>();
+        globalScript = gameObject.GetComponent<GlobalScript>();
+        seqHandler = globalScript.sequenceHandler;
+        twineParser = globalScript.twineParser;
         states.Add(new State("Player", player));
         states.Add(new State("Inventory", inventory));
         states.Add(new State("Dialogue", dialogue));

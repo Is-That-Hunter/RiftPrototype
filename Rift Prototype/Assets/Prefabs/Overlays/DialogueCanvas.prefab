@@ -189,6 +189,7 @@ MonoBehaviour:
   isActive: 0
   globalObj: {fileID: 0}
   mainCamera: {fileID: 0}
+  twineParser: {fileID: 0}
 --- !u!1 &5615506153995731343
 GameObject:
   m_ObjectHideFlags: 0

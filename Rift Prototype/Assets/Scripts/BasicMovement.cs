@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
 
 //Add by Raymond
 //Verson 1.0, Last edited on 9/17/2020
@@ -32,7 +31,6 @@ public class BasicMovement : StateInterface
     public bool xInverted;
     public float rightTriggerValue;
     public float leftTriggerValue;
-    CinemachineFreeLook freeLook;
     public GameObject mainCamera;
     public Transform cam;
     public float speed = 10.0f;
@@ -48,7 +46,6 @@ public class BasicMovement : StateInterface
     public void LockPlayer()
     {
         playerMove = !playerMove;
-        freeLook.enabled = playerMove;
     }
 
     void Awake()
@@ -221,7 +218,7 @@ public class BasicMovement : StateInterface
     public void Interact()
     {
         Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol;
-        bool inDialogueTrigger = global_variables.GetComponent<TwineParser>().inArea;
+        bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
         if(inDialogueTrigger) {
             state_m.pushState("Dialogue", false);
         }

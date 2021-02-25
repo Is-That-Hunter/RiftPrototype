@@ -7,14 +7,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     private GlobalScript globalScript;
-    private TwineParser twineParser;
+    public TwineParser twineParser;
     private Overlay overlay;
     
     void Start() 
     {
         GameObject globalObj = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
         this.globalScript = globalObj.GetComponent<GlobalScript>();
-        this.twineParser = globalObj.GetComponent<TwineParser>();
+        this.twineParser = globalScript.twineParser;
         this.overlay = globalScript.Overlay.GetComponent<Overlay>();
     }
 

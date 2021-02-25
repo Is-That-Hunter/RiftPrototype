@@ -24,9 +24,10 @@ public class SequenceHandler : MonoBehaviour
     public string currentSequence;
     void Start()
     {
-        globalVars = gameObject.GetComponent<GlobalScript>();
-        stateMachine = gameObject.GetComponent<StateMachine>();
-        twineParser = gameObject.GetComponent<TwineParser>();
+        SceneScript sceneScript = gameObject.GetComponent<SceneScript>();
+        globalVars = sceneScript.globalScript;
+        stateMachine = sceneScript.stateMachine;
+        twineParser = sceneScript.twineParser;
         foreach(string json in sequenceJsons)
         {
             Sequence seq = FromJson(json);

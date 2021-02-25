@@ -24,7 +24,7 @@ public class TwineParser : MonoBehaviour
     public string currTree;
     void Start()
     {
-        global_variables = gameObject.GetComponent<GlobalScript>();
+        global_variables = gameObject.GetComponent<SceneScript>().globalScript;
         foreach(string json in dialogueJsons)
         {
             Twine tree = FromJson(json);
