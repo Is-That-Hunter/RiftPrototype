@@ -7,7 +7,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     private GlobalScript globalScript;
-    public TwineParser twineParser;
+    private TwineParser twineParser;
     private Overlay overlay;
     
     void Start() 

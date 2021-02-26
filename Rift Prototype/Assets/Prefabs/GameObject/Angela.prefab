@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eaf7b60fc1041d19e5b38827cd1c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twineParser: {fileID: 0}
 --- !u!114 &1781973446765125043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCol: {fileID: 0}
-  global_variables: {fileID: 0}
+  currentItem: {fileID: 0}
 --- !u!1 &4934765016191789238
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,12 +129,6 @@ MonoBehaviour:
   isRunnning: 0
   isCrouching: 0
   isDash: 0
-  isSliding: 0
-  yInverted: 0
-  xInverted: 0
-  rightTriggerValue: 0
-  leftTriggerValue: 0
-  mainCamera: {fileID: 0}
   cam: {fileID: 0}
   speed: 9
   jumpHeight: 6
@@ -172,6 +165,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -183,6 +177,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -225,18 +220,12 @@ MonoBehaviour:
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ControlsChangedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -251,8 +240,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 84610392-deb4-4a70-9a58-c1c2c5d57b6c
     m_ActionName: PlayerMovment/Jump
   - m_PersistentCalls:
@@ -268,8 +255,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 843ea650-fe8b-4fc0-9769-bea1fa413204
     m_ActionName: PlayerMovment/New action
   m_NeverAutoSwitchControlSchemes: 0

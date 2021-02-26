@@ -1,0 +1,23 @@
+{
+    "name": "Entrance",
+    "order": false,
+    "triggers":[
+        {
+            "triggerType":"Inventory",
+            "triggerInfo":{
+                "pid":0,
+                "onLeave":false,
+                "onEnter":true,
+                "onFinish":false,
+                "onStart":false,
+                "onAction":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":1,
+                "tree":"Tutorial",
+                "targetObj":""
+            }
+        }
+    ]   
+}

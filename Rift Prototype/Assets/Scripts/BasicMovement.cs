@@ -14,7 +14,6 @@ public class BasicMovement : StateInterface
     //Inital the input system package
     MainController controls;
     Vector2 movement;
-    Vector2 cameraAngle;
     //Booleans for detecting the pressed key at the moment
     //Same as GetKeyDown
     public StateMachine state_m;
@@ -26,15 +25,8 @@ public class BasicMovement : StateInterface
     public bool isRunnning;
     public bool isCrouching;
     public bool isDash;
-    public bool isSliding;
-    public bool yInverted;
-    public bool xInverted;
-    public float rightTriggerValue;
-    public float leftTriggerValue;
-    public GameObject mainCamera;
     public Transform cam;
     public float speed = 10.0f;
-    private float cameraSpeed = 50.0f;
     public float jumpHeight = 0.1f;
     private int jumpNumber = 0;
     public int totalJumps = 2;
@@ -50,14 +42,11 @@ public class BasicMovement : StateInterface
 
     void Awake()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        //freeLook = mainCamera.GetComponent<CinemachineFreeLook>();
         controls = new MainController();
     }
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
         body = GetComponent<Rigidbody>();
         Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
@@ -67,11 +56,11 @@ public class BasicMovement : StateInterface
     // Update is called once per frame
     void FixedUpdate()
     {
-        //transform.rotation = Quaternion.LookRotation(mainCamera.transform.position);
         if(isGrounded())
         {
             jumpNumber = totalJumps;
         }
+
         
         //Determine running or walking or crouch
         var currentSpeed = speed;
@@ -90,34 +79,12 @@ public class BasicMovement : StateInterface
         Vector3 velo = Vector3.zero;
         velo.y = body.velocity.y; 
         body.velocity = velo;
-        Vector3 dPadInput = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxisRaw("PS4_DPadHorizontal"), 0, -Input.GetAxisRaw("PS4_DPadVertical"));
-        //Vector3 input = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y);
         Vector3 input = new Vector3(movement.x, 0, movement.y);
-        //Player movement in a left right forward back space
         if (playerMove)
         {
-            if(yInverted)
-            {
-
-            }
-            if(xInverted)
-            {
-                
-            }
-            if (dPadInput != Vector3.zero)
-            {
-                body.MovePosition(body.position + (dPadInput * currentSpeed * Time.deltaTime));
-            }
-            else
-            {
-                body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
-            }
+            body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
         }
 
-    }
-    void LateUpdate(){
-        //freeLook.m_XAxis.Value = Quaternion.Lerp(Quaternion.Euler(0, freeLook.m_XAxis.Value, 0), Quaternion.Euler(0, cameraAngle.x * cameraSpeed, 0), 5 * Time.deltaTime).eulerAngles.y;
-        //freeLook.m_YAxis.Value -= cameraAngle.y * 2f * Time.deltaTime;
     }
 
     //Ground Check
@@ -170,61 +137,45 @@ public class BasicMovement : StateInterface
         isRunnning = false;
     }
 
-    public void OnCameraMove(InputValue value){
-        
-        cameraAngle = value.Get<Vector2>();
-        Debug.Log(cameraAngle);
-
-    }
-
-    public void OnRiftCast(){
-        var gamepad = Gamepad.current;
-        leftTriggerValue = gamepad.leftTrigger.ReadValue();
-        rightTriggerValue = gamepad.rightTrigger.ReadValue();
-    }
 
     public void Switch_State()
     {
         state_m.pushState("Inventory", false);
     }
 
-    public void Item_Pickup(Collider itemCollider)
+    public void Item_Pickup(ItemTrigger itemTrigger)
     {
-        //Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol;
-        if(itemCollider != null)
-        {
-            ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
-            GameObject itemObject = itemCollider.gameObject;
-            Item itemGrab = null;
-            if(itemObject.tag != "Item")
-            {
-                string itemName = itemObject.transform.GetChild(0).GetComponent<ItemTag>().attachedItemName;
-                itemGrab = ItemDB.FindItem(itemName);
-                state_m.handleAction("Player", onAction: "PickUp " + itemName);
-            }
-            else
-            {
-                string itemName = itemObject.GetComponent<ItemTag>().attachedItemName;
-                itemGrab = ItemDB.FindItem(itemName);
-                state_m.handleAction("Player", onAction: "PickUp " + itemName);
-            }
-            global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
-            Destroy(itemObject.gameObject.transform.parent.gameObject);
-            gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol = null;
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
-        }
+        GameObject itemObject = itemTrigger.gameObject;
+        ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
+        Item itemGrab = null;
+        //Get Item Name
+        string itemName = itemTrigger.currentItem.attachedItemName;
+
+        itemGrab = ItemDB.FindItem(itemName);
+        state_m.handleAction("Player", onAction: "PickUp " + itemName);
+
+        global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
+        Destroy(itemTrigger.currentItem.gameObject.transform.parent.gameObject);
+        gameObject.transform.GetChild(0).GetComponent<ItemTrigger>().currentCol = null;
+        gameObject.transform.GetChild(0).GetComponent<ItemTrigger>().currentItem = null;
+        global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
     }
 
     public void Interact()
     {
-        Collider itemCollider = gameObject.transform.GetChild(0).GetComponent<ItemDetector>().currentCol;
+        ItemTrigger itemTrigger = gameObject.transform.GetChild(0).GetComponent<ItemTrigger>();
         bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
         if(inDialogueTrigger) {
             state_m.pushState("Dialogue", false);
         }
-        else if(itemCollider != null)
+        else if(itemTrigger.currentCol != null)
         {
-            Item_Pickup(itemCollider);
+            if(itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
+                state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
+            else if(!itemTrigger.currentItem.placeable)
+            {
+                Item_Pickup(itemTrigger);    
+            }
         }
     }
 

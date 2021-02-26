@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalObj: {fileID: 0}
+  player: {fileID: 0}
   globalScript: {fileID: 0}
   stateMachine: {fileID: 0}
   twineParser: {fileID: 0}

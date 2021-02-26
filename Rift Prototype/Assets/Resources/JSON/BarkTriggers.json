@@ -1,0 +1,54 @@
+{
+    "name": "Bark",
+    "order": false,
+    "triggers":[
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"Enter PlaceableItem Ghost Ladder"
+            },
+            "triggerAction":{
+                "once": true,
+                "type":"Dialogue",
+                "pid": 0,
+                "tree":"Bark"
+            }
+        },
+        {
+            "triggerType":"Inventory",
+            "triggerInfo":{
+                "onAction":"Craft Fail"
+            },
+            "triggerAction":{
+                "once": false,
+                "type":"Dialogue",
+                "pidArray":[1,2,3],
+                "tree":"Bark"
+            }
+        },
+        {
+            "triggerType":"Inventory",
+            "triggerInfo":{
+                "onAction":"Craft Fail Placeable"
+            },
+            "triggerAction":{
+                "once": false,
+                "type":"Dialogue",
+                "pidArray":[1,2,3],
+                "tree":"Bark"
+            }
+        },
+        {
+            "triggerType":"Inventory",
+            "triggerInfo":{
+                "onAction":"Craft Fail Placeable Ladder"
+            },
+            "triggerAction":{
+                "once": false,
+                "type":"Dialogue",
+                "pid": 1,
+                "tree":"Bark"
+            }
+        }
+    ]
+}

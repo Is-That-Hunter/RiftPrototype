@@ -50,6 +50,8 @@ public class Inventory
         itemList.Remove(item2);
 
         itemList.Remove(item3);
+
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     //Returns all Items in the Inventory

@@ -44,6 +44,16 @@ public class UIInventory : MonoBehaviour
             RefreshInventoryItems();
         }
     }
+    private void OnDisable()
+    {
+        foreach(Transform child in inventory_Slots)
+        {
+            if (child != item_Slot_Base) 
+            {
+                child.GetChild(0).GetChild(0).GetComponent<Button>().enabled = false;
+            }
+        }
+    }
 
     //Refreshes the UI to display the current inventory in the form of Inventory Slot, and Images within those Slots
     private void RefreshInventoryItems()

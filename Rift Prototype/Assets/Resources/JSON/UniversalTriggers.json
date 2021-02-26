@@ -1,6 +1,6 @@
 {
     "name": "Universal",
-    "currTid": 0,
+    "order": false,
     "triggers":[
         {
             "tid":0,

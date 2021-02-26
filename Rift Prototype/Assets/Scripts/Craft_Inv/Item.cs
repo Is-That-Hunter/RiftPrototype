@@ -18,6 +18,7 @@ public class Item
     public string itemDescription;
     public string spriteName;
     public bool craftable;
+    public bool placeable;
 
     public Sprite GetSprite() {
         var sp  = Resources.Load<Sprite>("Sprites/Items/"+spriteName);

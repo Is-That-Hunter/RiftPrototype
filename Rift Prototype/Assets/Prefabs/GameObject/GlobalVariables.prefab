@@ -49,6 +49,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   dialogue: {fileID: 0}
   overlay: {fileID: 0}
+  globalScript: {fileID: 0}
 --- !u!114 &8002069152022301764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,3 +69,4 @@ MonoBehaviour:
   Overlay: {fileID: 0}
   twineParser: {fileID: 0}
   sequenceHandler: {fileID: 0}
+  sceneScript: {fileID: 0}
