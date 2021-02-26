@@ -1,25 +1,23 @@
 {
-    "name": "Universal",
+    "name": "Entrance",
     "order": false,
     "triggers":[
         {
-            "tid":0,
-            "triggerType":"Player",
+            "triggerType":"Inventory",
             "triggerInfo":{
                 "pid":0,
                 "onLeave":false,
-                "onEnter":false,
+                "onEnter":true,
                 "onFinish":false,
                 "onStart":false,
                 "onAction":""
             },
             "triggerAction":{
-                "type":"",
-                "tid":0,
-                "pid":0,
-                "tree":"",
+                "type":"Dialogue",
+                "pid":1,
+                "tree":"Tutorial",
                 "targetObj":""
             }
         }
-    ]
+    ]   
 }

@@ -7,7 +7,8 @@
        "itemMaterial":"Paper",
        "itemDescription":"Its a Pink Slip",
        "spriteName":"pinkslip",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Coffee Cup (empty)",
@@ -16,7 +17,8 @@
        "itemMaterial":"Paper",
        "itemDescription":"It Coffee",
        "spriteName":"coffeecup",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Lightbulb",
@@ -25,7 +27,8 @@
        "itemMaterial":"Glass",
        "itemDescription":"It Lightbulb",
        "spriteName":"lightbulb",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"TrashCan",
@@ -33,8 +36,9 @@
        "itemType":"Neutral",
        "itemMaterial":"Metal",
        "itemDescription":"It Trashcan",
-       "spriteName":"trashcan",
-       "craftable":false
+       "spriteName":"soda bottle",
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Pen",
@@ -43,7 +47,8 @@
        "itemMaterial":"Plastic",
        "itemDescription":"Pen",
        "spriteName":"lockpick",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Blueprints",
@@ -52,7 +57,8 @@
        "itemMaterial":"Paper",
        "itemDescription":"Blueprints to.. something?",
        "spriteName":"blueprint",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Fake ID",
@@ -61,7 +67,8 @@
        "itemMaterial":"Plastic",
        "itemDescription":"Looks just like the guards IDs.. I think?",
        "spriteName":"ID",
-       "craftable":true
+       "craftable":true,
+       "placeable":false
     },
     {
        "itemName":"Shoe",
@@ -70,7 +77,8 @@
        "itemMaterial":"Leather",
        "itemDescription":"Who's shoe?",
        "spriteName":"shoe",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Cleaning Rag",
@@ -79,16 +87,8 @@
        "itemMaterial":"Fabric",
        "itemDescription":"I hope its not dirty",
        "spriteName":"blueprint",
-       "craftable":false
-    },
-    {
-       "itemName":"Stray Jacket",
-       "itemSize":"Large",
-       "itemType":"Neutral",
-       "itemMaterial":"Fabric",
-       "itemDescription":"Not bad looking",
-       "spriteName":"jacket",
-       "craftable":false
+       "craftable":false,
+       "placeable":false
     },
     {
        "itemName":"Police Uniform",
@@ -97,6 +97,47 @@
        "itemMaterial":"Fabric",
        "itemDescription":"You look just like them now!",
        "spriteName":"ID",
-       "craftable":true
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Ladder",
+       "itemSize":"Large",
+       "itemType":"Sturdy",
+       "itemMaterial":"Wood",
+       "itemDescription":"Climby Climby.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Stray Jacket",
+       "itemSize":"Large",
+       "itemType":"Neutral",
+       "itemMaterial":"Fabric",
+       "itemDescription":"Ew Dirty.",
+       "spriteName":"lightbulb",
+       "craftable":false,
+       "placeable":false
+    },
+    {
+       "itemName":"Chair",
+       "itemSize":"Medium",
+       "itemType":"Sturdy",
+       "itemMaterial":"Wood",
+       "itemDescription":"Could Sit in it.",
+       "spriteName":"wirecutters",
+       "craftable":false,
+       "placeable":false
+    },
+    {
+       "itemName":"Water Bottle",
+       "itemSize":"Small",
+       "itemType":"Delicate",
+       "itemMaterial":"Water",
+       "itemDescription":"Still Some Water Left in it.",
+       "spriteName":"waterbottle",
+       "craftable":false,
+       "placeable":false
     }
  ]}

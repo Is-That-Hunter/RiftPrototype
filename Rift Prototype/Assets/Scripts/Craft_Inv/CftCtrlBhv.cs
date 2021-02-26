@@ -21,9 +21,12 @@ public class CftCtrlBhv : StateInterface
     private UIInventory uiInventory;
 
     private Transform inventory_Slots;
+    private Transform toolTip;
+    private ItemTrigger itemTrigger;
 
     //Set to Global_Variable Object
-    public GameObject global_Variable_Obj;
+    public GameObject globalObject;
+    private GlobalScript globalScript;
 
     private InventoryItem requested_Material = null;
     private InventoryItem requested_Type = null;
@@ -31,7 +34,9 @@ public class CftCtrlBhv : StateInterface
 
     private void Awake()
     {
+        globalScript = globalObject.GetComponent<GlobalScript>();
         Transform[] ts = gameObject.transform.GetComponentsInChildren<Transform>(true);
+        itemTrigger = state_m.player.transform.GetChild(0).GetComponent<ItemTrigger>();
         foreach (Transform t in ts)
         {
             if(t.gameObject.name == "Craft_Table")
@@ -44,6 +49,10 @@ public class CftCtrlBhv : StateInterface
             {
                 uiInventory = t.gameObject.GetComponent<UIInventory>();
                 inventory_Slots = t.Find("Inventory_Slots").gameObject.transform;
+            }
+            if(t.gameObject.name == "ToolTip")
+            {
+                toolTip = t;
             }
         }
         //Each special action is defined, set to a filler variable, and assigned to a function to perform
@@ -70,35 +79,58 @@ public class CftCtrlBhv : StateInterface
     //Crafts the item if the Type, Material, and Size can result in another Item
     void Craft()
     {
-        CraftDatabase craftDatabase = global_Variable_Obj.GetComponent<GlobalScript>().CraftDatabase;
-        Inventory inventory = global_Variable_Obj.GetComponent<GlobalScript>().inventory;
+        CraftDatabase craftDatabase = globalScript.CraftDatabase;
+        Inventory inventory = globalScript.inventory;
         Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
-        ItemDatabase allItems = global_Variable_Obj.GetComponent<GlobalScript>().itemDatabase;
+        ItemDatabase allItems = globalScript.itemDatabase;
+        bool crafted = false;
 
         if (requested_Size != null && requested_Material != null && requested_Type != null)
         {
             Debug.Log(requested_Size.item.itemSize + " " + requested_Type.item.itemType + " " + requested_Material.item.itemMaterial);
             if (recipe.TryGetValue((requested_Size.item.itemSize, requested_Type.item.itemType, requested_Material.item.itemMaterial), out string value))
             {
-                // Key was in dictionary; "value" contains corresponding value
-                Debug.Log("craft Success: You made " + value);
-                inventory.CraftRemoval(requested_Size, requested_Type, requested_Material);
-                inventory.AddItem(allItems.FindItem(value));
-                requested_Material = null;
-                requested_Type = null;
-                requested_Size = null;
-                type_Slot.GetComponent<Image>().sprite = null;
-                size_Slot.GetComponent<Image>().sprite = null;
-                material_Slot.GetComponent<Image>().sprite = null;
+                Item craftedItem = allItems.FindItem(value);
+                if(craftedItem.placeable)
+                {
+                    if(itemTrigger.currentCol != null && itemTrigger.currentItem.attachedItemName == value
+                        && !itemTrigger.currentItem.created)
+                    {
+                        crafted = true;
+                        state_m.handleAction("Inventory", onAction: "Craft Success PlaceableItem " + value);
+                        itemTrigger.currentItem.setCreated(true);
+                    }
+                    else
+                        state_m.handleAction("Inventory", onAction: "Craft Fail PlaceableItem " + value);
+                }
+                else
+                {
+                    crafted = true;
+                    inventory.AddItem(allItems.FindItem(value));
+                    state_m.handleAction("Inventory", onAction: "Craft Success Item " + value);
+                }
+                if(crafted)
+                {
+                    // Key was in dictionary; "value" contains corresponding value
+                    Debug.Log("Craft Success: You made " + value);
+                    inventory.CraftRemoval(requested_Size, requested_Type, requested_Material);
+                    requested_Material = null;
+                    requested_Type = null;
+                    requested_Size = null;
+                    type_Slot.GetComponent<Image>().sprite = null;
+                    size_Slot.GetComponent<Image>().sprite = null;
+                    material_Slot.GetComponent<Image>().sprite = null;
+                }
             }
             else
             {
                 // Key wasn't in dictionary; "value" is now 0
                 Debug.Log("Craft Fail");
+                state_m.handleAction("Inventory", onAction: "Craft Fail");
             }
         }
-        state_m.handleAction("Inventory", onAction: "Craft");
     }
+
 
     //Sets the Item and its Size used for crafting
     void Set_Size()
@@ -220,24 +252,36 @@ public class CftCtrlBhv : StateInterface
         if (controls == null)
         {
             controls = new MainController();
-            // Tell the "gameplay" action map that we want to get told about
-            // when actions get triggered.
-            //controls.gameplay.SetCallbacks(this);
         }
         if(uiInventory == null)
         {
             uiInventory = gameObject.transform.Find("Inventory_Table").GetComponent<UIInventory>();
         }
+        if(itemTrigger == null)
+        {
+            itemTrigger = globalScript.sceneScript.player.transform.GetChild(0).GetComponent<ItemTrigger>();
+        }
         controls.Enable();
         uiInventory.enabled = true;
+        ChangeRaycast(true);
     }
 
     private void OnDisable()
     {
         controls.Disable();
+        ChangeRaycast(false);
         uiInventory.enabled = false;
     }
-    public void changeActive(bool _isActive) {
+    private void ChangeRaycast(bool active)
+    {
+        material_Slot.GetComponent<Image>().raycastTarget = active;
+        material_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
+        type_Slot.GetComponent<Image>().raycastTarget = active;
+        type_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
+        size_Slot.GetComponent<Image>().raycastTarget = active;
+        size_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
+    }
+    new public void changeActive(bool _isActive) {
         isActive = _isActive;
         uiInventory.enabled = _isActive;
     }

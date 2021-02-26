@@ -13,6 +13,7 @@ using System.IO;
 public class SceneScript : MonoBehaviour
 {
     public GameObject globalObj;
+    public GameObject player;
     public GlobalScript globalScript;
     public StateMachine stateMachine;
     public TwineParser twineParser;

@@ -38,17 +38,13 @@ public class StateMachine : MonoBehaviour
     public GameObject inventory;
     public GameObject dialogue;
     public GameObject overlay;
-    private GlobalScript globalScript;
-    private SequenceHandler seqHandler;
+    public GlobalScript globalScript;
     public Stack<State> stateStack = new Stack<State>();
-    private TwineParser twineParser;
 
     // Start is called before the first frame update
     void Start()
     {
         globalScript = gameObject.GetComponent<GlobalScript>();
-        seqHandler = globalScript.sequenceHandler;
-        twineParser = globalScript.twineParser;
         states.Add(new State("Player", player));
         states.Add(new State("Inventory", inventory));
         states.Add(new State("Dialogue", dialogue));
@@ -79,16 +75,13 @@ public class StateMachine : MonoBehaviour
         Debug.Log(prnt);
 
     }
-    public void popState(bool disableObj = true, bool overlayActive = true)
+    public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1)
     {
         State x = stateStack.Pop();
         x.changeActive(false, disableObj);
         stateStack.Peek().changeActive(true);
         overlay.SetActive(overlayActive);
-        if(x.stateName=="Dialogue")
-            handleAction(x.stateName, onLeave: true, pid: twineParser.getCurrPid());
-        else
-            handleAction(x.stateName, onLeave: true);
+        handleAction(x.stateName, onLeave: true, pid: pid);
         string prnt = "";
         foreach(State s in stateStack.ToArray())
         {
@@ -103,7 +96,7 @@ public class StateMachine : MonoBehaviour
     public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, bool onFinish = false, bool onStart = false, string onAction = "", int pid = -1)
     {
         TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onFinish,onStart,onAction,pid);
-        seqHandler.handleAction(trigInfo, triggerType);
+        globalScript.sequenceHandler.handleAction(trigInfo, triggerType);
     }
 }
 
