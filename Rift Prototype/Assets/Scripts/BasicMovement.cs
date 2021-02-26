@@ -170,8 +170,12 @@ public class BasicMovement : StateInterface
         }
         else if(itemTrigger.currentCol != null)
         {
-            if(!itemTrigger.currentItem.placeable)
-                Item_Pickup(itemTrigger);
+            if(itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
+                state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
+            else if(!itemTrigger.currentItem.placeable)
+            {
+                Item_Pickup(itemTrigger);    
+            }
         }
     }
 

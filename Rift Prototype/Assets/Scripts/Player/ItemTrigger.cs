@@ -30,7 +30,13 @@ public class ItemTrigger : MonoBehaviour
 
             if(item.placeable)
             {
-
+                string action = "Enter PlaceableItem ";
+                if(!item.created)
+                    action += "Ghost ";
+                else
+                    action += "Item ";
+                
+                global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action + item.attachedItemName);
             }
             else
             {
