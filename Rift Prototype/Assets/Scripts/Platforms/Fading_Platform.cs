@@ -34,7 +34,7 @@ public class Fading_Platform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameObject.GetComponent<MeshRenderer>().material.color.a);
+        //Debug.Log(gameObject.GetComponent<MeshRenderer>().material.color.a);
         if (solid)
         {
             timer -= Time.deltaTime;
