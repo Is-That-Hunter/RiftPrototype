@@ -4,27 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//Add by Raymond
-//Verson 1.0, Last edited on 9/17/2020
-//This script will handle most of the movement and key binding from input system
-//which works for both controller and keyboard
 public class BasicMovement : StateInterface
 {
-    //Add by Raymond
-    //Inital the input system package
     MainController controls;
     Vector2 movement;
-    //Booleans for detecting the pressed key at the moment
-    //Same as GetKeyDown
+
     public StateMachine state_m;
 
     public GameObject global_variables;
+
+    //All things considered ground
+    public LayerMask groundLayers;
+
+    //Tests where the ground is
+    public CapsuleCollider col;
+
+    public float lowJumpMultiplier = 1;
+    public float fallMultiplier = 1;
 
     public bool rightStickPressed;
     public bool leftStickPressed;
     public bool isRunnning;
     public bool isCrouching;
     public bool isDash;
+    public bool isJump;
+    public bool jumpTriggered = false;
     public Transform cam;
     public float speed = 10.0f;
     public float jumpHeight = 0.1f;
@@ -48,9 +52,20 @@ public class BasicMovement : StateInterface
     void Start()
     {
         body = GetComponent<Rigidbody>();
-        Collider colliderThing = GetComponent<Collider>();
+        //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
-        distanceToGround = colliderThing.bounds.extents.y;
+        distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
+    }
+
+    private void Update()
+    {
+        if(body.velocity.y < 0)
+        {
+            body.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        } else if(body.velocity.y > 0 && !isJump && jumpTriggered)
+        {
+            body.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
     // Update is called once per frame
@@ -58,21 +73,22 @@ public class BasicMovement : StateInterface
     {
         if(isGrounded())
         {
+            jumpTriggered = false;
             jumpNumber = totalJumps;
         }
 
         
         //Determine running or walking or crouch
         var currentSpeed = speed;
-        if(isRunnning){
+        if(isRunnning && isGrounded()){
             currentSpeed = speed * 2;
             if(isCrouching){
             }
         }
-        if(isCrouching){
+        if(isCrouching && isGrounded()){
             currentSpeed = speed / 2;
         }
-        if(isDash){
+        if(isDash && isGrounded()){
             StartCoroutine(CastDash());
         }
         //Calculate the movement for this frame
@@ -89,26 +105,25 @@ public class BasicMovement : StateInterface
 
     //Ground Check
     bool isGrounded() {
-        return Physics.Raycast(body.transform.position, -Vector3.up, distanceToGround + 0.1f);
+        bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround + .3f);
+        return IsGrounded;
     }
 
     //Add by Raymond
     //Following functions are related to the input system package
     //Those functions will only be called when input system sending messages
     public void OnJump(){
+        Debug.Log(isGrounded());
          if(isGrounded())
             {
-                Vector3 fuckYou = body.velocity;
-                fuckYou.y += jumpHeight;
-                body.velocity = fuckYou;
+            jumpTriggered = true;
+            body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumpNumber--;
             }
             else if (jumpNumber > 0)
             {
-                Vector3 fuckYou = body.velocity;
-                fuckYou.y += jumpHeight;
-                body.velocity = fuckYou;
-                jumpNumber--;
+            body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            jumpNumber--;
             }
     }
 
@@ -185,10 +200,14 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
         controls.PlayerMovement.Running.performed += ctx => isCrouching = false;
         controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
-        controls.PlayerMovement.Crouching.performed += ctx => isCrouching = !isCrouching;
+        controls.PlayerMovement.Crouching.performed += ctx => isCrouching = true;
+        controls.PlayerMovement.Crouching.performed += ctx => isRunnning = false;
+        controls.PlayerMovement.Crouching.canceled += ctx => isCrouching = false;
         controls.PlayerMovement.Dash.performed += ctx => isDash = true;
         controls.PlayerMovement.State_Switch.performed += ctxe => Switch_State();
         controls.PlayerMovement.Interact.performed += ctxe => Interact();
+        controls.PlayerMovement.Jump.performed += ctx => isJump = true;
+        controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
     }
 
     void OnDisable(){
