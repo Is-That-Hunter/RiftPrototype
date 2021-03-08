@@ -4,18 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//Add by Raymond
-//Verson 1.0, Last edited on 9/17/2020
-//This script will handle most of the movement and key binding from input system
-//which works for both controller and keyboard
 public class BasicMovement : StateInterface
 {
-    //Add by Raymond
-    //Inital the input system package
     MainController controls;
     Vector2 movement;
-    //Booleans for detecting the pressed key at the moment
-    //Same as GetKeyDown
+
     public StateMachine state_m;
 
     public GameObject global_variables;
@@ -43,7 +36,7 @@ public class BasicMovement : StateInterface
     public int totalJumps = 2;
     public float dashForce = 50.0f;
     public bool playerMove = true;
-    //private float distanceToGround;
+    private float distanceToGround;
     private Rigidbody body;
 
     public void LockPlayer()
@@ -61,7 +54,7 @@ public class BasicMovement : StateInterface
         body = GetComponent<Rigidbody>();
         //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
-        //distanceToGround = colliderThing.bounds.extents.y;
+        distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
     }
 
     private void Update()
@@ -112,9 +105,8 @@ public class BasicMovement : StateInterface
 
     //Ground Check
     bool isGrounded() {
-        //return Physics.CheckBox
-        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * .9f, groundLayers);
-        //return Physics.Raycast(body.transform.position, -Vector3.up, distanceToGround + 0.1f);
+        bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround + .3f);
+        return IsGrounded;
     }
 
     //Add by Raymond
@@ -128,11 +120,11 @@ public class BasicMovement : StateInterface
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumpNumber--;
             }
-            /*else if (jumpNumber > 0)
+            else if (jumpNumber > 0)
             {
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             jumpNumber--;
-            }*/
+            }
     }
 
     public void OnMove(InputValue value){
