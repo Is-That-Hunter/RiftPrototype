@@ -10,8 +10,6 @@
                 "pid":0,
                 "onLeave":false,
                 "onEnter":true,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":""
             },
             "triggerAction":{
@@ -29,8 +27,6 @@
                 "pid":0,
                 "onLeave":false,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":"Size_Select"
             },
             "triggerAction":{
@@ -48,8 +44,6 @@
                 "pid":0,
                 "onLeave":false,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":"Material_Select"
             },
             "triggerAction":{
@@ -67,8 +61,6 @@
                 "pid":0,
                 "onLeave":false,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":"Type_Select"
             },
             "triggerAction":{
@@ -86,8 +78,6 @@
                 "pid":0,
                 "onLeave":false,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":"Craft Success"
             },
             "triggerAction":{
@@ -105,8 +95,6 @@
                 "pid":0,
                 "onLeave":true,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":""
             },
             "triggerAction":{
@@ -125,8 +113,6 @@
                 "pid":7,
                 "onLeave":false,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":"PickUp Water Bottle"
             },
             "triggerAction":{
@@ -145,8 +131,6 @@
                 "pid":8,
                 "onLeave":true,
                 "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":""
             },
             "triggerAction":{
