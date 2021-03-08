@@ -35,6 +35,7 @@ public class BasicMovement : StateInterface
     public bool isCrouching;
     public bool isDash;
     public bool isJump;
+    public bool jumpTriggered = false;
     public Transform cam;
     public float speed = 10.0f;
     public float jumpHeight = 0.1f;
@@ -68,7 +69,7 @@ public class BasicMovement : StateInterface
         if(body.velocity.y < 0)
         {
             body.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        } else if(body.velocity.y > 0 && !isJump)
+        } else if(body.velocity.y > 0 && !isJump && jumpTriggered)
         {
             body.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
@@ -79,21 +80,22 @@ public class BasicMovement : StateInterface
     {
         if(isGrounded())
         {
+            jumpTriggered = false;
             jumpNumber = totalJumps;
         }
 
         
         //Determine running or walking or crouch
         var currentSpeed = speed;
-        if(isRunnning){
+        if(isRunnning && isGrounded()){
             currentSpeed = speed * 2;
             if(isCrouching){
             }
         }
-        if(isCrouching){
+        if(isCrouching && isGrounded()){
             currentSpeed = speed / 2;
         }
-        if(isDash){
+        if(isDash && isGrounded()){
             StartCoroutine(CastDash());
         }
         //Calculate the movement for this frame
@@ -119,16 +121,18 @@ public class BasicMovement : StateInterface
     //Following functions are related to the input system package
     //Those functions will only be called when input system sending messages
     public void OnJump(){
+        Debug.Log(isGrounded());
          if(isGrounded())
             {
+            jumpTriggered = true;
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumpNumber--;
             }
-            else if (jumpNumber > 0)
+            /*else if (jumpNumber > 0)
             {
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             jumpNumber--;
-            }
+            }*/
     }
 
     public void OnMove(InputValue value){
