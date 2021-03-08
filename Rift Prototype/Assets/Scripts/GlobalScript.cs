@@ -12,7 +12,6 @@ using System.IO;
 
 public class GlobalScript : MonoBehaviour
 {
-    
     public Inventory inventory;
     public ItemDatabase itemDatabase;
     public CraftDatabase CraftDatabase;
@@ -32,7 +31,7 @@ public class GlobalScript : MonoBehaviour
         sceneScript = SceneObj.GetComponent<SceneScript>();
         twineParser = SceneObj.GetComponent<TwineParser>();
         sequenceHandler = SceneObj.GetComponent<SequenceHandler>();
-        
+        DontDestroyOnLoad(this.gameObject);
         inventory = new Inventory();
         FromJson();
 
