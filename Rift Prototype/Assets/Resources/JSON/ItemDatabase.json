@@ -43,7 +43,7 @@
     {
        "itemName":"Pen",
        "itemSize":"Small",
-       "itemType":"Writing",
+       "itemType":"Delicate",
        "itemMaterial":"Plastic",
        "itemDescription":"A small, plastic pen, the cap has been chewed beyond recognition. Gross.",
        "spriteName":"ballpointpen",
@@ -267,16 +267,6 @@
        "itemMaterial":"Glass",
        "itemDescription":"A small glass bottle, useful as an instrument or broken over the skull of an enemy.",
        "spriteName":"sodabottle",
-       "craftable":true,
-       "placeable":false
-    },
-    {
-       "itemName":"Screws",
-       "itemSize":"Small",
-       "itemType":"Delicate",
-       "itemMaterial":"Metal",
-       "itemDescription":"Screw THIS!",
-       "spriteName":"screw",
        "craftable":true,
        "placeable":false
     },
