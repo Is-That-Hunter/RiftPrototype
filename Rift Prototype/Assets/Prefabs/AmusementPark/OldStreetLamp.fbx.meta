@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 7fc50f8778fd14a64882cee9013381bb
+guid: c673f8b2e47f9427cb92d0fd8ae74f9c
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BluePainted.001
+    second: {fileID: 2100000, guid: 702749f7110c342c2abada8f2d6c5abb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 197c8f85712c642b28e70f81bcb5217c, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
