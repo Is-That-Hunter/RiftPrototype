@@ -6,5 +6,5 @@ public class DialogueTag : MonoBehaviour
 {
     public string treeName;
     public int pid = -1;
-    public string overlayText = "Interact with thign";
+    public string overlayText = "Interact with thing";
 }

@@ -5,18 +5,15 @@
         {
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-2,
                 "onLeave":false,
                 "onEnter":true,
-                "onFinish":false,
-                "onStart":false,
                 "onAction":""
             },
             "triggerAction":{
-                "type":"Dialogue",
-                "pid":1,
-                "tree":"Tutorial",
-                "targetObj":""
+                "type":"Scene",
+                "sceneTriggers":"UniversalTriggers",
+                "scene":"Main_Menu"
             }
         }
     ]   

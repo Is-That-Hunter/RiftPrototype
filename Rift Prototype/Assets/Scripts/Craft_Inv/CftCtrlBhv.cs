@@ -17,6 +17,7 @@ public class CftCtrlBhv : StateInterface
     private GameObject material_Slot;
     private GameObject type_Slot;
     private GameObject size_Slot;
+    private GameObject preview_Slot;
     public StateMachine state_m;
     private UIInventory uiInventory;
 
@@ -44,6 +45,7 @@ public class CftCtrlBhv : StateInterface
                 material_Slot = t.Find("Material_Slot").GetChild(0).gameObject;
                 type_Slot = t.Find("Type_Slot").GetChild(0).gameObject;
                 size_Slot = t.Find("Size_Slot").GetChild(0).gameObject;
+                preview_Slot = t.Find("Preview_Slot").gameObject;
             }
             if(t.gameObject.name == "Inventory_Table")
             {
@@ -77,7 +79,7 @@ public class CftCtrlBhv : StateInterface
     }
 
     //Crafts the item if the Type, Material, and Size can result in another Item
-    void Craft()
+    public void Craft()
     {
         CraftDatabase craftDatabase = globalScript.CraftDatabase;
         Inventory inventory = globalScript.inventory;
@@ -117,9 +119,8 @@ public class CftCtrlBhv : StateInterface
                     requested_Material = null;
                     requested_Type = null;
                     requested_Size = null;
-                    type_Slot.GetComponent<Image>().sprite = null;
-                    size_Slot.GetComponent<Image>().sprite = null;
-                    material_Slot.GetComponent<Image>().sprite = null;
+                    SetImages();
+                    SetPreview();
                 }
             }
             else
@@ -157,6 +158,7 @@ public class CftCtrlBhv : StateInterface
             invItem.inCraft = "Size";
         }
         SetImages();
+        SetPreview();
         state_m.handleAction("Inventory", onAction: "Size_Select");
     }
 
@@ -184,6 +186,7 @@ public class CftCtrlBhv : StateInterface
             invItem.inCraft = "Material";
         }
         SetImages();
+        SetPreview();
         state_m.handleAction("Inventory", onAction: "Material_Select");
     }
 
@@ -211,6 +214,7 @@ public class CftCtrlBhv : StateInterface
             invItem.inCraft = "Type";
         }
         SetImages();
+        SetPreview();
         state_m.handleAction("Inventory", onAction: "Type_Select");
     }
 
@@ -235,15 +239,36 @@ public class CftCtrlBhv : StateInterface
         if(requested_Size != null)
             size_Slot.GetComponent<Image>().sprite = requested_Size.item.GetSprite();
         else
-            size_Slot.GetComponent<Image>().sprite = null;
+            size_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
         if(requested_Material != null)
             material_Slot.GetComponent<Image>().sprite = requested_Material.item.GetSprite();
         else
-            material_Slot.GetComponent<Image>().sprite = null;
+            material_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
         if(requested_Type != null)
             type_Slot.GetComponent<Image>().sprite = requested_Type.item.GetSprite();
         else
-            type_Slot.GetComponent<Image>().sprite = null;
+            type_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+    }
+
+    void SetPreview()
+    {
+        if(requested_Size == null || requested_Type == null || requested_Material == null)
+        {
+            preview_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            return;
+        }
+        CraftDatabase craftDatabase = globalScript.CraftDatabase;
+        Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
+        ItemDatabase allItems = globalScript.itemDatabase;
+        if(recipe.TryGetValue((requested_Size.item.itemSize, requested_Type.item.itemType, requested_Material.item.itemMaterial), out string value))
+        {
+            Item craftedItem = allItems.FindItem(value);
+            preview_Slot.GetComponent<Image>().sprite = craftedItem.GetSprite();
+        }
+        else
+        {
+            preview_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+        }
     }
 
     //Disables and Enables the controls when Object (Inv_Craft_Table) is Enabled and Disabled

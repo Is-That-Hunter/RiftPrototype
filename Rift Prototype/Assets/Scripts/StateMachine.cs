@@ -67,13 +67,14 @@ public class StateMachine : MonoBehaviour
         stateStack.Push(_newState);
         overlay.SetActive(overlayActive);
         handleAction(newState, onEnter: true);
+        /*
         string prnt = "";
         foreach(State x in stateStack.ToArray())
         {
             prnt += x.stateName + "\n";
         }
         Debug.Log(prnt);
-
+        */
     }
     public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1)
     {
@@ -81,21 +82,28 @@ public class StateMachine : MonoBehaviour
         x.changeActive(false, disableObj);
         stateStack.Peek().changeActive(true);
         overlay.SetActive(overlayActive);
-        handleAction(x.stateName, onLeave: true, pid: pid);
+        if(x.stateName == "Dialogue") {
+            handleAction(x.stateName, onLeave: true, pid: pid);
+        }
+        else {
+            handleAction(x.stateName, onLeave: true);
+        }
+        /*
         string prnt = "";
         foreach(State s in stateStack.ToArray())
         {
             prnt += s.stateName + "\n";
         }
         Debug.Log(prnt);
+        */
     }
     public State peekState()
     {
         return stateStack.Peek();
     }
-    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, bool onFinish = false, bool onStart = false, string onAction = "", int pid = -1)
+    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, string onAction = "", int pid = -1)
     {
-        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onFinish,onStart,onAction,pid);
+        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onAction,pid);
         globalScript.sequenceHandler.handleAction(trigInfo, triggerType);
     }
 }

@@ -7,7 +7,7 @@
             "tid":2,
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-1,
                 "onLeave":false,
                 "onEnter":true,
                 "onAction":""
@@ -24,7 +24,7 @@
             "tid":3,
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
                 "onAction":"Size_Select"
@@ -41,7 +41,7 @@
             "tid":4,
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
                 "onAction":"Material_Select"
@@ -58,7 +58,7 @@
             "tid":5,
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
                 "onAction":"Type_Select"
@@ -75,7 +75,7 @@
             "tid":6,
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
                 "onAction":"Craft Success"
@@ -92,7 +92,7 @@
             "tid":7,
             "triggerType":"Inventory",
             "triggerInfo":{
-                "pid":0,
+                "pid":-1,
                 "onLeave":true,
                 "onEnter":false,
                 "onAction":""

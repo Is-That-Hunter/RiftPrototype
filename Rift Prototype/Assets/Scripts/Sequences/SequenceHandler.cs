@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ZoomTarget
@@ -22,8 +23,11 @@ public class SequenceHandler : MonoBehaviour
     private StateMachine stateMachine;
     private TwineParser twineParser;
     public string currentSequence;
+    public string universalTriggers;
+    public string sceneTriggers;
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         SceneScript sceneScript = gameObject.GetComponent<SceneScript>();
         globalVars = sceneScript.globalScript;
         stateMachine = sceneScript.stateMachine;
@@ -43,26 +47,23 @@ public class SequenceHandler : MonoBehaviour
     public void handleAction(TriggerInfo trigInfo, string trigType) 
     {
         Trigger trig = getCurrTrigger();
+        Trigger universalTrigger = getTriggerFromSequence(trigInfo, universalTriggers);
+        Trigger sceneTrigger = getTriggerFromSequence(trigInfo, sceneTriggers);
         if(trigInfo.onAction != "")
             Debug.Log(trigInfo.onAction);
-        if(trigType == trig.triggerType)
-        {
-            bool activateTrig = trigInfo.onLeave & trig.triggerInfo.onLeave;
-            activateTrig = activateTrig || (trigInfo.onEnter & trig.triggerInfo.onEnter);
-            activateTrig = activateTrig || (trigInfo.onFinish & trig.triggerInfo.onFinish);
-            activateTrig = activateTrig || (trigInfo.onStart & trig.triggerInfo.onStart);
-            activateTrig = activateTrig || (trigInfo.onAction != "" & checkOnAction(trig.triggerInfo.onAction, trigInfo.onAction));
-            if(activateTrig)
-                if(trigType == "Dialogue" & trigInfo.pid == trig.triggerInfo.pid)
-                {
-                    doTrigger(trig.triggerAction);
-                    changeCurrTid(trig.triggerAction.tid);
-                }
-                else if(trigType != "Dialogue")
-                {
-                    doTrigger(trig.triggerAction);
-                    changeCurrTid(trig.triggerAction.tid);
-                }
+        bool currTriggerActive = checkSequence(trigInfo);
+        if(currTriggerActive) {
+            Debug.Log("currTrigger");
+            doTrigger(trig.triggerAction);
+            changeCurrTid(trig.triggerAction.tid);
+        }
+        else if(sceneTrigger != null) {
+            Debug.Log("sceneTrigger");
+            doTrigger(sceneTrigger.triggerAction);
+        }
+        else if(universalTrigger != null) {
+            Debug.Log("sceneTrigger");
+            doTrigger(sceneTrigger.triggerAction);
         }
     }
     private bool checkOnAction(string dbOnAction, string onActionTrigger)
@@ -92,6 +93,18 @@ public class SequenceHandler : MonoBehaviour
                 twineParser.changePid(action.tree,action.pid);
                 stateMachine.pushState("Dialogue",false);
                 break;
+            case "Item":
+                globalVars.inventory.AddItem(globalVars.itemDatabase.FindItem(action.itemName));
+                break;
+            case "Scene":
+                sceneTriggers = action.sceneTriggers;
+                SceneManager.LoadScene(action.scene);
+                break;
+            case "ChangeSequenceTrigger":
+                sceneTriggers = action.sceneTriggers;
+                break;
+
+
 
         }
     }
@@ -111,6 +124,33 @@ public class SequenceHandler : MonoBehaviour
         if(seq != null)
             return seq.triggers.FirstOrDefault(i=>i.tid == seq.currTid);
         return null;
+    }
+    bool checkSequence(TriggerInfo trigInfo)
+    {
+        Trigger currTrig = getCurrTrigger();
+        bool isActive = currTrig.triggerInfo.onLeave == trigInfo.onLeave & 
+            currTrig.triggerInfo.onEnter == trigInfo.onEnter &
+            currTrig.triggerInfo.pid == trigInfo.pid &
+            currTrig.triggerInfo.onAction == trigInfo.onAction;
+        return isActive;
+    }
+    Trigger getTriggerFromSequence(TriggerInfo trigInfo, string sequenceName)
+    {
+        Sequence seq = sceneSequences.FirstOrDefault(i=>i.name == sequenceName);
+        Debug.Log(seq);
+        Trigger ret = null;
+        if(seq != null) 
+        {
+            ret = seq.triggers
+                .Where(i=>i.triggerInfo.onLeave == trigInfo.onLeave)
+                .Where(i=>i.triggerInfo.onEnter == trigInfo.onEnter)
+                .Where(i=>i.triggerInfo.pid == trigInfo.pid)
+                .Where(i=>i.triggerInfo.onAction == trigInfo.onAction)
+                .DefaultIfEmpty(null)
+                .FirstOrDefault();
+        }
+        
+        return ret;
     }
     void changeCurrTid(int _tid)
     {
