@@ -22,9 +22,12 @@ public class SequenceHandler : MonoBehaviour
     private GlobalScript globalVars;
     private StateMachine stateMachine;
     private TwineParser twineParser;
+    private Transform player;
     public string currentSequence;
     public string universalTriggers;
     public string sceneTriggers;
+    public bool initiliazed;
+
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -32,10 +35,35 @@ public class SequenceHandler : MonoBehaviour
         globalVars = sceneScript.globalScript;
         stateMachine = sceneScript.stateMachine;
         twineParser = sceneScript.twineParser;
+        player = sceneScript.player.transform;
         foreach(string json in sequenceJsons)
         {
             Sequence seq = FromJson(json);
             this.sceneSequences.Add(seq);
+        }
+        initiliazed = true;
+        StartCoroutine(SceneTriggerCoroutine());
+    }
+    void OnEnable() 
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    IEnumerator SceneTriggerCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1);
+        handleAction(trigInfo, "Scene");
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(initiliazed) 
+        {
+            TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1);
+            handleAction(trigInfo, "Scene");
         }
     }
     Sequence FromJson(string json) 
@@ -53,16 +81,13 @@ public class SequenceHandler : MonoBehaviour
             Debug.Log(trigInfo.onAction);
         bool currTriggerActive = checkSequence(trigInfo);
         if(currTriggerActive) {
-            Debug.Log("currTrigger");
             doTrigger(trig.triggerAction);
             changeCurrTid(trig.triggerAction.tid);
         }
         else if(sceneTrigger != null) {
-            Debug.Log("sceneTrigger");
             doTrigger(sceneTrigger.triggerAction);
         }
         else if(universalTrigger != null) {
-            Debug.Log("sceneTrigger");
             doTrigger(sceneTrigger.triggerAction);
         }
     }
@@ -100,8 +125,17 @@ public class SequenceHandler : MonoBehaviour
                 sceneTriggers = action.sceneTriggers;
                 SceneManager.LoadScene(action.scene);
                 break;
+            case "Scenes":
+                sceneTriggers = action.sceneTriggers;
+                SceneManager.LoadScene(action.scene);
+                break;
             case "ChangeSequenceTrigger":
                 sceneTriggers = action.sceneTriggers;
+                break;
+            case "ChangeAngle":
+                Debug.Log("ChangeAngle");
+                player.position = new Vector3(action.posX, action.posY, action.posZ);
+                player.localScale = new Vector3(action.playerScale,action.playerScale,action.playerScale);
                 break;
 
 
@@ -137,7 +171,6 @@ public class SequenceHandler : MonoBehaviour
     Trigger getTriggerFromSequence(TriggerInfo trigInfo, string sequenceName)
     {
         Sequence seq = sceneSequences.FirstOrDefault(i=>i.name == sequenceName);
-        Debug.Log(seq);
         Trigger ret = null;
         if(seq != null) 
         {

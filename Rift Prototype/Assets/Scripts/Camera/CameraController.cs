@@ -17,48 +17,52 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     Vector3 tempVec3 = Vector3.zero;
+    void Start() {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     void LateUpdate() {
         Vector3 tempVec3 = this.transform.position;
         Transform target = mainCharacter;
+        float targetHorizontal = target.position.x;
+        float targetDistance = target.position.z;
         if(focus)
             target = focusObject;
-
         //Distance Left or Right from Camera
-        tempVec3.x = changeX(HorizontalDelta, target);
+        tempVec3.x = changeHorizontal(HorizontalDelta, targetHorizontal);
         //Distance Close or Away to/from Camera
         if(zoomIn) {
-            tempVec3.z = changeZ(4, 5, target);
+            tempVec3.z = changeDistance(4, 5, targetDistance);
             tempVec3.y = target.position.y;
         }
         else {
-            tempVec3.z = changeZ(distanceClose, distanceFar, target);
+            tempVec3.z = changeDistance(distanceClose, distanceFar, targetDistance);
             tempVec3.y = target.position.y+verticalHeight;
         }
         
         this.transform.position = Vector3.SmoothDamp(transform.position, tempVec3, ref velocity, smoothCamera);
     }
-    private float changeZ(float close, float far, Transform target) {
-        float z = target.position.z;
-        if(Mathf.Abs(z - target.position.z) < close)
+    private float changeDistance(float close, float far, float targetDistance) {
+        float z = targetDistance;
+        if(Mathf.Abs(z - targetDistance) < close)
         {
-            z = target.position.z - close;
+            z = targetDistance - close;
         }
-        else if(Mathf.Abs(z - target.position.z) > far)
+        else if(Mathf.Abs(z - targetDistance) > far)
         {
-            z = target.position.z - far;
+            z = targetDistance - far;
         }
         return z;
     }
-    private float changeX(float delta, Transform target) {
-        float x = target.position.x;
-        if(x - target.position.x > delta)
+    private float changeHorizontal(float delta, float targetHorizontal) {
+        float x = targetHorizontal;
+        if(x - targetHorizontal > delta)
         {
-            x = target.position.x + delta;
+            x = targetHorizontal + delta;
         }
-        if(x - target.position.x < -delta)
+        if(x - targetHorizontal < -delta)
         {
-            x = target.position.x - delta;
+            x = targetHorizontal - delta;
         }
         return x;
     }

@@ -18,7 +18,6 @@ public class GlobalScript : MonoBehaviour
     public GameObject SceneObj;
     public string itemsJson;
     public Item[] items;
-    //private UI_Inventory ui_Inventory;
     public UIInventory ui_Inventory;
     public Overlay Overlay;
     public TwineParser twineParser;
@@ -46,8 +45,8 @@ public class GlobalScript : MonoBehaviour
         items= _items.items;
         itemDatabase = new ItemDatabase(items);
         CraftDatabase = new CraftDatabase(items.Where(item => item.craftable == true).ToArray());
-        inventory.AddItem(itemDatabase.FindItem("TrashCan"));
-        inventory.AddItem(itemDatabase.FindItem("Chair"));
+        inventory.AddItem(itemDatabase.FindItem("Table"));
         inventory.AddItem(itemDatabase.FindItem("Shoe"));
+        inventory.AddItem(itemDatabase.FindItem("Trash Can"));
     }
 }

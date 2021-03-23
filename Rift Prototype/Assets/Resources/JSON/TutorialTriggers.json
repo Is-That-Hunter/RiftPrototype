@@ -1,8 +1,24 @@
 {
     "name": "Tutorial",
-    "currTid": 2,
+    "currTid": 1,
     "order": true,
     "triggers":[
+        {
+            "tid":1,
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "pid":-1,
+                "onLeave":false,
+                "onEnter":true,
+                "onAction":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "tid":2,
+                "pid":1,
+                "tree":"Tutorial"
+            }
+        },
         {
             "tid":2,
             "triggerType":"Inventory",
@@ -15,7 +31,7 @@
             "triggerAction":{
                 "type":"Dialogue",
                 "tid":3,
-                "pid":1,
+                "pid":12,
                 "tree":"Tutorial",
                 "targetObj":""
             }
@@ -32,7 +48,7 @@
             "triggerAction":{
                 "type":"Dialogue",
                 "tid":4,
-                "pid":2,
+                "pid":10,
                 "tree":"Tutorial",
                 "targetObj":""
             }
@@ -49,7 +65,7 @@
             "triggerAction":{
                 "type":"Dialogue",
                 "tid":5,
-                "pid":3,
+                "pid":11,
                 "tree":"Tutorial",
                 "targetObj":""
             }
@@ -66,7 +82,7 @@
             "triggerAction":{
                 "type":"Dialogue",
                 "tid":6,
-                "pid":5,
+                "pid":13,
                 "tree":"Tutorial",
                 "targetObj":""
             }
@@ -98,48 +114,25 @@
                 "onAction":""
             },
             "triggerAction":{
-                "type":"Zoom",
-                "sequence":"",
-                "tid":8,
-                "pid":7,
-                "tree":"Tutorial",
-                "targetObj":"Water Bottle"
-            }
-        },
-        {
-            "tid":8,
-            "triggerType":"Player",
-            "triggerInfo":{
-                "pid":7,
-                "onLeave":false,
-                "onEnter":false,
-                "onAction":"PickUp Water Bottle"
-            },
-            "triggerAction":{
                 "type":"Dialogue",
-                "sequence":"",
-                "tid":9,
-                "pid":8,
+                "tid":8,
+                "pid":2,
                 "tree":"Tutorial",
                 "targetObj":""
             }
         },
         {
-            "tid":9,
+            "tid":8,
             "triggerType":"Dialogue",
             "triggerInfo":{
-                "pid":8,
+                "pid":4,
                 "onLeave":true,
                 "onEnter":false,
                 "onAction":""
             },
             "triggerAction":{
                 "type":"changeSeq",
-                "sequence":"Universal",
-                "tid":0,
-                "pid":0,
-                "tree":"",
-                "targetObj":""
+                "sequence":"Universal"
             }
         }
     ]

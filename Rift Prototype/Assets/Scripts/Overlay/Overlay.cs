@@ -10,6 +10,7 @@ public class Overlay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         Transform[] ts = this.gameObject.transform.GetComponentsInChildren<Transform>(true);
         foreach (Transform t in ts)
         {
