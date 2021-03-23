@@ -8,6 +8,7 @@ public class ItemTrigger : MonoBehaviour
 {
     public Collider currentCol = null;
     public ItemTag currentItem = null;
+    public bool reportBoo = false;
     private GameObject global_variables;
     
     void Start()
@@ -46,6 +47,28 @@ public class ItemTrigger : MonoBehaviour
                 global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
             }
             currentCol = collision;
+        } else if(collision.gameObject.tag == "Report")
+        {
+            reportBoo = true;
+            Debug.Log("Report Detected");
+            string name = collision.gameObject.name;
+            string report = "";
+            switch (name)
+            {
+                case "PoliceReport":
+                    report = "Police Report";
+                    break;
+                case "GoldbergSafetyReport":
+                    report = "Goldberg Safety Report";
+                    break;
+                case "ForemansReport":
+                    report = "Foreman's Report";
+                    break;
+            }
+            string itemPrompt = "Press 'E' to view " + report;
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+            currentCol = collision;
         }
     }
 
@@ -60,6 +83,12 @@ public class ItemTrigger : MonoBehaviour
             global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
             currentCol = null;
             currentItem = null;
+        } else if(collision.gameObject.tag == "Report")
+        {
+            Debug.Log("Left Report Collider Area");
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            reportBoo = false;
+            currentCol = null;
         }
     }
 }

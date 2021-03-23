@@ -10,6 +10,8 @@ public class Fading_Platform : MonoBehaviour
     public float timeFadingIn = 0;
     public float timeGone = 0;
 
+    public bool opaque = false;
+
     //keeps track of seconds passed
     private float timer;
 
@@ -18,12 +20,66 @@ public class Fading_Platform : MonoBehaviour
     private bool fadingOut;
     private bool solid;
     private bool gone;
+    private Renderer rend;
 
     //The speed at which the gameObject dissapears;
     //private float speed;
 
+    public enum BlendMode
+    {
+        Opaque,
+        Cutout,
+        Fade,
+        Transparent
+    }
+
+    public static void ChangeRenderMode(Material standardShaderMaterial, BlendMode blendMode)
+    {
+        switch (blendMode)
+        {
+            case BlendMode.Opaque:
+                standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                standardShaderMaterial.SetInt("_ZWrite", 1);
+                standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                standardShaderMaterial.renderQueue = -1;
+                break;
+            case BlendMode.Cutout:
+                standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                standardShaderMaterial.SetInt("_ZWrite", 1);
+                standardShaderMaterial.EnableKeyword("_ALPHATEST_ON");
+                standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                standardShaderMaterial.renderQueue = 2450;
+                break;
+            case BlendMode.Fade:
+                standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                standardShaderMaterial.SetInt("_ZWrite", 0);
+                standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                standardShaderMaterial.EnableKeyword("_ALPHABLEND_ON");
+                standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                standardShaderMaterial.renderQueue = 3000;
+                break;
+            case BlendMode.Transparent:
+                standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                standardShaderMaterial.SetInt("_ZWrite", 0);
+                standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                standardShaderMaterial.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+                standardShaderMaterial.renderQueue = 3000;
+                break;
+        }
+
+    }
+
     void Start()
     {
+        rend = gameObject.GetComponent<Renderer>();
         fadingIn = false;
         fadingOut = false;
         gone = false;
@@ -37,6 +93,11 @@ public class Fading_Platform : MonoBehaviour
         //Debug.Log(gameObject.GetComponent<MeshRenderer>().material.color.a);
         if (solid)
         {
+            if (!opaque)
+            {
+                ChangeRenderMode(rend.material, BlendMode.Opaque);
+                opaque = true;
+            }
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
@@ -46,6 +107,11 @@ public class Fading_Platform : MonoBehaviour
             }
         } else if (fadingOut)
         {
+            if (opaque)
+            {
+                ChangeRenderMode(rend.material, BlendMode.Fade);
+                opaque = false;
+            }
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
