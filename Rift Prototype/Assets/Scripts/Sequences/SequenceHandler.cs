@@ -77,18 +77,19 @@ public class SequenceHandler : MonoBehaviour
         Trigger trig = getCurrTrigger();
         Trigger universalTrigger = getTriggerFromSequence(trigInfo, universalTriggers);
         Trigger sceneTrigger = getTriggerFromSequence(trigInfo, sceneTriggers);
+        Debug.Log(trigInfo.pid);
         if(trigInfo.onAction != "")
             Debug.Log(trigInfo.onAction);
         bool currTriggerActive = checkSequence(trigInfo);
-        if(currTriggerActive) {
+        if(currTriggerActive && trigType == trig.triggerType) {
             doTrigger(trig.triggerAction);
             changeCurrTid(trig.triggerAction.tid);
         }
-        else if(sceneTrigger != null) {
+        else if(sceneTrigger != null && trigType == sceneTrigger.triggerType) {
             doTrigger(sceneTrigger.triggerAction);
         }
-        else if(universalTrigger != null) {
-            doTrigger(sceneTrigger.triggerAction);
+        else if(universalTrigger != null && trigType == universalTrigger.triggerType) {
+            doTrigger(universalTrigger.triggerAction);
         }
     }
     private bool checkOnAction(string dbOnAction, string onActionTrigger)

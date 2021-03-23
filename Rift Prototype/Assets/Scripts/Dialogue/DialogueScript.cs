@@ -33,6 +33,10 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         changePortrait();
         DontDestroyOnLoad(this.gameObject);
     }
+    void onDisable()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Update is called once per frame
     void Update()
@@ -57,13 +61,14 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         if (linkIndex != -1) {
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             var linkId = linkInfo.GetLinkID();
+            int leavingPid = twineParser.getCurrPid();
             bool leave = twineParser.chooseOption(linkId);
             changePortrait();
             if(leave)
             {
                 this.mainCamera.GetComponent<CameraController>().focus = false;
                 this.mainCamera.GetComponent<CameraController>().zoomIn = false;
-                stateMachine.popState(pid: twineParser.getCurrPid());
+                stateMachine.popState(pid: leavingPid);
             }
         }
     }
