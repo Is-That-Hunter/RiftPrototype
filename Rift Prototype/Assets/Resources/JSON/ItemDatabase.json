@@ -5,9 +5,9 @@
        "itemSize":"Small",
        "itemType":"Authoritative",
        "itemMaterial":"Paper",
-       "itemDescription":"Its a Pink Slip",
+       "itemDescription":"A pink slip of paper, tough break buddy.",
        "spriteName":"pinkslip",
-       "craftable":false,
+       "craftable":true,
        "placeable":false
     },
     {
@@ -15,9 +15,9 @@
        "itemSize":"Small",
        "itemType":"Flammable",
        "itemMaterial":"Paper",
-       "itemDescription":"It Coffee",
-       "spriteName":"coffeecup",
-       "craftable":false,
+       "itemDescription":"An empty, coffee cup, pairs well with a cigarette butt.",
+       "spriteName":"papercoffeecup",
+       "craftable":true,
        "placeable":false
     },
     {
@@ -25,19 +25,19 @@
        "itemSize":"Small",
        "itemType":"Radiant",
        "itemMaterial":"Glass",
-       "itemDescription":"It Lightbulb",
-       "spriteName":"lightbulb",
-       "craftable":false,
+       "itemDescription":"A small, glass bulb, used for indicating the presence of a good idea.",
+       "spriteName":"lightbulb2",
+       "craftable":true,
        "placeable":false
     },
     {
-       "itemName":"TrashCan",
-       "itemSize":"Large",
-       "itemType":"Neutral",
+       "itemName":"Trash Can",
+       "itemSize":"Medium",
+       "itemType":"Sturdy",
        "itemMaterial":"Metal",
-       "itemDescription":"It Trashcan",
-       "spriteName":"soda bottle",
-       "craftable":false,
+       "itemDescription":"A large, metal trash can, or a very unhygienic helmet.",
+       "spriteName":"trashcan",
+       "craftable":true,
        "placeable":false
     },
     {
@@ -45,9 +45,9 @@
        "itemSize":"Small",
        "itemType":"Writing",
        "itemMaterial":"Plastic",
-       "itemDescription":"Pen",
-       "spriteName":"lockpick",
-       "craftable":false,
+       "itemDescription":"A small, plastic pen, the cap has been chewed beyond recognition. Gross.",
+       "spriteName":"ballpointpen",
+       "craftable":true,
        "placeable":false
     },
     {
@@ -55,9 +55,9 @@
        "itemSize":"Medium",
        "itemType":"Authoritative",
        "itemMaterial":"Paper",
-       "itemDescription":"Blueprints to.. something?",
+       "itemDescription":"A large scroll of blue paper, scrawled on in white chalk, important to planning any heist.",
        "spriteName":"blueprint",
-       "craftable":false,
+       "craftable":true,
        "placeable":false
     },
     {
@@ -65,7 +65,7 @@
        "itemSize":"Small",
        "itemType":"Authoritative",
        "itemMaterial":"Plastic",
-       "itemDescription":"Looks just like the guards IDs.. I think?",
+       "itemDescription":"Perfect for sneaking into restricted areas, or purchasing hard lemonades.",
        "spriteName":"ID",
        "craftable":true,
        "placeable":false
@@ -74,10 +74,10 @@
        "itemName":"Shoe",
        "itemSize":"Small",
        "itemType":"Sturdy",
-       "itemMaterial":"Leather",
-       "itemDescription":"Who's shoe?",
+       "itemMaterial":"Fabric",
+       "itemDescription":"Single shoe, for sale, extremely worn.",
        "spriteName":"shoe",
-       "craftable":false,
+       "craftable":true,
        "placeable":false
     },
     {
@@ -95,8 +95,8 @@
        "itemSize":"Medium",
        "itemType":"Authoritative",
        "itemMaterial":"Fabric",
-       "itemDescription":"You look just like them now!",
-       "spriteName":"ID",
+       "itemDescription":"Smells vaguely of bacon",
+       "spriteName":"uniform",
        "craftable":true,
        "placeable":false
     },
@@ -104,40 +104,290 @@
        "itemName":"Ladder",
        "itemSize":"Large",
        "itemType":"Sturdy",
-       "itemMaterial":"Wood",
-       "itemDescription":"Climby Climby.",
-       "spriteName":"hammer",
+       "itemMaterial":"Metal",
+       "itemDescription":"Great for going up, down, and even horizontally if you’re daring.",
+       "spriteName":"ladder",
        "craftable":true,
        "placeable":true
     },
     {
        "itemName":"Stray Jacket",
-       "itemSize":"Large",
+       "itemSize":"Medium",
        "itemType":"Neutral",
        "itemMaterial":"Fabric",
-       "itemDescription":"Ew Dirty.",
-       "spriteName":"lightbulb",
-       "craftable":false,
+       "itemDescription":"Whoever lost this sure ain’t getting it back.",
+       "spriteName":"jacket",
+       "craftable":true,
        "placeable":false
     },
     {
        "itemName":"Chair",
        "itemSize":"Medium",
        "itemType":"Sturdy",
+       "itemMaterial":"Plastic",
+       "itemDescription":"A simple folding chair, best used for slacking off at work or breaking over the back of a wrestler.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Lighter",
+       "itemSize":"Small",
+       "itemType":"Flammable",
+       "itemMaterial":"Plastic",
+       "itemDescription":"I'm tired of bumming these off strangers.",
+       "spriteName":"lighter",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Megaphone",
+       "itemSize":"Medium",
+       "itemType":"Loud",
+       "itemMaterial":"Plastic",
+       "itemDescription":"Great for getting someone, or something's, attention.",
+       "spriteName":"megaphone",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Drill",
+       "itemSize":"Medium",
+       "itemType":"Loud",
+       "itemMaterial":"Metal",
+       "itemDescription":"Something tells me these are only gonna get bigger.",
+       "spriteName":"drill",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Jackhammer",
+       "itemSize":"Large",
+       "itemType":"Loud",
+       "itemMaterial":"Metal",
+       "itemDescription":"Basically a human sized drill.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Broken Bottle",
+       "itemSize":"Small",
+       "itemType":"Sharp",
+       "itemMaterial":"Glass",
+       "itemDescription":"Hope nobody is nursing a head wound...",
+       "spriteName":"brokenbottle",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Road Barrier",
+       "itemSize":"Medium",
+       "itemType":"Authoritative",
        "itemMaterial":"Wood",
-       "itemDescription":"Could Sit in it.",
-       "spriteName":"wirecutters",
+       "itemDescription":"Might as well just have a sign saying 'Keep Out'.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Table",
+       "itemSize":"Large",
+       "itemType":"Sturdy",
+       "itemMaterial":"Wood",
+       "itemDescription":"Perfect for picnics.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Gears",
+       "itemSize":"Small",
+       "itemType":"Mechanical",
+       "itemMaterial":"Metal",
+       "itemDescription":"A handful of small metal gears, could be good for fixing a watch or... whatever else little gears are used for.",
+       "spriteName":"gears",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Construction Pipes",
+       "itemSize":"Large",
+       "itemType":"Heavy",
+       "itemMaterial":"Metal",
+       "itemDescription":"Big, heavy, and very big.",
+       "spriteName":"pipes",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Plank",
+       "itemSize":"Medium",
+       "itemType":"Sturdy",
+       "itemMaterial":"Wood",
+       "itemDescription":"A long, splintery piece of wood, best handled with gloves or extremely calloused hands.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Rope",
+       "itemSize":"Medium",
+       "itemType":"Sturdy",
+       "itemMaterial":"Fabric",
+       "itemDescription":"I'm no trapeze artist, but I'll manage.",
+       "spriteName":"rope",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Car Battery",
+       "itemSize":"Medium",
+       "itemType":"Corrosive",
+       "itemMaterial":"Metal",
+       "itemDescription":"Looks old, but may still have some juice in it.",
+       "spriteName":"carbattery",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Bleach",
+       "itemSize":"Small",
+       "itemType":"Corrosive",
+       "itemMaterial":"Plastic",
+       "itemDescription":"Keeps out the blood stains.",
+       "spriteName":"bleachbottle",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Soda Bottle",
+       "itemSize":"Small",
+       "itemType":"Delicate",
+       "itemMaterial":"Glass",
+       "itemDescription":"A small glass bottle, useful as an instrument or broken over the skull of an enemy.",
+       "spriteName":"sodabottle",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Screws",
+       "itemSize":"Small",
+       "itemType":"Delicate",
+       "itemMaterial":"Metal",
+       "itemDescription":"Screw THIS!",
+       "spriteName":"screw",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Nails",
+       "itemSize":"Small",
+       "itemType":"Sharp",
+       "itemMaterial":"Metal",
+       "itemDescription":"I like to believe I'm as tough as these.",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Old Tire",
+       "itemSize":"Medium",
+       "itemType":"Heavy",
+       "itemMaterial":"Rubber",
+       "itemDescription":"Often seen rolling down hills while on fire.",
+       "spriteName":"tire",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Charcoal",
+       "itemSize":"Small",
+       "itemType":"Flammable",
+       "itemMaterial":"Charcoal",
+       "itemDescription":"Perfect gift for misbehaved children.",
+       "spriteName":"charcoal",
        "craftable":false,
        "placeable":false
     },
     {
-       "itemName":"Water Bottle",
+       "itemName":"Acid",
+       "itemSize":"Medium",
+       "itemType":"Corrosive",
+       "itemMaterial":"Glass",
+       "itemDescription":"This is the burning kind, not the seeing things kind.",
+       "spriteName":"acidbottle",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Lockpick",
        "itemSize":"Small",
        "itemType":"Delicate",
-       "itemMaterial":"Water",
-       "itemDescription":"Still Some Water Left in it.",
-       "spriteName":"waterbottle",
-       "craftable":false,
+       "itemMaterial":"Metal",
+       "itemDescription":"Santa always keeps these on hand incase there's no chimney.",
+       "spriteName":"lockpick",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Wirecutters",
+       "itemSize":"Medium",
+       "itemType":"Sharp",
+       "itemMaterial":"Metal",
+       "itemDescription":"A necessity for any good delinquent.",
+       "spriteName":"wirecutters",
+       "craftable":true,
+       "placeable":false
+    },
+    {
+       "itemName":"Cannon",
+       "itemSize":"Medium",
+       "itemType":"Heavy",
+       "itemMaterial":"Metal",
+       "itemDescription":"KABOOM!!!",
+       "spriteName":"hammer",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Cannonball",
+       "itemSize":"Small",
+       "itemType":"Heavy",
+       "itemMaterial":"Metal",
+       "itemDescription":"Traditional cannon ammunition, can come in human variants.",
+       "spriteName":"cannonball",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Firecracker",
+       "itemSize":"Small",
+       "itemType":"Loud",
+       "itemMaterial":"Paper",
+       "itemDescription":"Ironically, this is also what my high school teachers called me.",
+       "spriteName":"firecracker",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Flare",
+       "itemSize":"Small",
+       "itemType":"Radiant",
+       "itemMaterial":"Charcoal",
+       "itemDescription":"When you need red mood lighting.",
+       "spriteName":"flare",
+       "craftable":true,
+       "placeable":true
+    },
+    {
+       "itemName":"Flashlight",
+       "itemSize":"Small",
+       "itemType":"Radiant",
+       "itemMaterial":"Metal",
+       "itemDescription":"Let there be flashlight.",
+       "spriteName":"flashlight",
+       "craftable":true,
        "placeable":false
     }
  ]}
