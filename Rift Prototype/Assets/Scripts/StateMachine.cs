@@ -38,7 +38,9 @@ public class StateMachine : MonoBehaviour
     public GameObject player;
     public GameObject inventory;
     public GameObject dialogue;
+    public GameObject pause;
     public GameObject overlay;
+    public GameObject report;
     public GlobalScript globalScript;
     public Stack<State> stateStack = new Stack<State>();
 
@@ -49,6 +51,8 @@ public class StateMachine : MonoBehaviour
         states.Add(new State("Player", player));
         states.Add(new State("Inventory", inventory));
         states.Add(new State("Dialogue", dialogue));
+        states.Add(new State("Pause", pause));
+        states.Add(new State("Report", report));
         stateStack.Push(states.FirstOrDefault(i=>i.stateName == "Player"));
         foreach(State _state in states)
         {

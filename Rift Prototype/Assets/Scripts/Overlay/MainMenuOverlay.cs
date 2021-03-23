@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuOverlay : MonoBehaviour
 {
     public List<Transform> Options = new List<Transform>();
+
+    public GameObject credits;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,9 @@ public class MainMenuOverlay : MonoBehaviour
             case "Tutorial":
                 SceneManager.LoadScene("Entrance");
                 break;
-            case "Platform":
-                SceneManager.LoadScene("Platform_Mechanics");
+            case "Credits":
+                credits.SetActive(true);
+                gameObject.SetActive(false);
                 break;
             case "Exit":
                 Application.Quit();
