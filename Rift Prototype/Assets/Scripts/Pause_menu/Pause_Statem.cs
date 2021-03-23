@@ -14,13 +14,11 @@ public class Pause_Statem : StateInterface
     private void Awake()
     {
         controls = new MainController();
-
         controls.Pause_Menu.Unpause.performed += unpause => Unpause();
     }
 
     public void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         resume.onClick.AddListener(Unpause);
         quit.onClick.AddListener(QuitGame);
     }

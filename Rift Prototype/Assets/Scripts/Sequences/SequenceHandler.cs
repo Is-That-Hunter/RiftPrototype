@@ -136,7 +136,7 @@ public class SequenceHandler : MonoBehaviour
             case "ChangeAngle":
                 Debug.Log("ChangeAngle");
                 player.position = new Vector3(action.posX, action.posY, action.posZ);
-                player.localScale = new Vector3(action.playerScale,action.playerScale,action.playerScale);
+                //player.localScale = new Vector3(action.playerScale,action.playerScale,action.playerScale);
                 break;
 
 

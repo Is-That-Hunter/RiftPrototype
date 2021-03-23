@@ -254,7 +254,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1797840845895797838}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797840845895797839}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1797840845895797838}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797840845895797839}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
@@ -1526,21 +1526,6 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 743465067}
-    - target: {fileID: 3963345458369741140, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 17.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3963345458369741140, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 35.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 3963345458369741140, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 8.4
-      objectReference: {fileID: 0}
     - target: {fileID: 4934765016191789231, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
         type: 3}
       propertyPath: cam
@@ -2095,6 +2080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Inv_Craft_Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193093393250275640, guid: caf9be260fa4c49dc9108d2811b15a82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8193093393250275641, guid: caf9be260fa4c49dc9108d2811b15a82,
         type: 3}
@@ -4221,44 +4211,9 @@ PrefabInstance:
       objectReference: {fileID: 1463828160}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
-      propertyPath: sceneTriggers
-      value: Entrance
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
-      propertyPath: currentSequence
-      value: Universal
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
-      propertyPath: universalTriggers
-      value: Universal
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
-      propertyPath: sequenceJsons.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
-      propertyPath: sequenceJsons.Array.data[2]
-      value: EntranceTriggers
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
-      propertyPath: sequenceJsons.Array.data[3]
-      value: CarnivalTriggers
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
       propertyPath: targets.Array.data[0].target
       value: 
       objectReference: {fileID: 7880517794684144362}
-    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
-        type: 3}
-      propertyPath: targets.Array.data[0].objName
-      value: Water Bottle
-      objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: mainCamera
@@ -4405,24 +4360,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1734225394e0c400dadfd27703b1d770, type: 3}
---- !u!1 &1797840845895797839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1797840845999090618, guid: 1734225394e0c400dadfd27703b1d770,
-    type: 3}
-  m_PrefabInstance: {fileID: 1797840845895797838}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1797840845895797840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797840845895797839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0926b65ff7084327bba27ec5936b389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4799443272989509010
 PrefabInstance:
   m_ObjectHideFlags: 0

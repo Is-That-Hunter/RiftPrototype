@@ -31,11 +31,6 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         this.twineParser = this.globalObj.GetComponent<GlobalScript>().twineParser;
         this.stateMachine = this.globalObj.GetComponent<StateMachine>();
         changePortrait();
-        DontDestroyOnLoad(this.gameObject);
-    }
-    void onDisable()
-    {
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame

@@ -56,6 +56,7 @@ public class StateMachine : MonoBehaviour
         stateStack.Push(states.FirstOrDefault(i=>i.stateName == "Player"));
         foreach(State _state in states)
         {
+            DontDestroyOnLoad(_state.stateObject);
             if(stateStack.Peek() == _state)
                 _state.changeActive(true);
             else

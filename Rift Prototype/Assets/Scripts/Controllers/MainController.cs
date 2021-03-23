@@ -549,6 +549,33 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Develop"",
+            ""id"": ""a900ead4-4037-4a73-b026-738117b04081"",
+            ""actions"": [
+                {
+                    ""name"": ""Carnival"",
+                    ""type"": ""Button"",
+                    ""id"": ""946934f7-5728-4e8a-a4c0-65e6e5309c6a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f4e7b79a-3ca7-44a0-b24c-aaab4d2c0f2f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Carnival"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -580,6 +607,9 @@ public class @MainController : IInputActionCollection, IDisposable
         // Report
         m_Report = asset.FindActionMap("Report", throwIfNotFound: true);
         m_Report_Escape = m_Report.FindAction("Escape", throwIfNotFound: true);
+        // Develop
+        m_Develop = asset.FindActionMap("Develop", throwIfNotFound: true);
+        m_Develop_Carnival = m_Develop.FindAction("Carnival", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -877,6 +907,39 @@ public class @MainController : IInputActionCollection, IDisposable
         }
     }
     public ReportActions @Report => new ReportActions(this);
+
+    // Develop
+    private readonly InputActionMap m_Develop;
+    private IDevelopActions m_DevelopActionsCallbackInterface;
+    private readonly InputAction m_Develop_Carnival;
+    public struct DevelopActions
+    {
+        private @MainController m_Wrapper;
+        public DevelopActions(@MainController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Carnival => m_Wrapper.m_Develop_Carnival;
+        public InputActionMap Get() { return m_Wrapper.m_Develop; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DevelopActions set) { return set.Get(); }
+        public void SetCallbacks(IDevelopActions instance)
+        {
+            if (m_Wrapper.m_DevelopActionsCallbackInterface != null)
+            {
+                @Carnival.started -= m_Wrapper.m_DevelopActionsCallbackInterface.OnCarnival;
+                @Carnival.performed -= m_Wrapper.m_DevelopActionsCallbackInterface.OnCarnival;
+                @Carnival.canceled -= m_Wrapper.m_DevelopActionsCallbackInterface.OnCarnival;
+            }
+            m_Wrapper.m_DevelopActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Carnival.started += instance.OnCarnival;
+                @Carnival.performed += instance.OnCarnival;
+                @Carnival.canceled += instance.OnCarnival;
+            }
+        }
+    }
+    public DevelopActions @Develop => new DevelopActions(this);
     public interface IPlayerMovementActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -907,5 +970,9 @@ public class @MainController : IInputActionCollection, IDisposable
     public interface IReportActions
     {
         void OnEscape(InputAction.CallbackContext context);
+    }
+    public interface IDevelopActions
+    {
+        void OnCarnival(InputAction.CallbackContext context);
     }
 }

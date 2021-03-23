@@ -51,7 +51,6 @@ public class BasicMovement : StateInterface
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         body = GetComponent<Rigidbody>();
         //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
@@ -219,6 +218,7 @@ public class BasicMovement : StateInterface
 
     
     void OnEnable(){
+        this.gameObject.GetComponent<PlayerInput>().enabled = true;
         controls.PlayerMovement.Enable();
         controls.Develop.Enable();
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
@@ -238,6 +238,7 @@ public class BasicMovement : StateInterface
 
     void OnDisable(){
         controls.PlayerMovement.Disable();
+        this.gameObject.GetComponent<PlayerInput>().enabled = false;
     }
 
     //End
