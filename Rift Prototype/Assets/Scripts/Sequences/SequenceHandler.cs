@@ -125,12 +125,17 @@ public class SequenceHandler : MonoBehaviour
                 sceneTriggers = action.sceneTriggers;
                 SceneManager.LoadScene(action.scene);
                 break;
+            case "Scenes":
+                sceneTriggers = action.sceneTriggers;
+                SceneManager.LoadScene(action.scene);
+                break;
             case "ChangeSequenceTrigger":
                 sceneTriggers = action.sceneTriggers;
                 break;
             case "ChangeAngle":
                 Debug.Log("ChangeAngle");
                 player.position = new Vector3(action.posX, action.posY, action.posZ);
+                player.localScale = new Vector3(action.playerScale,action.playerScale,action.playerScale);
                 break;
 
 

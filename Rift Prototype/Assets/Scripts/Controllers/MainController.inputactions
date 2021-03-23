@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Carnival",
+                    "type": "Button",
+                    "id": "7b12af7a-16e6-4d2e-b95c-daff76dcd96c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -255,6 +263,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06ddc6d8-20fb-429f-b4cb-39fd311ea9d8",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Carnival",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -459,6 +478,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Develop",
+            "id": "8b67be71-a858-4b0d-a44e-919cbbc18a74",
+            "actions": [
+                {
+                    "name": "Carnival",
+                    "type": "Button",
+                    "id": "20030f6f-0f8c-4159-af1a-7821c2dd4a54",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "826e466e-1ae7-413b-973e-13dc9406fd72",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Carnival",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -10,11 +10,8 @@
             },
             "triggerAction":{
                 "type":"Scene",
-                "sceneTriggers":"UniversalTriggers",
-                "scene":"FullScene",
-                "posX": 27,
-                "posY": 1,
-                "posZ": 5
+                "sceneTriggers":"Carnival",
+                "scene":"FullScene"
             }
         }
     ]   

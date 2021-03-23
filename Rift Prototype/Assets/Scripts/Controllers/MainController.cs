@@ -81,6 +81,14 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Carnival"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b12af7a-16e6-4d2e-b95c-daff76dcd96c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -268,6 +276,17 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06ddc6d8-20fb-429f-b4cb-39fd311ea9d8"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Carnival"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -476,6 +495,33 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Develop"",
+            ""id"": ""8b67be71-a858-4b0d-a44e-919cbbc18a74"",
+            ""actions"": [
+                {
+                    ""name"": ""Carnival"",
+                    ""type"": ""Button"",
+                    ""id"": ""20030f6f-0f8c-4159-af1a-7821c2dd4a54"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""826e466e-1ae7-413b-973e-13dc9406fd72"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Carnival"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -490,6 +536,7 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
         m_PlayerMovement_State_Switch = m_PlayerMovement.FindAction("State_Switch", throwIfNotFound: true);
         m_PlayerMovement_Interact = m_PlayerMovement.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerMovement_Carnival = m_PlayerMovement.FindAction("Carnival", throwIfNotFound: true);
         // Inventory_Craft
         m_Inventory_Craft = asset.FindActionMap("Inventory_Craft", throwIfNotFound: true);
         m_Inventory_Craft_Move = m_Inventory_Craft.FindAction("Move", throwIfNotFound: true);
@@ -500,6 +547,9 @@ public class @MainController : IInputActionCollection, IDisposable
         m_Inventory_Craft_State_Switch = m_Inventory_Craft.FindAction("State_Switch", throwIfNotFound: true);
         m_Inventory_Craft_Click = m_Inventory_Craft.FindAction("Click", throwIfNotFound: true);
         m_Inventory_Craft_Point = m_Inventory_Craft.FindAction("Point", throwIfNotFound: true);
+        // Develop
+        m_Develop = asset.FindActionMap("Develop", throwIfNotFound: true);
+        m_Develop_Carnival = m_Develop.FindAction("Carnival", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -557,6 +607,7 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Dash;
     private readonly InputAction m_PlayerMovement_State_Switch;
     private readonly InputAction m_PlayerMovement_Interact;
+    private readonly InputAction m_PlayerMovement_Carnival;
     public struct PlayerMovementActions
     {
         private @MainController m_Wrapper;
@@ -569,6 +620,7 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_PlayerMovement_Dash;
         public InputAction @State_Switch => m_Wrapper.m_PlayerMovement_State_Switch;
         public InputAction @Interact => m_Wrapper.m_PlayerMovement_Interact;
+        public InputAction @Carnival => m_Wrapper.m_PlayerMovement_Carnival;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -602,6 +654,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
+                @Carnival.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCarnival;
+                @Carnival.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCarnival;
+                @Carnival.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCarnival;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -630,6 +685,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Carnival.started += instance.OnCarnival;
+                @Carnival.performed += instance.OnCarnival;
+                @Carnival.canceled += instance.OnCarnival;
             }
         }
     }
@@ -723,6 +781,39 @@ public class @MainController : IInputActionCollection, IDisposable
         }
     }
     public Inventory_CraftActions @Inventory_Craft => new Inventory_CraftActions(this);
+
+    // Develop
+    private readonly InputActionMap m_Develop;
+    private IDevelopActions m_DevelopActionsCallbackInterface;
+    private readonly InputAction m_Develop_Carnival;
+    public struct DevelopActions
+    {
+        private @MainController m_Wrapper;
+        public DevelopActions(@MainController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Carnival => m_Wrapper.m_Develop_Carnival;
+        public InputActionMap Get() { return m_Wrapper.m_Develop; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DevelopActions set) { return set.Get(); }
+        public void SetCallbacks(IDevelopActions instance)
+        {
+            if (m_Wrapper.m_DevelopActionsCallbackInterface != null)
+            {
+                @Carnival.started -= m_Wrapper.m_DevelopActionsCallbackInterface.OnCarnival;
+                @Carnival.performed -= m_Wrapper.m_DevelopActionsCallbackInterface.OnCarnival;
+                @Carnival.canceled -= m_Wrapper.m_DevelopActionsCallbackInterface.OnCarnival;
+            }
+            m_Wrapper.m_DevelopActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Carnival.started += instance.OnCarnival;
+                @Carnival.performed += instance.OnCarnival;
+                @Carnival.canceled += instance.OnCarnival;
+            }
+        }
+    }
+    public DevelopActions @Develop => new DevelopActions(this);
     public interface IPlayerMovementActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -733,6 +824,7 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnState_Switch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnCarnival(InputAction.CallbackContext context);
     }
     public interface IInventory_CraftActions
     {
@@ -744,5 +836,9 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnState_Switch(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+    }
+    public interface IDevelopActions
+    {
+        void OnCarnival(InputAction.CallbackContext context);
     }
 }
