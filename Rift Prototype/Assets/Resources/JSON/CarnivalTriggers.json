@@ -12,9 +12,9 @@
                 "type":"ChangeAngle",
                 "sceneTriggers":"UniversalTriggers",
                 "scene":"FullScene",
-                "posX": 27,
+                "posX": 36,
                 "posY": 1,
-                "posZ": 5,
+                "posZ": -18,
                 "camRotate": -90 
             }
         }
