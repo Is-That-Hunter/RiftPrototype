@@ -53,4 +53,5 @@ public class TriggerAction
     public int posX;
     public int posY;
     public int posZ;
+    public int camRotate;
 }

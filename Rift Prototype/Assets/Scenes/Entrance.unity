@@ -4165,12 +4165,17 @@ PrefabInstance:
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: sequenceJsons.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: sequenceJsons.Array.data[2]
       value: EntranceTriggers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: sequenceJsons.Array.data[3]
+      value: CarnivalTriggers
       objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}

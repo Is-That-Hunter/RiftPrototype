@@ -1,0 +1,22 @@
+{
+    "name": "Carnival",
+    "order": false,
+    "triggers":[
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "pid": -1
+            },
+            "triggerAction":{
+                "type":"ChangeAngle",
+                "sceneTriggers":"UniversalTriggers",
+                "scene":"FullScene",
+                "posX": 27,
+                "posY": 1,
+                "posZ": 5,
+                "camRotate": -90 
+            }
+        }
+    ]   
+}

@@ -44,6 +44,14 @@ public class SequenceHandler : MonoBehaviour
         initiliazed = true;
         StartCoroutine(SceneTriggerCoroutine());
     }
+    void OnEnable() 
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     IEnumerator SceneTriggerCoroutine()
     {
         yield return new WaitForSeconds(1);
@@ -69,21 +77,17 @@ public class SequenceHandler : MonoBehaviour
         Trigger trig = getCurrTrigger();
         Trigger universalTrigger = getTriggerFromSequence(trigInfo, universalTriggers);
         Trigger sceneTrigger = getTriggerFromSequence(trigInfo, sceneTriggers);
-        Debug.Log(sceneTrigger);
         if(trigInfo.onAction != "")
             Debug.Log(trigInfo.onAction);
         bool currTriggerActive = checkSequence(trigInfo);
         if(currTriggerActive) {
-            Debug.Log("currTrigger");
             doTrigger(trig.triggerAction);
             changeCurrTid(trig.triggerAction.tid);
         }
         else if(sceneTrigger != null) {
-            Debug.Log("sceneTrigger");
             doTrigger(sceneTrigger.triggerAction);
         }
         else if(universalTrigger != null) {
-            Debug.Log("sceneTrigger");
             doTrigger(sceneTrigger.triggerAction);
         }
     }
@@ -123,6 +127,9 @@ public class SequenceHandler : MonoBehaviour
                 break;
             case "ChangeSequenceTrigger":
                 sceneTriggers = action.sceneTriggers;
+                break;
+            case "ChangeAngle":
+                Debug.Log("ChangeAngle");
                 player.position = new Vector3(action.posX, action.posY, action.posZ);
                 break;
 
