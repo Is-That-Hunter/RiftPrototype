@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
         GameObject globalObj = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
         this.globalScript = globalObj.GetComponent<GlobalScript>();
         this.twineParser = globalScript.twineParser;
-        this.overlay = globalScript.Overlay.GetComponent<Overlay>();
+        this.overlay = globalScript.Overlay;
     }
 
     //Detect collisions between the GameObjects with Colliders attached

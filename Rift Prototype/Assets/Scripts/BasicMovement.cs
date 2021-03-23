@@ -51,6 +51,7 @@ public class BasicMovement : StateInterface
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         body = GetComponent<Rigidbody>();
         //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;

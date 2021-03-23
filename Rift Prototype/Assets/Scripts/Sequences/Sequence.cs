@@ -21,16 +21,12 @@ public class TriggerInfo
 {
     public bool onLeave;
     public bool onEnter;
-    public bool onFinish;
-    public bool onStart;
     public string onAction;
     public int pid;
 
-    public TriggerInfo(bool _onLeave = false, bool _onEnter = false, bool _onFinish = false, bool _onStart = false, string _onAction = "", int _pid = -1) {
+    public TriggerInfo(bool _onLeave = false, bool _onEnter = false, string _onAction = "", int _pid = -1) {
         onLeave = _onLeave;
         onEnter = _onEnter;
-        onFinish = _onFinish;
-        onStart = _onStart;
         onAction = _onAction;
         pid = _pid;
     }
@@ -48,4 +44,10 @@ public class TriggerAction
     public string tree;
     //Zoom in Obj
     public string targetObj;
+    //Item to give to player
+    public string itemName;
+    //Scene to change to
+    public string scene;
+    //SceneTrigger Change
+    public string sceneTriggers;
 }
