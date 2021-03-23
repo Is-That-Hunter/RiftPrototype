@@ -166,7 +166,8 @@ public class SequenceHandler : MonoBehaviour
         bool isActive = currTrig.triggerInfo.onLeave == trigInfo.onLeave & 
             currTrig.triggerInfo.onEnter == trigInfo.onEnter &
             currTrig.triggerInfo.pid == trigInfo.pid &
-            currTrig.triggerInfo.onAction == trigInfo.onAction;
+            currTrig.triggerInfo.onAction == trigInfo.onAction &
+            currTrig.triggerInfo.tree == trigInfo.tree;
         return isActive;
     }
     Trigger getTriggerFromSequence(TriggerInfo trigInfo, string sequenceName)
@@ -180,6 +181,7 @@ public class SequenceHandler : MonoBehaviour
                 .Where(i=>i.triggerInfo.onEnter == trigInfo.onEnter)
                 .Where(i=>i.triggerInfo.pid == trigInfo.pid)
                 .Where(i=>i.triggerInfo.onAction == trigInfo.onAction)
+                .Where(i=>i.triggerInfo.tree == trigInfo.tree)
                 .DefaultIfEmpty(null)
                 .FirstOrDefault();
         }

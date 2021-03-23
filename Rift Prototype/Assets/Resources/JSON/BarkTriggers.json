@@ -5,7 +5,8 @@
         {
             "triggerType":"Player",
             "triggerInfo":{
-                "onAction":"Enter PlaceableItem Ghost Ladder"
+                "onAction":"Enter PlaceableItem Ghost Ladder",
+                "tree":""
             },
             "triggerAction":{
                 "once": true,
@@ -17,7 +18,8 @@
         {
             "triggerType":"Inventory",
             "triggerInfo":{
-                "onAction":"Craft Fail"
+                "onAction":"Craft Fail",
+                "tree":""
             },
             "triggerAction":{
                 "once": false,
@@ -29,7 +31,8 @@
         {
             "triggerType":"Inventory",
             "triggerInfo":{
-                "onAction":"Craft Fail Placeable"
+                "onAction":"Craft Fail Placeable",
+                "tree":""
             },
             "triggerAction":{
                 "once": false,
@@ -41,7 +44,8 @@
         {
             "triggerType":"Inventory",
             "triggerInfo":{
-                "onAction":"Craft Fail Placeable Ladder"
+                "onAction":"Craft Fail Placeable Ladder",
+                "tree":""
             },
             "triggerAction":{
                 "once": false,

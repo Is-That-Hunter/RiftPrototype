@@ -57,13 +57,14 @@ public class DialogueScript : StateInterface, IPointerClickHandler
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             var linkId = linkInfo.GetLinkID();
             int leavingPid = twineParser.getCurrPid();
+            string currTree = twineParser.currTree;
             bool leave = twineParser.chooseOption(linkId);
             changePortrait();
             if(leave)
             {
                 this.mainCamera.GetComponent<CameraController>().focus = false;
                 this.mainCamera.GetComponent<CameraController>().zoomIn = false;
-                stateMachine.popState(pid: leavingPid);
+                stateMachine.popState(pid: leavingPid, tree: currTree);
             }
         }
     }

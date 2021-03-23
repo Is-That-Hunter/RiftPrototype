@@ -7,7 +7,8 @@
             "triggerInfo":{
                 "onEnter": true,
                 "onAction": "",
-                "pid": -1
+                "pid": -1,
+                "tree":""
             },
             "triggerAction":{
                 "type":"ChangeAngle",
@@ -24,7 +25,8 @@
             "triggerInfo":{
                 "onEnter": true,
                 "onAction": "",
-                "pid": -1
+                "pid": -1,
+                "tree":""
             },
             "triggerAction":{
                 "type":"Scenes",
@@ -32,8 +34,7 @@
                 "scenes":["MonPlat1", "MonPlat1Rev", "MonPlat2", "MonPlat3", "MonPlat4", "MonPlat5", "MonPlat6"],
                 "posX": -34,
                 "posY": 1,
-                "posZ": -18,
-                "playerScale": 0.09
+                "posZ": -18
             }
         }
     ]   

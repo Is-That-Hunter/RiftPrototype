@@ -6,7 +6,8 @@
             "triggerType":"Player",
             "triggerInfo":{
                 "onAction":"Interact PlaceableItem Ladder",
-                "pid": -1
+                "pid": -1,
+                "tree":""
             },
             "triggerAction":{
                 "type":"Scene",
@@ -19,7 +20,8 @@
             "triggerInfo":{
                 "onLeave": true,
                 "onAction":"",
-                "pid": 24
+                "pid": 24,
+                "tree":"Guard"
             },
             "triggerAction":{
                 "type":"Scene",
@@ -32,7 +34,8 @@
             "triggerInfo":{
                 "onLeave": true,
                 "onAction":"",
-                "pid": 28
+                "pid": 28,
+                "tree":"Guard"
             },
             "triggerAction":{
                 "type":"Scene",
@@ -45,7 +48,8 @@
             "triggerInfo":{
                 "onLeave": true,
                 "onAction":"",
-                "pid": 11
+                "pid": 11,
+                "tree":"Guard"
             },
             "triggerAction":{
                 "type":"Item",

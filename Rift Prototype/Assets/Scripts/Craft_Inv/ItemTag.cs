@@ -29,8 +29,10 @@ public class ItemTag : MonoBehaviour
                 pointer = t;
             }
         }
-        ObjMaterials = Obj.GetComponent<MeshRenderer>().materials;
-        pointer.gameObject.SetActive(indicator);
+        if(Obj != null)
+            ObjMaterials = Obj.GetComponent<MeshRenderer>().materials;
+        if(pointer != null)
+            pointer.gameObject.SetActive(indicator);
         
         if(placeable)
         {
@@ -65,7 +67,7 @@ public class ItemTag : MonoBehaviour
 
     public void setIndicator(bool active)
     {
-        if(!created)
+        if(!created && placeable)
         {
             indicator = active;
             //For object above

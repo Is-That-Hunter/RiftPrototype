@@ -82,14 +82,14 @@ public class StateMachine : MonoBehaviour
         Debug.Log(prnt);
         
     }
-    public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1)
+    public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1, string tree = "")
     {
         State x = stateStack.Pop();
         x.changeActive(false, disableObj);
         stateStack.Peek().changeActive(true);
         overlay.SetActive(overlayActive);
         if(x.stateName == "Dialogue") {
-            handleAction(x.stateName, onLeave: true, pid: pid);
+            handleAction(x.stateName, onLeave: true, pid: pid, tree: tree);
         }
         else {
             handleAction(x.stateName, onLeave: true);
@@ -107,9 +107,9 @@ public class StateMachine : MonoBehaviour
     {
         return stateStack.Peek();
     }
-    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, string onAction = "", int pid = -1)
+    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, string onAction = "", int pid = -1, string tree = "")
     {
-        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onAction,pid);
+        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onAction,pid, tree);
         globalScript.sequenceHandler.handleAction(trigInfo, triggerType);
     }
 }
