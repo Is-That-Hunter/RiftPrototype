@@ -3,22 +3,15 @@
     "order": false,
     "triggers":[
         {
-            "tid":0,
-            "triggerType":"Player",
+            "triggerType":"Develop",
             "triggerInfo":{
-                "pid":0,
-                "onLeave":false,
-                "onEnter":false,
-                "onFinish":false,
-                "onStart":false,
-                "onAction":""
+                "onAction":"C",
+                "pid": -1
             },
             "triggerAction":{
-                "type":"",
-                "tid":0,
-                "pid":0,
-                "tree":"",
-                "targetObj":""
+                "type":"Scene",
+                "sceneTriggers":"Carnival",
+                "scene":"FullScene"
             }
         }
     ]

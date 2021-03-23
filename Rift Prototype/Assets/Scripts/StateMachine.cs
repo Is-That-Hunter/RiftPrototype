@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 //Attach to Global Variable Object
 [System.Serializable]
@@ -60,21 +61,21 @@ public class StateMachine : MonoBehaviour
     public void pushState(string newState, bool disableObj = true, bool overlayActive = false)
     {
         State _newState = states.FirstOrDefault(i=>i.stateName == newState);
-        if(_newState == stateStack.Peek())
+        if(stateStack.Contains(_newState))
             return;
         stateStack.Peek().changeActive(false, disableObj);
         _newState.changeActive(true);
         stateStack.Push(_newState);
         overlay.SetActive(overlayActive);
         handleAction(newState, onEnter: true);
-        /*
+        
         string prnt = "";
         foreach(State x in stateStack.ToArray())
         {
             prnt += x.stateName + "\n";
         }
         Debug.Log(prnt);
-        */
+        
     }
     public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1)
     {
@@ -88,14 +89,14 @@ public class StateMachine : MonoBehaviour
         else {
             handleAction(x.stateName, onLeave: true);
         }
-        /*
+        
         string prnt = "";
         foreach(State s in stateStack.ToArray())
         {
             prnt += s.stateName + "\n";
         }
         Debug.Log(prnt);
-        */
+        
     }
     public State peekState()
     {

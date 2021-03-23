@@ -195,9 +195,16 @@ public class BasicMovement : StateInterface
         }
     }
 
+    public void developCarnival() 
+    {
+        Debug.Log("Develop Command Carnival");
+        state_m.handleAction("Develop", onAction: "C");
+    }
+
     
     void OnEnable(){
         controls.PlayerMovement.Enable();
+        controls.Develop.Enable();
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
         controls.PlayerMovement.Running.performed += ctx => isCrouching = false;
         controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
@@ -209,6 +216,7 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Interact.performed += ctxe => Interact();
         controls.PlayerMovement.Jump.performed += ctx => isJump = true;
         controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
+        controls.Develop.Carnival.performed += ctx => developCarnival();
     }
 
     void OnDisable(){

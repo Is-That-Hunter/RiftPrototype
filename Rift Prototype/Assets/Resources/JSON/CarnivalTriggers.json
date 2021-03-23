@@ -1,0 +1,40 @@
+{
+    "name": "Carnival",
+    "order": false,
+    "triggers":[
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1
+            },
+            "triggerAction":{
+                "type":"ChangeAngle",
+                "sceneTriggers":"UniversalTriggers",
+                "scene":"FullScene",
+                "posX": -34,
+                "posY": 1,
+                "posZ": -18,
+                "playerScale": 0.09
+            }
+        },
+        {
+            "triggerType":"Monster",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1
+            },
+            "triggerAction":{
+                "type":"Scenes",
+                "sceneTriggers":"MonsterPlatform",
+                "scenes":["MonPlat1", "MonPlat1Rev", "MonPlat2", "MonPlat3", "MonPlat4", "MonPlat5", "MonPlat6"],
+                "posX": -34,
+                "posY": 1,
+                "posZ": -18,
+                "playerScale": 0.09
+            }
+        }
+    ]   
+}

@@ -35,6 +35,7 @@ public class CftCtrlBhv : StateInterface
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         globalScript = globalObject.GetComponent<GlobalScript>();
         Transform[] ts = gameObject.transform.GetComponentsInChildren<Transform>(true);
         itemTrigger = state_m.player.transform.GetChild(0).GetComponent<ItemTrigger>();
