@@ -3,17 +3,18 @@
     "order": false,
     "triggers":[
         {
-            "triggerType":"Inventory",
+            "triggerType":"Player",
             "triggerInfo":{
-                "pid":-2,
-                "onLeave":false,
-                "onEnter":true,
-                "onAction":""
+                "onAction":"Interact PlaceableItem Ladder",
+                "pid": -1
             },
             "triggerAction":{
                 "type":"Scene",
                 "sceneTriggers":"UniversalTriggers",
-                "scene":"Main_Menu"
+                "scene":"FullScene",
+                "posX": 27,
+                "posY": 1,
+                "posZ": 5
             }
         }
     ]   

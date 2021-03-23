@@ -37,6 +37,7 @@ public class CameraController : MonoBehaviour
         }
         
         this.transform.position = Vector3.SmoothDamp(transform.position, tempVec3, ref velocity, smoothCamera);
+        DontDestroyOnLoad(this.gameObject);
     }
     private float changeZ(float close, float far, Transform target) {
         float z = target.position.z;

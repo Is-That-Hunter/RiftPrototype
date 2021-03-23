@@ -1,20 +1,110 @@
 {
     "name": "Tutorial",
-    "currPid": 0,
-    "type": "",
+    "currPid": 1,
+    "type": "dialogue",
     "passages": [
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "ANGELA: \"258 Ott Street huh, don't come down to this side of town often, don't know where else to look though. Strange things been following me my whole life, but this is something else.\"\n[[Next Box]]\n",
+            "links": [
+                {
+                    "leave": false,
+                    "name": "Next Box",
+                "link": "Next Box",
+                "pid": "3"
+                }
+            ],
+            "name": "Angela Walks Down The Street (Tutorial Begins)",
+            "pid": "1"
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "ANGELA: Woah! One use only on these things huh. \n\n[[ Next box ]]",
+            "links": [
+                {
+                    "leave": false,
+                    "name": " Next box ",
+                "link": " Next box ",
+                "pid": "4"
+                }
+            ],
+            "name": "Make a lighter - Crafting Tutorial",
+            "pid": "2"
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "ANGELA: \"Ever since that... thing came crashing throuhg Mosley's it's gotten worse.\" \n[[Next 1]]\n\n",
+            "links": [
+                {
+                    "leave": false,
+                    "name": "Next 1",
+                "link": "Next 1",
+                "pid": "6"
+                }
+            ],
+            "name": "Next Box",
+            "pid": "3"
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "ANGELA: Well, today's strange enough already. Let's see if I'm tall enough to ride this ride.\n\n[[End Interaction]]\n",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "End Interaction",
+                "link": "End Interaction",
+                "pid": "5"
+                }
+            ],
+            "name": " Next box ",
+            "pid": "4"
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "\"A busted down carnival? Shit, that rat at the club fed me crap.\" \n\n[[Next 2]]\n",
+            "links": [
+                {
+                    "leave": false,
+                    "name": "Next 2",
+                "link": "Next 2",
+                "pid": "7"
+                }
+            ],
+            "name": "Next 1",
+            "pid": "6"
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Angela: \"No light? Fuck, this day just keeps getting better.\"\n[[Make a lighter - Crafting Tutorial]]",
+            "links": [
+                {
+                "leave": false,
+                "name": "Make a lighter - Crafting Tutorial",
+                "link": "Make a lighter - Crafting Tutorial",
+                "pid": "8"
+                }
+            ],
+            "name": "Next 2",
+            "pid": "7"
+        },
         {
             "character": "Angela",
             "zoom": false,
             "text": "Press Q to enter your Inventory.\n[[Okay->Tutorial Move]]",
             "name": "Tutorial 1",
-            "pid": "0",
+            "pid": "8",
             "links": [
                 {
                     "leave": true,
                     "name": "Okay",
                     "link": "Tutorial Move",
-                    "pid": "4"
+                    "pid": "12"
                 }
             ]
         },
@@ -23,13 +113,13 @@
             "zoom": false,
             "text": "Press Left Arrow Key to select current objects Size for crafting.\n[[Okay->Tutorial 3]]",
             "name": "Tutorial 2",
-            "pid": "1",
+            "pid": "9",
             "links": [
                 {
                     "leave": true,
                     "name": "Okay",
                     "link": "Tutorial 3",
-                    "pid": "2"
+                    "pid": "10"
                 }
             ]
         },
@@ -38,13 +128,13 @@
             "zoom": false,
             "text": "Press Up Arrow Key to select current objects Material for crafting.\n[[Okay->Tutorial 4]]",
             "name": "Tutorial 3",
-            "pid": "2",
+            "pid": "10",
             "links": [
                 {
                     "leave": true,
                     "name": "Okay",
                     "link": "Tutorial 4",
-                    "pid": "3"
+                    "pid": "11"
                 }
             ]
         },
@@ -53,88 +143,43 @@
             "zoom": false,
             "text": "Press Right Arrow Key to select current objects Type.\n[[Okay->Tutorial 5]]",
             "name": "Tutorial 4",
-            "pid": "3",
+            "pid": "11",
             "links": [
                 {
                     "leave": true,
                     "name": "Okay",
                     "link": "Tutorial 5",
-                    "pid": "5"
+                    "pid": "13"
                 }
             ]
         },
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press A and D to move through inventory\n[[Okay->Tutorial 3]]",
+            "text": "Press A and D and mouse to move through inventory\n[[Okay->Tutorial 3]]",
             "name": "Tutorial Move",
-            "pid": "4",
+            "pid": "12",
             "links": [
                 {
-                    "leave": true,
+                    "leave": false,
                     "name": "Okay",
                     "link": "Tutorial 3",
-                    "pid": "1"
+                    "pid": "9"
                 }
             ]
         },
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Space to Craft Item\n[[Okay->Tutorial 6]]",
+            "text": "Press Space to Craft Item\n[[Okay->Make a lighter - Crafting Tutorial]]",
             "name": "Tutorial 5",
-            "pid": "5",
+            "pid": "13",
             "links": [
                 {
                     "leave": true,
                     "name": "Okay",
-                    "link": "Tutorial 6",
-                    "pid": "6"
-                }
-            ]
-        },
-        {
-            "character": "Angela",
-            "zoom": false,
-            "text": "Nice Job!\n[[Thanks->Tutorial 6]]",
-            "name": "Tutorial 6",
-            "pid": "6",
-            "links": [
-                {
-                    "leave": true,
-                    "name": "Thanks",
-                    "link": "Tutorial 6",
-                    "pid": "6"
-                }
-            ]
-        },
-        {
-            "character": "Angela",
-            "zoom": true,
-            "text": "Pick Up This Object\n[[Okay->Tutorial 6]]",
-            "name": "Tutorial Pick Up",
-            "pid": "7",
-            "links": [
-                {
-                    "leave": true,
-                    "name": "Thanks",
-                    "link": "Tutorial 6",
-                    "pid": "7"
-                }
-            ]
-        },
-        {
-            "character": "Angela",
-            "zoom": true,
-            "text": "This Should be useful\n[[Okay->Tutorial 6]]",
-            "name": "Tutorial Pick Up",
-            "pid": "8",
-            "links": [
-                {
-                    "leave": true,
-                    "name": "Thanks",
-                    "link": "Tutorial 6",
-                    "pid": "8"
+                    "link": "Make a lighter - Crafting Tutorial",
+                    "pid": "2"
                 }
             ]
         }

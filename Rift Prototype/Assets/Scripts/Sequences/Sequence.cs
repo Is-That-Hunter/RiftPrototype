@@ -50,4 +50,7 @@ public class TriggerAction
     public string scene;
     //SceneTrigger Change
     public string sceneTriggers;
+    public int posX;
+    public int posY;
+    public int posZ;
 }

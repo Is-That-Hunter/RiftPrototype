@@ -33,8 +33,13 @@ public class ItemTrigger : MonoBehaviour
                 string action = "Enter PlaceableItem ";
                 if(!item.created)
                     action += "Ghost ";
-                else
-                    action += "Item ";
+                else 
+                {
+                    action += "Interact PlaceableItem  ";
+                    string itemPrompt = "Press 'E' to use " + item.attachedItemName;
+                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
+                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+                }
                 
                 global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action + item.attachedItemName);
             }
