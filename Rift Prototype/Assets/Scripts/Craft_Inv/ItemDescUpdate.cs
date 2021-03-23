@@ -34,5 +34,12 @@ public class ItemDescUpdate : MonoBehaviour
             Item_Attr.text = currentItem.GetAttr();
 
         }
+        else if(m_EventSystem.currentSelectedGameObject == null) {
+            Item_Display.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+
+            Item_Descr.text = "";
+
+            Item_Attr.text = "";
+        }
     }
 }

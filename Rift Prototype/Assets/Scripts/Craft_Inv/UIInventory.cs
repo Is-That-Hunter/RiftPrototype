@@ -14,6 +14,7 @@ public class UIInventory : MonoBehaviour
     private Transform inventory_Slots;
     private Transform item_Slot_Base;
     public EventSystem m_EventSystem;
+    public Item CurrentItem;
 
     private void Awake()
     {
@@ -63,6 +64,11 @@ public class UIInventory : MonoBehaviour
         {
             if (child == item_Slot_Base) continue;
             Destroy(child.gameObject);
+        }
+
+        if(inventory.GetItemList().Count == 0) {
+            m_EventSystem.SetSelectedGameObject(null);
+            return;
         }
 
         foreach (InventoryItem InvItem in inventory.GetItemList())
