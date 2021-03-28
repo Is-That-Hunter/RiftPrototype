@@ -47,9 +47,13 @@ public class ItemTrigger : MonoBehaviour
             else
             {
                 //Set Overlay
-                string itemPrompt = "Press 'E' to pick up " + item.attachedItemName;
-                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+                if(!item.destroyed)
+                {
+                    string itemPrompt = "Press 'E' to pick up " + item.attachedItemName;
+                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
+                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+                }
+                
             }
             currentCol = collision;
         } else if(collision.gameObject.tag == "Report")
