@@ -64,6 +64,7 @@ public class SequenceHandler : MonoBehaviour
         {
             TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1);
             handleAction(trigInfo, "Scene");
+            globalVars.Overlay.changePromptActive(false);
         }
     }
     Sequence FromJson(string json) 

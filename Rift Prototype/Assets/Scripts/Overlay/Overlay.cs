@@ -5,6 +5,7 @@ using UnityEngine;
 public class Overlay : MonoBehaviour
 {
     public GameObject prompt;
+    public GameObject promptBox;
     public bool promptActive;
     public bool isPlaying;
     // Start is called before the first frame update
@@ -18,6 +19,10 @@ public class Overlay : MonoBehaviour
             {
                 this.prompt = t.gameObject;
             }
+            if(t.gameObject.name == "PromptBox")
+            {
+                this.promptBox = t.gameObject;
+            }
         }
     }
 
@@ -29,5 +34,6 @@ public class Overlay : MonoBehaviour
     {
         promptActive = isActive;
         this.prompt.GetComponent<TMPro.TextMeshProUGUI>().enabled = promptActive;
+        this.promptBox.SetActive(promptActive);
     }
 }

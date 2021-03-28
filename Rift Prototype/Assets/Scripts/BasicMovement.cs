@@ -165,15 +165,17 @@ public class BasicMovement : StateInterface
         Item itemGrab = null;
         //Get Item Name
         string itemName = itemTrigger.currentItem.attachedItemName;
+        if(!itemTrigger.currentItem.destroyed)
+        {
+            itemGrab = ItemDB.FindItem(itemName);
+            state_m.handleAction("Player", onAction: "PickUp " + itemName);
 
-        itemGrab = ItemDB.FindItem(itemName);
-        state_m.handleAction("Player", onAction: "PickUp " + itemName);
-
-        global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
-        Destroy(itemTrigger.currentItem.gameObject.transform.parent.gameObject);
-        gameObject.transform.GetChild(0).GetComponent<ItemTrigger>().currentCol = null;
-        gameObject.transform.GetChild(0).GetComponent<ItemTrigger>().currentItem = null;
-        global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
+            itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
+            itemTrigger.currentItem.destroyed = true;
+            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+        }
+        
     }
 
     public void Interact()

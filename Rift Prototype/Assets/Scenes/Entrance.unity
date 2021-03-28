@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -257,6 +257,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 965003977}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -323,6 +327,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 877269618}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -1173,6 +1181,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 1004991063}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -2483,6 +2495,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 166537436}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -2862,6 +2878,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 1363712714}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -3312,6 +3332,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 633677479}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -3378,6 +3402,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 413871832}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -4435,6 +4463,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 383371104}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -4501,6 +4533,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 629469799}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -4617,6 +4653,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 103623867}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -4894,6 +4934,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 881906235}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -5050,6 +5094,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 1996884218}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -5116,6 +5164,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 983980421}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -5182,6 +5234,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 1220124405}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -5447,6 +5503,10 @@ MonoBehaviour:
   placeable: 0
   created: 0
   indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
   Obj: {fileID: 1124031135}
   Transparency: 0.2
   arrowSpeed: 0.4
@@ -6298,6 +6358,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3995594536048315672, guid: 2fc52a5acaa12435fa4e445de92f9081,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4799443271818455186, guid: 2fc52a5acaa12435fa4e445de92f9081,
         type: 3}
       propertyPath: m_Name

@@ -10,6 +10,10 @@ public class ItemTag : MonoBehaviour
     public bool placeable = false;
     public bool created = false;
     public bool indicator = false;
+    public bool destroyed = false;
+    public bool infinite = false;
+    public float timeTillRespawn = 0.0f;
+    public float respawnTime = 5.0f;
     public GameObject Obj;
     private Material[] ObjMaterials;
     public float Transparency = 0.2f;
@@ -61,6 +65,27 @@ public class ItemTag : MonoBehaviour
                     move = minY;
                 }
                 pointer.position = new Vector3(pointer.position.x, move, pointer.position.z);
+            }
+        }
+        else
+        {
+            if(timeTillRespawn != 0.0f)
+            {
+                destroyed = true;
+                timeTillRespawn -= Time.deltaTime;
+                if(timeTillRespawn < 0.0f)
+                {
+                    timeTillRespawn = 0.0f;
+                    destroyed = false;
+                }
+            }
+            if(destroyed && !infinite)
+            {
+                Obj.SetActive(false);
+            }
+            if(!destroyed)
+            {
+                Obj.SetActive(true);
             }
         }
     }

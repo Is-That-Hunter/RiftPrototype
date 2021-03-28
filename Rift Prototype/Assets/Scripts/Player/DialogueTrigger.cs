@@ -19,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     //Detect collisions between the GameObjects with Colliders attached
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerStay(Collider collision)
     {
 
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
