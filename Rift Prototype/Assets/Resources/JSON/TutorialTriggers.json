@@ -10,7 +10,8 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":true,
-                "onAction":""
+                "onAction":"",
+                "tree":""
             },
             "triggerAction":{
                 "type":"Dialogue",
@@ -26,7 +27,8 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":true,
-                "onAction":""
+                "onAction":"",
+                "tree":""
             },
             "triggerAction":{
                 "type":"Dialogue",
@@ -43,7 +45,8 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
-                "onAction":"Size_Select"
+                "onAction":"Size_Select",
+                "tree":""
             },
             "triggerAction":{
                 "type":"Dialogue",
@@ -60,7 +63,8 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
-                "onAction":"Material_Select"
+                "onAction":"Material_Select",
+                "tree":""
             },
             "triggerAction":{
                 "type":"Dialogue",
@@ -77,29 +81,13 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
-                "onAction":"Type_Select"
-            },
-            "triggerAction":{
-                "type":"Dialogue",
-                "tid":6,
-                "pid":13,
-                "tree":"Tutorial",
-                "targetObj":""
-            }
-        },
-        {
-            "tid":6,
-            "triggerType":"Inventory",
-            "triggerInfo":{
-                "pid":-1,
-                "onLeave":false,
-                "onEnter":false,
-                "onAction":"Craft Success"
+                "onAction":"Type_Select",
+                "tree":""
             },
             "triggerAction":{
                 "type":"Dialogue",
                 "tid":7,
-                "pid":6,
+                "pid":13,
                 "tree":"Tutorial",
                 "targetObj":""
             }
@@ -111,7 +99,8 @@
                 "pid":-1,
                 "onLeave":true,
                 "onEnter":false,
-                "onAction":""
+                "onAction":"",
+                "tree":""
             },
             "triggerAction":{
                 "type":"Dialogue",
@@ -128,7 +117,8 @@
                 "pid":4,
                 "onLeave":true,
                 "onEnter":false,
-                "onAction":""
+                "onAction":"",
+                "tree":"Tutorial"
             },
             "triggerAction":{
                 "type":"changeSeq",

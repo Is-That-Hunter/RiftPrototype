@@ -51,7 +51,6 @@ public class BasicMovement : StateInterface
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         body = GetComponent<Rigidbody>();
         //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
@@ -180,19 +179,35 @@ public class BasicMovement : StateInterface
     public void Interact()
     {
         ItemTrigger itemTrigger = gameObject.transform.GetChild(0).GetComponent<ItemTrigger>();
-        bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
-        if(inDialogueTrigger) {
-            state_m.pushState("Dialogue", false);
-        }
-        else if(itemTrigger.currentCol != null)
+        if (itemTrigger.reportBoo)
         {
-            if(itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
-                state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
-            else if(!itemTrigger.currentItem.placeable)
+            if(itemTrigger.currentCol != null)
             {
-                Item_Pickup(itemTrigger);    
+                state_m.pushState("Report", false);
             }
         }
+        else
+        {
+            bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
+            if (inDialogueTrigger) {
+                state_m.pushState("Dialogue", false);
+            }
+            else if(itemTrigger.currentCol != null)
+            {
+                if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
+                    state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
+                else if(!itemTrigger.currentItem.placeable)
+                {
+                    Item_Pickup(itemTrigger);
+                }
+            }
+        } 
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        state_m.pushState("Pause", false);
     }
 
     public void developCarnival() 
@@ -203,6 +218,7 @@ public class BasicMovement : StateInterface
 
     
     void OnEnable(){
+        this.gameObject.GetComponent<PlayerInput>().enabled = true;
         controls.PlayerMovement.Enable();
         controls.Develop.Enable();
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
@@ -213,6 +229,7 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Crouching.canceled += ctx => isCrouching = false;
         controls.PlayerMovement.Dash.performed += ctx => isDash = true;
         controls.PlayerMovement.State_Switch.performed += ctxe => Switch_State();
+        controls.PlayerMovement.Pause.performed += ctxe => Pause();
         controls.PlayerMovement.Interact.performed += ctxe => Interact();
         controls.PlayerMovement.Jump.performed += ctx => isJump = true;
         controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
@@ -221,6 +238,7 @@ public class BasicMovement : StateInterface
 
     void OnDisable(){
         controls.PlayerMovement.Disable();
+        this.gameObject.GetComponent<PlayerInput>().enabled = false;
     }
 
     //End

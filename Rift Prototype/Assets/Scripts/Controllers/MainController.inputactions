@@ -70,9 +70,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Carnival",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "7b12af7a-16e6-4d2e-b95c-daff76dcd96c",
+                    "id": "075e1e8a-e5cc-41be-a0bb-5f8a7f31eb92",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -268,12 +268,12 @@
                 },
                 {
                     "name": "",
-                    "id": "06ddc6d8-20fb-429f-b4cb-39fd311ea9d8",
-                    "path": "<Keyboard>/c",
+                    "id": "8da3efb9-d1b0-43a9-aa74-4fc4b99a38df",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Carnival",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -484,13 +484,13 @@
             ]
         },
         {
-            "name": "Develop",
-            "id": "8b67be71-a858-4b0d-a44e-919cbbc18a74",
+            "name": "Pause_Menu",
+            "id": "5d21da12-b0d8-4ac4-b69e-1132e97a89dc",
             "actions": [
                 {
-                    "name": "Carnival",
+                    "name": "Unpause",
                     "type": "Button",
-                    "id": "20030f6f-0f8c-4159-af1a-7821c2dd4a54",
+                    "id": "c891cd26-996a-4654-bd9d-94183b77a082",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -499,7 +499,61 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "826e466e-1ae7-413b-973e-13dc9406fd72",
+                    "id": "a0d3cebe-b4f2-4d78-81de-d7ad9cb7b36b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Unpause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "id": "bf86a65c-7e7f-4d2b-af2b-3dc9d3bc7263",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "57cc72bc-8fec-4d64-aecb-746406245962",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d56414eb-28c0-4ece-b4b5-91de9968a528",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Develop",
+            "id": "a900ead4-4037-4a73-b026-738117b04081",
+            "actions": [
+                {
+                    "name": "Carnival",
+                    "type": "Button",
+                    "id": "946934f7-5728-4e8a-a4c0-65e6e5309c6a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f4e7b79a-3ca7-44a0-b24c-aaab4d2c0f2f",
                     "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",

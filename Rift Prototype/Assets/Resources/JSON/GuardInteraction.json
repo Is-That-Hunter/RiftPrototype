@@ -337,7 +337,7 @@
       "text": "Go on through maam, and be careful, this place wasn't exactly well built. \n[[Enter the park]]",
       "links": [
         {
-          "leave": false,
+          "leave": true,
           "name": "Enter the park",
           "link": "Enter the park",
           "pid": "13"
@@ -397,7 +397,7 @@
       "text": "Safe watch, maam.\n[[Enter the park]] ",
       "links": [
         {
-          "leave": false,
+          "leave": true,
           "name": "Enter the park",
           "link": "Enter the park",
           "pid": "13"
