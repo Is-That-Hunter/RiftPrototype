@@ -71,6 +71,10 @@ public class TwineParser : MonoBehaviour
     }
     public CharacterPortrait getCharacterPortrait(string character) {
         CharacterPortrait charPortrait = characters.FirstOrDefault(i=>i.name == character);
+        if(charPortrait.character == null)
+        {
+            charPortrait.character = GameObject.Find(charPortrait.name);
+        }
         return charPortrait;
     }
     public CharacterPortrait getCurrCharacterPortrait(string tree = "") {

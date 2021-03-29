@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 8193093392767570925}
   - component: {fileID: 8193093392767570924}
   m_Layer: 5
-  m_Name: Size_Image
+  m_Name: Type_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 8193093392826970328}
   - component: {fileID: 8193093392826970331}
   m_Layer: 5
-  m_Name: Material_Image
+  m_Name: Size_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 8193093392859285637}
   - component: {fileID: 297781442532644383}
   m_Layer: 5
-  m_Name: Material_Slot
+  m_Name: Size_Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1317,7 +1317,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Material Slot
+            m_StringArgument: Size Slot
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 297781442348247794}
@@ -1514,7 +1514,7 @@ GameObject:
   - component: {fileID: 8193093393104502161}
   - component: {fileID: 8193093393104502160}
   m_Layer: 5
-  m_Name: Type_Image
+  m_Name: Material_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1706,7 +1706,7 @@ GameObject:
   - component: {fileID: 8193093393267038109}
   - component: {fileID: 297781442503684784}
   m_Layer: 5
-  m_Name: Size_Slot
+  m_Name: Type_Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1794,7 +1794,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Size Slot
+            m_StringArgument: Type Slot
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 297781442348247794}
@@ -1836,7 +1836,7 @@ GameObject:
   - component: {fileID: 8193093393319389334}
   - component: {fileID: 297781442179789736}
   m_Layer: 5
-  m_Name: Type_Slot
+  m_Name: Material_Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,7 +1924,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Type Slot
+            m_StringArgument: Material Slot
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 297781442348247794}

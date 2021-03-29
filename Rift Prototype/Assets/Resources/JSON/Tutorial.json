@@ -126,7 +126,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Left Arrow Key to select current objects Size for crafting.\n[[Okay->Tutorial 3]]",
+            "text": "Put the Coffee Cup in the Type Slot (Left Arrow).\n[[Okay->Tutorial 3]]",
             "name": "Tutorial 2",
             "pid": "9",
             "links": [
@@ -141,7 +141,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Up Arrow Key to select current objects Material for crafting.\n[[Okay->Tutorial 4]]",
+            "text": "Put the Lockpick in the Size Slot (Up Arrow)\n[[Okay->Tutorial 4]]",
             "name": "Tutorial 3",
             "pid": "10",
             "links": [
@@ -156,7 +156,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Right Arrow Key to select current objects Type.\n[[Okay->Tutorial 5]]",
+            "text": "Put the Megaphone in the Material Slow (Right Arrow)\n[[Okay->Tutorial 5]]",
             "name": "Tutorial 4",
             "pid": "11",
             "links": [

@@ -313,7 +313,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Size_Select"",
+                    ""name"": ""Type_Select"",
                     ""type"": ""Button"",
                     ""id"": ""bd796c62-4d82-4d6c-bb77-c9d9a2a2833f"",
                     ""expectedControlType"": ""Button"",
@@ -321,7 +321,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Material_Select"",
+                    ""name"": ""Size_Select"",
                     ""type"": ""Button"",
                     ""id"": ""c7f376ec-3281-4a82-b37f-6030c1b4337d"",
                     ""expectedControlType"": ""Button"",
@@ -329,7 +329,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Type_Select"",
+                    ""name"": ""Material_Select"",
                     ""type"": ""Button"",
                     ""id"": ""3713d095-4eb4-4d08-a890-88da7284cd49"",
                     ""expectedControlType"": ""Button"",
@@ -435,7 +435,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Size_Select"",
+                    ""action"": ""Type_Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -446,7 +446,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Material_Select"",
+                    ""action"": ""Size_Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -457,7 +457,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Type_Select"",
+                    ""action"": ""Material_Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -595,9 +595,9 @@ public class @MainController : IInputActionCollection, IDisposable
         m_Inventory_Craft = asset.FindActionMap("Inventory_Craft", throwIfNotFound: true);
         m_Inventory_Craft_Move = m_Inventory_Craft.FindAction("Move", throwIfNotFound: true);
         m_Inventory_Craft_Craft = m_Inventory_Craft.FindAction("Craft", throwIfNotFound: true);
+        m_Inventory_Craft_Type_Select = m_Inventory_Craft.FindAction("Type_Select", throwIfNotFound: true);
         m_Inventory_Craft_Size_Select = m_Inventory_Craft.FindAction("Size_Select", throwIfNotFound: true);
         m_Inventory_Craft_Material_Select = m_Inventory_Craft.FindAction("Material_Select", throwIfNotFound: true);
-        m_Inventory_Craft_Type_Select = m_Inventory_Craft.FindAction("Type_Select", throwIfNotFound: true);
         m_Inventory_Craft_State_Switch = m_Inventory_Craft.FindAction("State_Switch", throwIfNotFound: true);
         m_Inventory_Craft_Click = m_Inventory_Craft.FindAction("Click", throwIfNotFound: true);
         m_Inventory_Craft_Point = m_Inventory_Craft.FindAction("Point", throwIfNotFound: true);
@@ -758,9 +758,9 @@ public class @MainController : IInputActionCollection, IDisposable
     private IInventory_CraftActions m_Inventory_CraftActionsCallbackInterface;
     private readonly InputAction m_Inventory_Craft_Move;
     private readonly InputAction m_Inventory_Craft_Craft;
+    private readonly InputAction m_Inventory_Craft_Type_Select;
     private readonly InputAction m_Inventory_Craft_Size_Select;
     private readonly InputAction m_Inventory_Craft_Material_Select;
-    private readonly InputAction m_Inventory_Craft_Type_Select;
     private readonly InputAction m_Inventory_Craft_State_Switch;
     private readonly InputAction m_Inventory_Craft_Click;
     private readonly InputAction m_Inventory_Craft_Point;
@@ -770,9 +770,9 @@ public class @MainController : IInputActionCollection, IDisposable
         public Inventory_CraftActions(@MainController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Inventory_Craft_Move;
         public InputAction @Craft => m_Wrapper.m_Inventory_Craft_Craft;
+        public InputAction @Type_Select => m_Wrapper.m_Inventory_Craft_Type_Select;
         public InputAction @Size_Select => m_Wrapper.m_Inventory_Craft_Size_Select;
         public InputAction @Material_Select => m_Wrapper.m_Inventory_Craft_Material_Select;
-        public InputAction @Type_Select => m_Wrapper.m_Inventory_Craft_Type_Select;
         public InputAction @State_Switch => m_Wrapper.m_Inventory_Craft_State_Switch;
         public InputAction @Click => m_Wrapper.m_Inventory_Craft_Click;
         public InputAction @Point => m_Wrapper.m_Inventory_Craft_Point;
@@ -791,15 +791,15 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Craft.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnCraft;
                 @Craft.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnCraft;
                 @Craft.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnCraft;
+                @Type_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
+                @Type_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
+                @Type_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
                 @Size_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnSize_Select;
                 @Size_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnSize_Select;
                 @Size_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnSize_Select;
                 @Material_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnMaterial_Select;
                 @Material_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnMaterial_Select;
                 @Material_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnMaterial_Select;
-                @Type_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
-                @Type_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
-                @Type_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
                 @State_Switch.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
                 @State_Switch.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
                 @State_Switch.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
@@ -819,15 +819,15 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Craft.started += instance.OnCraft;
                 @Craft.performed += instance.OnCraft;
                 @Craft.canceled += instance.OnCraft;
+                @Type_Select.started += instance.OnType_Select;
+                @Type_Select.performed += instance.OnType_Select;
+                @Type_Select.canceled += instance.OnType_Select;
                 @Size_Select.started += instance.OnSize_Select;
                 @Size_Select.performed += instance.OnSize_Select;
                 @Size_Select.canceled += instance.OnSize_Select;
                 @Material_Select.started += instance.OnMaterial_Select;
                 @Material_Select.performed += instance.OnMaterial_Select;
                 @Material_Select.canceled += instance.OnMaterial_Select;
-                @Type_Select.started += instance.OnType_Select;
-                @Type_Select.performed += instance.OnType_Select;
-                @Type_Select.canceled += instance.OnType_Select;
                 @State_Switch.started += instance.OnState_Switch;
                 @State_Switch.performed += instance.OnState_Switch;
                 @State_Switch.canceled += instance.OnState_Switch;
@@ -956,9 +956,9 @@ public class @MainController : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnCraft(InputAction.CallbackContext context);
+        void OnType_Select(InputAction.CallbackContext context);
         void OnSize_Select(InputAction.CallbackContext context);
         void OnMaterial_Select(InputAction.CallbackContext context);
-        void OnType_Select(InputAction.CallbackContext context);
         void OnState_Switch(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);

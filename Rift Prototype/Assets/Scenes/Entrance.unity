@@ -6214,12 +6214,12 @@ PrefabInstance:
         type: 3}
       propertyPath: characters.Array.data[0].character
       value: 
-      objectReference: {fileID: 887923323}
+      objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: characters.Array.data[1].character
       value: 
-      objectReference: {fileID: 1076113446}
+      objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: characters.Array.data[2].character

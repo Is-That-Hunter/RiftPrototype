@@ -300,7 +300,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Size_Select",
+                    "name": "Type_Select",
                     "type": "Button",
                     "id": "bd796c62-4d82-4d6c-bb77-c9d9a2a2833f",
                     "expectedControlType": "Button",
@@ -308,7 +308,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Material_Select",
+                    "name": "Size_Select",
                     "type": "Button",
                     "id": "c7f376ec-3281-4a82-b37f-6030c1b4337d",
                     "expectedControlType": "Button",
@@ -316,7 +316,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Type_Select",
+                    "name": "Material_Select",
                     "type": "Button",
                     "id": "3713d095-4eb4-4d08-a890-88da7284cd49",
                     "expectedControlType": "Button",
@@ -422,7 +422,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Size_Select",
+                    "action": "Type_Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -433,7 +433,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Material_Select",
+                    "action": "Size_Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -444,7 +444,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Type_Select",
+                    "action": "Material_Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

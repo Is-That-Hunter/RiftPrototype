@@ -45,7 +45,7 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
-                "onAction":"Size_Select",
+                "onAction":"Type_Select",
                 "tree":""
             },
             "triggerAction":{
@@ -63,7 +63,7 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
-                "onAction":"Material_Select",
+                "onAction":"Size_Select",
                 "tree":""
             },
             "triggerAction":{
@@ -81,7 +81,7 @@
                 "pid":-1,
                 "onLeave":false,
                 "onEnter":false,
-                "onAction":"Type_Select",
+                "onAction":"Material_Select",
                 "tree":""
             },
             "triggerAction":{

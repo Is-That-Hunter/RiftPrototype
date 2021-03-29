@@ -24,10 +24,11 @@ public class CameraController : MonoBehaviour
     void LateUpdate() {
         Vector3 tempVec3 = this.transform.position;
         Transform target = mainCharacter;
-        float targetHorizontal = target.position.x;
-        float targetDistance = target.position.z;
         if(focus)
             target = focusObject;
+        
+        float targetHorizontal = target.position.x;
+        float targetDistance = target.position.z;
         //Distance Left or Right from Camera
         tempVec3.x = changeHorizontal(HorizontalDelta, targetHorizontal);
         //Distance Close or Away to/from Camera
