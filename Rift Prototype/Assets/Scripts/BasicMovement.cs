@@ -13,6 +13,8 @@ public class BasicMovement : StateInterface
 
     public GameObject global_variables;
 
+    public Animator anim;
+
     //All things considered ground
     public LayerMask groundLayers;
 
@@ -77,6 +79,7 @@ public class BasicMovement : StateInterface
             jumpNumber = totalJumps;
         }
 
+        anim.SetBool("isJump", !isGrounded());
         
         //Determine running or walking or crouch
         var currentSpeed = speed;
@@ -96,9 +99,22 @@ public class BasicMovement : StateInterface
         velo.y = body.velocity.y; 
         body.velocity = velo;
         Vector3 input = new Vector3(movement.x, 0, movement.y);
+        Vector3 inputT = (input * currentSpeed * Time.deltaTime);
         if (playerMove)
         {
             body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
+        }
+        anim.SetFloat("horizontalMove", inputT.x);
+        anim.SetFloat("verticalMove", inputT.z);
+        if (inputT.x > 0.01)
+        {
+            anim.SetBool("wL", true);
+            anim.SetBool("wR", false);
+        }
+        else if(isGrounded() || inputT.x < -0.01)
+        {
+            anim.SetBool("wR", true);
+            anim.SetBool("wL", false);
         }
 
     }

@@ -72,6 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCol: {fileID: 0}
   currentItem: {fileID: 0}
+  reportBoo: 0
 --- !u!1 &4934765016191789238
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +89,7 @@ GameObject:
   - component: {fileID: 1912819753}
   - component: {fileID: 1912819755}
   - component: {fileID: 1402105862}
+  - component: {fileID: 1779883873099532302}
   m_Layer: 8
   m_Name: Angela
   m_TagString: Player
@@ -311,3 +313,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!95 &1779883873099532302
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934765016191789238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b09422c72d4ad5429c01a5db683c35f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
