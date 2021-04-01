@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Dialogue
   - Slot
+  - Item Slot
   layers:
   - Default
   - TransparentFX

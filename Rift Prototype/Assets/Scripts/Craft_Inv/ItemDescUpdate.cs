@@ -13,33 +13,29 @@ public class ItemDescUpdate : MonoBehaviour
 
     public TextMeshProUGUI Item_Attr;
 
+    public TextMeshProUGUI Item_Name;
+
     public EventSystem m_EventSystem;
 
-    private GameObject currentSelected = null;
+    public UIInventory uiInventory;
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(m_EventSystem.currentSelectedGameObject);
-        if (currentSelected != m_EventSystem.currentSelectedGameObject && m_EventSystem.currentSelectedGameObject != null)
+        if(uiInventory.CurrentItem != null)
         {
-            currentSelected = m_EventSystem.currentSelectedGameObject;
-
-            Item currentItem = currentSelected.GetComponent<ImageItem>().GetItem().item;
-
+            Item currentItem = uiInventory.CurrentItem.GetComponent<ImageItem>().GetItem().item;
             Item_Display.GetComponent<Image>().sprite = currentItem.GetSprite();
-
             Item_Descr.text = currentItem.GetDesc();
-
             Item_Attr.text = currentItem.GetAttr();
-
+            Item_Name.text = currentItem.itemName;
         }
-        else if(m_EventSystem.currentSelectedGameObject == null) {
+        else if(uiInventory.CurrentItem == null)
+        {
             Item_Display.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
-
             Item_Descr.text = "";
-
             Item_Attr.text = "";
+            Item_Name.text = "";
         }
     }
 }
