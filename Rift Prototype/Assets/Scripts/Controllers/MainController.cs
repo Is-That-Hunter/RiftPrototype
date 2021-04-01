@@ -359,6 +359,14 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""826287ea-967f-416a-b084-0eb967b0021a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -493,6 +501,17 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0d2bcfa-0a2c-4cbc-baa9-dd86e7442388"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -601,6 +620,7 @@ public class @MainController : IInputActionCollection, IDisposable
         m_Inventory_Craft_State_Switch = m_Inventory_Craft.FindAction("State_Switch", throwIfNotFound: true);
         m_Inventory_Craft_Click = m_Inventory_Craft.FindAction("Click", throwIfNotFound: true);
         m_Inventory_Craft_Point = m_Inventory_Craft.FindAction("Point", throwIfNotFound: true);
+        m_Inventory_Craft_Drop = m_Inventory_Craft.FindAction("Drop", throwIfNotFound: true);
         // Pause_Menu
         m_Pause_Menu = asset.FindActionMap("Pause_Menu", throwIfNotFound: true);
         m_Pause_Menu_Unpause = m_Pause_Menu.FindAction("Unpause", throwIfNotFound: true);
@@ -764,6 +784,7 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_Inventory_Craft_State_Switch;
     private readonly InputAction m_Inventory_Craft_Click;
     private readonly InputAction m_Inventory_Craft_Point;
+    private readonly InputAction m_Inventory_Craft_Drop;
     public struct Inventory_CraftActions
     {
         private @MainController m_Wrapper;
@@ -776,6 +797,7 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @State_Switch => m_Wrapper.m_Inventory_Craft_State_Switch;
         public InputAction @Click => m_Wrapper.m_Inventory_Craft_Click;
         public InputAction @Point => m_Wrapper.m_Inventory_Craft_Point;
+        public InputAction @Drop => m_Wrapper.m_Inventory_Craft_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Inventory_Craft; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -809,6 +831,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Point.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnPoint;
                 @Point.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnPoint;
                 @Point.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnPoint;
+                @Drop.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnDrop;
             }
             m_Wrapper.m_Inventory_CraftActionsCallbackInterface = instance;
             if (instance != null)
@@ -837,6 +862,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Point.started += instance.OnPoint;
                 @Point.performed += instance.OnPoint;
                 @Point.canceled += instance.OnPoint;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
             }
         }
     }
@@ -962,6 +990,7 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnState_Switch(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
     public interface IPause_MenuActions
     {

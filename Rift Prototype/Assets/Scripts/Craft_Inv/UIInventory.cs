@@ -58,7 +58,7 @@ public class UIInventory : MonoBehaviour
     }
 
     //Refreshes the UI to display the current inventory in the form of Inventory Slot, and Images within those Slots
-    private void RefreshInventoryItems()
+    public void RefreshInventoryItems()
     {
         List<InventoryItem> currentInventory = inventory.GetItemList();
         List<InventoryItem> oldInventory = new List<InventoryItem>();
@@ -77,7 +77,6 @@ public class UIInventory : MonoBehaviour
             {
                 if(child.transform.GetChild(0).GetChild(0).gameObject == CurrentItem)
                 {
-                    Debug.Log("deleted CUrrent Object");
                     CurrentItem = null;
                     selector = true;
                 }

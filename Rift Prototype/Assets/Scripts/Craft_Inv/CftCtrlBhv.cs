@@ -71,6 +71,17 @@ public class CftCtrlBhv : StateInterface
 
         controls.Inventory_Craft.State_Switch.performed += ctx => Switch_State();
 
+        controls.Inventory_Craft.Drop.performed += ctx => Drop();
+
+    }
+
+    public void Drop()
+    {
+        if(uiInventory.CurrentItem == null)
+            return;
+        InventoryItem item = uiInventory.CurrentItem.GetComponent<ImageItem>().GetItem();
+        Inventory inventory = globalScript.inventory;
+        inventory.RemoveItem(item);
     }
 
     public void Switch_State()
