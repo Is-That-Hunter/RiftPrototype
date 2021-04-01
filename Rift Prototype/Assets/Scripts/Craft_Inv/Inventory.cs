@@ -68,6 +68,11 @@ public class Inventory
         return itemList;
     }
 
+    public int InventorySize()
+    {
+        return itemList.Count;
+    }
+
     public bool itemInInventory(string itemName)
     {
         InventoryItem invItem = itemList.FirstOrDefault(i=>i.item.itemName == itemName);

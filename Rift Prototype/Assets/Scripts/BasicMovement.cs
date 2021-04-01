@@ -176,21 +176,29 @@ public class BasicMovement : StateInterface
 
     public void Item_Pickup(ItemTrigger itemTrigger)
     {
-        GameObject itemObject = itemTrigger.gameObject;
-        ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
-        Item itemGrab = null;
-        //Get Item Name
-        string itemName = itemTrigger.currentItem.attachedItemName;
-        if(!itemTrigger.currentItem.destroyed)
+        if(global_variables.GetComponent<GlobalScript>().inventory.InventorySize() == 8)
         {
-            itemGrab = ItemDB.FindItem(itemName);
-            state_m.handleAction("Player", onAction: "PickUp " + itemName);
-
-            global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
-            itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
-            itemTrigger.currentItem.destroyed = true;
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            state_m.handleAction("Player", onAction: "Invetory Full");
         }
+        else
+        {
+            GameObject itemObject = itemTrigger.gameObject;
+            ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
+            Item itemGrab = null;
+            //Get Item Name
+            string itemName = itemTrigger.currentItem.attachedItemName;
+            if(!itemTrigger.currentItem.destroyed)
+            {
+                itemGrab = ItemDB.FindItem(itemName);
+                state_m.handleAction("Player", onAction: "PickUp " + itemName);
+
+                global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
+                itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
+                itemTrigger.currentItem.destroyed = true;
+                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            }
+        }
+        
         
     }
 
