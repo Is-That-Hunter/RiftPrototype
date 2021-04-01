@@ -145,7 +145,7 @@ public class CftCtrlBhv : StateInterface
 
 
     //Sets the Item and its Size used for crafting
-    void Set_Size()
+    public void Set_Size()
     {
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         InventoryItem invItem = requester_ImIt.GetItem();
@@ -174,7 +174,7 @@ public class CftCtrlBhv : StateInterface
     }
 
     //Sets the Item and its Material used for crafting
-    void Set_Material()
+    public void Set_Material()
     {
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         InventoryItem invItem = requester_ImIt.GetItem();
@@ -202,7 +202,7 @@ public class CftCtrlBhv : StateInterface
     }
 
     //Sets the Item and its Type used for crafting
-    void Set_Type()
+    public void Set_Type()
     {
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         InventoryItem invItem = requester_ImIt.GetItem();
