@@ -32,10 +32,10 @@ public class ItemTrigger : MonoBehaviour
             {
                 string action = "Enter PlaceableItem ";
                 if(!item.created)
-                    action += "Ghost " + item.attatchedItemName;
+                    action += "Ghost " + item.attachedItemName;
                 else 
                 {
-                    action += item.attatchedItemName;
+                    action += item.attachedItemName;
                     string itemPrompt = "Press 'E' to use " + item.attachedItemName;
                     global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
                     global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
