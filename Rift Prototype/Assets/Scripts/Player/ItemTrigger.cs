@@ -24,7 +24,6 @@ public class ItemTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Item Detected");
             ItemTag item = collision.gameObject.GetComponent<ItemTag>();
             currentItem = item;
             item.setIndicator(true);
@@ -33,16 +32,17 @@ public class ItemTrigger : MonoBehaviour
             {
                 string action = "Enter PlaceableItem ";
                 if(!item.created)
-                    action += "Ghost ";
+                    action += "Ghost " + item.attatchedItemName;
                 else 
                 {
-                    action += "Interact PlaceableItem  ";
+                    action += item.attatchedItemName;
                     string itemPrompt = "Press 'E' to use " + item.attachedItemName;
                     global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
                     global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
                 }
                 
-                global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action + item.attachedItemName);
+                //Uncomment if we want to call an action when entering a placeable item zone
+                //global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action + item.attachedItemName);
             }
             else
             {
@@ -59,7 +59,6 @@ public class ItemTrigger : MonoBehaviour
         } else if(collision.gameObject.tag == "Report")
         {
             reportBoo = true;
-            Debug.Log("Report Detected");
             string name = collision.gameObject.name;
             string report = "";
             switch (name)
@@ -85,7 +84,6 @@ public class ItemTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Item")
         {
-            Debug.Log("Left Item Collider Area");
             ItemTag item = collision.gameObject.GetComponent<ItemTag>();
             item.setIndicator(false);
 
@@ -94,7 +92,6 @@ public class ItemTrigger : MonoBehaviour
             currentItem = null;
         } else if(collision.gameObject.tag == "Report")
         {
-            Debug.Log("Left Report Collider Area");
             global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
             reportBoo = false;
             currentCol = null;

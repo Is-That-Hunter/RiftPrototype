@@ -41,6 +41,8 @@ public class BasicMovement : StateInterface
     private float distanceToGround;
     private Rigidbody body;
 
+    public bool inMonsterPlat = false;
+
     public void LockPlayer()
     {
         playerMove = !playerMove;
@@ -54,7 +56,6 @@ public class BasicMovement : StateInterface
     void Start()
     {
         body = GetComponent<Rigidbody>();
-        //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
         distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
     }
@@ -76,7 +77,10 @@ public class BasicMovement : StateInterface
         if(isGrounded())
         {
             jumpTriggered = false;
-            jumpNumber = totalJumps;
+            if(inMonsterPlat)
+                jumpNumber = totalJumps;
+            else
+                jumpNumber = 0;
         }
 
         anim.SetBool("isJump", !isGrounded());

@@ -132,7 +132,7 @@ public class TwineParser : MonoBehaviour
         string color = "blue";
         if(isVar)
             color = "red";
-        string temp = "<link=\""+parseThis[1]+"\"><color="+color+">"+parseThis[0]+"</color></link>";
+        string temp = "*<link=\""+parseThis[1]+"\"><color="+color+">"+parseThis[0]+"</color></link>";
         return temp;
     }
     //Parses out the dialogue to be clickable if it is a link

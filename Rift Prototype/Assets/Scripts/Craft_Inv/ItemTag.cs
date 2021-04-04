@@ -83,7 +83,7 @@ public class ItemTag : MonoBehaviour
             {
                 Obj.SetActive(false);
             }
-            if(!destroyed)
+            if(!destroyed && !infinite)
             {
                 Obj.SetActive(true);
             }
