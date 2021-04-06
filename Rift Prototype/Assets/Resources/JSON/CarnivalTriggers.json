@@ -11,12 +11,27 @@
                 "tree":""
             },
             "triggerAction":{
-                "type":"ChangeAngle",
+                "type":"Teleport",
                 "sceneTriggers":"UniversalTriggers",
                 "scene":"FullScene",
-                "posX": -34,
+                "posX": -35,
+                "posY": -5,
+                "posZ": -47,
+                "playerScale": 0.09
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction": "Interact PlaceableItem Plank",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Teleport",
+                "posX": -76,
                 "posY": 1,
-                "posZ": -40,
+                "posZ": 11,
                 "playerScale": 0.09
             }
         },
