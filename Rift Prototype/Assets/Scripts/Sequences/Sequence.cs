@@ -23,12 +23,14 @@ public class TriggerInfo
     public bool onEnter;
     public string onAction;
     public int pid;
+    public string tree;
 
-    public TriggerInfo(bool _onLeave = false, bool _onEnter = false, string _onAction = "", int _pid = -1) {
+    public TriggerInfo(bool _onLeave = false, bool _onEnter = false, string _onAction = "", int _pid = -1, string _tree = "") {
         onLeave = _onLeave;
         onEnter = _onEnter;
         onAction = _onAction;
         pid = _pid;
+        tree = _tree;
     }
 }
 [System.Serializable]
@@ -53,5 +55,4 @@ public class TriggerAction
     public int posX;
     public int posY;
     public int posZ;
-    public float playerScale;
 }

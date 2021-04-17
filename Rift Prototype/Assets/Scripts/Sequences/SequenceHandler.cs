@@ -64,6 +64,7 @@ public class SequenceHandler : MonoBehaviour
         {
             TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1);
             handleAction(trigInfo, "Scene");
+            globalVars.Overlay.changePromptActive(false);
         }
     }
     Sequence FromJson(string json) 
@@ -77,18 +78,19 @@ public class SequenceHandler : MonoBehaviour
         Trigger trig = getCurrTrigger();
         Trigger universalTrigger = getTriggerFromSequence(trigInfo, universalTriggers);
         Trigger sceneTrigger = getTriggerFromSequence(trigInfo, sceneTriggers);
+        Debug.Log(trigInfo.pid);
         if(trigInfo.onAction != "")
             Debug.Log(trigInfo.onAction);
         bool currTriggerActive = checkSequence(trigInfo);
-        if(currTriggerActive) {
+        if(currTriggerActive && trigType == trig.triggerType) {
             doTrigger(trig.triggerAction);
             changeCurrTid(trig.triggerAction.tid);
         }
-        else if(sceneTrigger != null) {
+        else if(sceneTrigger != null && trigType == sceneTrigger.triggerType) {
             doTrigger(sceneTrigger.triggerAction);
         }
-        else if(universalTrigger != null) {
-            doTrigger(sceneTrigger.triggerAction);
+        else if(universalTrigger != null && trigType == universalTrigger.triggerType) {
+            doTrigger(universalTrigger.triggerAction);
         }
     }
     private bool checkOnAction(string dbOnAction, string onActionTrigger)
@@ -132,14 +134,9 @@ public class SequenceHandler : MonoBehaviour
             case "ChangeSequenceTrigger":
                 sceneTriggers = action.sceneTriggers;
                 break;
-            case "ChangeAngle":
-                Debug.Log("ChangeAngle");
+            case "Teleport":
                 player.position = new Vector3(action.posX, action.posY, action.posZ);
-                player.localScale = new Vector3(action.playerScale,action.playerScale,action.playerScale);
                 break;
-
-
-
         }
     }
     ZoomTarget getZoomObject(string obj)
@@ -165,7 +162,8 @@ public class SequenceHandler : MonoBehaviour
         bool isActive = currTrig.triggerInfo.onLeave == trigInfo.onLeave & 
             currTrig.triggerInfo.onEnter == trigInfo.onEnter &
             currTrig.triggerInfo.pid == trigInfo.pid &
-            currTrig.triggerInfo.onAction == trigInfo.onAction;
+            currTrig.triggerInfo.onAction == trigInfo.onAction &
+            currTrig.triggerInfo.tree == trigInfo.tree;
         return isActive;
     }
     Trigger getTriggerFromSequence(TriggerInfo trigInfo, string sequenceName)
@@ -179,6 +177,7 @@ public class SequenceHandler : MonoBehaviour
                 .Where(i=>i.triggerInfo.onEnter == trigInfo.onEnter)
                 .Where(i=>i.triggerInfo.pid == trigInfo.pid)
                 .Where(i=>i.triggerInfo.onAction == trigInfo.onAction)
+                .Where(i=>i.triggerInfo.tree == trigInfo.tree)
                 .DefaultIfEmpty(null)
                 .FirstOrDefault();
         }

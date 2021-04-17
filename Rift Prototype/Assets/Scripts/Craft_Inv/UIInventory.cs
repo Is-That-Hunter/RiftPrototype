@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 //This script handles the loading and behaviors of the Inventory UI
 //This script is kept attatched to the Inventory Table
@@ -14,7 +15,7 @@ public class UIInventory : MonoBehaviour
     private Transform inventory_Slots;
     private Transform item_Slot_Base;
     public EventSystem m_EventSystem;
-    public Item CurrentItem;
+    public GameObject CurrentItem;
 
     private void Awake()
     {
@@ -57,33 +58,75 @@ public class UIInventory : MonoBehaviour
     }
 
     //Refreshes the UI to display the current inventory in the form of Inventory Slot, and Images within those Slots
-    private void RefreshInventoryItems()
+    public void RefreshInventoryItems()
     {
-        bool selector = true;
+        List<InventoryItem> currentInventory = inventory.GetItemList();
+        List<InventoryItem> oldInventory = new List<InventoryItem>();
+        bool selector = false;
+        if(CurrentItem == null)
+        {
+            selector = true;
+        }
+        
         foreach(Transform child in inventory_Slots)
         {
             if (child == item_Slot_Base) continue;
-            Destroy(child.gameObject);
-        }
-
-        if(inventory.GetItemList().Count == 0) {
-            m_EventSystem.SetSelectedGameObject(null);
-            return;
-        }
-
-        foreach (InventoryItem InvItem in inventory.GetItemList())
-        {
-            RectTransform itemSlotRectTransform = Instantiate(item_Slot_Base, inventory_Slots).GetComponent<RectTransform>();
-            if (selector)
+            InventoryItem oldInvItem = child.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ImageItem>().GetItem();
+            InventoryItem invExist = currentInventory.FirstOrDefault(i=>i == oldInvItem);
+            if(invExist == null)
             {
-                m_EventSystem.SetSelectedGameObject(itemSlotRectTransform.GetChild(0).GetChild(0).gameObject);
-                selector = false;
+                if(child.transform.GetChild(0).GetChild(0).gameObject == CurrentItem)
+                {
+                    CurrentItem = null;
+                    selector = true;
+                }
+                Destroy(child.gameObject);
             }
-            itemSlotRectTransform.gameObject.SetActive(true);
+            else
+            {
+                oldInventory.Add(oldInvItem);
+                child.GetChild(0).GetChild(0).GetComponent<Button>().enabled = true;
+                if(selector == true)
+                {
+                    CurrentItem = child.transform.GetChild(0).GetChild(0).gameObject;
+                    m_EventSystem.SetSelectedGameObject(CurrentItem);
+                    selector = false;
+                }
+            }
+        }
 
-            Image image = itemSlotRectTransform.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
-            image.GetComponent<ImageItem>().SetItem(InvItem);
-            image.sprite = InvItem.item.GetSprite();
+        foreach(InventoryItem currInvItem in currentInventory)
+        {
+            InventoryItem invExist = oldInventory.FirstOrDefault(i=>i == currInvItem);
+            if(invExist == null)
+            {
+                RectTransform itemSlotRectTransform = Instantiate(item_Slot_Base, inventory_Slots).GetComponent<RectTransform>();
+                itemSlotRectTransform.gameObject.SetActive(true);
+                Image image = itemSlotRectTransform.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
+                image.GetComponent<ImageItem>().SetItem(currInvItem);
+                image.sprite = currInvItem.item.GetSprite();
+                if(selector == true)
+                {
+                    CurrentItem = itemSlotRectTransform.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+                    m_EventSystem.SetSelectedGameObject(CurrentItem);
+                    selector = false;
+                }
+            }
         }
     }
+    
+    void Update()
+    {
+        if(m_EventSystem.currentSelectedGameObject != null && m_EventSystem.currentSelectedGameObject.tag == "Slot")
+        {
+            if(CurrentItem != m_EventSystem.currentSelectedGameObject)
+            {
+                CurrentItem = m_EventSystem.currentSelectedGameObject;
+            }
+        }
+        else {
+            m_EventSystem.SetSelectedGameObject(CurrentItem);
+        }
+    }
+    
 }

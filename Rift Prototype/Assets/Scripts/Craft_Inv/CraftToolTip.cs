@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CraftToolTip : MonoBehaviour
 {
     public Vector2 offset;
+    public UIInventory uiInv;
     // Update is called once per frame
     void Update () {
         Vector2 Pos = Mouse.current.position.ReadValue();

@@ -13,6 +13,8 @@ public class BasicMovement : StateInterface
 
     public GameObject global_variables;
 
+    public Animator anim;
+
     //All things considered ground
     public LayerMask groundLayers;
 
@@ -39,6 +41,8 @@ public class BasicMovement : StateInterface
     private float distanceToGround;
     private Rigidbody body;
 
+    public bool inMonsterPlat = false;
+
     public void LockPlayer()
     {
         playerMove = !playerMove;
@@ -51,9 +55,7 @@ public class BasicMovement : StateInterface
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         body = GetComponent<Rigidbody>();
-        //Collider colliderThing = GetComponent<Collider>();
         jumpNumber = totalJumps;
         distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
     }
@@ -75,9 +77,13 @@ public class BasicMovement : StateInterface
         if(isGrounded())
         {
             jumpTriggered = false;
-            jumpNumber = totalJumps;
+            if(inMonsterPlat)
+                jumpNumber = totalJumps;
+            else
+                jumpNumber = 0;
         }
 
+        anim.SetBool("isJump", !isGrounded());
         
         //Determine running or walking or crouch
         var currentSpeed = speed;
@@ -97,9 +103,22 @@ public class BasicMovement : StateInterface
         velo.y = body.velocity.y; 
         body.velocity = velo;
         Vector3 input = new Vector3(movement.x, 0, movement.y);
+        Vector3 inputT = (input * currentSpeed * Time.deltaTime);
         if (playerMove)
         {
             body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
+        }
+        anim.SetFloat("horizontalMove", inputT.x);
+        anim.SetFloat("verticalMove", inputT.z);
+        if (inputT.x > 0.01)
+        {
+            anim.SetBool("wL", true);
+            anim.SetBool("wR", false);
+        }
+        else if(isGrounded() || inputT.x < -0.01)
+        {
+            anim.SetBool("wR", true);
+            anim.SetBool("wL", false);
         }
 
     }
@@ -161,38 +180,64 @@ public class BasicMovement : StateInterface
 
     public void Item_Pickup(ItemTrigger itemTrigger)
     {
-        GameObject itemObject = itemTrigger.gameObject;
-        ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
-        Item itemGrab = null;
-        //Get Item Name
-        string itemName = itemTrigger.currentItem.attachedItemName;
+        if(global_variables.GetComponent<GlobalScript>().inventory.InventorySize() == 8)
+        {
+            state_m.handleAction("Player", onAction: "Invetory Full");
+        }
+        else
+        {
+            GameObject itemObject = itemTrigger.gameObject;
+            ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
+            Item itemGrab = null;
+            //Get Item Name
+            string itemName = itemTrigger.currentItem.attachedItemName;
+            if(!itemTrigger.currentItem.destroyed)
+            {
+                itemGrab = ItemDB.FindItem(itemName);
+                state_m.handleAction("Player", onAction: "PickUp " + itemName);
 
-        itemGrab = ItemDB.FindItem(itemName);
-        state_m.handleAction("Player", onAction: "PickUp " + itemName);
-
-        global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
-        Destroy(itemTrigger.currentItem.gameObject.transform.parent.gameObject);
-        gameObject.transform.GetChild(0).GetComponent<ItemTrigger>().currentCol = null;
-        gameObject.transform.GetChild(0).GetComponent<ItemTrigger>().currentItem = null;
-        global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+                global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
+                itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
+                itemTrigger.currentItem.destroyed = true;
+                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            }
+        }
+        
+        
     }
 
     public void Interact()
     {
         ItemTrigger itemTrigger = gameObject.transform.GetChild(0).GetComponent<ItemTrigger>();
-        bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
-        if(inDialogueTrigger) {
-            state_m.pushState("Dialogue", false);
-        }
-        else if(itemTrigger.currentCol != null)
+        if (itemTrigger.reportBoo)
         {
-            if(itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
-                state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
-            else if(!itemTrigger.currentItem.placeable)
+            if(itemTrigger.currentCol != null)
             {
-                Item_Pickup(itemTrigger);    
+                state_m.pushState("Report", false);
             }
         }
+        else
+        {
+            bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
+            if (inDialogueTrigger) {
+                state_m.pushState("Dialogue", false);
+            }
+            else if(itemTrigger.currentCol != null)
+            {
+                if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
+                    state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
+                else if(!itemTrigger.currentItem.placeable)
+                {
+                    Item_Pickup(itemTrigger);
+                }
+            }
+        } 
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        state_m.pushState("Pause", false);
     }
 
     public void developCarnival() 
@@ -203,6 +248,7 @@ public class BasicMovement : StateInterface
 
     
     void OnEnable(){
+        this.gameObject.GetComponent<PlayerInput>().enabled = true;
         controls.PlayerMovement.Enable();
         controls.Develop.Enable();
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
@@ -213,6 +259,7 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Crouching.canceled += ctx => isCrouching = false;
         controls.PlayerMovement.Dash.performed += ctx => isDash = true;
         controls.PlayerMovement.State_Switch.performed += ctxe => Switch_State();
+        controls.PlayerMovement.Pause.performed += ctxe => Pause();
         controls.PlayerMovement.Interact.performed += ctxe => Interact();
         controls.PlayerMovement.Jump.performed += ctx => isJump = true;
         controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
@@ -221,6 +268,7 @@ public class BasicMovement : StateInterface
 
     void OnDisable(){
         controls.PlayerMovement.Disable();
+        this.gameObject.GetComponent<PlayerInput>().enabled = false;
     }
 
     //End

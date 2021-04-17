@@ -83,9 +83,9 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Carnival"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""7b12af7a-16e6-4d2e-b95c-daff76dcd96c"",
+                    ""id"": ""075e1e8a-e5cc-41be-a0bb-5f8a7f31eb92"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -281,12 +281,12 @@ public class @MainController : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""06ddc6d8-20fb-429f-b4cb-39fd311ea9d8"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""id"": ""8da3efb9-d1b0-43a9-aa74-4fc4b99a38df"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Carnival"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -313,7 +313,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Size_Select"",
+                    ""name"": ""Type_Select"",
                     ""type"": ""Button"",
                     ""id"": ""bd796c62-4d82-4d6c-bb77-c9d9a2a2833f"",
                     ""expectedControlType"": ""Button"",
@@ -321,7 +321,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Material_Select"",
+                    ""name"": ""Size_Select"",
                     ""type"": ""Button"",
                     ""id"": ""c7f376ec-3281-4a82-b37f-6030c1b4337d"",
                     ""expectedControlType"": ""Button"",
@@ -329,7 +329,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Type_Select"",
+                    ""name"": ""Material_Select"",
                     ""type"": ""Button"",
                     ""id"": ""3713d095-4eb4-4d08-a890-88da7284cd49"",
                     ""expectedControlType"": ""Button"",
@@ -357,6 +357,14 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""3d870612-ebf5-4365-88b7-ef1c40401259"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""826287ea-967f-416a-b084-0eb967b0021a"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -435,7 +443,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Size_Select"",
+                    ""action"": ""Type_Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -446,7 +454,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Material_Select"",
+                    ""action"": ""Size_Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -457,7 +465,7 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Type_Select"",
+                    ""action"": ""Material_Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -493,17 +501,28 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0d2bcfa-0a2c-4cbc-baa9-dd86e7442388"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""Develop"",
-            ""id"": ""8b67be71-a858-4b0d-a44e-919cbbc18a74"",
+            ""name"": ""Pause_Menu"",
+            ""id"": ""5d21da12-b0d8-4ac4-b69e-1132e97a89dc"",
             ""actions"": [
                 {
-                    ""name"": ""Carnival"",
+                    ""name"": ""Unpause"",
                     ""type"": ""Button"",
-                    ""id"": ""20030f6f-0f8c-4159-af1a-7821c2dd4a54"",
+                    ""id"": ""c891cd26-996a-4654-bd9d-94183b77a082"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -512,7 +531,61 @@ public class @MainController : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""826e466e-1ae7-413b-973e-13dc9406fd72"",
+                    ""id"": ""a0d3cebe-b4f2-4d78-81de-d7ad9cb7b36b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Report"",
+            ""id"": ""bf86a65c-7e7f-4d2b-af2b-3dc9d3bc7263"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""57cc72bc-8fec-4d64-aecb-746406245962"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d56414eb-28c0-4ece-b4b5-91de9968a528"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Develop"",
+            ""id"": ""a900ead4-4037-4a73-b026-738117b04081"",
+            ""actions"": [
+                {
+                    ""name"": ""Carnival"",
+                    ""type"": ""Button"",
+                    ""id"": ""946934f7-5728-4e8a-a4c0-65e6e5309c6a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f4e7b79a-3ca7-44a0-b24c-aaab4d2c0f2f"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -536,17 +609,24 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
         m_PlayerMovement_State_Switch = m_PlayerMovement.FindAction("State_Switch", throwIfNotFound: true);
         m_PlayerMovement_Interact = m_PlayerMovement.FindAction("Interact", throwIfNotFound: true);
-        m_PlayerMovement_Carnival = m_PlayerMovement.FindAction("Carnival", throwIfNotFound: true);
+        m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
         // Inventory_Craft
         m_Inventory_Craft = asset.FindActionMap("Inventory_Craft", throwIfNotFound: true);
         m_Inventory_Craft_Move = m_Inventory_Craft.FindAction("Move", throwIfNotFound: true);
         m_Inventory_Craft_Craft = m_Inventory_Craft.FindAction("Craft", throwIfNotFound: true);
+        m_Inventory_Craft_Type_Select = m_Inventory_Craft.FindAction("Type_Select", throwIfNotFound: true);
         m_Inventory_Craft_Size_Select = m_Inventory_Craft.FindAction("Size_Select", throwIfNotFound: true);
         m_Inventory_Craft_Material_Select = m_Inventory_Craft.FindAction("Material_Select", throwIfNotFound: true);
-        m_Inventory_Craft_Type_Select = m_Inventory_Craft.FindAction("Type_Select", throwIfNotFound: true);
         m_Inventory_Craft_State_Switch = m_Inventory_Craft.FindAction("State_Switch", throwIfNotFound: true);
         m_Inventory_Craft_Click = m_Inventory_Craft.FindAction("Click", throwIfNotFound: true);
         m_Inventory_Craft_Point = m_Inventory_Craft.FindAction("Point", throwIfNotFound: true);
+        m_Inventory_Craft_Drop = m_Inventory_Craft.FindAction("Drop", throwIfNotFound: true);
+        // Pause_Menu
+        m_Pause_Menu = asset.FindActionMap("Pause_Menu", throwIfNotFound: true);
+        m_Pause_Menu_Unpause = m_Pause_Menu.FindAction("Unpause", throwIfNotFound: true);
+        // Report
+        m_Report = asset.FindActionMap("Report", throwIfNotFound: true);
+        m_Report_Escape = m_Report.FindAction("Escape", throwIfNotFound: true);
         // Develop
         m_Develop = asset.FindActionMap("Develop", throwIfNotFound: true);
         m_Develop_Carnival = m_Develop.FindAction("Carnival", throwIfNotFound: true);
@@ -607,7 +687,7 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Dash;
     private readonly InputAction m_PlayerMovement_State_Switch;
     private readonly InputAction m_PlayerMovement_Interact;
-    private readonly InputAction m_PlayerMovement_Carnival;
+    private readonly InputAction m_PlayerMovement_Pause;
     public struct PlayerMovementActions
     {
         private @MainController m_Wrapper;
@@ -620,7 +700,7 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_PlayerMovement_Dash;
         public InputAction @State_Switch => m_Wrapper.m_PlayerMovement_State_Switch;
         public InputAction @Interact => m_Wrapper.m_PlayerMovement_Interact;
-        public InputAction @Carnival => m_Wrapper.m_PlayerMovement_Carnival;
+        public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -654,9 +734,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnInteract;
-                @Carnival.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCarnival;
-                @Carnival.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCarnival;
-                @Carnival.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnCarnival;
+                @Pause.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -685,9 +765,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @Carnival.started += instance.OnCarnival;
-                @Carnival.performed += instance.OnCarnival;
-                @Carnival.canceled += instance.OnCarnival;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -698,24 +778,26 @@ public class @MainController : IInputActionCollection, IDisposable
     private IInventory_CraftActions m_Inventory_CraftActionsCallbackInterface;
     private readonly InputAction m_Inventory_Craft_Move;
     private readonly InputAction m_Inventory_Craft_Craft;
+    private readonly InputAction m_Inventory_Craft_Type_Select;
     private readonly InputAction m_Inventory_Craft_Size_Select;
     private readonly InputAction m_Inventory_Craft_Material_Select;
-    private readonly InputAction m_Inventory_Craft_Type_Select;
     private readonly InputAction m_Inventory_Craft_State_Switch;
     private readonly InputAction m_Inventory_Craft_Click;
     private readonly InputAction m_Inventory_Craft_Point;
+    private readonly InputAction m_Inventory_Craft_Drop;
     public struct Inventory_CraftActions
     {
         private @MainController m_Wrapper;
         public Inventory_CraftActions(@MainController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Inventory_Craft_Move;
         public InputAction @Craft => m_Wrapper.m_Inventory_Craft_Craft;
+        public InputAction @Type_Select => m_Wrapper.m_Inventory_Craft_Type_Select;
         public InputAction @Size_Select => m_Wrapper.m_Inventory_Craft_Size_Select;
         public InputAction @Material_Select => m_Wrapper.m_Inventory_Craft_Material_Select;
-        public InputAction @Type_Select => m_Wrapper.m_Inventory_Craft_Type_Select;
         public InputAction @State_Switch => m_Wrapper.m_Inventory_Craft_State_Switch;
         public InputAction @Click => m_Wrapper.m_Inventory_Craft_Click;
         public InputAction @Point => m_Wrapper.m_Inventory_Craft_Point;
+        public InputAction @Drop => m_Wrapper.m_Inventory_Craft_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Inventory_Craft; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -731,15 +813,15 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Craft.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnCraft;
                 @Craft.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnCraft;
                 @Craft.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnCraft;
+                @Type_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
+                @Type_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
+                @Type_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
                 @Size_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnSize_Select;
                 @Size_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnSize_Select;
                 @Size_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnSize_Select;
                 @Material_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnMaterial_Select;
                 @Material_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnMaterial_Select;
                 @Material_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnMaterial_Select;
-                @Type_Select.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
-                @Type_Select.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
-                @Type_Select.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnType_Select;
                 @State_Switch.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
                 @State_Switch.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
                 @State_Switch.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnState_Switch;
@@ -749,6 +831,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Point.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnPoint;
                 @Point.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnPoint;
                 @Point.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnPoint;
+                @Drop.started -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_Inventory_CraftActionsCallbackInterface.OnDrop;
             }
             m_Wrapper.m_Inventory_CraftActionsCallbackInterface = instance;
             if (instance != null)
@@ -759,15 +844,15 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Craft.started += instance.OnCraft;
                 @Craft.performed += instance.OnCraft;
                 @Craft.canceled += instance.OnCraft;
+                @Type_Select.started += instance.OnType_Select;
+                @Type_Select.performed += instance.OnType_Select;
+                @Type_Select.canceled += instance.OnType_Select;
                 @Size_Select.started += instance.OnSize_Select;
                 @Size_Select.performed += instance.OnSize_Select;
                 @Size_Select.canceled += instance.OnSize_Select;
                 @Material_Select.started += instance.OnMaterial_Select;
                 @Material_Select.performed += instance.OnMaterial_Select;
                 @Material_Select.canceled += instance.OnMaterial_Select;
-                @Type_Select.started += instance.OnType_Select;
-                @Type_Select.performed += instance.OnType_Select;
-                @Type_Select.canceled += instance.OnType_Select;
                 @State_Switch.started += instance.OnState_Switch;
                 @State_Switch.performed += instance.OnState_Switch;
                 @State_Switch.canceled += instance.OnState_Switch;
@@ -777,10 +862,79 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Point.started += instance.OnPoint;
                 @Point.performed += instance.OnPoint;
                 @Point.canceled += instance.OnPoint;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
             }
         }
     }
     public Inventory_CraftActions @Inventory_Craft => new Inventory_CraftActions(this);
+
+    // Pause_Menu
+    private readonly InputActionMap m_Pause_Menu;
+    private IPause_MenuActions m_Pause_MenuActionsCallbackInterface;
+    private readonly InputAction m_Pause_Menu_Unpause;
+    public struct Pause_MenuActions
+    {
+        private @MainController m_Wrapper;
+        public Pause_MenuActions(@MainController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Unpause => m_Wrapper.m_Pause_Menu_Unpause;
+        public InputActionMap Get() { return m_Wrapper.m_Pause_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Pause_MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IPause_MenuActions instance)
+        {
+            if (m_Wrapper.m_Pause_MenuActionsCallbackInterface != null)
+            {
+                @Unpause.started -= m_Wrapper.m_Pause_MenuActionsCallbackInterface.OnUnpause;
+                @Unpause.performed -= m_Wrapper.m_Pause_MenuActionsCallbackInterface.OnUnpause;
+                @Unpause.canceled -= m_Wrapper.m_Pause_MenuActionsCallbackInterface.OnUnpause;
+            }
+            m_Wrapper.m_Pause_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Unpause.started += instance.OnUnpause;
+                @Unpause.performed += instance.OnUnpause;
+                @Unpause.canceled += instance.OnUnpause;
+            }
+        }
+    }
+    public Pause_MenuActions @Pause_Menu => new Pause_MenuActions(this);
+
+    // Report
+    private readonly InputActionMap m_Report;
+    private IReportActions m_ReportActionsCallbackInterface;
+    private readonly InputAction m_Report_Escape;
+    public struct ReportActions
+    {
+        private @MainController m_Wrapper;
+        public ReportActions(@MainController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_Report_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_Report; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ReportActions set) { return set.Get(); }
+        public void SetCallbacks(IReportActions instance)
+        {
+            if (m_Wrapper.m_ReportActionsCallbackInterface != null)
+            {
+                @Escape.started -= m_Wrapper.m_ReportActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_ReportActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_ReportActionsCallbackInterface.OnEscape;
+            }
+            m_Wrapper.m_ReportActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
+            }
+        }
+    }
+    public ReportActions @Report => new ReportActions(this);
 
     // Develop
     private readonly InputActionMap m_Develop;
@@ -824,18 +978,27 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnState_Switch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnCarnival(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IInventory_CraftActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnCraft(InputAction.CallbackContext context);
+        void OnType_Select(InputAction.CallbackContext context);
         void OnSize_Select(InputAction.CallbackContext context);
         void OnMaterial_Select(InputAction.CallbackContext context);
-        void OnType_Select(InputAction.CallbackContext context);
         void OnState_Switch(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
+    }
+    public interface IPause_MenuActions
+    {
+        void OnUnpause(InputAction.CallbackContext context);
+    }
+    public interface IReportActions
+    {
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IDevelopActions
     {

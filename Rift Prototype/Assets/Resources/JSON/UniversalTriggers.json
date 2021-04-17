@@ -6,7 +6,8 @@
             "triggerType":"Develop",
             "triggerInfo":{
                 "onAction":"C",
-                "pid": -1
+                "pid": -1,
+                "tree":""
             },
             "triggerAction":{
                 "type":"Scene",

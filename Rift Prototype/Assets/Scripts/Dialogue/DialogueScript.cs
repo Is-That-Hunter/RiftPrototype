@@ -31,7 +31,6 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         this.twineParser = this.globalObj.GetComponent<GlobalScript>().twineParser;
         this.stateMachine = this.globalObj.GetComponent<StateMachine>();
         changePortrait();
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -57,13 +56,15 @@ public class DialogueScript : StateInterface, IPointerClickHandler
         if (linkIndex != -1) {
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             var linkId = linkInfo.GetLinkID();
+            int leavingPid = twineParser.getCurrPid();
+            string currTree = twineParser.currTree;
             bool leave = twineParser.chooseOption(linkId);
             changePortrait();
             if(leave)
             {
                 this.mainCamera.GetComponent<CameraController>().focus = false;
                 this.mainCamera.GetComponent<CameraController>().zoomIn = false;
-                stateMachine.popState(pid: twineParser.getCurrPid());
+                stateMachine.popState(pid: leavingPid, tree: currTree);
             }
         }
     }

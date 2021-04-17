@@ -5,7 +5,7 @@
     "passages": [
         {
             "character": "Angela",
-            "zoom": false,
+            "zoom": true,
             "text": "ANGELA: \"258 Ott Street huh, don't come down to this side of town often, don't know where else to look though. Strange things been following me my whole life, but this is something else.\"\n[[Next Box]]\n",
             "links": [
                 {
@@ -20,7 +20,7 @@
         },
         {
             "character": "Angela",
-            "zoom": false,
+            "zoom": true,
             "text": "ANGELA: Woah! One use only on these things huh. \n\n[[ Next box ]]",
             "links": [
                 {
@@ -35,7 +35,7 @@
         },
         {
             "character": "Angela",
-            "zoom": false,
+            "zoom": true,
             "text": "ANGELA: \"Ever since that... thing came crashing throuhg Mosley's it's gotten worse.\" \n[[Next 1]]\n\n",
             "links": [
                 {
@@ -50,7 +50,7 @@
         },
         {
             "character": "Angela",
-            "zoom": false,
+            "zoom": true,
             "text": "ANGELA: Well, today's strange enough already. Let's see if I'm tall enough to ride this ride.\n\n[[End Interaction]]\n",
             "links": [
                 {
@@ -65,7 +65,22 @@
         },
         {
             "character": "Angela",
-            "zoom": false,
+            "zoom": true,
+            "text": "[[Okay]]\n",
+            "links": [
+                {
+                "leave": true,
+                "name": "Okay",
+                "link": "Okay",
+                "pid": "5"
+                }
+            ],
+            "name": "End Interaction",
+            "pid": "5"
+        },
+        {
+            "character": "Angela",
+            "zoom": true,
             "text": "\"A busted down carnival? Shit, that rat at the club fed me crap.\" \n\n[[Next 2]]\n",
             "links": [
                 {
@@ -80,7 +95,7 @@
         },
         {
             "character": "Angela",
-            "zoom": false,
+            "zoom": true,
             "text": "Angela: \"No light? Fuck, this day just keeps getting better.\"\n[[Make a lighter - Crafting Tutorial]]",
             "links": [
                 {
@@ -111,7 +126,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Left Arrow Key to select current objects Size for crafting.\n[[Okay->Tutorial 3]]",
+            "text": "Put the Coffee Cup in the Type Slot (Left Arrow).\n[[Okay->Tutorial 3]]",
             "name": "Tutorial 2",
             "pid": "9",
             "links": [
@@ -126,7 +141,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Up Arrow Key to select current objects Material for crafting.\n[[Okay->Tutorial 4]]",
+            "text": "Put the Lockpick in the Size Slot (Up Arrow)\n[[Okay->Tutorial 4]]",
             "name": "Tutorial 3",
             "pid": "10",
             "links": [
@@ -141,7 +156,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press Right Arrow Key to select current objects Type.\n[[Okay->Tutorial 5]]",
+            "text": "Put the Megaphone in the Material Slow (Right Arrow)\n[[Okay->Tutorial 5]]",
             "name": "Tutorial 4",
             "pid": "11",
             "links": [
@@ -156,7 +171,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Press A and D and mouse to move through inventory\n[[Okay->Tutorial 3]]",
+            "text": "Press WASD and mouse to move through inventory\n[[Okay->Tutorial 3]]",
             "name": "Tutorial Move",
             "pid": "12",
             "links": [

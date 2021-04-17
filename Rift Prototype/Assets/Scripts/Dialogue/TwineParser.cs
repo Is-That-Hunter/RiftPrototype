@@ -71,6 +71,10 @@ public class TwineParser : MonoBehaviour
     }
     public CharacterPortrait getCharacterPortrait(string character) {
         CharacterPortrait charPortrait = characters.FirstOrDefault(i=>i.name == character);
+        if(charPortrait.character == null)
+        {
+            charPortrait.character = GameObject.Find(charPortrait.name);
+        }
         return charPortrait;
     }
     public CharacterPortrait getCurrCharacterPortrait(string tree = "") {
@@ -128,7 +132,7 @@ public class TwineParser : MonoBehaviour
         string color = "blue";
         if(isVar)
             color = "red";
-        string temp = "<link=\""+parseThis[1]+"\"><color="+color+">"+parseThis[0]+"</color></link>";
+        string temp = "*<link=\""+parseThis[1]+"\"><color="+color+">"+parseThis[0]+"</color></link>";
         return temp;
     }
     //Parses out the dialogue to be clickable if it is a link

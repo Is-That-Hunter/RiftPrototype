@@ -79,11 +79,16 @@ MonoBehaviour:
   sequenceJsons:
   - TutorialTriggers
   - UniversalTriggers
+  - EntranceTriggers
+  - CarnivalTriggers
   targets:
-  - objName: Pink Slip
+  - objName: Water Bottle
     target: {fileID: 0}
   mainCamera: {fileID: 0}
-  currentSequence: Tutorial
+  currentSequence: Universal
+  universalTriggers: Universal
+  sceneTriggers: Entrance
+  initiliazed: 0
 --- !u!114 &1155087748727288595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,3 +107,5 @@ MonoBehaviour:
   stateMachine: {fileID: 0}
   twineParser: {fileID: 0}
   sequenceHandler: {fileID: 0}
+  destroyedMonsters: []
+  playerPosition: {x: 0, y: 0, z: 0}

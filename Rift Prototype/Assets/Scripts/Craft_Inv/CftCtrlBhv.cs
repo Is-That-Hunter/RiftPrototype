@@ -35,7 +35,6 @@ public class CftCtrlBhv : StateInterface
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         globalScript = globalObject.GetComponent<GlobalScript>();
         Transform[] ts = gameObject.transform.GetComponentsInChildren<Transform>(true);
         itemTrigger = state_m.player.transform.GetChild(0).GetComponent<ItemTrigger>();
@@ -72,6 +71,17 @@ public class CftCtrlBhv : StateInterface
 
         controls.Inventory_Craft.State_Switch.performed += ctx => Switch_State();
 
+        controls.Inventory_Craft.Drop.performed += ctx => Drop();
+
+    }
+
+    public void Drop()
+    {
+        if(uiInventory.CurrentItem == null)
+            return;
+        InventoryItem item = uiInventory.CurrentItem.GetComponent<ImageItem>().GetItem();
+        Inventory inventory = globalScript.inventory;
+        inventory.RemoveItem(item);
     }
 
     public void Switch_State()
@@ -135,7 +145,7 @@ public class CftCtrlBhv : StateInterface
 
 
     //Sets the Item and its Size used for crafting
-    void Set_Size()
+    public void Set_Size()
     {
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         InventoryItem invItem = requester_ImIt.GetItem();
@@ -164,7 +174,7 @@ public class CftCtrlBhv : StateInterface
     }
 
     //Sets the Item and its Material used for crafting
-    void Set_Material()
+    public void Set_Material()
     {
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         InventoryItem invItem = requester_ImIt.GetItem();
@@ -192,7 +202,7 @@ public class CftCtrlBhv : StateInterface
     }
 
     //Sets the Item and its Type used for crafting
-    void Set_Type()
+    public void Set_Type()
     {
         ImageItem requester_ImIt = EventSystem.current.currentSelectedGameObject.GetComponent<ImageItem>();
         InventoryItem invItem = requester_ImIt.GetItem();

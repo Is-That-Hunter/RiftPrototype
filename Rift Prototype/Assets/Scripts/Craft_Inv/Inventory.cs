@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
 public class InventoryItem
 {
     public Item item;
@@ -54,10 +55,22 @@ public class Inventory
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void RemoveItem(InventoryItem item)
+    {
+        itemList.Remove(item);
+
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     //Returns all Items in the Inventory
     public List<InventoryItem> GetItemList()
     {
         return itemList;
+    }
+
+    public int InventorySize()
+    {
+        return itemList.Count;
     }
 
     public bool itemInInventory(string itemName)

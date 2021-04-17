@@ -38,7 +38,9 @@ public class StateMachine : MonoBehaviour
     public GameObject player;
     public GameObject inventory;
     public GameObject dialogue;
+    public GameObject pause;
     public GameObject overlay;
+    public GameObject report;
     public GlobalScript globalScript;
     public Stack<State> stateStack = new Stack<State>();
 
@@ -49,9 +51,12 @@ public class StateMachine : MonoBehaviour
         states.Add(new State("Player", player));
         states.Add(new State("Inventory", inventory));
         states.Add(new State("Dialogue", dialogue));
+        states.Add(new State("Pause", pause));
+        states.Add(new State("Report", report));
         stateStack.Push(states.FirstOrDefault(i=>i.stateName == "Player"));
         foreach(State _state in states)
         {
+            DontDestroyOnLoad(_state.stateObject);
             if(stateStack.Peek() == _state)
                 _state.changeActive(true);
             else
@@ -77,14 +82,14 @@ public class StateMachine : MonoBehaviour
         Debug.Log(prnt);
         
     }
-    public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1)
+    public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1, string tree = "")
     {
         State x = stateStack.Pop();
         x.changeActive(false, disableObj);
         stateStack.Peek().changeActive(true);
         overlay.SetActive(overlayActive);
         if(x.stateName == "Dialogue") {
-            handleAction(x.stateName, onLeave: true, pid: pid);
+            handleAction(x.stateName, onLeave: true, pid: pid, tree: tree);
         }
         else {
             handleAction(x.stateName, onLeave: true);
@@ -102,9 +107,9 @@ public class StateMachine : MonoBehaviour
     {
         return stateStack.Peek();
     }
-    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, string onAction = "", int pid = -1)
+    public void handleAction(string triggerType, bool onLeave = false, bool onEnter = false, string onAction = "", int pid = -1, string tree = "")
     {
-        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onAction,pid);
+        TriggerInfo trigInfo = new TriggerInfo(onLeave,onEnter,onAction,pid, tree);
         globalScript.sequenceHandler.handleAction(trigInfo, triggerType);
     }
 }
