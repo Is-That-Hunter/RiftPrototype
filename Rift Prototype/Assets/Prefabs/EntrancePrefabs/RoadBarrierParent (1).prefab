@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7548204710954979376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7548204710954979377}
+  m_Layer: 0
+  m_Name: RoadBarrierParent (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7548204710954979377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548204710954979376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.23, y: -0.46845, z: -26.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3294991156968628429}
+  - {fileID: 7548204711752851937}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7548204711496813522
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009011321214718686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.06977, y: 11.401331, z: 17.950722}
+  m_Center: {x: 0, y: 5.0373564, z: 0}
+--- !u!1 &7548204711752851936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7548204711752851937}
+  - component: {fileID: 7548204711752851967}
+  - component: {fileID: 7548204711752851966}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Item
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7548204711752851937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548204711752851936}
+  m_LocalRotation: {x: 0, y: 0.31105793, z: 0, w: 0.95039093}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7548204710954979377}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 36.246, z: 0}
+--- !u!65 &7548204711752851967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548204711752851936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.08, y: 1.97, z: 1.18}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7548204711752851966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548204711752851936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f94a2706b46449fa231cd251cf83d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedItemName: Road Barrier
+  placeable: 0
+  created: 0
+  indicator: 0
+  destroyed: 0
+  infinite: 0
+  timeTillRespawn: 0
+  respawnTime: 5
+  Obj: {fileID: 2009011321214718686}
+  Transparency: 0.2
+  arrowSpeed: 0.4
+  minY: 3.1
+  maxY: 4.6
+--- !u!1001 &7548204711496813527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7548204710954979377}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.06544419
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.07536605
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03114542
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.95039093
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.31105793
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 36.246
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 984ea6ba4db8749f99705247bc20a619,
+        type: 3}
+      propertyPath: m_Name
+      value: RoadBarrier
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 984ea6ba4db8749f99705247bc20a619, type: 3}
+--- !u!1 &2009011321214718686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 984ea6ba4db8749f99705247bc20a619,
+    type: 3}
+  m_PrefabInstance: {fileID: 7548204711496813527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3294991156968628429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 984ea6ba4db8749f99705247bc20a619,
+    type: 3}
+  m_PrefabInstance: {fileID: 7548204711496813527}
+  m_PrefabAsset: {fileID: 0}

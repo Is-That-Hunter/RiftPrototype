@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!65 &2839078915328925012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072965752625495683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0820453, y: 2.5632918, z: 2.0820453}
+  m_Center: {x: -0.00008106234, y: 0.28164604, z: 0.00000023841864}
+--- !u!1 &2839078915776334053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2839078915776334058}
+  m_Layer: 0
+  m_Name: InfinitNailsParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2839078915776334058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839078915776334053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.17, y: -0.44, z: -13.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7069767364636314768}
+  - {fileID: 2839078916147618392}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2839078916147618395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2839078916147618392}
+  - component: {fileID: 2839078916147618398}
+  - component: {fileID: 2839078916147618393}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Item
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2839078916147618392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839078916147618395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2839078915776334058}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2839078916147618398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839078916147618395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.31, y: 1.61, z: 2.32}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2839078916147618393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839078916147618395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f94a2706b46449fa231cd251cf83d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedItemName: Nails
+  placeable: 0
+  created: 0
+  indicator: 0
+  destroyed: 0
+  infinite: 1
+  timeTillRespawn: 0
+  respawnTime: 5
+  Obj: {fileID: 6072965752625495683}
+  Transparency: 0.2
+  arrowSpeed: 0.4
+  minY: 3.1
+  maxY: 4.6
+--- !u!1001 &2839078916383418250
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2839078915776334058}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25540128
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25540122
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.53481716
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d95929f96258f49ec844022a3a3ed81f,
+        type: 3}
+      propertyPath: m_Name
+      value: InfiniteSpawnNails/Gears/Screws
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d95929f96258f49ec844022a3a3ed81f, type: 3}
+--- !u!1 &6072965752625495683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d95929f96258f49ec844022a3a3ed81f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2839078916383418250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7069767364636314768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d95929f96258f49ec844022a3a3ed81f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2839078916383418250}
+  m_PrefabAsset: {fileID: 0}
