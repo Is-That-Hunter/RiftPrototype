@@ -24,6 +24,7 @@ public class Overlay : MonoBehaviour
                 this.promptBox = t.gameObject;
             }
         }
+        this.changePromptActive(false);
     }
 
     public void changePrompt(string prompt)

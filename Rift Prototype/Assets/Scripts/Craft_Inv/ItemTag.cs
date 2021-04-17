@@ -33,7 +33,7 @@ public class ItemTag : MonoBehaviour
                 pointer = t;
             }
         }
-        if(Obj != null)
+        if(Obj != null && Obj.GetComponent<MeshRenderer>() != null)
             ObjMaterials = Obj.GetComponent<MeshRenderer>().materials;
         if(pointer != null)
             pointer.gameObject.SetActive(indicator);
@@ -67,7 +67,7 @@ public class ItemTag : MonoBehaviour
                 pointer.position = new Vector3(pointer.position.x, move, pointer.position.z);
             }
         }
-        else
+        else if(Obj != null)
         {
             if(timeTillRespawn != 0.0f)
             {
