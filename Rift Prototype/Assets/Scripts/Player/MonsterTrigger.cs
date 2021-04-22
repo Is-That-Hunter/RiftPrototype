@@ -20,6 +20,7 @@ public class MonsterTrigger : MonoBehaviour
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.tag == "Monster")
         {
+            scene_variables.destroyedMonsters.Add(collision.name);
             TriggerInfo trigInfo = new TriggerInfo(false,false,"Monster",-1,"");
             scene_variables.sequenceHandler.handleAction(trigInfo, "Monster");
         }

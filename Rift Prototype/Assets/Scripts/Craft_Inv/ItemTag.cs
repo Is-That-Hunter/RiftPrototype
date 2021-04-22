@@ -17,6 +17,7 @@ public class ItemTag : MonoBehaviour
     public float timeTillRespawn = 0.0f;
     public float respawnTime = 5.0f;
     public GameObject Obj;
+    private BoxCollider ParentCollider;
     private Material[] ObjMaterials;
     public float Transparency = 0.2f;
     //If we want the indicator to be an object above the Item
@@ -49,6 +50,7 @@ public class ItemTag : MonoBehaviour
                 mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, Transparency);
             }
         }
+        ParentCollider = gameObject.transform.parent.GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -85,10 +87,14 @@ public class ItemTag : MonoBehaviour
             }
             if(destroyed && !infinite)
             {
+                if(ParentCollider != null)
+                    ParentCollider.enabled = false;
                 Obj.SetActive(false);
             }
             if(!destroyed && !infinite)
             {
+                if(ParentCollider != null)
+                    ParentCollider.enabled = true;
                 Obj.SetActive(true);
             }
         }
