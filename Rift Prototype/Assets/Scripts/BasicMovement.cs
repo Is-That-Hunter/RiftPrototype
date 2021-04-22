@@ -135,14 +135,19 @@ public class BasicMovement : StateInterface
     //Those functions will only be called when input system sending messages
     public void OnJump(){
         Debug.Log(isGrounded());
+        Vector3 velo = Vector3.zero;
+        velo.x = 0;
+        velo.z = 0;
          if(isGrounded())
             {
             jumpTriggered = true;
+            body.velocity = velo;
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumpNumber--;
             }
             else if (jumpNumber > 0)
             {
+            body.velocity = velo;
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             jumpNumber--;
             }
