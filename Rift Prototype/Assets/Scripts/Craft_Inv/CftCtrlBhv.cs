@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Linq;
 using UnityEngine.EventSystems;
 
 //Script for defining controls for Crafting/Inv System
@@ -107,11 +108,16 @@ public class CftCtrlBhv : StateInterface
                 if(craftedItem.placeable)
                 {
                     if(itemTrigger.currentCol != null && itemTrigger.currentItem.attachedItemName == value
-                        && !itemTrigger.currentItem.created)
+                        && new string[]{"Ghost", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
+                        //&& !itemTrigger.currentItem.created)
                     {
                         crafted = true;
                         state_m.handleAction("Inventory", onAction: "Craft Success PlaceableItem " + value);
-                        itemTrigger.currentItem.setCreated(true);
+                        if(itemTrigger.currentItem.itemState == "Ghost")
+                            itemTrigger.currentItem.setState("Created");
+                        else
+                            itemTrigger.currentItem.setState("Destroyed");
+                        //itemTrigger.currentItem.setCreated(true);
                     }
                     else
                         state_m.handleAction("Inventory", onAction: "Craft Fail PlaceableItem " + value);

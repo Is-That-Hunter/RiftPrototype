@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //Attach to Player to detect Item collisions
@@ -16,6 +17,24 @@ public class ItemTrigger : MonoBehaviour
         global_variables = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
     }
 
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Item")
+        {
+            //If the GameObject has the same tag as specified, output this message in the console
+            ItemTag item = collision.gameObject.GetComponent<ItemTag>();
+            currentItem = item;
+
+            //if(item.placeable)
+            if(new []{"Created", "Filled", "Shot", "Ghost", "ToBeDestroyed", "Destroyed"}.Contains(item.itemState))
+            {
+                string action = "Enter "+ item.itemState+" " + item.attachedItemName;
+                //Uncomment if we want to call an action when entering a placeable item zone
+                global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action);
+            }
+        }
+    }
+
     //Detect collisions between the GameObjects with Colliders attached
     void OnTriggerStay(Collider collision)
     {
@@ -28,21 +47,20 @@ public class ItemTrigger : MonoBehaviour
             currentItem = item;
             item.setIndicator(true);
 
-            if(item.placeable)
+            //if(item.placeable)
+            if(new []{"Created", "Filled", "Shot", "Ghost", "ToBeDestroyed", "Destroyed"}.Contains(item.itemState))
             {
-                string action = "Enter PlaceableItem ";
-                if(!item.created)
-                    action += "Ghost " + item.attachedItemName;
-                else 
+                string action = "Enter "+ item.itemState+" " + item.attachedItemName;
+                if(item.itemState != "Ghost")
                 {
-                    action += item.attachedItemName;
+                    //action += item.attachedItemName;
                     string itemPrompt = "Press 'E' to use " + item.attachedItemName;
                     global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
                     global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
                 }
                 
                 //Uncomment if we want to call an action when entering a placeable item zone
-                //global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action + item.attachedItemName);
+                //global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action);
             }
             else
             {

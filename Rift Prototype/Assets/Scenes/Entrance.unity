@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16147637, g: 0.110818006, b: 0.15120748, a: 1}
+  m_IndirectSpecularColor: {r: 0.16147536, g: 0.11081954, b: 0.15121189, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2895,6 +2895,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 381e7c8a4131846fbb4c563e1d5ae3f2, type: 3}
+--- !u!1 &768898395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 429266805160034579, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 768898394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &768898396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768898395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6401980b707d8f7418cc95d0c39c3c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &828988635 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3995594536048315672, guid: 2fc52a5acaa12435fa4e445de92f9081,
@@ -6453,6 +6471,21 @@ PrefabInstance:
       propertyPath: globalObj
       value: 
       objectReference: {fileID: 154622744}
+    - target: {fileID: 1155087748727288595, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: placeableObjects.Array.data[0]
+      value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288595, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: placeableObjects.Array.data[1]
+      value: ToBeDestroyed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288595, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: placeableObjects.Array.data[2]
+      value: Ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: mainCamera
@@ -6476,7 +6509,7 @@ PrefabInstance:
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: sequenceJsons.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
@@ -6487,6 +6520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sequenceJsons.Array.data[3]
       value: CarnivalTriggers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: sequenceJsons.Array.data[4]
+      value: MonsterScene
       objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
@@ -6863,6 +6901,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5255329773983119429, guid: e76a71343a8d0478980b4e7b292575dd,
+        type: 3}
+      propertyPath: itemState
+      value: Ghost
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e76a71343a8d0478980b4e7b292575dd, type: 3}
 --- !u!1001 &5804434320069221581
@@ -6967,8 +7010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedItemName: Water Bottle
-  placeable: 0
-  created: 0
+  itemState: 
   indicator: 0
   destroyed: 0
   infinite: 0
