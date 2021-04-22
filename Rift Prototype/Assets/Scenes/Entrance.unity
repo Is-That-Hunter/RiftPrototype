@@ -6759,7 +6759,7 @@ PrefabInstance:
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: currentSequence
-      value: Universal
+      value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 1155087748727288620, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
