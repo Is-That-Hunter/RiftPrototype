@@ -66,7 +66,7 @@ public class SequenceHandler : MonoBehaviour
             TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1);
             handleAction(trigInfo, "Scene");
             globalVars.Overlay.changePromptActive(false);
-            sceneScript.OnSceneLoaded(scene, mode);
+            sceneScript.OnSceneLoaded();
         }
     }
     Sequence FromJson(string json) 
@@ -151,6 +151,19 @@ public class SequenceHandler : MonoBehaviour
                 player.GetComponent<BasicMovement>().inMonsterPlat = action.playerMode;
                 Debug.Log(player.GetComponent<BasicMovement>().inMonsterPlat);
                 player.position = new Vector3(action.posX, action.posY, action.posZ);
+                break;
+            case "Destroy":
+                globalVars.inventory.RemoveItemByName(action.targetObj);
+                sceneScript.placeableObjects[1] = "Destroyed";
+                sceneScript.OnSceneLoaded();
+                break;
+            case "Fill":
+                globalVars.inventory.RemoveItemByName(action.targetObj);
+                sceneScript.placeableObjects[2] = "Filled";
+                sceneScript.OnSceneLoaded();
+                break;
+            case "Exit":
+                Application.Quit();
                 break;
 
         }

@@ -231,7 +231,7 @@ public class BasicMovement : StateInterface
             else if(itemTrigger.currentCol != null)
             {
                 //if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
-                if(new string[] {"Created", "Filled", "Shot"}.Contains(itemTrigger.currentItem.itemState))
+                if(new string[] {"Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
                     state_m.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState +" " + itemTrigger.currentItem.attachedItemName);
                 else if(itemTrigger.currentItem.itemState == "Static")
                 {

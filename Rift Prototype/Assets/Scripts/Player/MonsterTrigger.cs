@@ -24,11 +24,7 @@ public class MonsterTrigger : MonoBehaviour
             TriggerInfo trigInfo = new TriggerInfo(false,false,"Monster",-1,"");
             scene_variables.sequenceHandler.handleAction(trigInfo, "Monster");
         }
-        else if(collision.gameObject.tag == "ResetPos")
-        {
-            TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1,"");
-            scene_variables.sequenceHandler.handleAction(trigInfo, "Scene");
-        }
+        
         else if(collision.gameObject.tag == "MonsterFinish")
         {
             TriggerInfo trigInfo = new TriggerInfo(false,false,"finish",-1,"");
@@ -40,6 +36,11 @@ public class MonsterTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Monster")
         {
+        }
+        else if(collision.gameObject.tag == "ResetPos")
+        {
+            TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1,"");
+            scene_variables.sequenceHandler.handleAction(trigInfo, "Scene");
         }
     }
 }

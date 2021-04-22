@@ -6803,6 +6803,16 @@ PrefabInstance:
       objectReference: {fileID: 1463828160}
     - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
+      propertyPath: dialogueJsons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: dialogueJsons.Array.data[2]
+      value: CarnivalSceneDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
       propertyPath: characters.Array.data[0].character
       value: 
       objectReference: {fileID: 887923323}
@@ -7277,6 +7287,7 @@ MonoBehaviour:
   timeTillRespawn: 0
   respawnTime: 5
   Obj: {fileID: 1790743069}
+  SecondaryObj: {fileID: 0}
   Transparency: 0.2
   arrowSpeed: 0.4
   minY: 3.1

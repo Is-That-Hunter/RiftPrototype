@@ -33,9 +33,8 @@ public class SceneScript : MonoBehaviour
         sequenceHandler = gameObject.GetComponent<SequenceHandler>();
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded()
     {
-        Debug.Log("OnSceneLoaded: " + scene.name);
         foreach (string monsterName in destroyedMonsters) {
             GameObject monster = GameObject.Find(monsterName);
             if(monster != null) {
@@ -52,13 +51,13 @@ public class SceneScript : MonoBehaviour
                     switch(obj.name)
                     {
                         case "CrossingPlankParent":
-                            tag.itemState = placeableObjects[0];
+                            tag.setState(placeableObjects[0]);
                             break;
                         case "PadlockParent":
-                            tag.itemState = placeableObjects[1];
+                            tag.setState(placeableObjects[1]);
                             break;
                         case "CannonParent":
-                            tag.itemState = placeableObjects[2];
+                            tag.setState(placeableObjects[2]);
                             break;
                     }
                 }

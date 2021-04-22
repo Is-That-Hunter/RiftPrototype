@@ -51,7 +51,7 @@ public class ItemTrigger : MonoBehaviour
             if(new []{"Created", "Filled", "Shot", "Ghost", "ToBeDestroyed", "Destroyed"}.Contains(item.itemState))
             {
                 string action = "Enter "+ item.itemState+" " + item.attachedItemName;
-                if(item.itemState != "Ghost")
+                if(item.itemState != "Ghost" && item.itemState != "Destroyed")
                 {
                     //action += item.attachedItemName;
                     string itemPrompt = "Press 'E' to use " + item.attachedItemName;

@@ -34,6 +34,20 @@
             }
         },
         {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction": "Interact Created Cannon",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid": 4,
+                "tree": "CarnivalScene",
+                "targetObj":""
+            }
+        },
+        {
             "triggerType":"Monster",
             "triggerInfo":{
                 "onEnter": false,
@@ -45,6 +59,100 @@
                 "type":"Scenes",
                 "sceneTriggers":"Monster",
                 "scenes":["MonPlat1", "MonPlat1Rev", "MonPlat2", "MonPlat3", "MonPlat4", "MonPlat5", "MonPlat6"]
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onEnter": false,
+                "onAction": "Interact ToBeDestroyed Padlock",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid": 1,
+                "tree": "CarnivalScene",
+                "targetObj":""
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 20,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"Destroy",
+                "targetObj":"Acid"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 21,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"Destroy",
+                "targetObj":"Lockpick"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 22,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"Destroy",
+                "targetObj":"Wirecutters"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 5,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"Fill",
+                "targetObj":"Cannonball"
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onEnter": false,
+                "onAction": "Interact Filled Cannon",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid": 6,
+                "tree": "CarnivalScene",
+                "targetObj":""
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": -1,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"Exit"
             }
         }
     ]   
