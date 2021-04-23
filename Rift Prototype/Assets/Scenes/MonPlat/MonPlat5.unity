@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -368,9 +368,10 @@ GameObject:
   - component: {fileID: 859300135}
   - component: {fileID: 859300134}
   - component: {fileID: 859300133}
+  - component: {fileID: 859300137}
   m_Layer: 0
   m_Name: PortalExit
-  m_TagString: Untagged
+  m_TagString: MonsterFinish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +385,7 @@ MeshCollider:
   m_GameObject: {fileID: 859300132}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -450,6 +451,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 58.386}
+--- !u!65 &859300137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859300132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.71, y: 4.03, z: 0.03}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &901196417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -812,9 +826,10 @@ GameObject:
   - component: {fileID: 1676087961}
   - component: {fileID: 1676087960}
   - component: {fileID: 1676087959}
+  - component: {fileID: 1676087963}
   m_Layer: 0
   m_Name: PortalFloor
-  m_TagString: Untagged
+  m_TagString: ResetPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,7 +843,7 @@ MeshCollider:
   m_GameObject: {fileID: 1676087958}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -894,6 +909,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1676087963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676087958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28.37, y: 0.06, z: 10.42}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1834866651
 PrefabInstance:
   m_ObjectHideFlags: 0

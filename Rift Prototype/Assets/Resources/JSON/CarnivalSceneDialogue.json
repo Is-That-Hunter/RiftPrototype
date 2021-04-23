@@ -1,0 +1,172 @@
+{
+    "name": "CarnivalScene",
+    "currPid": 2, 
+    "passages": [
+      {
+        "character": "Angela",
+        "zoom": true,     
+        "text": "I'm going to have to find a way to break this lock.\n(if:Acid)[[[Melt Lock->Melt Lock]]]\n(if:Lockpick)[[[Pick Lock->Pick Lock]]]\n(if:Wirecutters)[[[Cut Lock->Cut Lock]]]\n[[Leave->Leave]]",
+        "links": [
+            {
+                "leave": false,
+                "name": "Melt Lock",
+                "link": "Melt Lock",
+                "pid": "20"
+              },
+              {
+                "leave": false,
+                "name": "Pick Lock",
+                "link": "Pick Lock",
+                "pid": "21"
+              },
+              {
+                "leave": false,
+                "name": "Cut Lock",
+                "link": "Cut Lock",
+                "pid": "22"
+              },
+              {
+                "leave": true,
+                "name": "Leave",
+                "link": "Leave",
+                "pid": "2"
+              }
+        ],
+        "name": "CheckLock",
+        "pid": "1"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "",
+        "links": [
+          {
+            "leave": true,
+            "name": "End",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Leave",
+        "pid": "2"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "This thing needs CannonBalls\n(if:Cannonball)[[[Load Cannon->Load Cannon]]]\n[[Leave->Leave]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Leave",
+            "link": "Leave",
+            "pid": "3"
+          },
+          {
+            "leave": false,
+            "name": "Load Cannon",
+            "link": "Load Cannon",
+            "pid": "5"
+          }
+        ],
+        "name": "Leave",
+        "pid": "4"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela fills Cannon*\n\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Load Cannon",
+        "pid": "5"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela fires cannon*\n\n[[End Demo->End Demo]]",
+        "links": [
+          {
+            "leave": false,
+            "name": "End Demo",
+            "link": "End Demo",
+            "pid": "7"
+          }
+        ],
+        "name": "Fire",
+        "pid": "6"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "Thats all for now folks! Thanks for playtesting! <3 ;) :*\n\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "End Demo",
+        "pid": "7"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela Pours Acid on the Lock melting it*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Melt Lock",
+        "pid": "20"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela picks the lock with ease*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Pick Lock",
+        "pid": "21"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela cuts the lock off*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Cut Lock",
+        "pid": "22"
+      },
+      {   
+        "text": "Ur not suppposed to see dis. Report to devs",
+        "name": "End",
+        "pid": "3",
+        "character": "Angela",
+        "zoom": true
+      }
+    ]
+  }

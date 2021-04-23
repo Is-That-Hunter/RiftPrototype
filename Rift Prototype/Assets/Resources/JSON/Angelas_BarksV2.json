@@ -1,0 +1,530 @@
+{
+  "name": "Angela's Barks",
+  "currPid": -1,
+  "passages": [
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "",
+      "name": "Angela Barks",
+      "pid": "1"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Not much, but it'll do\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Picks up Small item",
+      "pid": "2"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"See what I can do with this.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Picks Up Medium Item",
+      "pid": "3"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Hope this is worth carryin'\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Picks Up Large Item",
+      "pid": "4"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Huh, not bad.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Crafts Item",
+      "pid": "5"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"I'll put this to good use.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Crafts Item 2",
+      "pid": "6"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"It's better than nothin'.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Crafts Item 3",
+      "pid": "7"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Not sure what that is... but it looks bad.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Spots Enemy ",
+      "pid": "8"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Let's see if I can avoid...that\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Spots Enemy 2",
+      "pid": "9"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Doesn't like it's here to bum a smoke.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Spots Enemy 3",
+      "pid": "10"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Guess I'll... look for clues, or some shit like that.\" \n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters New Area",
+      "pid": "11"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Can't belive I left the bar for this.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters New Area 2",
+      "pid": "12"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Can I smoke in here? *Lights cigarette* Doesn't matter either way.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters New Area 3",
+      "pid": "13"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Don't wanna stick around here much.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters New Area 4",
+      "pid": "14"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"This... looks bad. Very bad.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Gets Pulled Into Rift",
+      "pid": "15"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Got a feeling I shouldn't stay here long.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Gets Pulled Into Rift 2",
+      "pid": "16"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Ah. Fuck.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,         
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Gets Pulled Into Rift 3",
+      "pid": "17"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Well, let's see what we've got.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,         
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters Puzzle Area",
+      "pid": "18"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"God damn it. It can't ever just be an open door huh.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters Puzzle Area 2",
+      "pid": "19"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Glad I never quit drinking.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters Puzzle Area 3",
+      "pid": "20"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"*Long drag from cigarette* Why me?\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Enters Puzzle Area 4",
+      "pid": "21"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"No... not here...\" \n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Player Death",
+      "pid": "22"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"I didn't even get my answers.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Player Death 2",
+      "pid": "23"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Survived a war for this, huh?\" \n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,         
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Player Death 3",
+      "pid": "24"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Huh. That wasn't so hard.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,        
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Solves Puzzle",
+      "pid": "25"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"No trouble at all.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Solves Puzzle 2",
+      "pid": "26"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"*Puffs cigarette* Waste of my time.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,        
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Solves Puzzle 3",
+      "pid": "27"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Woah, thank god I ain't drinking.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,      
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Clears Platform Sequence",
+      "pid": "28"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Jumpin jesus, almost missed that last one.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Clears Platform Sequence 2",
+      "pid": "29"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"*Breathing heavily* Bad for a soldier, pretty good for a barman.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,        
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Clears Platform Sequence 3",
+      "pid": "30"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Ah fuck. Dropped my smoke.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Clears Platform Sequence 4",
+      "pid": "31"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Shit. Shit. Shit.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,         
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Fails Crafting",
+      "pid": "32"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Well that didn't work.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Fails Crafting 2",
+      "pid": "33"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Yeah I didn't expect that to work really.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,        
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Fails Crafting 3",
+      "pid": "34"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Guess it's all a learning process.\"\n\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Fails Crafting 4",
+      "pid": "35"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "Close Dialogue Box",
+      "name": "Exit",
+      "pid": "36"
+    }
+  ]
+}

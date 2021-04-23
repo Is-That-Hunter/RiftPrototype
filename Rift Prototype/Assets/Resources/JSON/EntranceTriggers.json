@@ -5,7 +5,7 @@
         {
             "triggerType":"Player",
             "triggerInfo":{
-                "onAction":"Interact PlaceableItem Ladder",
+                "onAction":"Interact Created Ladder",
                 "pid": -1,
                 "tree":""
             },

@@ -62,6 +62,14 @@ public class Inventory
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void RemoveItemByName(string itemName)
+    {
+        InventoryItem invItem = itemList.FirstOrDefault(i=>i.item.itemName == itemName);
+        itemList.Remove(invItem);
+
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     //Returns all Items in the Inventory
     public List<InventoryItem> GetItemList()
     {

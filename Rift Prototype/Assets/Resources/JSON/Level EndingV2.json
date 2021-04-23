@@ -1,0 +1,41 @@
+{
+  "name": "Ending",
+  "currPid": 2, 
+  "passages": [
+    {
+      "character": "Angela",
+      "zoom": true,     
+      "text": "Angela: \"And pop goes the weasel!\"\n\n[[Next]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next",
+          "link": "Next",
+          "pid": "2"
+        }
+      ],
+      "name": "Angela Fires the Cannon and Scares the Clown Away",
+      "pid": "1"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "Angela: \"Doesn't look like it's over yet though. Wonder if the person that thing was after knows more... I got a feeling this is only gonna get stranger.\"\n\n[[End]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "End",
+          "link": "End",
+          "pid": "3"
+        }
+      ],
+      "name": "Next",
+      "pid": "2"
+    },
+    {   
+      "text": "Double-click this passage to edit it.",
+      "name": "End",
+      "pid": "3"
+    }
+  ]
+}
