@@ -1,0 +1,496 @@
+{
+  "name": "Guard",
+  "currPid": 2,  
+  "passages": [
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": " [[What's going on here?]]",
+      "links": [
+        {
+          "name": "What's going on here?",
+          "link": "What's going on here?",
+          "pid": "2"
+        }
+      ],
+      "name": "Angela Approaches The Guards",
+      "pid": "1"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,
+      "text": "\"Sorry maam, park's condemned. Never actually opened in the first place.\" \n[[Can I go in?]]",
+      "links": [
+        {
+          "leave": false,          
+          "name": "Can I go in?",
+          "link": "Can I go in?",
+          "pid": "3"
+        }
+      ],
+      "name": "What's going on here?",
+      "pid": "2"
+    },
+    {      
+      "character": "Guard 1",
+      "zoom": true,
+      "text": "\"No maam, authorized personal only\"\n\n[[Lie - I am authorized, the precinct sent me to relieve you of your shift.]]\n[[I need to take a look around, can I please go in?]] ",
+      "links": [
+        {
+          "leave": false,
+          "name": "Lie - I am authorized, the precinct sent me to relieve you of your shift.",
+          "link": "Lie - I am authorized, the precinct sent me to relieve you of your shift.",
+          "pid": "4"
+        },
+        {
+          "leave": false,
+          "name": "I need to take a look around, can I please go in?",
+          "link": "I need to take a look around, can I please go in?",
+          "pid": "5"
+        }
+      ],
+      "name": "Can I go in?",
+      "pid": "3"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,
+      "text": "\"Pfft yeah right, you're not even in uniform! Come back with ID or something and we can talk.\"\n[[Look around for clues]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "Look around for clues",
+          "link": "Look around for clues",
+          "pid": "6"
+        }
+      ],
+      "name": "Lie - I am authorized, the precinct sent me to relieve you of your shift.",
+      "pid": "4"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,
+      "text": "\"And I need a drink, so I guess we're both dissapointed tonight sweetheart.\"\n[[Look around for clues]] ",
+      "links": [
+        {
+          "leave": true,
+          "name": "Look around for clues",
+          "link": "Look around for clues",
+          "pid": "6"
+        }
+      ],
+      "name": "I need to take a look around, can I please go in?",
+      "pid": "5"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "[[Build a ladder]]\n[[Make a fake uniform]]\n[[Talk to the guards again]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Build a ladder",
+          "link": "Build a ladder",
+          "pid": "7"
+        },
+        {
+          "leave": false,
+          "name": "Make a fake uniform",
+          "link": "Make a fake uniform",
+          "pid": "8"
+        },
+        {
+          "leave": false,
+          "name": "Talk to the guards again",
+          "link": "Talk to the guards again",
+          "pid": "9"
+        }
+      ],
+      "name": "Look around for clues",
+      "pid": "6"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "Using some objects that she finds lying around, Angela constructs a ladder and hops the fence out of sight of the policemen. \n[[Enter the park]] ",
+      "links": [
+        {
+          "leave": true,
+          "name": "Enter the park",
+          "link": "Enter the park",
+          "pid": "17"
+        }
+      ],
+      "name": "Build a ladder",
+      "pid": "7"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "Using a handful things Angela finds in the area, she manages to construct a decent Police Officer costume.\n\n[[Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)",
+          "link": "Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)",
+          "pid": "18"
+        }
+      ],
+      "name": "Make a fake uniform",
+      "pid": "8"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,
+      "text": "\"You again? I thought you'd fucked off already.\"\n[[I'll leave soon, I just wanted to ask what's up with this place?]]\n[[I will, I just need to borrow a pen real quick (ITEM)]]\n[[ (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.]]\n[[Sorry, I was just going - leave]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "I'll leave soon, I just wanted to ask what's up with this place?",
+          "link": "I'll leave soon, I just wanted to ask what's up with this place?",
+          "pid": "10"
+        },
+        {
+          "leave": false,
+          "name": "I will, I just need to borrow a pen real quick (ITEM)",
+          "link": "I will, I just need to borrow a pen real quick (ITEM)",
+          "pid": "11"
+        },
+        {
+          "leave": false,
+          "name": " (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
+          "link": " (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
+          "pid": "20"
+        },
+        {
+          "leave": true,
+          "name": "Sorry, I was just going - leave",
+          "link": "Sorry, I was just going - leave",
+          "pid": "12"
+        }
+      ],
+      "name": "Talk to the guards again",
+      "pid": "9"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,
+      "text": "\"It's a crime scene is all you need to know, now please maam, move along.\"\n[[Next]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next",
+          "link": "Next",
+          "pid": "22"
+        }
+      ],
+      "name": "I'll leave soon, I just wanted to ask what's up with this place?",
+      "pid": "10"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,    
+      "text": "\"Sure, here ya go.\"\n*ANGELA RECIEVES A PEN*\n[[Thanks, I'll be going now. - leave]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "Thanks, I'll be going now. - leave",
+          "link": "Thanks, I'll be going now. - leave",
+          "pid": "14"
+        }
+      ],
+      "name": "I will, I just need to borrow a pen real quick (ITEM)",
+      "pid": "11"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,       
+      "text": "[[Look around for clues]] ",
+      "links": [
+        {
+          "leave": true,
+          "name": "Look around for clues",
+          "link": "Look around for clues",
+          "pid": "6"
+        }
+      ],
+      "name": "Sorry, I was just going - leave",
+      "pid": "12"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,       
+      "text": "[[Look around for clues]] ",
+      "links": [
+        {
+          "leave": true,
+          "name": "Look around for clues",
+          "link": "Look around for clues",
+          "pid": "6"
+        }
+      ],
+      "name": "Right, I'll be going now - leave",
+      "pid": "13"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,       
+      "text": "[[Make a fake ID]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Make a fake ID",
+          "link": "Make a fake ID",
+          "pid": "15"
+        }
+      ],
+      "name": "Thanks, I'll be going now. - leave",
+      "pid": "14"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,       
+      "text": "Using the pen she was given, and a handful of other things Angela crafts a false ID\n[[Show it to the guards (REQUIRES FAKE ID IN INVENTORY)]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Show it to the guards (REQUIRES FAKE ID IN INVENTORY)",
+          "link": "Show it to the guards (REQUIRES FAKE ID IN INVENTORY)",
+          "pid": "16"
+        }
+      ],
+      "name": "Make a fake ID",
+      "pid": "15"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,       
+      "text": "*Angela flashes the fake ID which now claims her as a municipal safety inspector*\n[[Next 2]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 2",
+          "link": "Next 2",
+          "pid": "25"
+        }
+      ],
+      "name": "Show it to the guards (REQUIRES FAKE ID IN INVENTORY)",
+      "pid": "16"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,       
+      "text": "\"Didn't have 'get past cops' on my to-do list, but I have a feeling things are gonna keep gettin weirder the more I try to figure out what the hell is going on.\"\n[[End Dialogue]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "End Dialogue",
+          "link": "End Dialogue",
+          "pid": "27"
+        }
+      ],
+      "name": "Enter the park",
+      "pid": "17"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,      
+      "text": "\"How do you do fellow officers? I am here for a shift change.\"\n[[Next 4]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 4",
+          "link": "Next 4",
+          "pid": "28"
+        }
+      ],
+      "name": "Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)",
+      "pid": "18"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,       
+      "text": "\"Don't gotta tell me twice, good luck.\n[[Next 6]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 6",
+          "link": "Next 6",
+          "pid": "31"
+        }
+      ],
+      "name": "Positive, I'd enjoy the time off if I were you",
+      "pid": "19"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,        
+      "text": "\"What? The wind blew your jacket over the fence? Did you really think that would work?\"\n[[Next 1]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 1",
+          "link": "Next 1",
+          "pid": "24"
+        }
+      ],
+      "name": " (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
+      "pid": "20"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,        
+      "text": "\"Great. Cops, a fence, a gate. Why can't the door ever just be open?\" \n\n[[Next box]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next box",
+          "link": "Next box",
+          "pid": "30"
+        }
+      ],
+      "name": "Introduction",
+      "pid": "21"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,    
+      "text": "\"Crime scene? Ha! Yeah some crime scene, a fuckin' clown got turned into jelly a year ago and now we gotta freeze our asses off so nobody can see the splat mark.\"\n[[Next Box]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next Box",
+          "link": "Next Box",
+          "pid": "23"
+        }
+      ],
+      "name": "Next",
+      "pid": "22"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,      
+      "text": "\"*Sigh* All you need to know, maam, is that it's a crime scene, and it's closed.\"\n\n[[Right, I'll be going now - leave]]",
+      "links": [
+        {
+          "leave": true,
+          "name": "Right, I'll be going now - leave",
+          "link": "Right, I'll be going now - leave",
+          "pid": "13"
+        }
+      ],
+      "name": "Next Box",
+      "pid": "23"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,      
+      "text": "\"Sorry, we can't let you in, you can check the lost and found bin if you want, maybe you can find a replacement.\" \n[[Right, I'll be going now - leave]] \n",
+      "links": [
+        {
+          "leave": true,
+          "name": "Right, I'll be going now - leave",
+          "link": "Right, I'll be going now - leave",
+          "pid": "13"
+        }
+      ],
+      "name": "Next 1",
+      "pid": "24"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,      
+      "text": "\"Municipal Safety Inspector? Woof and I thought I had a shit job.\"\n[[Next 3]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 3",
+          "link": "Next 3",
+          "pid": "26"
+        }
+      ],
+      "name": "Next 2",
+      "pid": "25"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,      
+      "text": "\"Go on through maam, and be careful, this place wasn't exactly well built.\"\n[[Enter the park]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Enter the park",
+          "link": "Enter the park",
+          "pid": "17"
+        }
+      ],
+      "name": "Next 3",
+      "pid": "26"
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "End Dialogue",
+      "pid": "27"
+    },
+    {
+      "character": "Guard 2",
+      "zoom": true,      
+      "text": "\"Bout fuckin' time! Ten more minutes and I would've frozen to that chair.\"\n[[Next 5]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 5",
+          "link": "Next 5",
+          "pid": "29"
+        }
+      ],
+      "name": "Next 4",
+      "pid": "28"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,      
+      "text": "\"Huh, earlier than usual, you sure this is right?\"\n[[Positive, I'd enjoy the time off if I were you]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Positive, I'd enjoy the time off if I were you",
+          "link": "Positive, I'd enjoy the time off if I were you",
+          "pid": "19"
+        }
+      ],
+      "name": "Next 5",
+      "pid": "29"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,      
+      "text": "*Sigh* \"Gotta get through somehow.\"\n\n[[Angela Approaches The Guards]] ",
+      "links": [
+        {
+          "leave": false,
+          "name": "Angela Approaches The Guards",
+          "link": "Angela Approaches The Guards",
+          "pid": "1"
+        }
+      ],
+      "name": "Next box",
+      "pid": "30"
+    },
+    {
+      "character": "Guard 1",
+      "zoom": true,      
+      "text": "Safe watch, maam.\n\n*The two guards gather their things and leave their post to Angela* \n[[Enter the park]] ",
+      "links": [
+        {
+          "leave": true,
+          "name": "Enter the park",
+          "link": "Enter the park",
+          "pid": "17"
+        }
+      ],
+      "name": "Next 6",
+      "pid": "31"
+    }
+  ]
+}

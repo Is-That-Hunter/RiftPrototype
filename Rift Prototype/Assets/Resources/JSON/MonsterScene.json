@@ -1,0 +1,50 @@
+{
+    "name": "Monster",
+    "order": false,
+    "triggers":[
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Teleport",
+                "posX": 0,
+                "posY": 5,
+                "posZ": -1,
+                "playerMode": true
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"reset",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Teleport",
+                "posX": 0,
+                "posY": 1,
+                "posZ": 0,
+                "playerMode": true
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"finish",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Scene",
+                "sceneTriggers":"Carnival",
+                "scene":"FullScene"
+            }
+        }
+    ]   
+}

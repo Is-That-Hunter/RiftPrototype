@@ -20,6 +20,7 @@ public class SequenceHandler : MonoBehaviour
     public ZoomTarget[] targets;
     public GameObject mainCamera;
     private GlobalScript globalVars;
+    private SceneScript sceneScript;
     private StateMachine stateMachine;
     private TwineParser twineParser;
     private Transform player;
@@ -31,7 +32,7 @@ public class SequenceHandler : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        SceneScript sceneScript = gameObject.GetComponent<SceneScript>();
+        sceneScript = gameObject.GetComponent<SceneScript>();
         globalVars = sceneScript.globalScript;
         stateMachine = sceneScript.stateMachine;
         twineParser = sceneScript.twineParser;
@@ -65,6 +66,7 @@ public class SequenceHandler : MonoBehaviour
             TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1);
             handleAction(trigInfo, "Scene");
             globalVars.Overlay.changePromptActive(false);
+            sceneScript.OnSceneLoaded();
         }
     }
     Sequence FromJson(string json) 
@@ -78,7 +80,7 @@ public class SequenceHandler : MonoBehaviour
         Trigger trig = getCurrTrigger();
         Trigger universalTrigger = getTriggerFromSequence(trigInfo, universalTriggers);
         Trigger sceneTrigger = getTriggerFromSequence(trigInfo, sceneTriggers);
-        Debug.Log(trigInfo.pid);
+        Debug.Log("TriggerType: " + trigType);
         if(trigInfo.onAction != "")
             Debug.Log(trigInfo.onAction);
         bool currTriggerActive = checkSequence(trigInfo);
@@ -128,15 +130,42 @@ public class SequenceHandler : MonoBehaviour
                 SceneManager.LoadScene(action.scene);
                 break;
             case "Scenes":
-                sceneTriggers = action.sceneTriggers;
-                SceneManager.LoadScene(action.scene);
+                sceneScript.saveLoadedObjects();
+                for(int i = 0; i < action.scenes.Length; i++)
+                {
+                    if(action.scenes[i] != "")
+                    {
+                        sceneTriggers = action.sceneTriggers;
+                        //player.position = new Vector3(action.posX, action.posY, action.posZ);
+                        string str = action.scenes[i];
+                        action.scenes[i] = "";
+                        SceneManager.LoadScene(str);
+                        break;
+                    }
+                }
                 break;
             case "ChangeSequenceTrigger":
                 sceneTriggers = action.sceneTriggers;
                 break;
             case "Teleport":
+                player.GetComponent<BasicMovement>().inMonsterPlat = action.playerMode;
+                Debug.Log(player.GetComponent<BasicMovement>().inMonsterPlat);
                 player.position = new Vector3(action.posX, action.posY, action.posZ);
                 break;
+            case "Destroy":
+                globalVars.inventory.RemoveItemByName(action.targetObj);
+                sceneScript.placeableObjects[1] = "Destroyed";
+                sceneScript.OnSceneLoaded();
+                break;
+            case "Fill":
+                globalVars.inventory.RemoveItemByName(action.targetObj);
+                sceneScript.placeableObjects[2] = "Filled";
+                sceneScript.OnSceneLoaded();
+                break;
+            case "Exit":
+                Application.Quit();
+                break;
+
         }
     }
     ZoomTarget getZoomObject(string obj)

@@ -5,7 +5,7 @@
         {
             "triggerType":"Player",
             "triggerInfo":{
-                "onAction":"Enter PlaceableItem Ghost Ladder",
+                "onAction":"Enter Ghost Ladder",
                 "tree":""
             },
             "triggerAction":{

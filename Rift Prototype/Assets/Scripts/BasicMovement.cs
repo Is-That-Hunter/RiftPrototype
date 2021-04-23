@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class BasicMovement : StateInterface
 {
@@ -134,14 +135,19 @@ public class BasicMovement : StateInterface
     //Those functions will only be called when input system sending messages
     public void OnJump(){
         Debug.Log(isGrounded());
+        Vector3 velo = Vector3.zero;
+        velo.x = 0;
+        velo.z = 0;
          if(isGrounded())
             {
             jumpTriggered = true;
+            body.velocity = velo;
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumpNumber--;
             }
             else if (jumpNumber > 0)
             {
+            body.velocity = velo;
             body.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             jumpNumber--;
             }
@@ -224,9 +230,10 @@ public class BasicMovement : StateInterface
             }
             else if(itemTrigger.currentCol != null)
             {
-                if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
-                    state_m.handleAction("Player", onAction: "Interact PlaceableItem " + itemTrigger.currentItem.attachedItemName);
-                else if(!itemTrigger.currentItem.placeable)
+                //if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
+                if(new string[] {"Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
+                    state_m.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState +" " + itemTrigger.currentItem.attachedItemName);
+                else if(itemTrigger.currentItem.itemState == "Static")
                 {
                     Item_Pickup(itemTrigger);
                 }

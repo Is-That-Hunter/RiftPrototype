@@ -141,7 +141,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Put the Lockpick in the Size Slot (Up Arrow)\n[[Okay->Tutorial 4]]",
+            "text": "Put the Lightbulb in the Size Slot (Up Arrow)\n[[Okay->Tutorial 4]]",
             "name": "Tutorial 3",
             "pid": "10",
             "links": [
@@ -156,7 +156,7 @@
         {
             "character": "Angela",
             "zoom": false,
-            "text": "Put the Megaphone in the Material Slow (Right Arrow)\n[[Okay->Tutorial 5]]",
+            "text": "Put the Pen in the Material Slow (Right Arrow)\n[[Okay->Tutorial 5]]",
             "name": "Tutorial 4",
             "pid": "11",
             "links": [

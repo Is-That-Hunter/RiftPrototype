@@ -1,0 +1,71 @@
+{
+  "name": "Clown",
+  "currPid": 2, 
+  "passages": [
+    {
+      "character": "Angela",
+      "zoom": true, 
+      "text": "\"Is that... a clown?\"\n\n[[Next]]",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next",
+          "link": "Next",
+          "pid": "2"
+        }
+      ],
+      "name": "Angela Spots The Clown ",
+      "pid": "1"
+    },
+    {
+      "character": "Clown",
+      "zoom": true, 
+      "text": "\"You did this to meeeeeee.... you will payyyyyyy.\"\n\n[[Next 2]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 2",
+          "link": "Next 2",
+          "pid": "3"
+        }
+      ],
+      "name": "Next",
+      "pid": "2"
+    },
+    {
+      "character": "Angela",
+      "zoom": true, 
+      "text": "\"Great... looks that clown thing's got someone too, as if this needed to get worse.\" \n[[Next 3]]\n",
+      "links": [
+        {
+          "leave": false,
+          "name": "Next 3",
+          "link": "Next 3",
+          "pid": "5"
+        }
+      ],
+      "name": "Next 2",
+      "pid": "3"
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "Exit",
+      "pid": "4"
+    },
+    {
+      "character": "Angela",
+      "zoom": true, 
+      "text": "\"Shit, alright, gotta find a way to scare it off or something. Gonna need something big too.\"\n\n[[Exit]] ",
+      "links": [
+        {
+          "leave": true,
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "4"
+        }
+      ],
+      "name": "Next 3",
+      "pid": "5"
+    }
+  ]
+}
