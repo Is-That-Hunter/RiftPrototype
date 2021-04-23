@@ -839,7 +839,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 3, z: 10}
+  m_Size: {x: 28.54, y: 7.72, z: 20.81}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &214383988
 Transform:
@@ -848,8 +848,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214383985}
-  m_LocalRotation: {x: -0.22391284, y: 0.18999898, z: -0.27178332, w: 0.91645914}
-  m_LocalPosition: {x: 2.9477723, y: -8.310423, z: -5.356818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.75, y: -4.91, z: 1.17}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1076113450}
@@ -2967,17 +2967,17 @@ PrefabInstance:
     - target: {fileID: 4934765016191789234, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 4934765016191789234, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.54
+      value: 0.663
       objectReference: {fileID: 0}
     - target: {fileID: 4934765016191789234, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.72
+      value: -35.31
       objectReference: {fileID: 0}
     - target: {fileID: 4934765016191789234, guid: 381e7c8a4131846fbb4c563e1d5ae3f2,
         type: 3}
@@ -3726,6 +3726,7 @@ GameObject:
   - component: {fileID: 1076113450}
   - component: {fileID: 1076113447}
   - component: {fileID: 1076113448}
+  - component: {fileID: 1076113449}
   m_Layer: 0
   m_Name: Guard 1
   m_TagString: Untagged
@@ -3772,7 +3773,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c6e16735c75ea4a669b50fc16fd013b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b12610c6d28f78d4eb20389f47839fd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3796,6 +3797,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.0000005, y: 7.0000014, z: 0.20000021}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1076113449
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076113446}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0279602e13248e4f85811bf41e70731, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1076113450
 Transform:
   m_ObjectHideFlags: 0
@@ -3803,14 +3823,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076113446}
-  m_LocalRotation: {x: 0.22391284, y: -0.18999898, z: 0.27178332, w: 0.91645914}
-  m_LocalPosition: {x: -4.18, y: 1.14, z: -13.55}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.142, y: 0.728, z: -14.645}
+  m_LocalScale: {x: 0.21, y: 0.18, z: 0.18}
   m_Children:
   - {fileID: 214383988}
   m_Father: {fileID: 0}
   m_RootOrder: 44
-  m_LocalEulerAnglesHint: {x: 30.91, y: -15.31, z: 28.78}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1112204235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5527,6 +5547,7 @@ GameObject:
   - component: {fileID: 1577590030}
   - component: {fileID: 1577590028}
   - component: {fileID: 1577590027}
+  - component: {fileID: 1577590029}
   m_Layer: 0
   m_Name: Guard 2
   m_TagString: Untagged
@@ -5586,7 +5607,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d8c942f3b84e44c5abd09c99afe15721, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b12610c6d28f78d4eb20389f47839fd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5597,6 +5618,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1577590029
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577590026}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0279602e13248e4f85811bf41e70731, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1577590030
 Transform:
   m_ObjectHideFlags: 0
@@ -5605,8 +5645,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577590026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.26, y: 0.91, z: -12.34}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 5.32, y: 0.784, z: -12.34}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 43
@@ -6811,6 +6851,24 @@ PrefabInstance:
       propertyPath: dialogueJsons.Array.data[2]
       value: CarnivalSceneDialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: characters.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ee09bbadb889d4d4c89be51e15d0de0f,
+        type: 3}
+    - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: characters.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 18be95f9d3094c7478ae2fbe1e99a79d,
+        type: 3}
+    - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
+        type: 3}
+      propertyPath: characters.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 18be95f9d3094c7478ae2fbe1e99a79d,
+        type: 3}
     - target: {fileID: 1155087748727288621, guid: 6e16b89e892fc430db2bd42005e2edd9,
         type: 3}
       propertyPath: characters.Array.data[0].character
