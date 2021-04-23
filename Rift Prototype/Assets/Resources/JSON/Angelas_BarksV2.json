@@ -526,9 +526,5 @@
       "name": "Exit",
       "pid": "36"
     }
-  ],
-  "startnode": "1",
-  "creator": "Twine",
-  "creator-version": "2.3.9",
-  "ifid": "955E213D-C85A-46B7-BA8C-62812C986F4D"
+  ]
 }
