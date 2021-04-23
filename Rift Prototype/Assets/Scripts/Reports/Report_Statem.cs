@@ -28,6 +28,7 @@ public class Report_Statem : StateInterface
     void Start()
     {
         string currentObj = iT.currentCol.name;
+        Debug.Log(currentObj);
         switch (currentObj)
         {
             case "PoliceReport":

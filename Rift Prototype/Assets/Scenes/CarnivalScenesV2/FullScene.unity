@@ -2395,8 +2395,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldbergSafetyReport
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1916e0eee9be44a399adfbda46848ea7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Report
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916e0eee9be44a399adfbda46848ea7, type: 3}
+--- !u!1 &85239203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1916e0eee9be44a399adfbda46848ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 85239202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &85239204
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85239203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 0.07, z: 0.09}
+  m_Center: {x: 0, y: 0, z: -0.03}
 --- !u!1001 &92256847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5898,7 +5922,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.27, y: 1.77, z: 1.09}
-  m_Center: {x: 0.22, y: 0, z: 0}
+  m_Center: {x: -0.95, y: 0, z: 0}
 --- !u!54 &261938020
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17285,17 +17309,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1916e0eee9be44a399adfbda46848ea7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6475
+      value: 10.64
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1916e0eee9be44a399adfbda46848ea7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19570005
+      value: 0.463
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1916e0eee9be44a399adfbda46848ea7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.072
+      value: 57.19
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1916e0eee9be44a399adfbda46848ea7,
         type: 3}
@@ -17344,6 +17368,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916e0eee9be44a399adfbda46848ea7, type: 3}
+--- !u!1 &907686052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1916e0eee9be44a399adfbda46848ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 907686051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &907686053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907686052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05, z: 0.08}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &907793354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30271,8 +30314,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoliceReport
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1916e0eee9be44a399adfbda46848ea7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Report
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1916e0eee9be44a399adfbda46848ea7, type: 3}
+--- !u!1 &1561633024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1916e0eee9be44a399adfbda46848ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561633023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1561633025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561633024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0.02, z: 0.03}
 --- !u!1001 &1566410353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40146,8 +40213,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.27, y: 1.77, z: 1.09}
-  m_Center: {x: 0.22, y: 0, z: 0}
+  m_Size: {x: 1.36, y: 1.98, z: 1.09}
+  m_Center: {x: -0.95, y: 0, z: 0}
 --- !u!54 &2097127244
 Rigidbody:
   m_ObjectHideFlags: 0
