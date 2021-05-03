@@ -20,7 +20,7 @@
             "triggerInfo":{
                 "onLeave": true,
                 "onAction":"",
-                "pid": 24,
+                "pid": 31,
                 "tree":"Guard"
             },
             "triggerAction":{
@@ -34,7 +34,7 @@
             "triggerInfo":{
                 "onLeave": true,
                 "onAction":"",
-                "pid": 28,
+                "pid": 17,
                 "tree":"Guard"
             },
             "triggerAction":{

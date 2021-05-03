@@ -19,7 +19,7 @@ public class ItemTag : MonoBehaviour
     public GameObject Obj;
     public GameObject SecondaryObj;
     private BoxCollider ParentCollider;
-    private Material[] ObjMaterials_;
+    public Material[] ObjMaterials_;
     private List<Material> ObjMaterials = new List<Material>();
     public float Transparency = 0.2f;
     //If we want the indicator to be an object above the Item

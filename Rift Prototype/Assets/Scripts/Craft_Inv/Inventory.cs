@@ -26,7 +26,7 @@ public class Inventory
     public event EventHandler OnItemListChanged;
 
     //The inventory is kept as a list of custom Item objects (see Item.cs)
-    private List<InventoryItem> itemList;
+    public List<InventoryItem> itemList;
 
     //Creates a new inventory object
     //called in Global Game Object
@@ -39,6 +39,7 @@ public class Inventory
     //Adds Items to Inventory and updates the inventory organization UI
     public void AddItem(Item item)
     {
+        Debug.Log(item);
         itemList.Add(new InventoryItem(item));
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
