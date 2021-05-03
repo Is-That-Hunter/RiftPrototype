@@ -80,7 +80,11 @@ public class StateMachine : MonoBehaviour
             prnt += x.stateName + "\n";
         }
         Debug.Log(prnt);
-        
+
+        if(newState == "Report" || newState == "Inventory" || newState == "Pause") {
+            Debug.Log("Pausing Time");
+            Time.timeScale = 0;
+        }
     }
     public void popState(bool disableObj = true, bool overlayActive = true, int pid = -1, string tree = "")
     {
@@ -101,7 +105,10 @@ public class StateMachine : MonoBehaviour
             prnt += s.stateName + "\n";
         }
         Debug.Log(prnt);
-        
+        if(stateStack.Peek().stateName == "Player")
+        {
+            Time.timeScale = 1;
+        }
     }
     public State peekState()
     {

@@ -19,7 +19,7 @@
     {
       "character": "Guard 1",
       "zoom": true,
-      "text": "\"Sorry maam, park's condemned. Never actually opened in the first place.\" \n[[Can I go in?]]",
+      "text": "\"Sorry ma'am, park's condemned. Never actually opened in the first place.\" \n[[Can I go in?]]",
       "links": [
         {
           "leave": false,          
@@ -34,7 +34,7 @@
     {      
       "character": "Guard 1",
       "zoom": true,
-      "text": "\"No maam, authorized personal only\"\n\n[[Lie - I am authorized, the precinct sent me to relieve you of your shift.]]\n[[I need to take a look around, can I please go in?]] ",
+      "text": "\"No ma'am, authorized personnel only\"\n\n[[Lie - I am authorized, the precinct sent me to relieve you of your shift.]]\n[[I need to take a look around, can I please go in?]] ",
       "links": [
         {
           "leave": false,
@@ -70,7 +70,7 @@
     {
       "character": "Guard 2",
       "zoom": true,
-      "text": "\"And I need a drink, so I guess we're both dissapointed tonight sweetheart.\"\n[[Look around for clues]] ",
+      "text": "\"And I need a drink, so I guess we're both disappointed tonight sweetheart.\"\n[[Look around for clues]] ",
       "links": [
         {
           "leave": true,
@@ -85,19 +85,19 @@
     {
       "character": "Angela",
       "zoom": true,
-      "text": "[[Build a ladder]]\n[[Make a fake uniform]]\n[[Talk to the guards again]]",
+      "text": "(if:Police Uniform)[[[Play Pretend->Play Pretend]]]\n(if:Fake ID)[[[Flash Fake ID->Show it to the guards]]]\n[[Talk to the guards again]]",
       "links": [
         {
           "leave": false,
-          "name": "Build a ladder",
-          "link": "Build a ladder",
-          "pid": "7"
+          "name": "Play Pretend",
+          "link": "Play Pretend",
+          "pid": "18"
         },
         {
           "leave": false,
-          "name": "Make a fake uniform",
-          "link": "Make a fake uniform",
-          "pid": "8"
+          "name": "Flash Fake ID",
+          "link": "Show it to the guards",
+          "pid": "16"
         },
         {
           "leave": false,
@@ -110,39 +110,9 @@
       "pid": "6"
     },
     {
-      "character": "Angela",
-      "zoom": true,
-      "text": "Using some objects that she finds lying around, Angela constructs a ladder and hops the fence out of sight of the policemen. \n[[Enter the park]] ",
-      "links": [
-        {
-          "leave": true,
-          "name": "Enter the park",
-          "link": "Enter the park",
-          "pid": "17"
-        }
-      ],
-      "name": "Build a ladder",
-      "pid": "7"
-    },
-    {
-      "character": "Angela",
-      "zoom": true,
-      "text": "Using a handful things Angela finds in the area, she manages to construct a decent Police Officer costume.\n\n[[Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)]]",
-      "links": [
-        {
-          "leave": false,
-          "name": "Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)",
-          "link": "Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)",
-          "pid": "18"
-        }
-      ],
-      "name": "Make a fake uniform",
-      "pid": "8"
-    },
-    {
       "character": "Guard 2",
       "zoom": true,
-      "text": "\"You again? I thought you'd fucked off already.\"\n[[I'll leave soon, I just wanted to ask what's up with this place?]]\n[[I will, I just need to borrow a pen real quick (ITEM)]]\n[[ (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.]]\n[[Sorry, I was just going - leave]]",
+      "text": "\"You again? I thought you'd fucked off\"\n[[I'll leave soon, I just wanted to ask what's up with this place?]]\n[[I just need to borrow a pen real quick->I will, I just need to borrow a pen real quick]]\n[[(Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.]]\n[[Sorry, I was just going - leave->Talk to the guards again]]",
       "links": [
         {
           "leave": false,
@@ -152,21 +122,21 @@
         },
         {
           "leave": false,
-          "name": "I will, I just need to borrow a pen real quick (ITEM)",
-          "link": "I will, I just need to borrow a pen real quick (ITEM)",
+          "name": "I just need to borrow a pen real quick",
+          "link": "I will, I just need to borrow a pen real quick",
           "pid": "11"
         },
         {
           "leave": false,
-          "name": " (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
-          "link": " (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
+          "name": "(Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
+          "link": "(Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
           "pid": "20"
         },
         {
           "leave": true,
           "name": "Sorry, I was just going - leave",
-          "link": "Sorry, I was just going - leave",
-          "pid": "12"
+          "link": "Talk to the guards again",
+          "pid": "6"
         }
       ],
       "name": "Talk to the guards again",
@@ -175,7 +145,7 @@
     {
       "character": "Guard 1",
       "zoom": true,
-      "text": "\"It's a crime scene is all you need to know, now please maam, move along.\"\n[[Next]]\n",
+      "text": "\"It's a crime scene is all you need to know, now please ma'am, move along.\"\n[[Next]]\n",
       "links": [
         {
           "leave": false,
@@ -190,16 +160,16 @@
     {
       "character": "Guard 1",
       "zoom": true,    
-      "text": "\"Sure, here ya go.\"\n*ANGELA RECIEVES A PEN*\n[[Thanks, I'll be going now. - leave]]",
+      "text": "\"Sure, here ya go.\"\n*ANGELA RECIEVES A PEN*\n[[Thanks, I'll be going now. - leave->Talk to the guards again]]",
       "links": [
         {
           "leave": true,
           "name": "Thanks, I'll be going now. - leave",
-          "link": "Thanks, I'll be going now. - leave",
-          "pid": "14"
+          "link": "Talk to the guards again",
+          "pid": "6"
         }
       ],
-      "name": "I will, I just need to borrow a pen real quick (ITEM)",
+      "name": "I will, I just need to borrow a pen real quick",
       "pid": "11"
     },
     {
@@ -235,36 +205,6 @@
     {
       "character": "Angela",
       "zoom": true,       
-      "text": "[[Make a fake ID]]",
-      "links": [
-        {
-          "leave": false,
-          "name": "Make a fake ID",
-          "link": "Make a fake ID",
-          "pid": "15"
-        }
-      ],
-      "name": "Thanks, I'll be going now. - leave",
-      "pid": "14"
-    },
-    {
-      "character": "Angela",
-      "zoom": true,       
-      "text": "Using the pen she was given, and a handful of other things Angela crafts a false ID\n[[Show it to the guards (REQUIRES FAKE ID IN INVENTORY)]]",
-      "links": [
-        {
-          "leave": false,
-          "name": "Show it to the guards (REQUIRES FAKE ID IN INVENTORY)",
-          "link": "Show it to the guards (REQUIRES FAKE ID IN INVENTORY)",
-          "pid": "16"
-        }
-      ],
-      "name": "Make a fake ID",
-      "pid": "15"
-    },
-    {
-      "character": "Angela",
-      "zoom": true,       
       "text": "*Angela flashes the fake ID which now claims her as a municipal safety inspector*\n[[Next 2]]\n",
       "links": [
         {
@@ -274,7 +214,7 @@
           "pid": "25"
         }
       ],
-      "name": "Show it to the guards (REQUIRES FAKE ID IN INVENTORY)",
+      "name": "Show it to the guards",
       "pid": "16"
     },
     {
@@ -304,7 +244,7 @@
           "pid": "28"
         }
       ],
-      "name": "Play Pretend (REQUIRES POLICE UNIFORM IN INVENTORY)",
+      "name": "Play Pretend",
       "pid": "18"
     },
     {
@@ -334,7 +274,7 @@
           "pid": "24"
         }
       ],
-      "name": " (Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
+      "name": "(Lie), I am, I just need my uhhh jacket, I think the wind blew it over the fence.",
       "pid": "20"
     },
     {
@@ -370,7 +310,7 @@
     {
       "character": "Guard 1",
       "zoom": true,      
-      "text": "\"*Sigh* All you need to know, maam, is that it's a crime scene, and it's closed.\"\n\n[[Right, I'll be going now - leave]]",
+      "text": "\"*Sigh* All you need to know, ma'am, is that it's a crime scene, and it's closed.\"\n\n[[Right, I'll be going now - leave]]",
       "links": [
         {
           "leave": true,
@@ -385,7 +325,7 @@
     {
       "character": "Guard 1",
       "zoom": true,      
-      "text": "\"Sorry, we can't let you in, you can check the lost and found bin if you want, maybe you can find a replacement.\" \n[[Right, I'll be going now - leave]] \n",
+      "text": "\"Sorry, we can't let you in. You can check the lost and found bin if you want, maybe you can find a replacement.\" \n[[Right, I'll be going now - leave]] \n",
       "links": [
         {
           "leave": true,
@@ -415,7 +355,7 @@
     {
       "character": "Guard 1",
       "zoom": true,      
-      "text": "\"Go on through maam, and be careful, this place wasn't exactly well built.\"\n[[Enter the park]]",
+      "text": "\"Go on through ma'am, and be careful, this place wasn't exactly well built.\"\n[[Enter the park]]",
       "links": [
         {
           "leave": false,
@@ -428,7 +368,8 @@
       "pid": "26"
     },
     {
-      "text": "Double-click this passage to edit it.",
+      "character": "Angela",
+      "text": "If you see this tell Luke... please don't see this.",
       "name": "End Dialogue",
       "pid": "27"
     },
@@ -480,7 +421,7 @@
     {
       "character": "Guard 1",
       "zoom": true,      
-      "text": "Safe watch, maam.\n\n*The two guards gather their things and leave their post to Angela* \n[[Enter the park]] ",
+      "text": "Safe watch, ma'am.\n\n*The two guards gather their things and leave their post to Angela* \n[[Enter the park]] ",
       "links": [
         {
           "leave": true,

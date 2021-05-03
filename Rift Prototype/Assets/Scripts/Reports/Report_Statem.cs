@@ -23,12 +23,12 @@ public class Report_Statem : StateInterface
         controls = new MainController();
 
         controls.Report.Escape.performed += escape => DisableImage();
+
     }
 
     void Start()
     {
         string currentObj = iT.currentCol.name;
-        Debug.Log(currentObj);
         switch (currentObj)
         {
             case "PoliceReport":
@@ -55,6 +55,19 @@ public class Report_Statem : StateInterface
             controls = new MainController();
         }
         controls.Enable();
+        string currentObj = iT.currentCol.name;
+        switch (currentObj)
+        {
+            case "PoliceReport":
+                gameObject.transform.GetChild(0).GetComponent<Image>().sprite = Police;
+                break;
+            case "GoldbergSafetyReport":
+                gameObject.transform.GetChild(0).GetComponent<Image>().sprite = Safety;
+                break;
+            case "ForemansReport":
+                gameObject.transform.GetChild(0).GetComponent<Image>().sprite = Foreman;
+                break;
+        }
     }
 
     private void OnDisable()
