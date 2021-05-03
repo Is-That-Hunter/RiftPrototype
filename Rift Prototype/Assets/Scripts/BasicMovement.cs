@@ -31,6 +31,7 @@ public class BasicMovement : StateInterface
     public bool isCrouching;
     public bool isDash;
     public bool isJump;
+    public bool metouchground;
     public bool jumpTriggered = false;
     public Transform cam;
     public float speed = 10.0f;
@@ -39,7 +40,7 @@ public class BasicMovement : StateInterface
     public int totalJumps = 2;
     public float dashForce = 50.0f;
     public bool playerMove = true;
-    private float distanceToGround;
+    public float distanceToGround;
     private Rigidbody body;
 
     public bool inMonsterPlat = false;
@@ -75,6 +76,7 @@ public class BasicMovement : StateInterface
     // Update is called once per frame
     void FixedUpdate()
     {
+        distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
         if(isGrounded())
         {
             jumpTriggered = false;
@@ -127,6 +129,7 @@ public class BasicMovement : StateInterface
     //Ground Check
     bool isGrounded() {
         bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround + .3f);
+        metouchground = IsGrounded;
         return IsGrounded;
     }
 
