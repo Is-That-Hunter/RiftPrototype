@@ -10,11 +10,11 @@ public class ItemTrigger : MonoBehaviour
     public Collider currentCol = null;
     public ItemTag currentItem = null;
     public bool reportBoo = false;
-    private GameObject global_variables;
+    private GlobalData globalData;
     
     void Start()
     {
-        global_variables = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
+        globalData = this.gameObject.transform.parent.GetComponent<BasicMovement>().globalData;
     }
 
     void OnTriggerEnter(Collider collision)
@@ -30,7 +30,7 @@ public class ItemTrigger : MonoBehaviour
             {
                 string action = "Enter "+ item.itemState+" " + item.attachedItemName;
                 //Uncomment if we want to call an action when entering a placeable item zone
-                global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action);
+                globalData.GetComponent<StateMachine>().handleAction("Player", onAction: action);
             }
         }
     }
@@ -55,12 +55,12 @@ public class ItemTrigger : MonoBehaviour
                 {
                     //action += item.attachedItemName;
                     string itemPrompt = "Press 'E' to use " + item.attachedItemName;
-                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+                    globalData.overlay.changePromptActive(true);
+                    globalData.overlay.changePrompt(itemPrompt);
                 }
                 
                 //Uncomment if we want to call an action when entering a placeable item zone
-                //global_variables.GetComponent<StateMachine>().handleAction("Player", onAction: action);
+                //globalData.GetComponent<StateMachine>().handleAction("Player", onAction: action);
             }
             else
             {
@@ -68,8 +68,8 @@ public class ItemTrigger : MonoBehaviour
                 if(!item.destroyed)
                 {
                     string itemPrompt = "Press 'E' to pick up " + item.attachedItemName;
-                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-                    global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+                    globalData.overlay.changePromptActive(true);
+                    globalData.overlay.changePrompt(itemPrompt);
                 }
                 
             }
@@ -92,8 +92,8 @@ public class ItemTrigger : MonoBehaviour
                     break;
             }
             string itemPrompt = "Press 'E' to view " + report;
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(true);
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePrompt(itemPrompt);
+            globalData.overlay.changePromptActive(true);
+            globalData.overlay.changePrompt(itemPrompt);
             currentCol = collision;
         }
     }
@@ -105,12 +105,12 @@ public class ItemTrigger : MonoBehaviour
             ItemTag item = collision.gameObject.GetComponent<ItemTag>();
             item.setIndicator(false);
 
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            globalData.overlay.changePromptActive(false);
             currentCol = null;
             currentItem = null;
         } else if(collision.gameObject.tag == "Report")
         {
-            global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+            globalData.overlay.changePromptActive(false);
             reportBoo = false;
             currentCol = null;
         }

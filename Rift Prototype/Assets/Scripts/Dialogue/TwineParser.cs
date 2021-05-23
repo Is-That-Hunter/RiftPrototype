@@ -19,12 +19,12 @@ public class TwineParser : MonoBehaviour
     public string[] dialogueJsons;
     public GameObject mainCamera;
     public CharacterPortrait[] characters;
-    public GlobalScript global_variables;
+    public GlobalData globalData;
     public bool inArea;
     public string currTree;
     void Start()
     {
-        global_variables = gameObject.GetComponent<SceneScript>().globalScript;
+        globalData = gameObject.GetComponent<GlobalData>();
         foreach(string json in dialogueJsons)
         {
             Twine tree = FromJson(json);
@@ -121,7 +121,7 @@ public class TwineParser : MonoBehaviour
     //compares variable in text to see if it exists and is true
     private bool compareStringAndVariable(string parseThis)
     {
-        if(global_variables.inventory.itemInInventory(parseThis))
+        if(globalData.inventory.itemInInventory(parseThis))
             return true;
         return false;
     }

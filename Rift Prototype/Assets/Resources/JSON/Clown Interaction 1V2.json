@@ -19,7 +19,8 @@
     },
     {
       "character": "Clown",
-      "zoom": true, 
+      "zoom": false, 
+      "zoomObj": true,
       "text": "\"You did this to meeeeeee.... you will payyyyyyy.\"\n\n[[Next 2]]\n",
       "links": [
         {
@@ -48,14 +49,24 @@
       "pid": "3"
     },
     {
-      "text": "Double-click this passage to edit it.",
+      "character": "Angela",
+      "zoom": true, 
+      "links": [
+        {
+          "leave": true,
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "4"
+        }
+      ],
+      "text": "Double-click this passage to edit it.[[Exit->Exit]]",
       "name": "Exit",
       "pid": "4"
     },
     {
       "character": "Angela",
       "zoom": true, 
-      "text": "\"Shit, alright, gotta find a way to scare it off or something. Gonna need something big too.\"\n\n[[Exit]] ",
+      "text": "\"Shit, alright, gotta find a way to scare it off or something. I think I'm gonna need something big and loud\"\n\n[[Exit]] ",
       "links": [
         {
           "leave": true,

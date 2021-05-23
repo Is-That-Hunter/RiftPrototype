@@ -24,7 +24,7 @@ public class ItemDatabase
     //The ItemDatabase instance, holds the function which allows for the finding of specific Item objects using only the item name
     public Item FindItem(string name)
     {
-        Debug.Log(name);
+        //Debug.Log(name);
         return itemDict[name];
     }
 }

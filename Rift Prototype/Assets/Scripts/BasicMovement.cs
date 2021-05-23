@@ -10,9 +10,12 @@ public class BasicMovement : StateInterface
     MainController controls;
     Vector2 movement;
 
-    public StateMachine state_m;
+    private StateMachine stateMachine;
 
-    public GameObject global_variables;
+    public GlobalData globalData;
+    public DialogueTrigger dialogueTrigger;
+    public ItemTrigger itemTrigger;
+    public MonsterTrigger monsterTrigger;
 
     public Animator anim;
 
@@ -41,6 +44,7 @@ public class BasicMovement : StateInterface
     public float dashForce = 50.0f;
     public bool playerMove = true;
     public float distanceToGround;
+    public BoxCollider boxCollider;
     private Rigidbody body;
 
     public bool inMonsterPlat = false;
@@ -57,9 +61,15 @@ public class BasicMovement : StateInterface
     // Start is called before the first frame update
     void Start()
     {
+        stateMachine = globalData.stateMachine;
+        Transform child = transform.GetChild(0);
+        dialogueTrigger = child.GetComponent<DialogueTrigger>();
+        itemTrigger = child.GetComponent<ItemTrigger>();
+        monsterTrigger = child.GetComponent<MonsterTrigger>();
+        
         body = GetComponent<Rigidbody>();
         jumpNumber = totalJumps;
-        distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -76,7 +86,7 @@ public class BasicMovement : StateInterface
     // Update is called once per frame
     void FixedUpdate()
     {
-        distanceToGround = GetComponent<BoxCollider>().bounds.extents.y;
+        distanceToGround = boxCollider.bounds.extents.y;
         if(isGrounded())
         {
             jumpTriggered = false;
@@ -184,31 +194,31 @@ public class BasicMovement : StateInterface
 
     public void Switch_State()
     {
-        state_m.pushState("Inventory", false);
+        stateMachine.pushState("Inventory", false);
     }
 
     public void Item_Pickup(ItemTrigger itemTrigger)
     {
-        if(global_variables.GetComponent<GlobalScript>().inventory.InventorySize() == 8)
+        if(globalData.inventory.InventorySize() == 8)
         {
-            state_m.handleAction("Player", onAction: "Invetory Full");
+            stateMachine.handleAction("Player", onAction: "Invetory Full");
         }
         else
         {
             GameObject itemObject = itemTrigger.gameObject;
-            ItemDatabase ItemDB = global_variables.GetComponent<GlobalScript>().itemDatabase;
+            ItemDatabase ItemDB = globalData.itemDatabase;
             Item itemGrab = null;
             //Get Item Name
             string itemName = itemTrigger.currentItem.attachedItemName;
             if(!itemTrigger.currentItem.destroyed)
             {
                 itemGrab = ItemDB.FindItem(itemName);
-                state_m.handleAction("Player", onAction: "PickUp " + itemName);
+                stateMachine.handleAction("Player", onAction: "PickUp " + itemName);
 
-                global_variables.GetComponent<GlobalScript>().inventory.AddItem(itemGrab);
+                globalData.inventory.AddItem(itemGrab);
                 itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
                 itemTrigger.currentItem.destroyed = true;
-                global_variables.GetComponent<GlobalScript>().Overlay.GetComponent<Overlay>().changePromptActive(false);
+                globalData.overlay.changePromptActive(false);
             }
         }
         
@@ -217,25 +227,24 @@ public class BasicMovement : StateInterface
 
     public void Interact()
     {
-        ItemTrigger itemTrigger = gameObject.transform.GetChild(0).GetComponent<ItemTrigger>();
         if (itemTrigger.reportBoo)
         {
             if(itemTrigger.currentCol != null)
             {
-                state_m.pushState("Report", false);
+                stateMachine.pushState("Report", false);
             }
         }
         else
         {
-            bool inDialogueTrigger = global_variables.GetComponent<GlobalScript>().twineParser.inArea;
+            bool inDialogueTrigger = globalData.twineParser.inArea;
             if (inDialogueTrigger) {
-                state_m.pushState("Dialogue", false);
+                stateMachine.pushState("Dialogue", false);
             }
             else if(itemTrigger.currentCol != null)
             {
                 //if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
                 if(new string[] {"Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
-                    state_m.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState +" " + itemTrigger.currentItem.attachedItemName);
+                    stateMachine.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState +" " + itemTrigger.currentItem.attachedItemName);
                 else if(itemTrigger.currentItem.itemState == "Static")
                 {
                     Item_Pickup(itemTrigger);
@@ -247,13 +256,13 @@ public class BasicMovement : StateInterface
     public void Pause()
     {
         Time.timeScale = 0;
-        state_m.pushState("Pause", false);
+        stateMachine.pushState("Pause", false);
     }
 
     public void developCarnival() 
     {
         Debug.Log("Develop Command Carnival");
-        state_m.handleAction("Develop", onAction: "C");
+        stateMachine.handleAction("Develop", onAction: "C");
     }
 
     
@@ -279,6 +288,12 @@ public class BasicMovement : StateInterface
     void OnDisable(){
         controls.PlayerMovement.Disable();
         this.gameObject.GetComponent<PlayerInput>().enabled = false;
+    }
+
+    public void endGame(){
+        this.gameObject.GetComponent<PlayerInput>().enabled = true;
+        controls.PlayerMovement.Enable();
+        controls.PlayerMovement.AnyKey.performed += ctx => globalData.endGame = 3;
     }
 
     //End

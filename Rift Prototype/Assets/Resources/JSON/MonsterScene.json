@@ -12,10 +12,38 @@
             },
             "triggerAction":{
                 "type":"Teleport",
+                "removeSeq":"Carnival",
                 "posX": 0,
                 "posY": 5,
                 "posZ": -1,
                 "playerMode": true
+            }
+        },
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1,
+                "tree":"",
+                "once":true
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":51,
+                "tree":"CarnivalScene"
+            }
+        },
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"SceneLoaded"
             }
         },
         {
@@ -42,7 +70,8 @@
             },
             "triggerAction":{
                 "type":"Scene",
-                "sceneTriggers":"Carnival",
+                "addSeq":"Carnival",
+                "removeSeq":"Monster",
                 "scene":"FullScene"
             }
         }

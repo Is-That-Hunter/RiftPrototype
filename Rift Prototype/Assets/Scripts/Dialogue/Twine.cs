@@ -11,6 +11,7 @@ public class Twine
 public class Passage
 {
     public bool zoom;
+    public bool zoomObj;
     public string character;
     public string parsedText;
     public string text;

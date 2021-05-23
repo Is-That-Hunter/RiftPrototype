@@ -4,6 +4,7 @@
     "triggers":[
         {
             "triggerType":"Scene",
+            "tid": 9,
             "triggerInfo":{
                 "onEnter": true,
                 "onAction": "",
@@ -16,6 +17,34 @@
                 "posY": 2,
                 "posZ": -20,
                 "playerMode": false
+            }
+        },
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1,
+                "tree":"",
+                "once":true
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":49,
+                "tree":"CarnivalScene",
+                "targetObj":"PlankView"
+            }
+        },
+        {
+            "triggerType":"Scene",
+            "triggerInfo":{
+                "onEnter": true,
+                "onAction": "",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"SceneLoaded"
             }
         },
         {
@@ -56,8 +85,22 @@
                 "tree":""
             },
             "triggerAction":{
+                "type":"ChangeTele",
+                "changetid":9
+            }
+        },
+        {
+            "triggerType":"Monster",
+            "triggerInfo":{
+                "onEnter": false,
+                "onAction": "Monster",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
                 "type":"Scenes",
-                "sceneTriggers":"Monster",
+                "addSeq":"Monster",
+                "removeSeq":"Carnival",
                 "scenes":["MonPlat1", "MonPlat1Rev", "MonPlat2", "MonPlat3", "MonPlat4", "MonPlat5", "MonPlat6"]
             }
         },
@@ -116,6 +159,34 @@
             }
         },
         {
+            "triggerType":"Clown",
+            "triggerInfo":{
+                "onEnter": true,
+                "pid": -1,
+                "onAction": "Enter Part 3"
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "tree":"Clown",
+                "pid": 1,
+                "targetObj": "Clown"
+            }
+        },
+        {
+            "triggerType":"Clown",
+            "triggerInfo":{
+                "onEnter": true,
+                "pid": -1,
+                "onAction": "Near Clown"
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "tree":"CarnivalScene",
+                "pid": 53,
+                "targetObj": "Clown"
+            }
+        },
+        {
             "triggerType":"Dialogue",
             "triggerInfo":{
                 "onLeave": true,
@@ -129,6 +200,20 @@
             }
         },
         {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 5,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "tree":"CarnivalScene",
+                "pid":52
+            }
+        },
+        {
             "triggerType":"Player",
             "triggerInfo":{
                 "onEnter": false,
@@ -138,7 +223,7 @@
             },
             "triggerAction":{
                 "type":"Dialogue",
-                "pid": 6,
+                "pid": 30,
                 "tree": "CarnivalScene",
                 "targetObj":""
             }
@@ -148,7 +233,7 @@
             "triggerInfo":{
                 "onLeave": true,
                 "onAction": "",
-                "pid": -1,
+                "pid": 7,
                 "tree":"CarnivalScene"
             },
             "triggerAction":{

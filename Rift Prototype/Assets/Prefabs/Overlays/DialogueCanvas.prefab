@@ -262,7 +262,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   globalObj: {fileID: 0}
+  dialogueText: {fileID: 5615506153995731343}
+  characterHead: {fileID: 5615506153320201986}
   mainCamera: {fileID: 0}
+  stateMachine: {fileID: 0}
+  twineParser: {fileID: 0}
 --- !u!1 &5615506153995731343
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,16 +6,25 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    private GlobalScript globalScript;
+    private GlobalData globalData;
     private TwineParser twineParser;
     private Overlay overlay;
     
     void Start() 
     {
-        GameObject globalObj = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables;
-        this.globalScript = globalObj.GetComponent<GlobalScript>();
-        this.twineParser = globalScript.twineParser;
-        this.overlay = globalScript.Overlay;
+        this.globalData =this.gameObject.transform.parent.GetComponent<BasicMovement>().globalData;
+        this.twineParser = globalData.twineParser;
+        this.overlay = globalData.overlay;
+    }
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "TriggerDialogue")
+        {
+            DialogueTag tag = collision.gameObject.GetComponent<DialogueTag>();
+            globalData.sequenceHandler.handleAction(new TriggerInfo(false,true,tag.onAction),"Clown");
+            if(tag.once)
+                Destroy(tag.gameObject);
+        }
     }
 
     //Detect collisions between the GameObjects with Colliders attached

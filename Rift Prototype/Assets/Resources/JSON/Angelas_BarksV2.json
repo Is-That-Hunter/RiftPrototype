@@ -1,5 +1,5 @@
 {
-  "name": "Angela's Barks",
+  "name": "Bark",
   "currPid": -1,
   "passages": [
     {
@@ -525,6 +525,21 @@
       "text": "Close Dialogue Box",
       "name": "Exit",
       "pid": "36"
+    },
+    {
+      "character": "Angela",
+      "zoom": false,
+      "text": "\"No way I'm carrying that around, I need to stand by where I wanna put it.\"\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Fail Crafting Placeable",
+      "pid": "37"
     }
   ]
 }

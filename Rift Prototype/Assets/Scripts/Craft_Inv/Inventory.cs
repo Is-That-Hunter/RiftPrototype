@@ -39,7 +39,7 @@ public class Inventory
     //Adds Items to Inventory and updates the inventory organization UI
     public void AddItem(Item item)
     {
-        Debug.Log(item);
+        //Debug.Log(item);
         itemList.Add(new InventoryItem(item));
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }

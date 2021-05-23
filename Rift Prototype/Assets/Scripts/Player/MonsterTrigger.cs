@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class MonsterTrigger : MonoBehaviour
 {
-    private SceneScript scene_variables; 
+    private GlobalData globalData; 
     
     void Start()
     {
-        scene_variables = this.gameObject.transform.parent.GetComponent<BasicMovement>().global_variables.GetComponent<GlobalScript>().sceneScript;
-        
+        globalData = this.gameObject.transform.parent.GetComponent<BasicMovement>().globalData;
     }
 
     //Detect collisions between the GameObjects with Colliders attached
@@ -20,15 +19,15 @@ public class MonsterTrigger : MonoBehaviour
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.tag == "Monster")
         {
-            scene_variables.destroyedMonsters.Add(collision.name);
+            globalData.destroyedMonsters.Add(collision.name);
             TriggerInfo trigInfo = new TriggerInfo(false,false,"Monster",-1,"");
-            scene_variables.sequenceHandler.handleAction(trigInfo, "Monster");
+            globalData.sequenceHandler.handleAction(trigInfo, "Monster");
         }
         
         else if(collision.gameObject.tag == "MonsterFinish")
         {
             TriggerInfo trigInfo = new TriggerInfo(false,false,"finish",-1,"");
-            scene_variables.sequenceHandler.handleAction(trigInfo, "Player");
+            globalData.sequenceHandler.handleAction(trigInfo, "Player");
         }
     }
 
@@ -40,7 +39,7 @@ public class MonsterTrigger : MonoBehaviour
         else if(collision.gameObject.tag == "ResetPos")
         {
             TriggerInfo trigInfo = new TriggerInfo(false,true,"",-1,"");
-            scene_variables.sequenceHandler.handleAction(trigInfo, "Scene");
+            globalData.sequenceHandler.handleAction(trigInfo, "Scene");
         }
     }
 }

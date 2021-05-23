@@ -7,47 +7,30 @@ using UnityEngine.EventSystems;
 
 public class DialogueScript : StateInterface, IPointerClickHandler
 {
-    public GameObject globalObj;
-    private GameObject dialogueText; 
-    private GameObject characterHead;
-    public GameObject mainCamera;
-    private StateMachine stateMachine;
-    private TwineParser twineParser;
+    public GlobalData globalData;
+    public GameObject dialogueText; 
+    public GameObject characterHead;
+    public CameraController mainCamera;
+    public StateMachine stateMachine;
+    public TwineParser twineParser;
     // Start is called before the first frame update
     void Start()
     {
-        Transform[] ts = this.gameObject.transform.GetComponentsInChildren<Transform>(true);
-        foreach (Transform t in ts)
-        {
-            if(t.gameObject.name == "CharacterHead")
-            {
-                this.characterHead = t.gameObject;
-            }
-            if(t.gameObject.name == "DialogueText")
-            {
-                this.dialogueText = t.gameObject;
-            }
-        }
-        this.twineParser = this.globalObj.GetComponent<GlobalScript>().twineParser;
-        this.stateMachine = this.globalObj.GetComponent<StateMachine>();
-        changePortrait();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(isActive)
-            this.mainCamera.GetComponent<CameraController>().focus = true;
-            Passage p = twineParser.getCurrPassage();
-            this.mainCamera.GetComponent<CameraController>().zoomIn = p.zoom;
-            string text = twineParser.getCurrText();
-            this.dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = text;
+        //changePortrait();
     }
 
     public void changePortrait() {
         CharacterPortrait charPortrait = twineParser.getCurrCharacterPortrait();
         this.characterHead.GetComponent<Image>().sprite = charPortrait.portrait;
-        this.mainCamera.GetComponent<CameraController>().focusObject = charPortrait.character.transform;
+    }
+
+    public void updateDialogueBox() {
+        this.mainCamera.focus = true;
+        Passage p = twineParser.getCurrPassage();
+        this.mainCamera.zoomIn = p.zoom;
+        this.mainCamera.focusOther = p.zoomObj;
+        string text = twineParser.getCurrText();
+        this.dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = text;
     }
 
     public void OnPointerClick(PointerEventData eventData) {
@@ -59,13 +42,21 @@ public class DialogueScript : StateInterface, IPointerClickHandler
             int leavingPid = twineParser.getCurrPid();
             string currTree = twineParser.currTree;
             bool leave = twineParser.chooseOption(linkId);
+            updateDialogueBox();
             changePortrait();
+            //this.mainCamera.focusObj = null;
+            //Debug.Log("linkId: " + linkId + "\nleavingPid: " + leavingPid + "\ncurrTree: " + currTree + "\nleave: " + leave);
             if(leave)
             {
-                this.mainCamera.GetComponent<CameraController>().focus = false;
-                this.mainCamera.GetComponent<CameraController>().zoomIn = false;
+                this.mainCamera.focus = false;
+                this.mainCamera.zoomIn = false;
                 stateMachine.popState(pid: leavingPid, tree: currTree);
             }
         }
+    }
+    void OnEnable()
+    {
+        if(isActive)
+            updateDialogueBox();
     }
 }

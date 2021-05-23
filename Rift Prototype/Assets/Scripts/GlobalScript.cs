@@ -19,7 +19,7 @@ public class GlobalScript : MonoBehaviour
     public string itemsJson;
     public Item[] items;
     public UIInventory ui_Inventory;
-    public Overlay Overlay;
+    public Overlay overlay;
     public TwineParser twineParser;
     public SequenceHandler sequenceHandler;
     public SceneScript sceneScript;

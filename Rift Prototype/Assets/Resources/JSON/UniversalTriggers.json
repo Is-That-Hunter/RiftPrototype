@@ -11,9 +11,27 @@
             },
             "triggerAction":{
                 "type":"Scene",
-                "sceneTriggers":"Carnival",
+                "addSeq":"Carnival",
+                "removeSeq":"Monster",
                 "scene":"FullScene"
             }
+        },
+        {
+            "triggerType":"Inventory",
+            "triggerInfo":{
+                "onAction":"Craft Fail PlaceableItem",
+                "pid": -1,
+                "onLeave":false,
+                "onEnter":false,
+                "tree": ""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":37,
+                "tree":"Bark",
+                "targetObj":""
+            }
         }
+
     ]
 }

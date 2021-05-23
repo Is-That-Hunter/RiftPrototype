@@ -8,10 +8,10 @@ public class Overlay : MonoBehaviour
     public GameObject promptBox;
     public bool promptActive;
     public bool isPlaying;
+    public StateMachine stateMachine;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         Transform[] ts = this.gameObject.transform.GetComponentsInChildren<Transform>(true);
         foreach (Transform t in ts)
         {
@@ -33,8 +33,17 @@ public class Overlay : MonoBehaviour
     }
     public void changePromptActive(bool isActive)
     {
-        promptActive = isActive;
-        this.prompt.GetComponent<TMPro.TextMeshProUGUI>().enabled = promptActive;
-        this.promptBox.SetActive(promptActive);
+        if(isActive && stateMachine.peekState().stateName == "Player")
+        {
+            promptActive = isActive;
+            this.prompt.GetComponent<TMPro.TextMeshProUGUI>().enabled = promptActive;
+            this.promptBox.SetActive(promptActive);
+        }
+        else if(!isActive) {
+            promptActive = isActive;
+            this.prompt.GetComponent<TMPro.TextMeshProUGUI>().enabled = promptActive;
+            this.promptBox.SetActive(promptActive);
+        }
+        
     }
 }

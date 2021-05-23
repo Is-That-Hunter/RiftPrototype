@@ -28,7 +28,9 @@ public class Report_Statem : StateInterface
 
     void Start()
     {
-        string currentObj = iT.currentCol.name;
+        string currentObj = "";
+        if(iT.currentCol)
+            currentObj = iT.currentCol.name;
         switch (currentObj)
         {
             case "PoliceReport":
@@ -39,6 +41,9 @@ public class Report_Statem : StateInterface
                 break;
             case "ForemansReport":
                 gameObject.transform.GetChild(0).GetComponent<Image>().sprite = Foreman;
+                break;
+            default:
+                gameObject.transform.GetChild(0).GetComponent<Image>().sprite = Police;
                 break;
         }
     }
@@ -55,7 +60,9 @@ public class Report_Statem : StateInterface
             controls = new MainController();
         }
         controls.Enable();
-        string currentObj = iT.currentCol.name;
+        string currentObj = "";
+        if(iT.currentCol)
+            currentObj = iT.currentCol.name;
         switch (currentObj)
         {
             case "PoliceReport":

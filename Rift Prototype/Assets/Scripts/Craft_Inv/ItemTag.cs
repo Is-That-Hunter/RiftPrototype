@@ -11,6 +11,7 @@ public class ItemTag : MonoBehaviour
     public string itemState = "Static"; 
     //"Static", "Ghost", "Created", "ToBeDestroyed", "Destroyed", "Filled", "Shot"
     //public bool created = false;
+    public bool special = false;
     public bool indicator = false;
     public bool destroyed = false;
     public bool infinite = false;
@@ -30,6 +31,10 @@ public class ItemTag : MonoBehaviour
 
     private void Start()
     {
+        if(attachedItemName == null)
+        {
+            Debug.Log("ITEM HAS NO ITEM");
+        }
         if(itemState == "")
             itemState = "Static";
         Transform[] ts = this.transform.parent.GetComponentsInChildren<Transform>(true);
@@ -38,6 +43,10 @@ public class ItemTag : MonoBehaviour
             if(t.gameObject.name == "Pointer")
             {
                 pointer = t;
+            }
+            else if(t.gameObject.name != "Collider" && Obj == null)
+            {
+                Obj = t.gameObject;
             }
         }
         

@@ -89,6 +89,27 @@
       {
         "character": "Angela",
         "zoom": true,
+        "text": "All I gotta do is give this a quick light\n(if:Lighter)[[[Fire Cannon->Fire Cannon]]]\n[[Leave->End]]",
+        "links": [
+          {
+            "leave": false,
+            "name": "Fire Cannon",
+            "link": "Fire Cannon",
+            "pid": "6"
+          },
+          {
+            "leave": true,
+            "name": "Leave",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Fire",
+        "pid": "30"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
         "text": "*Angela fires cannon*\n\n[[End Demo->End Demo]]",
         "links": [
           {
@@ -160,6 +181,84 @@
         ],
         "name": "Cut Lock",
         "pid": "22"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "zoomObj": false,
+        "text": "\"Finally made it in, I wonder what's around here\"\n[[Next->Obj Dialogue]]",
+        "links": [
+          {
+            "leave": false,
+            "name": "Next",
+            "link": "Obj Dialogue",
+            "pid": "50"
+          }
+        ],
+        "name": "Entrance Dialogue",
+        "pid": "49"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "zoomObj": true,
+        "text": "\"I bet I could get across that gap somehow\"\n[[Exit->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Obj Dialogue",
+        "pid": "50"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "\"What the hell is this place?!\nDoesn't look too friendly, and something tells me that portal up ahead is my only ticket out.\"\n[[Exit->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Monster Dialogue",
+        "pid": "51"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "\"Now I gotta figure out a way to light this thing up! Could probably even make another lighter\"\n[[Exit->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Post Filled",
+        "pid": "52"
+      },
+      {
+        "character": "Angela",
+        "zoom": false,
+        "zoomObj": true,
+        "text": "\"No way I'm getting near that thing\"\n[[Walk Away->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Scared",
+        "pid": "53"
       },
       {   
         "text": "Ur not suppposed to see dis. Report to Luke pls",

@@ -14,6 +14,7 @@ TagManager:
   - ResetPos
   - MonsterFinish
   - Report
+  - TriggerDialogue
   layers:
   - Default
   - TransparentFX

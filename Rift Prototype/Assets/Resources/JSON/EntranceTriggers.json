@@ -25,7 +25,8 @@
             },
             "triggerAction":{
                 "type":"Scene",
-                "sceneTriggers":"Carnival",
+                "addSeq":"Carnival",
+                "removeSeq":"Entrance",
                 "scene":"FullScene"
             }
         },
@@ -39,7 +40,8 @@
             },
             "triggerAction":{
                 "type":"Scene",
-                "sceneTriggers":"Carnival",
+                "addSeq":"Carnival",
+                "removeSeq":"Entrance",
                 "scene":"FullScene"
             }
         },

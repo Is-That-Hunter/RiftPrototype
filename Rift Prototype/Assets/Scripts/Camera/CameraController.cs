@@ -5,7 +5,10 @@ using UnityEngine;
 //Assume Camera is negitavely away on the z axis and follows on the x access
 public class CameraController : MonoBehaviour
 {
+    //For Dialogue
     public Transform focusObject;
+    //For Trigggers
+    public ZoomTarget focusObj;
     public Transform mainCharacter;
     public float HorizontalDelta = 1; //How far the player can move left and right from the camera
     public float distanceClose = 10; //How close the player gets to the camera
@@ -14,18 +17,31 @@ public class CameraController : MonoBehaviour
     public float smoothCamera = 0.35f; //Smoothness of Camera
     public bool zoomIn = false;
     public bool focus = false;
-    private Vector3 velocity = Vector3.zero;
+    public bool focusOther = false;
+    public Vector3 velocity = Vector3.zero;
+    public bool waitforslow = false;
 
     Vector3 tempVec3 = Vector3.zero;
     void Start() {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     void LateUpdate() {
         Vector3 tempVec3 = this.transform.position;
         Transform target = mainCharacter;
         if(focus)
+        {
             target = focusObject;
+        }
+        if(focusOther)
+        {
+            if(focusObj != null)
+            {
+                if(focusObj.search())
+                    target = focusObj.target.transform;
+            }
+        }
+            
         
         float targetHorizontal = target.position.x;
         float targetDistance = target.position.z;
@@ -40,8 +56,17 @@ public class CameraController : MonoBehaviour
             tempVec3.z = changeDistance(distanceClose, distanceFar, targetDistance);
             tempVec3.y = target.position.y+verticalHeight;
         }
+        if(waitforslow)
+        {
+            this.transform.position = Vector3.SmoothDamp(transform.position, tempVec3, ref velocity, .20f);
+            if(Mathf.Abs(velocity.x) < .01f && Mathf.Abs(velocity.y) < .01f && Mathf.Abs(velocity.z) < .01f)
+                waitforslow = false;
+        }
+        else
+        {
+            this.transform.position = Vector3.SmoothDamp(transform.position, tempVec3, ref velocity, smoothCamera);
+        }
         
-        this.transform.position = Vector3.SmoothDamp(transform.position, tempVec3, ref velocity, smoothCamera);
     }
     private float changeDistance(float close, float far, float targetDistance) {
         float z = targetDistance;

@@ -122,7 +122,7 @@
             },
             "triggerAction":{
                 "type":"changeSeq",
-                "sequence":"Universal"
+                "removeSeq":"Tutorial"
             }
         }
     ]

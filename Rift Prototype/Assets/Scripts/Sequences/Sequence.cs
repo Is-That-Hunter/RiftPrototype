@@ -4,6 +4,7 @@ public class Sequence
 {
     public int currTid;
     public string name;
+    public bool order;
     public Trigger[] triggers;
 }
 [System.Serializable]
@@ -15,6 +16,26 @@ public class Trigger
     public string triggerType;
     public TriggerInfo triggerInfo;
     public TriggerAction triggerAction;
+    public string sequenceName;
+    public bool inuse;
+    public bool checkTriggerInfo(TriggerInfo other, string otherType)
+    {
+        TriggerInfo info = this.triggerInfo;
+        return(
+            this.triggerType == otherType &&
+            (
+                other.onAction.Contains(info.onAction) ||
+                ((info.onAction == null | info.onAction == "") && other.onAction == "")
+            ) &&
+            (
+                other.tree == info.tree ||
+                ((info.tree == null || info.tree == "") && other.tree == "")
+            ) &&
+            info.onLeave == other.onLeave &&
+            info.onEnter == other.onEnter &&
+            info.pid == other.pid
+        );
+    }
 }
 [System.Serializable]
 public class TriggerInfo
@@ -24,6 +45,8 @@ public class TriggerInfo
     public string onAction;
     public int pid;
     public string tree;
+    public bool once;
+    public bool done;
 
     public TriggerInfo(bool _onLeave = false, bool _onEnter = false, string _onAction = "", int _pid = -1, string _tree = "") {
         onLeave = _onLeave;
@@ -39,8 +62,10 @@ public class TriggerAction
     //Defines what to do
     //dialogue, zoom, pan, changeSeq
     public string type;
-    public string sequence;
+    public string addSeq;
+    public string removeSeq;
     public int tid;
+    public int changetid;
     //For opening dialogue
     public int pid; 
     public string tree;
@@ -50,8 +75,6 @@ public class TriggerAction
     public string itemName;
     //Scene to change to
     public string scene;
-    //SceneTrigger Change
-    public string sceneTriggers;
     public string[] scenes;
     public int posX;
     public int posY;

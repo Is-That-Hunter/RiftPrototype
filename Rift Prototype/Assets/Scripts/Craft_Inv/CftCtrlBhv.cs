@@ -15,20 +15,21 @@ public class CftCtrlBhv : StateInterface
     public MainController controls;
 
     //Set to the crafting slots in editor
-    private GameObject material_Slot;
-    private GameObject type_Slot;
-    private GameObject size_Slot;
-    private GameObject preview_Slot;
-    public StateMachine state_m;
+    private Image material_Slot_Parent_Image;
+    private Image material_Slot_Image;
+    private Image type_Slot_Parent_Image;
+    private Image type_Slot_Image;
+    private Image size_Slot_Parent_Image;
+    private Image size_Slot_Image;
+    private Image preview_Slot_Parent_Image;
+    private Image preview_Slot_Image;
+    public StateMachine stateMachine;
     private UIInventory uiInventory;
 
     private Transform inventory_Slots;
     private Transform toolTip;
-    private ItemTrigger itemTrigger;
-
-    //Set to Global_Variable Object
-    public GameObject globalObject;
-    private GlobalScript globalScript;
+    public ItemTrigger itemTrigger;
+    public GlobalData globalData;
 
     private InventoryItem requested_Material = null;
     private InventoryItem requested_Type = null;
@@ -36,17 +37,24 @@ public class CftCtrlBhv : StateInterface
 
     private void Awake()
     {
-        globalScript = globalObject.GetComponent<GlobalScript>();
+        globalData = globalData.GetComponent<GlobalData>();
+        //stateMachine = globalData.stateMachine;
         Transform[] ts = gameObject.transform.GetComponentsInChildren<Transform>(true);
-        itemTrigger = state_m.player.transform.GetChild(0).GetComponent<ItemTrigger>();
         foreach (Transform t in ts)
         {
             if(t.gameObject.name == "Craft_Table")
             {
-                material_Slot = t.Find("Material_Slot").GetChild(0).gameObject;
-                type_Slot = t.Find("Type_Slot").GetChild(0).gameObject;
-                size_Slot = t.Find("Size_Slot").GetChild(0).gameObject;
-                preview_Slot = t.Find("Preview_Slot").gameObject;
+                GameObject size_Slot = t.Find("Size_Slot").GetChild(0).gameObject;
+                size_Slot_Parent_Image = size_Slot.transform.parent.GetComponent<Image>();
+                size_Slot_Image = size_Slot.GetComponent<Image>();
+                GameObject material_Slot = t.Find("Material_Slot").GetChild(0).gameObject;
+                material_Slot_Parent_Image = material_Slot.transform.parent.GetComponent<Image>();
+                material_Slot_Image = material_Slot.GetComponent<Image>();
+                GameObject type_Slot = t.Find("Type_Slot").GetChild(0).gameObject;
+                type_Slot_Parent_Image = type_Slot.transform.parent.GetComponent<Image>();
+                type_Slot_Image = type_Slot.GetComponent<Image>();
+                GameObject preview_Slot = t.Find("Preview_Slot").gameObject;
+                preview_Slot_Image = preview_Slot.GetComponent<Image>();
             }
             if(t.gameObject.name == "Inventory_Table")
             {
@@ -81,22 +89,22 @@ public class CftCtrlBhv : StateInterface
         if(uiInventory.CurrentItem == null)
             return;
         InventoryItem item = uiInventory.CurrentItem.GetComponent<ImageItem>().GetItem();
-        Inventory inventory = globalScript.inventory;
+        Inventory inventory = globalData.inventory;
         inventory.RemoveItem(item);
     }
 
     public void Switch_State()
     {
-        state_m.popState();
+        stateMachine.popState();
     }
 
     //Crafts the item if the Type, Material, and Size can result in another Item
     public void Craft()
     {
-        CraftDatabase craftDatabase = globalScript.CraftDatabase;
-        Inventory inventory = globalScript.inventory;
+        CraftDatabase craftDatabase = globalData.craftDatabase;
+        Inventory inventory = globalData.inventory;
         Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
-        ItemDatabase allItems = globalScript.itemDatabase;
+        ItemDatabase allItems = globalData.itemDatabase;
         bool crafted = false;
 
         if (requested_Size != null && requested_Material != null && requested_Type != null)
@@ -112,7 +120,7 @@ public class CftCtrlBhv : StateInterface
                         //&& !itemTrigger.currentItem.created)
                     {
                         crafted = true;
-                        state_m.handleAction("Inventory", onAction: "Craft Success PlaceableItem " + value);
+                        stateMachine.handleAction("Inventory", onAction: "Craft Success PlaceableItem " + value);
                         if(itemTrigger.currentItem.itemState == "Ghost")
                             itemTrigger.currentItem.setState("Created");
                         else
@@ -120,13 +128,13 @@ public class CftCtrlBhv : StateInterface
                         //itemTrigger.currentItem.setCreated(true);
                     }
                     else
-                        state_m.handleAction("Inventory", onAction: "Craft Fail PlaceableItem " + value);
+                        stateMachine.handleAction("Inventory", onAction: "Craft Fail PlaceableItem " + value);
                 }
                 else
                 {
                     crafted = true;
                     inventory.AddItem(allItems.FindItem(value));
-                    state_m.handleAction("Inventory", onAction: "Craft Success Item " + value);
+                    stateMachine.handleAction("Inventory", onAction: "Craft Success Item " + value);
                 }
                 if(crafted)
                 {
@@ -144,7 +152,7 @@ public class CftCtrlBhv : StateInterface
             {
                 // Key wasn't in dictionary; "value" is now 0
                 Debug.Log("Craft Fail");
-                state_m.handleAction("Inventory", onAction: "Craft Fail");
+                stateMachine.handleAction("Inventory", onAction: "Craft Fail");
             }
         }
     }
@@ -176,7 +184,7 @@ public class CftCtrlBhv : StateInterface
         }
         SetImages();
         SetPreview();
-        state_m.handleAction("Inventory", onAction: "Size_Select");
+        stateMachine.handleAction("Inventory", onAction: "Size_Select");
     }
 
     //Sets the Item and its Material used for crafting
@@ -204,7 +212,7 @@ public class CftCtrlBhv : StateInterface
         }
         SetImages();
         SetPreview();
-        state_m.handleAction("Inventory", onAction: "Material_Select");
+        stateMachine.handleAction("Inventory", onAction: "Material_Select");
     }
 
     //Sets the Item and its Type used for crafting
@@ -232,7 +240,7 @@ public class CftCtrlBhv : StateInterface
         }
         SetImages();
         SetPreview();
-        state_m.handleAction("Inventory", onAction: "Type_Select");
+        stateMachine.handleAction("Inventory", onAction: "Type_Select");
     }
 
     void RemoveFromSlot(InventoryItem invItem) 
@@ -254,37 +262,37 @@ public class CftCtrlBhv : StateInterface
     void SetImages()
     {
         if(requested_Size != null)
-            size_Slot.GetComponent<Image>().sprite = requested_Size.item.GetSprite();
+            size_Slot_Image.sprite = requested_Size.item.GetSprite();
         else
-            size_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            size_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
         if(requested_Material != null)
-            material_Slot.GetComponent<Image>().sprite = requested_Material.item.GetSprite();
+            material_Slot_Image.sprite = requested_Material.item.GetSprite();
         else
-            material_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            material_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
         if(requested_Type != null)
-            type_Slot.GetComponent<Image>().sprite = requested_Type.item.GetSprite();
+            type_Slot_Image.sprite = requested_Type.item.GetSprite();
         else
-            type_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            type_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
     }
 
     void SetPreview()
     {
         if(requested_Size == null || requested_Type == null || requested_Material == null)
         {
-            preview_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            preview_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
             return;
         }
-        CraftDatabase craftDatabase = globalScript.CraftDatabase;
+        CraftDatabase craftDatabase = globalData.craftDatabase;
         Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
-        ItemDatabase allItems = globalScript.itemDatabase;
+        ItemDatabase allItems = globalData.itemDatabase;
         if(recipe.TryGetValue((requested_Size.item.itemSize, requested_Type.item.itemType, requested_Material.item.itemMaterial), out string value))
         {
             Item craftedItem = allItems.FindItem(value);
-            preview_Slot.GetComponent<Image>().sprite = craftedItem.GetSprite();
+            preview_Slot_Image.sprite = craftedItem.GetSprite();
         }
         else
         {
-            preview_Slot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            preview_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
         }
     }
 
@@ -301,7 +309,7 @@ public class CftCtrlBhv : StateInterface
         }
         if(itemTrigger == null)
         {
-            itemTrigger = globalScript.sceneScript.player.transform.GetChild(0).GetComponent<ItemTrigger>();
+            itemTrigger = globalData.player.GetComponent<ItemTrigger>();
         }
         controls.Enable();
         uiInventory.enabled = true;
@@ -316,12 +324,12 @@ public class CftCtrlBhv : StateInterface
     }
     private void ChangeRaycast(bool active)
     {
-        material_Slot.GetComponent<Image>().raycastTarget = active;
-        material_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
-        type_Slot.GetComponent<Image>().raycastTarget = active;
-        type_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
-        size_Slot.GetComponent<Image>().raycastTarget = active;
-        size_Slot.transform.parent.GetComponent<Image>().raycastTarget = active;
+        material_Slot_Image.raycastTarget = active;
+        material_Slot_Parent_Image.raycastTarget = active;
+        type_Slot_Image.raycastTarget = active;
+        type_Slot_Parent_Image.raycastTarget = active;
+        size_Slot_Image.raycastTarget = active;
+        size_Slot_Parent_Image.raycastTarget = active;
     }
     new public void changeActive(bool _isActive) {
         isActive = _isActive;

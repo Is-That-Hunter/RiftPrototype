@@ -89,6 +89,14 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""83e3fac8-7701-4490-aac4-654e99096b09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -287,6 +295,17 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01d7c78e-97c8-4c2b-aeca-2b9768598619"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -610,6 +629,7 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_State_Switch = m_PlayerMovement.FindAction("State_Switch", throwIfNotFound: true);
         m_PlayerMovement_Interact = m_PlayerMovement.FindAction("Interact", throwIfNotFound: true);
         m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerMovement_AnyKey = m_PlayerMovement.FindAction("AnyKey", throwIfNotFound: true);
         // Inventory_Craft
         m_Inventory_Craft = asset.FindActionMap("Inventory_Craft", throwIfNotFound: true);
         m_Inventory_Craft_Move = m_Inventory_Craft.FindAction("Move", throwIfNotFound: true);
@@ -688,6 +708,7 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_State_Switch;
     private readonly InputAction m_PlayerMovement_Interact;
     private readonly InputAction m_PlayerMovement_Pause;
+    private readonly InputAction m_PlayerMovement_AnyKey;
     public struct PlayerMovementActions
     {
         private @MainController m_Wrapper;
@@ -701,6 +722,7 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @State_Switch => m_Wrapper.m_PlayerMovement_State_Switch;
         public InputAction @Interact => m_Wrapper.m_PlayerMovement_Interact;
         public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
+        public InputAction @AnyKey => m_Wrapper.m_PlayerMovement_AnyKey;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -737,6 +759,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
+                @AnyKey.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAnyKey;
+                @AnyKey.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAnyKey;
+                @AnyKey.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAnyKey;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -768,6 +793,9 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @AnyKey.started += instance.OnAnyKey;
+                @AnyKey.performed += instance.OnAnyKey;
+                @AnyKey.canceled += instance.OnAnyKey;
             }
         }
     }
@@ -979,6 +1007,7 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnState_Switch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnAnyKey(InputAction.CallbackContext context);
     }
     public interface IInventory_CraftActions
     {
