@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class BasicMovement : StateInterface
 {
@@ -49,6 +50,10 @@ public class BasicMovement : StateInterface
 
     public bool inMonsterPlat = false;
 
+    private AudioSource[] walkingSounds;
+    private bool walkingSoundPlaying = false;
+    //private AudioSource currentWalkSound;
+
     public void LockPlayer()
     {
         playerMove = !playerMove;
@@ -70,6 +75,8 @@ public class BasicMovement : StateInterface
         body = GetComponent<Rigidbody>();
         jumpNumber = totalJumps;
         boxCollider = GetComponent<BoxCollider>();
+        distanceToGround = boxCollider.bounds.extents.y;
+        walkingSounds = GetComponents<AudioSource>();
     }
 
     private void Update()
@@ -119,7 +126,20 @@ public class BasicMovement : StateInterface
         Vector3 inputT = (input * currentSpeed * Time.deltaTime);
         if (playerMove)
         {
+            Vector3 oldPosition = body.position;
             body.MovePosition(body.position + (input * currentSpeed * Time.deltaTime));
+            if (isGrounded() && !walkingSoundPlaying && body.position != oldPosition)
+            {
+                walkingSoundPlaying = true;
+                if (SceneManager.GetActiveScene().name == "Entrance")
+                {
+                    walkingSounds[0].Play();
+                }
+                else
+                {
+                    walkingSounds[1].Play();
+                }
+            }
         }
         anim.SetFloat("horizontalMove", inputT.x);
         anim.SetFloat("verticalMove", inputT.z);
@@ -265,6 +285,19 @@ public class BasicMovement : StateInterface
         stateMachine.handleAction("Develop", onAction: "C");
     }
 
+    private void StopMoveSound()
+    {
+        walkingSoundPlaying = false;
+        if (SceneManager.GetActiveScene().name == "Entrance")
+        {
+            walkingSounds[0].Stop();
+        }
+        else
+        {
+            walkingSounds[1].Stop();
+        }
+    }
+
     
     void OnEnable(){
         this.gameObject.GetComponent<PlayerInput>().enabled = true;
@@ -283,6 +316,7 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Jump.performed += ctx => isJump = true;
         controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
         controls.Develop.Carnival.performed += ctx => developCarnival();
+        controls.PlayerMovement.Move.canceled += ctx => StopMoveSound();
     }
 
     void OnDisable(){
