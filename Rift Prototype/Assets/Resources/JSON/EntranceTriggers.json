@@ -2,18 +2,16 @@
     "name": "Entrance",
     "order": false,
     "triggers":[
-        {
-            "triggerType":"Player",
+        {"triggerType":"Dialogue",
             "triggerInfo":{
-                "onAction":"Interact Created Ladder",
-                "pid": -1,
-                "tree":""
+                "onLeave": true,
+                "onAction":"",
+                "pid": 4,
+                "tree":"Entrance"
             },
             "triggerAction":{
-                "type":"Scene",
-                "addSeq":"Carnival",
-                "removeSeq":"Entrance",
-                "scene":"FullScene"
+                "type":"RemoveItem",
+                "targetObj": "Ladder"
             }
         },
         {
@@ -31,12 +29,40 @@
             }
         },
         {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"Interact Ghost Ladder",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "tree":"Entrance",
+                "pid": 3
+            }
+        },
+        {
             "triggerType":"Dialogue",
             "triggerInfo":{
                 "onLeave": true,
                 "onAction":"",
                 "pid": 31,
                 "tree":"Guard"
+            },
+            "triggerAction":{
+                "type":"Scene",
+                "addSeq":"Carnival",
+                "removeSeq":"Entrance",
+                "scene":"FullScene"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction":"",
+                "pid": 4,
+                "tree":"Entrance"
             },
             "triggerAction":{
                 "type":"Scene",
@@ -75,14 +101,24 @@
         },
         {"triggerType":"Dialogue",
             "triggerInfo":{
-                "onLeave": true,
                 "onAction":"",
-                "pid": 4,
-                "tree":"Tutorial"
+                "pid": 18,
+                "tree":"Guard"
             },
             "triggerAction":{
                 "type":"RemoveItem",
-                "targetObj": "Lighter"
+                "targetObj": "Police Uniform"
+            }
+        },
+        {"triggerType":"Dialogue",
+            "triggerInfo":{
+                "onAction":"",
+                "pid": 16,
+                "tree":"Guard"
+            },
+            "triggerAction":{
+                "type":"RemoveItem",
+                "targetObj": "Fake ID"
             }
         }
     ]   

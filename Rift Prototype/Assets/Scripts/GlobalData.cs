@@ -6,6 +6,13 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+[System.Serializable]
+public class objectData
+{
+    public string objectName;
+    public string objectState;
+    public string objectChoice;
+}
 
 public class GlobalData : MonoBehaviour
 {
@@ -31,9 +38,9 @@ public class GlobalData : MonoBehaviour
     public bool sceneLoaded;
     private bool ignore;
     public string[] startingItems;
+    
     public List<string> destroyedMonsters = new List<string>();
-    //0: objectName, 1: itemState
-    public string[] placeableObjects = {"Ghost", "ToBeDestroyed", "Ghost"};
+    public objectData[] sceneData;
 
     public int endGame = 0;
 
@@ -55,14 +62,6 @@ public class GlobalData : MonoBehaviour
         //This code can be used in the switch to the Inv/Craft State
         uiInventory.SetInventory(inventory);
         Debug.Log("Global Data: Start");
-    }
-    private void OnEnable()
-    {
-        Debug.Log("Global Data: OnEnable");
-    }
-    private void OnDisable()
-    {
-        Debug.Log("Global Data: OnDisable");
     }
     public IEnumerator LoadScene(string newSceneName)
     {
@@ -145,56 +144,47 @@ public class GlobalData : MonoBehaviour
 
     public void LoadCarnivalData()
     {
-        foreach (string monsterName in destroyedMonsters) {
+        foreach(string monsterName in destroyedMonsters) {
             GameObject monster = GameObject.Find(monsterName);
             if(monster != null) {
                 Destroy(monster);
             }
         }
-        foreach (string objectVars in placeableObjects) {
-            GameObject[] objs = {GameObject.Find("CrossingPlankParent"), GameObject.Find("PadlockParent"), GameObject.Find("CannonParent")};
-            if(objs[0] != null && placeableObjects[0] != null) 
+        foreach(objectData objData in sceneData)
+        {
+            GameObject obj = GameObject.Find(objData.objectName);
+            ItemTag[] tags = obj.GetComponentsInChildren<ItemTag>();
+            foreach(ItemTag tag in tags)
             {
-                foreach(GameObject obj in objs)
-                {
-                    ItemTag tag = obj.GetComponentsInChildren<ItemTag>()[0];
-                    switch(obj.name)
-                    {
-                        case "CrossingPlankParent":
-                            tag.setState(placeableObjects[0]);
-                            break;
-                        case "PadlockParent":
-                            tag.setState(placeableObjects[1]);
-                            break;
-                        case "CannonParent":
-                            tag.setState(placeableObjects[2]);
-                            break;
-                    }
-                }
+                tag.setState(objData.objectState, objData.objectChoice);
             }
         }
     }
     public void saveCarnivalData()
     {
-        GameObject[] objs = {GameObject.Find("CrossingPlankParent"), GameObject.Find("PadlockParent"), GameObject.Find("CannonParent")};
-        if(objs[0] != null) 
+        foreach(objectData objData in sceneData)
         {
-            foreach(GameObject obj in objs)
+            GameObject obj = GameObject.Find(objData.objectName);
+            ItemTag[] tags = obj.GetComponentsInChildren<ItemTag>();
+            foreach(ItemTag tag in tags)
             {
-                ItemTag tag = obj.GetComponentsInChildren<ItemTag>()[0];
-                switch(obj.name)
-                {
-                    case "CrossingPlankParent":
-                        placeableObjects[0] = tag.itemState;
-                        break;
-                    case "PadlockParent":
-                        placeableObjects[1] = tag.itemState;
-                        break;
-                    case "CannonParent":
-                        placeableObjects[2] = tag.itemState;
-                        break;
-                }
+                objData.objectState = tag.itemState;
             }
+        }
+    }
+    public bool findAndChangeObjectData(string objectDataName, string newObjectData, string newObjectChoice)
+    {
+        inventory.RemoveItemByName(newObjectChoice);
+        objectData data = sceneData.Where(i=>i.objectName == objectDataName).FirstOrDefault();
+        if(data != null) 
+        {
+            data.objectState = newObjectData;
+            data.objectChoice = newObjectChoice;
+            return true;
+        }
+        else 
+        {
+            return false;
         }
     }
 

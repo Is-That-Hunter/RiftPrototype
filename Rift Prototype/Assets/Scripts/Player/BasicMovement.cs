@@ -167,7 +167,7 @@ public class BasicMovement : StateInterface
     //Following functions are related to the input system package
     //Those functions will only be called when input system sending messages
     public void OnJump(){
-        Debug.Log(isGrounded());
+        //Debug.Log(isGrounded());
         Vector3 velo = Vector3.zero;
         velo.x = 0;
         velo.z = 0;
@@ -227,14 +227,14 @@ public class BasicMovement : StateInterface
         {
             if(itemTrigger.currentItem.items.Count() == 0)
             {
-                Debug.Log("ItemTrigger has no items to pickup");
+                Debug.Log("Player Error: ItemTrigger has no items to pickup");
             }
             else if(itemTrigger.currentItem.items.Count() > 1)
             {
                 string str = "";
                 foreach(ItemName item in itemTrigger.currentItem.items)
                     str += item.itemName+"\n";
-                Debug.Log("ItemTrigger has too many items attatched:\n" + str);
+                Debug.Log("Player Error: ItemTrigger has too many items attatched:\n" + str);
             }
             else
             {
@@ -318,7 +318,7 @@ public class BasicMovement : StateInterface
     void OnEnable(){
         this.gameObject.GetComponent<PlayerInput>().enabled = true;
         controls.PlayerMovement.Enable();
-        //controls.Develop.Enable();
+        controls.Develop.Enable();
         controls.GlobalButtons.Enable();
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
         controls.PlayerMovement.Running.performed += ctx => isCrouching = false;
@@ -326,13 +326,13 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Crouching.performed += ctx => isCrouching = true;
         controls.PlayerMovement.Crouching.performed += ctx => isRunnning = false;
         controls.PlayerMovement.Crouching.canceled += ctx => isCrouching = false;
-        controls.PlayerMovement.Dash.performed += ctx => isDash = true;
+        //controls.PlayerMovement.Dash.performed += ctx => isDash = true;
         controls.PlayerMovement.State_Switch.performed += ctxe => Switch_State();
         controls.PlayerMovement.Pause.performed += ctxe => Pause();
         controls.PlayerMovement.Interact.performed += ctxe => Interact();
         controls.PlayerMovement.Jump.performed += ctx => isJump = true;
         controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
-        //controls.Develop.Carnival.performed += ctx => developCarnival();
+        controls.Develop.Carnival.performed += ctx => developCarnival();
         controls.PlayerMovement.Move.canceled += ctx => StopMoveSound();
         controls.GlobalButtons.EndCutscene.performed += ctx =>globalData.endCutscene();
     }

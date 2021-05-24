@@ -36,6 +36,8 @@ public class ItemTag : MonoBehaviour
             if(t.gameObject.name == "Pointer")
             {
                 pointer = t;
+                if(!indicator)
+                    pointer.gameObject.SetActive(false);
             }
             else 
             {
@@ -83,23 +85,20 @@ public class ItemTag : MonoBehaviour
 
     private void Update()
     {
-        if(itemState == "Ghost")
+        if(indicator && itemState == "Ghost")
         {
-            if(indicator)
+            float move = pointer.position.y + (arrowSpeed * Time.deltaTime);
+            if(move > maxY)
             {
-                float move = pointer.position.y + (arrowSpeed * Time.deltaTime);
-                if(move > maxY)
-                {
-                    arrowSpeed *= -1;
-                    move = maxY;
-                }
-                else if(move < minY)
-                {
-                    arrowSpeed *= -1;
-                    move = minY;
-                }
-                pointer.position = new Vector3(pointer.position.x, move, pointer.position.z);
+                arrowSpeed *= -1;
+                move = maxY;
             }
+            else if(move < minY)
+            {
+                arrowSpeed *= -1;
+                move = minY;
+            }
+            pointer.position = new Vector3(pointer.position.x, move, pointer.position.z);
         }
         else if(itemState == "Static")
         {
@@ -119,6 +118,12 @@ public class ItemTag : MonoBehaviour
                     ParentCollider.enabled = false;
                 items.First().gameObject.SetActive(false);
             }
+            if(!destroyed && !infinite)
+            {
+                if(ParentCollider != null)
+                    ParentCollider.enabled = true;
+                items.First().gameObject.SetActive(true);
+            }
         }
     }
 
@@ -136,7 +141,7 @@ public class ItemTag : MonoBehaviour
             }
         }
     }
-    public void setState(string newState)
+    public void setState(string newState, string choice)
     {
         itemState = newState;
         if(newState == "Created")
@@ -146,6 +151,15 @@ public class ItemTag : MonoBehaviour
             {
                 mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, 1.0f);
             }
+            List<ItemName> newItems = new List<ItemName>();
+            foreach(ItemName i in items)
+            {
+                if(i.itemName != choice)
+                    Destroy(i.gameObject);
+                else
+                    newItems.Add(i);
+            }
+            items = newItems;
         }
         else if(newState == "Ghost")
         {

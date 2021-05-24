@@ -73,6 +73,7 @@ public class TriggerAction
     public string targetObj;
     //Item to give to player
     public string itemName;
+    public string itemState;
     //Scene to change to
     public string scene;
     public string[] scenes;

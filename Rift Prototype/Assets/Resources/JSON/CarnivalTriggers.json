@@ -50,6 +50,64 @@
         {
             "triggerType":"Player",
             "triggerInfo":{
+                "onAction": "Interact Ghost Plank Ladder Rope",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":9,
+                "tree":"CarnivalScene"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 10,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"ChangeSavedData",
+                "itemName":"Plank",
+                "targetObj":"CrossingPlankParent",
+                "itemState":"Created"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 11,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"ChangeSavedData",
+                "itemName":"Rope",
+                "targetObj":"CrossingPlankParent",
+                "itemState":"Created"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction": "",
+                "pid": 12,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"ChangeSavedData",
+                "itemName":"Ladder",
+                "targetObj":"CrossingPlankParent",
+                "itemState":"Created"
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
                 "onAction": "Interact Created Plank",
                 "pid": -1,
                 "tree":""
@@ -75,6 +133,49 @@
                 "posY": 6,
                 "posZ": 31,
                 "playerScale": 0.09
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction": "Interact Created Rope",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Teleport",
+                "posX": -40,
+                "posY": 6,
+                "posZ": 31,
+                "playerScale": 0.09
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction": "Interact Ghost Cannon",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid": 60,
+                "tree": "CarnivalScene"
+            }
+        },
+        {
+            "triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction":"",
+                "pid": 61,
+                "tree":"CarnivalScene"
+            },
+            "triggerAction":{
+                "type":"ChangeSavedData",
+                "itemName":"Cannon",
+                "targetObj":"CannonParent",
+                "itemState":"Created"
             }
         },
         {
@@ -143,8 +244,10 @@
                 "tree":"CarnivalScene"
             },
             "triggerAction":{
-                "type":"Destroy",
-                "targetObj":"Acid"
+                "type":"ChangeSavedData",
+                "itemName":"Acid",
+                "targetObj":"PadlockParent",
+                "itemState":"Destroyed"
             }
         },
         {
@@ -156,8 +259,10 @@
                 "tree":"CarnivalScene"
             },
             "triggerAction":{
-                "type":"Destroy",
-                "targetObj":"Lockpick"
+                "type":"ChangeSavedData",
+                "itemName":"LockPick",
+                "targetObj":"PadlockParent",
+                "itemState":"Destroyed"
             }
         },
         {
@@ -169,8 +274,10 @@
                 "tree":"CarnivalScene"
             },
             "triggerAction":{
-                "type":"Destroy",
-                "targetObj":"Wirecutters"
+                "type":"ChangeSavedData",
+                "itemName":"Wirecutters",
+                "targetObj":"PadlockParent",
+                "itemState":"Destroyed"
             }
         },
         {
@@ -210,8 +317,10 @@
                 "tree":"CarnivalScene"
             },
             "triggerAction":{
-                "type":"Fill",
-                "targetObj":"Cannonball"
+                "type": "ChangeSavedData",
+                "itemName": "Cannon",
+                "targetObj": "CannonParent",
+                "itemState": "Filled"
             }
         },
         {

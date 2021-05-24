@@ -139,6 +139,84 @@
       },
       {
         "character": "Angela",
+        "zoom": true,     
+        "text": "I wonder if I can make something to get across these buildings.\n(if:Plank)[[[Place Plank->Place Plank]]]\n(if:Rope)[[[Place Rope->Place Rope]]]\n(if:Ladder)[[[Place Ladder->Place Ladder]]]\n[[Leave->Leave]]",
+        "links": [
+            {
+                "leave": false,
+                "name": "Place Plank",
+                "link": "Place Plank",
+                "pid": "10"
+              },
+              {
+                "leave": false,
+                "name": "Place Rope",
+                "link": "Place Rope",
+                "pid": "11"
+              },
+              {
+                "leave": false,
+                "name": "Place Ladder",
+                "link": "Place Ladder",
+                "pid": "12"
+              },
+              {
+                "leave": true,
+                "name": "Leave",
+                "link": "Leave",
+                "pid": "2"
+              }
+        ],
+        "name": "CheckRoofCrossing",
+        "pid": "9"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela places a Plank across the buildings*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Place Plank",
+        "pid": "10"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela throws a rope across the rooftops*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Place Rope",
+        "pid": "11"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela laid a Ladder across the rooftops*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Place Ladder",
+        "pid": "12"
+      },
+      {
+        "character": "Angela",
         "zoom": true,
         "text": "*Angela Pours Acid on the Lock melting it*\n[[Done->End]]",
         "links": [
@@ -259,6 +337,42 @@
         ],
         "name": "Scared",
         "pid": "53"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "Perfect spot to shoot something at that.... that thing\n(if:Cannon)[[[Place Cannon->Place Cannon]]]\n[[Look Around->End]]",
+        "links": [
+          {
+            "leave": false,
+            "name": "Place Cannon",
+            "link": "Place Cannon",
+            "pid": "61"
+          },
+          {
+            "leave": true,
+            "name": "Look Around",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Scared",
+        "pid": "60"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "Now all I need to find is some ammo... I think I can come up with something.\n[[End->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "End",
+            "link": "End",
+            "pid": "3"
+          }
+        ],
+        "name": "Scared",
+        "pid": "61"
       },
       {   
         "text": "Ur not suppposed to see dis. Report to Luke pls",

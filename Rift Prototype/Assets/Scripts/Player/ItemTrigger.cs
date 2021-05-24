@@ -49,13 +49,13 @@ public class ItemTrigger : MonoBehaviour
             {
                 if(currentItem.items.Count() == 1)
                 {
-                    globalData.overlay.changePrompt("Press 'E' to use " + currentItem.items[0]);
+                    globalData.overlay.changePrompt("Press 'E' to use " + currentItem.items[0].itemName);
                     globalData.overlay.changePromptActive(true);
                 } 
                 else if(currentItem.items.Count() >= 0)
                 {
                     Debug.Log("Created, Filled, Shot, ToBeDestroyed, with multiple Names");
-                    globalData.overlay.changePrompt("Press 'E' to use " + currentItem.items[0]);
+                    globalData.overlay.changePrompt("Press 'E' to use " + currentItem.items[0].itemName);
                     globalData.overlay.changePromptActive(true);
                 }
             } 
@@ -65,7 +65,7 @@ public class ItemTrigger : MonoBehaviour
                 {
                     if(currentItem.items.Count() == 1)
                     {
-                        globalData.overlay.changePrompt("Press 'E' to interact with " + currentItem.items[0] + " Ghost.");
+                        globalData.overlay.changePrompt("Press 'E' to interact with " + currentItem.items[0].itemName + " Ghost.");
                     } else
                         globalData.overlay.changePrompt("Press 'E' to interact with Ghosts");
                     globalData.overlay.changePromptActive(true);
@@ -78,7 +78,7 @@ public class ItemTrigger : MonoBehaviour
                 {
                     if(currentItem.items.Count() == 1)
                     {
-                        globalData.overlay.changePrompt("Press 'E' to pickup " + currentItem.items[0]);
+                        globalData.overlay.changePrompt("Press 'E' to pickup " + currentItem.items[0].itemName);
                     } 
                     else
                     {

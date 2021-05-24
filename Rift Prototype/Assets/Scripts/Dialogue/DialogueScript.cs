@@ -45,8 +45,8 @@ public class DialogueScript : StateInterface, IPointerClickHandler
             bool leave = twineParser.chooseOption(linkId);
             updateDialogueBox();
             changePortrait();
-            //this.mainCamera.focusObj = null;
-            //Debug.Log("linkId: " + linkId + "\nleavingPid: " + leavingPid + "\ncurrTree: " + currTree + "\nleave: " + leave);
+            stateMachine.handleAction("Dialogue",leave,false,"",leavingPid,currTree);
+            Debug.Log("linkId: " + linkId + "\nleavingPid: " + leavingPid + "\ncurrTree: " + currTree + "\nleave: " + leave);
             if(leave)
             {
                 this.mainCamera.focus = false;

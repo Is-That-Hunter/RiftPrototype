@@ -151,13 +151,6 @@ public class SequenceHandler : MonoBehaviour
                 }
                 mainCamera.focus = true;
                 break;
-            /*case "Zoom":
-                mainCamera.GetComponent<CameraController>().focusObject = getZoomObject(action.targetObj).target.transform;
-                twineParser.currTree = action.tree;
-                twineParser.changePid(action.tree,action.pid);
-                stateMachine.pushState("Dialogue",false);
-                working = false;
-                break;*/
             case "Item":
                 if(globalData.inventory.InventorySize() == 10)
                 {
@@ -170,6 +163,8 @@ public class SequenceHandler : MonoBehaviour
                 globalData.inventory.RemoveItemByName(action.targetObj);
                 break;
             case "Scene":
+                if(action.itemName != null)
+                    globalData.inventory.RemoveItemByName(action.itemName);
                 StartCoroutine(globalData.LoadScene(action.scene));
                 break;
             case "Scenes":
@@ -189,14 +184,8 @@ public class SequenceHandler : MonoBehaviour
                 //Debug.Log(player.GetComponent<BasicMovement>().inMonsterPlat);
                 playerTransform.position = new Vector3(action.posX, action.posY, action.posZ);
                 break;
-            case "Destroy":
-                globalData.inventory.RemoveItemByName(action.targetObj);
-                globalData.placeableObjects[1] = "Destroyed";
-                globalData.LoadCarnivalData();
-                break;
-            case "Fill":
-                globalData.inventory.RemoveItemByName(action.targetObj);
-                globalData.placeableObjects[2] = "Filled";
+            case "ChangeSavedData":
+                globalData.findAndChangeObjectData(action.targetObj, action.itemState, action.itemName);
                 globalData.LoadCarnivalData();
                 break;
             case "SceneLoaded":

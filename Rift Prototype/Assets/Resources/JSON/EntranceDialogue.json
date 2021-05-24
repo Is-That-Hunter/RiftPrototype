@@ -21,8 +21,44 @@
             "pid": "1"
           }
         ],
-        "name": "Scared",
+        "name": "Enter Ladder",
         "pid": "2"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "This looks like a good place to get over the wall...\nNow if only I had something\n(if:Ladder)[[[Use Ladder->Use Ladder]]]\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "1"
+          },
+          {
+            "leave": false,
+            "name": "Use Ladder",
+            "link": "Use Ladder",
+            "pid": "4"
+          }
+        ],
+        "name": "Interact Ghost Ladder",
+        "pid": "3"
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "*Angela throws a rope across the rooftops*\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "1"
+          }
+        ],
+        "name": "Use Ladder",
+        "pid": "4"
       }
   ]
 }
