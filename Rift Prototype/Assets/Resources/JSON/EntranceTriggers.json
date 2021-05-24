@@ -11,8 +11,23 @@
             },
             "triggerAction":{
                 "type":"Scene",
-                "sceneTriggers":"Carnival",
+                "addSeq":"Carnival",
+                "removeSeq":"Entrance",
                 "scene":"FullScene"
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"Enter Ghost Ladder",
+                "pid": -1,
+                "tree":"",
+                "once": true
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "tree":"Entrance",
+                "pid": 2
             }
         },
         {
@@ -56,6 +71,18 @@
             "triggerAction":{
                 "type":"Item",
                 "itemName": "Pen"
+            }
+        },
+        {"triggerType":"Dialogue",
+            "triggerInfo":{
+                "onLeave": true,
+                "onAction":"",
+                "pid": 4,
+                "tree":"Tutorial"
+            },
+            "triggerAction":{
+                "type":"RemoveItem",
+                "targetObj": "Lighter"
             }
         }
     ]   

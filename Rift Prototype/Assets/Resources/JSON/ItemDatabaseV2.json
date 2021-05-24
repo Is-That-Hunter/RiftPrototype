@@ -348,7 +348,7 @@
        "itemDescription":"Traditional cannon ammunition, can come in human variants.",
        "spriteName":"cannonball",
        "craftable":true,
-       "placeable":true
+       "placeable":false
     },
     {
        "itemName":"Firecracker",
@@ -358,7 +358,7 @@
        "itemDescription":"Dynamite's flashier cousin.",
        "spriteName":"firecracker",
        "craftable":true,
-       "placeable":true
+       "placeable":false
     },
     {
        "itemName":"Flare",
@@ -368,7 +368,7 @@
        "itemDescription":"Use to signal from far-away, or provide excellent mood lighting",
        "spriteName":"flare",
        "craftable":true,
-       "placeable":true
+       "placeable":false
     },
     {
        "itemName":"Flashlight",

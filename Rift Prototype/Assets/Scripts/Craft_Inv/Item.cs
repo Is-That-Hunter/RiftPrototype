@@ -31,7 +31,7 @@ public class Item
 
     public string GetAttr()
     {
-        string str = "Size: "+itemSize+"\nType: "+itemType+"\nMaterial: "+itemMaterial;
+        string str = "Size:\n   "+itemSize+"\nType:\n   "+itemType+"\nMaterial:\n   "+itemMaterial;
         return str;
     }
 

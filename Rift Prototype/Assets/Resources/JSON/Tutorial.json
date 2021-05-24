@@ -51,11 +51,11 @@
         {
             "character": "Angela",
             "zoom": true,
-            "text": "ANGELA: Well, today's strange enough already. Let's see if I'm tall enough to ride this ride.\n\n[[End Interaction]]\n",
+            "text": "ANGELA: Well, today's strange enough already. Let's see if I'm tall enough to ride this ride.\n\n[[Explore the Carnival Entrance->End Interaction]]\n",
             "links": [
                 {
-                    "leave": true,
-                    "name": "End Interaction",
+                "leave": true,
+                "name": "Explore the Carnival Entrance",
                 "link": "End Interaction",
                 "pid": "5"
                 }

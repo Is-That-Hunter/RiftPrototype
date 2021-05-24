@@ -159,7 +159,15 @@ public class SequenceHandler : MonoBehaviour
                 working = false;
                 break;*/
             case "Item":
-                globalData.inventory.AddItem(globalData.itemDatabase.FindItem(action.itemName));
+                if(globalData.inventory.InventorySize() == 10)
+                {
+                    handleAction(new TriggerInfo(false, false, "Inventory Full",-1,""), "Player");
+                }
+                else
+                    globalData.inventory.AddItem(globalData.itemDatabase.FindItem(action.itemName));
+                break;
+            case "RemoveItem":
+                globalData.inventory.RemoveItemByName(action.targetObj);
                 break;
             case "Scene":
                 StartCoroutine(globalData.LoadScene(action.scene));
@@ -192,13 +200,12 @@ public class SequenceHandler : MonoBehaviour
                 globalData.LoadCarnivalData();
                 break;
             case "SceneLoaded":
-                
                 break;
             case "ChangeTele":
                 Sequence seq = sceneSequences.Where(i=>i.name == trig.sequenceName).First();
                 Trigger changeTrig = seq.triggers.Where(i=>i.tid == action.changetid).First();
                 changeTrig.triggerAction.posX = (int)globalData.player.transform.position.x;
-                changeTrig.triggerAction.posY = (int)globalData.player.transform.position.y + 1;
+                changeTrig.triggerAction.posY = (int)globalData.player.transform.position.y + 3;
                 changeTrig.triggerAction.posZ = (int)globalData.player.transform.position.z;
                 break;
             case "Exit":

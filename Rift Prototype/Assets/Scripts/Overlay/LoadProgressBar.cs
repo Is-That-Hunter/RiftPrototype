@@ -7,11 +7,6 @@ public class LoadProgressBar : MonoBehaviour
     public Text m_Text;
     public bool isActive;
     public Image image;
-
-    private void Start()
-    {
-        image = gameObject.GetComponent<Image>();
-    }
     
     public void UpdateBar(float progress) {
         //m_Text.text = "Loading progress: " + (progress * 100) + "%";

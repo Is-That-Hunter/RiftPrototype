@@ -5,6 +5,7 @@ using UnityEngine;
 public class Overlay : MonoBehaviour
 {
     public GameObject prompt;
+    private TMPro.TextMeshProUGUI text;
     public GameObject promptBox;
     public bool promptActive;
     public bool isPlaying;
@@ -18,6 +19,7 @@ public class Overlay : MonoBehaviour
             if(t.gameObject.name == "Prompt")
             {
                 this.prompt = t.gameObject;
+                text = this.prompt.GetComponent<TMPro.TextMeshProUGUI>();
             }
             if(t.gameObject.name == "PromptBox")
             {
@@ -29,21 +31,27 @@ public class Overlay : MonoBehaviour
 
     public void changePrompt(string prompt)
     {
-        this.prompt.GetComponent<TMPro.TextMeshProUGUI>().text = prompt;
+        text.text = prompt;
     }
     public void changePromptActive(bool isActive)
     {
         if(isActive && stateMachine.peekState().stateName == "Player")
         {
             promptActive = isActive;
-            this.prompt.GetComponent<TMPro.TextMeshProUGUI>().enabled = promptActive;
+            text.enabled = promptActive;
             this.promptBox.SetActive(promptActive);
         }
         else if(!isActive) {
             promptActive = isActive;
-            this.prompt.GetComponent<TMPro.TextMeshProUGUI>().enabled = promptActive;
+            text.enabled = promptActive;
             this.promptBox.SetActive(promptActive);
         }
         
+    }
+    public void forceChangePromptActive(bool isActive)
+    {
+        promptActive = isActive;
+        text.enabled = promptActive;
+        this.promptBox.SetActive(promptActive);
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemTag : MonoBehaviour
 {
     public string attachedItemName;
+    public string[] otherNames;
     //public bool placeable = false;
     public string itemState = "Static"; 
     //"Static", "Ghost", "Created", "ToBeDestroyed", "Destroyed", "Filled", "Shot"
@@ -18,7 +19,7 @@ public class ItemTag : MonoBehaviour
     public float timeTillRespawn = 0.0f;
     public float respawnTime = 5.0f;
     public GameObject Obj;
-    public GameObject SecondaryObj;
+    public GameObject[] OtherObjs;
     private BoxCollider ParentCollider;
     public Material[] ObjMaterials_;
     private List<Material> ObjMaterials = new List<Material>();
@@ -71,6 +72,23 @@ public class ItemTag : MonoBehaviour
                     foreach(Material mat in ObjMaterials_ )
                     {
                         ObjMaterials.Add(mat);
+                    }
+                }
+            }
+            if(special)
+            {
+                foreach(GameObject g in OtherObjs)
+                {
+                    foreach(Transform t in g.GetComponentInChildren<Transform>())
+                    {
+                        foreach(MeshRenderer meshes in t.GetComponentsInChildren<MeshRenderer>())
+                        {
+                            ObjMaterials_ = meshes.materials;
+                            foreach(Material mat in ObjMaterials_ )
+                            {
+                                ObjMaterials.Add(mat);
+                            }
+                        }
                     }
                 }
             }
@@ -162,7 +180,7 @@ public class ItemTag : MonoBehaviour
         else if(newState == "Destroyed")
         {
             Obj.SetActive(false);
-            SecondaryObj.SetActive(false);
+            OtherObjs[0].SetActive(false);
         }
     }
 }

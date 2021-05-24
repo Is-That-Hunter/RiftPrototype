@@ -219,9 +219,9 @@ public class BasicMovement : StateInterface
 
     public void Item_Pickup(ItemTrigger itemTrigger)
     {
-        if(globalData.inventory.InventorySize() == 8)
+        if(globalData.inventory.InventorySize() == 10)
         {
-            stateMachine.handleAction("Player", onAction: "Invetory Full");
+            stateMachine.handleAction("Player", onAction: "Inventory Full");
         }
         else
         {
@@ -263,7 +263,7 @@ public class BasicMovement : StateInterface
             else if(itemTrigger.currentCol != null)
             {
                 //if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
-                if(new string[] {"Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
+                if(new string[] {"Ghost", "Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
                     stateMachine.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState +" " + itemTrigger.currentItem.attachedItemName);
                 else if(itemTrigger.currentItem.itemState == "Static")
                 {
@@ -302,7 +302,8 @@ public class BasicMovement : StateInterface
     void OnEnable(){
         this.gameObject.GetComponent<PlayerInput>().enabled = true;
         controls.PlayerMovement.Enable();
-        controls.Develop.Enable();
+        //controls.Develop.Enable();
+        controls.GlobalButtons.Enable();
         controls.PlayerMovement.Running.performed += ctx => isRunnning = true;
         controls.PlayerMovement.Running.performed += ctx => isCrouching = false;
         controls.PlayerMovement.Running.canceled += ctx => isRunnning = false;
@@ -315,21 +316,14 @@ public class BasicMovement : StateInterface
         controls.PlayerMovement.Interact.performed += ctxe => Interact();
         controls.PlayerMovement.Jump.performed += ctx => isJump = true;
         controls.PlayerMovement.Jump.canceled += ctx => isJump = false;
-        controls.Develop.Carnival.performed += ctx => developCarnival();
+        //controls.Develop.Carnival.performed += ctx => developCarnival();
         controls.PlayerMovement.Move.canceled += ctx => StopMoveSound();
+        controls.GlobalButtons.EndCutscene.performed += ctx =>globalData.endCutscene();
     }
 
     void OnDisable(){
         controls.PlayerMovement.Disable();
         this.gameObject.GetComponent<PlayerInput>().enabled = false;
     }
-
-    public void endGame(){
-        this.gameObject.GetComponent<PlayerInput>().enabled = true;
-        controls.PlayerMovement.Enable();
-        controls.PlayerMovement.AnyKey.performed += ctx => globalData.endGame = 3;
-    }
-
-    //End
 
 }

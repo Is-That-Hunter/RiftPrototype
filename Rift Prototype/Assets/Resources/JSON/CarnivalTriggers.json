@@ -65,6 +65,21 @@
         {
             "triggerType":"Player",
             "triggerInfo":{
+                "onAction": "Interact Created Ladder",
+                "pid": -1,
+                "tree":""
+            },
+            "triggerAction":{
+                "type":"Teleport",
+                "posX": -40,
+                "posY": 6,
+                "posZ": 31,
+                "playerScale": 0.09
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
                 "onAction": "Interact Created Cannon",
                 "pid": -1,
                 "tree":""

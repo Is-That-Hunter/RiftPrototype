@@ -76,14 +76,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "AnyKey",
-                    "type": "Button",
-                    "id": "83e3fac8-7701-4490-aac4-654e99096b09",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -282,17 +274,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "01d7c78e-97c8-4c2b-aeca-2b9768598619",
-                    "path": "<Keyboard>/anyKey",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AnyKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -597,6 +578,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "Carnival",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "GlobalButtons",
+            "id": "d0aaa540-3ecb-44c4-ac77-38dc4a3be5e3",
+            "actions": [
+                {
+                    "name": "EndCutscene",
+                    "type": "Button",
+                    "id": "59d5dae9-2abc-46ff-a3cf-483899f3733e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "92762af1-d365-448d-8da5-e253ba7903d8",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EndCutscene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

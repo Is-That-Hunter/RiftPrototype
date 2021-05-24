@@ -100,18 +100,14 @@ public class GlobalData : MonoBehaviour
                     
                     asyncOperation.allowSceneActivation = true;
                 }
-                else if(endGame == 1)
-                {
-                    player.GetComponent<BasicMovement>().endGame();
-                    endGame = 2;
-                }
-                else if(endGame == 3)
+                else if(endGame == 2)
                 {
                     asyncOperation.allowSceneActivation = true;
                 }
                 //Send Scene Entered Trigger, and close all stuck overlays
                 
-                overlay.changePromptActive(false);
+                if(mainCamera.skyCamStatus != 1)
+                    overlay.changePromptActive(false);
             }
             yield return null;
         }
@@ -124,6 +120,13 @@ public class GlobalData : MonoBehaviour
         }
     
     }
+    public void releaseTheStates() {
+        stateMachine.enableTopState();
+    }
+    public void noTopState() {
+        stateMachine.disableTopState();
+    }
+
     void FixedUpdate()
     {
         if(!sceneLoaded && !mainCamera.waitforslow && ignore)
@@ -192,6 +195,22 @@ public class GlobalData : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+
+    public void endCutscene()
+    {
+        if(endGame == 1)
+        {
+            endGame = 2;
+        }
+        if(mainCamera.skyCamStatus == 1)
+        {
+            mainCamera.skyCamStatus = 2;
+            mainCamera.GetComponent<Camera>().enabled = true;
+            Destroy(mainCamera.skyCam.gameObject);
+            releaseTheStates();
+            overlay.changePromptActive(false);
         }
     }
 }

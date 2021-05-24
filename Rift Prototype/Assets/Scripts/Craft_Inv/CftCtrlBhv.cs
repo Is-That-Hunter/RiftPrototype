@@ -113,7 +113,7 @@ public class CftCtrlBhv : StateInterface
             if (recipe.TryGetValue((requested_Size.item.itemSize, requested_Type.item.itemType, requested_Material.item.itemMaterial), out string value))
             {
                 Item craftedItem = allItems.FindItem(value);
-                if(craftedItem.placeable)
+                /*if(craftedItem.placeable)
                 {
                     if(itemTrigger.currentCol != null && itemTrigger.currentItem.attachedItemName == value
                         && new string[]{"Ghost", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
@@ -122,14 +122,20 @@ public class CftCtrlBhv : StateInterface
                         crafted = true;
                         stateMachine.handleAction("Inventory", onAction: "Craft Success PlaceableItem " + value);
                         if(itemTrigger.currentItem.itemState == "Ghost")
+                        {
+                            if(itemTrigger.currentItem.special)
+                            {
+                                foreach(GameObject g in itemTrigger.currentItem.OtherObjs)
+                                    Destroy(g);
+                            }
                             itemTrigger.currentItem.setState("Created");
+                        }
                         else
                             itemTrigger.currentItem.setState("Destroyed");
-                        //itemTrigger.currentItem.setCreated(true);
                     }
                     else
                         stateMachine.handleAction("Inventory", onAction: "Craft Fail PlaceableItem " + value);
-                }
+                }*/
                 else
                 {
                     crafted = true;

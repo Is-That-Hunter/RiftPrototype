@@ -1,0 +1,28 @@
+{
+  "name": "Entrance",
+  "currPid": 1, 
+  "passages": [
+      {   
+        "text": "Ur not suppposed to see dis. Report to Luke pls",
+        "name": "End",
+        "pid": "1",
+        "character": "Angela",
+        "zoom": true
+      },
+      {
+        "character": "Angela",
+        "zoom": true,
+        "text": "\"I think I might be able to build something here to climb this wall. God damn Guards...\"\n[[Done->End]]",
+        "links": [
+          {
+            "leave": true,
+            "name": "Done",
+            "link": "End",
+            "pid": "1"
+          }
+        ],
+        "name": "Scared",
+        "pid": "2"
+      }
+  ]
+}

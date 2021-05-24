@@ -31,6 +31,36 @@
                 "tree":"Bark",
                 "targetObj":""
             }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"Interact Ghost",
+                "pid": -1,
+                "onLeave":false,
+                "onEnter":false,
+                "tree": ""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":38,
+                "tree":"Bark"
+            }
+        },
+        {
+            "triggerType":"Player",
+            "triggerInfo":{
+                "onAction":"Inventory Full",
+                "pid": -1,
+                "onLeave":false,
+                "onEnter":false,
+                "tree": ""
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":39,
+                "tree":"Bark"
+            }
         }
 
     ]

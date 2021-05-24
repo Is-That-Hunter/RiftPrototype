@@ -99,6 +99,16 @@ public class StateMachine : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+    public void disableTopState()
+    {
+        State x = stateStack.Peek();
+        x.changeActive(false, true);
+    }
+    public void enableTopState()
+    {
+        State x = stateStack.Peek();
+        x.changeActive(true);
+    }
     public State peekState()
     {
         return stateStack.Peek();

@@ -22,6 +22,7 @@ public class DialogueScript : StateInterface, IPointerClickHandler
     public void changePortrait() {
         CharacterPortrait charPortrait = twineParser.getCurrCharacterPortrait();
         this.characterHead.GetComponent<Image>().sprite = charPortrait.portrait;
+        this.mainCamera.focusObject = charPortrait.character.transform;
     }
 
     public void updateDialogueBox() {

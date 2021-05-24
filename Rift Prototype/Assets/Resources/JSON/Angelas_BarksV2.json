@@ -540,6 +540,36 @@
       ],
       "name": "Fail Crafting Placeable",
       "pid": "37"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Maybe I could try craft something large here..\"\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Interact Ghost Item",
+      "pid": "38"
+    },
+    {
+      "character": "Angela",
+      "zoom": true,
+      "text": "\"Damn, all out of space..\nBetter Drop something.\nMaybe I could make something out of this junk instead.\"\n[[Exit]]",
+      "links": [
+        {
+          "leave": true,          
+          "name": "Exit",
+          "link": "Exit",
+          "pid": "36"
+        }
+      ],
+      "name": "Inventory Full",
+      "pid": "39"
     }
   ]
 }

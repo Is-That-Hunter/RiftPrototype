@@ -89,14 +89,6 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""AnyKey"",
-                    ""type"": ""Button"",
-                    ""id"": ""83e3fac8-7701-4490-aac4-654e99096b09"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -295,17 +287,6 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""01d7c78e-97c8-4c2b-aeca-2b9768598619"",
-                    ""path"": ""<Keyboard>/anyKey"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AnyKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -614,6 +595,33 @@ public class @MainController : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""GlobalButtons"",
+            ""id"": ""d0aaa540-3ecb-44c4-ac77-38dc4a3be5e3"",
+            ""actions"": [
+                {
+                    ""name"": ""EndCutscene"",
+                    ""type"": ""Button"",
+                    ""id"": ""59d5dae9-2abc-46ff-a3cf-483899f3733e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""92762af1-d365-448d-8da5-e253ba7903d8"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EndCutscene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -629,7 +637,6 @@ public class @MainController : IInputActionCollection, IDisposable
         m_PlayerMovement_State_Switch = m_PlayerMovement.FindAction("State_Switch", throwIfNotFound: true);
         m_PlayerMovement_Interact = m_PlayerMovement.FindAction("Interact", throwIfNotFound: true);
         m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
-        m_PlayerMovement_AnyKey = m_PlayerMovement.FindAction("AnyKey", throwIfNotFound: true);
         // Inventory_Craft
         m_Inventory_Craft = asset.FindActionMap("Inventory_Craft", throwIfNotFound: true);
         m_Inventory_Craft_Move = m_Inventory_Craft.FindAction("Move", throwIfNotFound: true);
@@ -650,6 +657,9 @@ public class @MainController : IInputActionCollection, IDisposable
         // Develop
         m_Develop = asset.FindActionMap("Develop", throwIfNotFound: true);
         m_Develop_Carnival = m_Develop.FindAction("Carnival", throwIfNotFound: true);
+        // GlobalButtons
+        m_GlobalButtons = asset.FindActionMap("GlobalButtons", throwIfNotFound: true);
+        m_GlobalButtons_EndCutscene = m_GlobalButtons.FindAction("EndCutscene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -708,7 +718,6 @@ public class @MainController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_State_Switch;
     private readonly InputAction m_PlayerMovement_Interact;
     private readonly InputAction m_PlayerMovement_Pause;
-    private readonly InputAction m_PlayerMovement_AnyKey;
     public struct PlayerMovementActions
     {
         private @MainController m_Wrapper;
@@ -722,7 +731,6 @@ public class @MainController : IInputActionCollection, IDisposable
         public InputAction @State_Switch => m_Wrapper.m_PlayerMovement_State_Switch;
         public InputAction @Interact => m_Wrapper.m_PlayerMovement_Interact;
         public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
-        public InputAction @AnyKey => m_Wrapper.m_PlayerMovement_AnyKey;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -759,9 +767,6 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
-                @AnyKey.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAnyKey;
-                @AnyKey.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAnyKey;
-                @AnyKey.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAnyKey;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -793,9 +798,6 @@ public class @MainController : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
-                @AnyKey.started += instance.OnAnyKey;
-                @AnyKey.performed += instance.OnAnyKey;
-                @AnyKey.canceled += instance.OnAnyKey;
             }
         }
     }
@@ -996,6 +998,39 @@ public class @MainController : IInputActionCollection, IDisposable
         }
     }
     public DevelopActions @Develop => new DevelopActions(this);
+
+    // GlobalButtons
+    private readonly InputActionMap m_GlobalButtons;
+    private IGlobalButtonsActions m_GlobalButtonsActionsCallbackInterface;
+    private readonly InputAction m_GlobalButtons_EndCutscene;
+    public struct GlobalButtonsActions
+    {
+        private @MainController m_Wrapper;
+        public GlobalButtonsActions(@MainController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EndCutscene => m_Wrapper.m_GlobalButtons_EndCutscene;
+        public InputActionMap Get() { return m_Wrapper.m_GlobalButtons; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GlobalButtonsActions set) { return set.Get(); }
+        public void SetCallbacks(IGlobalButtonsActions instance)
+        {
+            if (m_Wrapper.m_GlobalButtonsActionsCallbackInterface != null)
+            {
+                @EndCutscene.started -= m_Wrapper.m_GlobalButtonsActionsCallbackInterface.OnEndCutscene;
+                @EndCutscene.performed -= m_Wrapper.m_GlobalButtonsActionsCallbackInterface.OnEndCutscene;
+                @EndCutscene.canceled -= m_Wrapper.m_GlobalButtonsActionsCallbackInterface.OnEndCutscene;
+            }
+            m_Wrapper.m_GlobalButtonsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @EndCutscene.started += instance.OnEndCutscene;
+                @EndCutscene.performed += instance.OnEndCutscene;
+                @EndCutscene.canceled += instance.OnEndCutscene;
+            }
+        }
+    }
+    public GlobalButtonsActions @GlobalButtons => new GlobalButtonsActions(this);
     public interface IPlayerMovementActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -1007,7 +1042,6 @@ public class @MainController : IInputActionCollection, IDisposable
         void OnState_Switch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnAnyKey(InputAction.CallbackContext context);
     }
     public interface IInventory_CraftActions
     {
@@ -1032,5 +1066,9 @@ public class @MainController : IInputActionCollection, IDisposable
     public interface IDevelopActions
     {
         void OnCarnival(InputAction.CallbackContext context);
+    }
+    public interface IGlobalButtonsActions
+    {
+        void OnEndCutscene(InputAction.CallbackContext context);
     }
 }
