@@ -39,6 +39,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &578905809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44540185892711053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c65807274391a46895d59ea40097b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Broken Bottle
 --- !u!1 &8340613759821407992
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,19 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f94a2706b46449fa231cd251cf83d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedItemName: Broken Bottle
-  placeable: 0
-  created: 0
+  items: []
+  relatedObjects: []
+  itemState: Static
   indicator: 0
   destroyed: 0
   infinite: 0
   timeTillRespawn: 0
   respawnTime: 5
-  Obj: {fileID: 44540185892711053}
+  ObjMaterials_: []
   Transparency: 0.2
-  arrowSpeed: 0.4
-  minY: 3.1
-  maxY: 4.6
+  arrowSpeed: 0.3
+  minY: 1.5
+  maxY: 2
 --- !u!1001 &8340613760315175812
 PrefabInstance:
   m_ObjectHideFlags: 0
