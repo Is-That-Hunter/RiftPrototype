@@ -1,25 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 //Attatch to Item Tagged Objects and edit its name for each item
 public class ItemTag : MonoBehaviour
 {
-    public string attachedItemName;
-    public string[] otherNames;
-    //public bool placeable = false;
+    public List<ItemName> items = new List<ItemName>();
+    public List<GameObject> relatedObjects = new List<GameObject>();
     public string itemState = "Static"; 
     //"Static", "Ghost", "Created", "ToBeDestroyed", "Destroyed", "Filled", "Shot"
-    //public bool created = false;
-    public bool special = false;
     public bool indicator = false;
     public bool destroyed = false;
     public bool infinite = false;
     public float timeTillRespawn = 0.0f;
     public float respawnTime = 5.0f;
-    public GameObject Obj;
-    public GameObject[] OtherObjs;
     private BoxCollider ParentCollider;
     public Material[] ObjMaterials_;
     private List<Material> ObjMaterials = new List<Material>();
@@ -32,10 +28,6 @@ public class ItemTag : MonoBehaviour
 
     private void Start()
     {
-        if(attachedItemName == null)
-        {
-            Debug.Log("ITEM HAS NO ITEM");
-        }
         if(itemState == "")
             itemState = "Static";
         Transform[] ts = this.transform.parent.GetComponentsInChildren<Transform>(true);
@@ -45,50 +37,35 @@ public class ItemTag : MonoBehaviour
             {
                 pointer = t;
             }
-            else if(t.gameObject.name != "Collider" && Obj == null)
+            else 
             {
-                Obj = t.gameObject;
+                ItemName itemName = t.GetComponent<ItemName>();
+                if(itemName != null) {
+                    items.Add(itemName);
+                }
+                else if(t.gameObject.name != "Collider")
+                {
+                    relatedObjects.Add(t.gameObject);
+                }
             }
         }
         
-        if(pointer != null)
-            pointer.gameObject.SetActive(indicator);
+        //if(pointer != null)
+        //    pointer.gameObject.SetActive(indicator);
         
         if(itemState == "Ghost")
         {
-            if(Obj != null && Obj.GetComponent<MeshRenderer>() != null)
+            foreach(ItemName item in items)
             {
-                ObjMaterials_ = Obj.GetComponent<MeshRenderer>().materials;
-                foreach(Material mat in ObjMaterials_ )
+                MeshRenderer mesh = item.GetComponent<MeshRenderer>();
+                if(mesh != null)
                 {
-                    ObjMaterials.Add(mat);
+                    ObjMaterials.AddRange(mesh.materials);
                 }
-            }
-            else if(Obj == null && Obj.GetComponentsInChildren<MeshRenderer>() != null)
-            {
-                foreach(MeshRenderer meshes in Obj.GetComponentsInChildren<MeshRenderer>())
-                {
-                    ObjMaterials_ = meshes.materials;
-                    foreach(Material mat in ObjMaterials_ )
+                else {
+                    foreach(MeshRenderer meshes in item.GetComponentsInChildren<MeshRenderer>())
                     {
-                        ObjMaterials.Add(mat);
-                    }
-                }
-            }
-            if(special)
-            {
-                foreach(GameObject g in OtherObjs)
-                {
-                    foreach(Transform t in g.GetComponentInChildren<Transform>())
-                    {
-                        foreach(MeshRenderer meshes in t.GetComponentsInChildren<MeshRenderer>())
-                        {
-                            ObjMaterials_ = meshes.materials;
-                            foreach(Material mat in ObjMaterials_ )
-                            {
-                                ObjMaterials.Add(mat);
-                            }
-                        }
+                        ObjMaterials.AddRange(meshes.materials);
                     }
                 }
             }
@@ -98,6 +75,10 @@ public class ItemTag : MonoBehaviour
             }
         }
         ParentCollider = gameObject.transform.parent.GetComponent<BoxCollider>();
+        if(items.Count() == 0)
+        {
+            Debug.Log("No Items in Item Tag");
+        }
     }
 
     private void Update()
@@ -120,7 +101,7 @@ public class ItemTag : MonoBehaviour
                 pointer.position = new Vector3(pointer.position.x, move, pointer.position.z);
             }
         }
-        else if(Obj != null && itemState == "Static")
+        else if(itemState == "Static")
         {
             if(timeTillRespawn != 0.0f)
             {
@@ -136,20 +117,13 @@ public class ItemTag : MonoBehaviour
             {
                 if(ParentCollider != null)
                     ParentCollider.enabled = false;
-                Obj.SetActive(false);
-            }
-            if(!destroyed && !infinite)
-            {
-                if(ParentCollider != null)
-                    ParentCollider.enabled = true;
-                Obj.SetActive(true);
+                items.First().gameObject.SetActive(false);
             }
         }
     }
 
     public void setIndicator(bool active)
     {
-        //if(!created && placeable)
         if(itemState == "Ghost")
         {
             indicator = active;
@@ -179,8 +153,10 @@ public class ItemTag : MonoBehaviour
         }
         else if(newState == "Destroyed")
         {
-            Obj.SetActive(false);
-            OtherObjs[0].SetActive(false);
+            foreach(ItemName item in items)
+                item.gameObject.SetActive(false);
+            foreach(GameObject obj in relatedObjects)
+                obj.SetActive(false);
         }
     }
 }

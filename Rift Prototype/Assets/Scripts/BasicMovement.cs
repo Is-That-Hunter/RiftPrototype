@@ -225,24 +225,34 @@ public class BasicMovement : StateInterface
         }
         else
         {
-            GameObject itemObject = itemTrigger.gameObject;
-            ItemDatabase ItemDB = globalData.itemDatabase;
-            Item itemGrab = null;
-            //Get Item Name
-            string itemName = itemTrigger.currentItem.attachedItemName;
-            if(!itemTrigger.currentItem.destroyed)
+            if(itemTrigger.currentItem.items.Count() == 0)
             {
-                itemGrab = ItemDB.FindItem(itemName);
-                stateMachine.handleAction("Player", onAction: "PickUp " + itemName);
+                Debug.Log("ItemTrigger has no items to pickup");
+            }
+            else if(itemTrigger.currentItem.items.Count() > 1)
+            {
+                string str = "";
+                foreach(ItemName item in itemTrigger.currentItem.items)
+                    str += item.itemName+"\n";
+                Debug.Log("ItemTrigger has too many items attatched:\n" + str);
+            }
+            else
+            {
+                ItemDatabase ItemDB = globalData.itemDatabase;
+                Item itemGrab = null;
+                string itemName = itemTrigger.currentItem.items[0].itemName;
+                if(!itemTrigger.currentItem.destroyed)
+                {
+                    itemGrab = ItemDB.FindItem(itemName);
+                    stateMachine.handleAction("Player", onAction: "PickUp " + itemName);
 
-                globalData.inventory.AddItem(itemGrab);
-                itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
-                itemTrigger.currentItem.destroyed = true;
-                globalData.overlay.changePromptActive(false);
+                    globalData.inventory.AddItem(itemGrab);
+                    itemTrigger.currentItem.timeTillRespawn = itemTrigger.currentItem.respawnTime;
+                    itemTrigger.currentItem.destroyed = true;
+                    globalData.overlay.changePromptActive(false);
+                }
             }
         }
-        
-        
     }
 
     public void Interact()
@@ -262,9 +272,15 @@ public class BasicMovement : StateInterface
             }
             else if(itemTrigger.currentCol != null)
             {
-                //if (itemTrigger.currentItem.placeable & itemTrigger.currentItem.created)
                 if(new string[] {"Ghost", "Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
-                    stateMachine.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState +" " + itemTrigger.currentItem.attachedItemName);
+                {
+                    string str = "";
+                    foreach(ItemName item in itemTrigger.currentItem.items)
+                    {
+                        str += " "+item.itemName;
+                    }
+                    stateMachine.handleAction("Player", onAction: "Interact "+ itemTrigger.currentItem.itemState + str);
+                }
                 else if(itemTrigger.currentItem.itemState == "Static")
                 {
                     Item_Pickup(itemTrigger);

@@ -22,59 +22,80 @@ public class ItemTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             //If the GameObject has the same tag as specified, output this message in the console
-            ItemTag item = collision.gameObject.GetComponent<ItemTag>();
-            currentItem = item;
+            currentItem = collision.gameObject.GetComponent<ItemTag>();
 
-            //if(item.placeable)
-            if(new []{"Created", "Filled", "Shot", "Ghost", "ToBeDestroyed", "Destroyed"}.Contains(item.itemState))
+            /*if(new []{"Created", "Filled", "Shot", "Ghost", "ToBeDestroyed", "Destroyed"}.Contains(currentItem.itemState))
             {
-                string action = "Enter "+ item.itemState+" " + item.attachedItemName;
-                //Uncomment if we want to call an action when entering a placeable item zone
-                globalData.GetComponent<StateMachine>().handleAction("Player", onAction: action);
-            }
+                foreach(ItemName name in currentItem.items)
+                {
+                    string action = "Enter "+ currentItem.itemState+" " + name;
+                    globalData.GetComponent<StateMachine>().handleAction("Player", onAction: action);
+                }
+            }*/
         }
     }
 
     //Detect collisions between the GameObjects with Colliders attached
     void OnTriggerStay(Collider collision)
     {
-
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.tag == "Item")
         {
             //If the GameObject has the same tag as specified, output this message in the console
-            ItemTag item = collision.gameObject.GetComponent<ItemTag>();
-            currentItem = item;
-            item.setIndicator(true);
+            currentItem = collision.gameObject.GetComponent<ItemTag>();
+            currentItem.setIndicator(true);
 
-            //if(item.placeable)
-            if(new []{"Created", "Filled", "Shot", "Ghost", "ToBeDestroyed", "Destroyed"}.Contains(item.itemState))
+            if(new []{"Created", "Filled", "Shot", "ToBeDestroyed"}.Contains(currentItem.itemState))
             {
-                string action = "Enter "+ item.itemState+" " + item.attachedItemName;
-                if(item.itemState != "Ghost" && item.itemState != "Destroyed")
+                if(currentItem.items.Count() == 1)
                 {
-                    //action += item.attachedItemName;
-                    string itemPrompt = "Press 'E' to use " + item.attachedItemName;
+                    globalData.overlay.changePrompt("Press 'E' to use " + currentItem.items[0]);
                     globalData.overlay.changePromptActive(true);
-                    globalData.overlay.changePrompt(itemPrompt);
+                } 
+                else if(currentItem.items.Count() >= 0)
+                {
+                    Debug.Log("Created, Filled, Shot, ToBeDestroyed, with multiple Names");
+                    globalData.overlay.changePrompt("Press 'E' to use " + currentItem.items[0]);
+                    globalData.overlay.changePromptActive(true);
                 }
-                
-                //Uncomment if we want to call an action when entering a placeable item zone
-                //globalData.GetComponent<StateMachine>().handleAction("Player", onAction: action);
+            } 
+            else if(new []{"Ghost", "Destroyed"}.Contains(currentItem.itemState))
+            {
+                if(currentItem.itemState == "Ghost")
+                {
+                    if(currentItem.items.Count() == 1)
+                    {
+                        globalData.overlay.changePrompt("Press 'E' to interact with " + currentItem.items[0] + " Ghost.");
+                    } else
+                        globalData.overlay.changePrompt("Press 'E' to interact with Ghosts");
+                    globalData.overlay.changePromptActive(true);
+                }
             }
             else
             {
                 //Set Overlay
-                if(!item.destroyed)
+                if(!currentItem.destroyed)
                 {
-                    string itemPrompt = "Press 'E' to pick up " + item.attachedItemName;
+                    if(currentItem.items.Count() == 1)
+                    {
+                        globalData.overlay.changePrompt("Press 'E' to pickup " + currentItem.items[0]);
+                    } 
+                    else
+                    {
+                        string str = "";
+                        foreach(ItemName name in currentItem.items)
+                        {
+                            str += name.itemName + ", ";
+                        }
+                        globalData.overlay.changePrompt("Press 'E' to pickup " + str);
+                    }
                     globalData.overlay.changePromptActive(true);
-                    globalData.overlay.changePrompt(itemPrompt);
                 }
                 
             }
             currentCol = collision;
-        } else if(collision.gameObject.tag == "Report")
+        } 
+        else if(collision.gameObject.tag == "Report")
         {
             reportBoo = true;
             string name = collision.gameObject.name;
@@ -102,8 +123,7 @@ public class ItemTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Item")
         {
-            ItemTag item = collision.gameObject.GetComponent<ItemTag>();
-            item.setIndicator(false);
+            collision.gameObject.GetComponent<ItemTag>().setIndicator(false);
 
             globalData.overlay.changePromptActive(false);
             currentCol = null;

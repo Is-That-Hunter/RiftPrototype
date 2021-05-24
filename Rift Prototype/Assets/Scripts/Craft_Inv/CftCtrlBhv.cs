@@ -35,6 +35,8 @@ public class CftCtrlBhv : StateInterface
     private InventoryItem requested_Type = null;
     private InventoryItem requested_Size = null;
 
+    private Sprite emptyItem = null;
+
     private void Awake()
     {
         globalData = globalData.GetComponent<GlobalData>();
@@ -65,6 +67,7 @@ public class CftCtrlBhv : StateInterface
             {
                 toolTip = t;
             }
+            emptyItem = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
         }
         //Each special action is defined, set to a filler variable, and assigned to a function to perform
         //When the button is pressed
@@ -105,7 +108,6 @@ public class CftCtrlBhv : StateInterface
         Inventory inventory = globalData.inventory;
         Dictionary<(string, string, string), string> recipe = craftDatabase.GetRecipe();
         ItemDatabase allItems = globalData.itemDatabase;
-        bool crafted = false;
 
         if (requested_Size != null && requested_Material != null && requested_Type != null)
         {
@@ -113,46 +115,16 @@ public class CftCtrlBhv : StateInterface
             if (recipe.TryGetValue((requested_Size.item.itemSize, requested_Type.item.itemType, requested_Material.item.itemMaterial), out string value))
             {
                 Item craftedItem = allItems.FindItem(value);
-                /*if(craftedItem.placeable)
-                {
-                    if(itemTrigger.currentCol != null && itemTrigger.currentItem.attachedItemName == value
-                        && new string[]{"Ghost", "ToBeDestroyed"}.Contains(itemTrigger.currentItem.itemState))
-                        //&& !itemTrigger.currentItem.created)
-                    {
-                        crafted = true;
-                        stateMachine.handleAction("Inventory", onAction: "Craft Success PlaceableItem " + value);
-                        if(itemTrigger.currentItem.itemState == "Ghost")
-                        {
-                            if(itemTrigger.currentItem.special)
-                            {
-                                foreach(GameObject g in itemTrigger.currentItem.OtherObjs)
-                                    Destroy(g);
-                            }
-                            itemTrigger.currentItem.setState("Created");
-                        }
-                        else
-                            itemTrigger.currentItem.setState("Destroyed");
-                    }
-                    else
-                        stateMachine.handleAction("Inventory", onAction: "Craft Fail PlaceableItem " + value);
-                }*/
-                else
-                {
-                    crafted = true;
-                    inventory.AddItem(allItems.FindItem(value));
-                    stateMachine.handleAction("Inventory", onAction: "Craft Success Item " + value);
-                }
-                if(crafted)
-                {
-                    // Key was in dictionary; "value" contains corresponding value
-                    Debug.Log("Craft Success: You made " + value);
-                    inventory.CraftRemoval(requested_Size, requested_Type, requested_Material);
-                    requested_Material = null;
-                    requested_Type = null;
-                    requested_Size = null;
-                    SetImages();
-                    SetPreview();
-                }
+                inventory.AddItem(craftedItem);
+                stateMachine.handleAction("Inventory", onAction: "Craft Success Item " + value);
+                // Key was in dictionary; "value" contains corresponding value
+                Debug.Log("Craft Success: You made " + value);
+                inventory.CraftRemoval(requested_Size, requested_Type, requested_Material);
+                requested_Material = null;
+                requested_Type = null;
+                requested_Size = null;
+                SetImages();
+                SetPreview();
             }
             else
             {
@@ -270,22 +242,22 @@ public class CftCtrlBhv : StateInterface
         if(requested_Size != null)
             size_Slot_Image.sprite = requested_Size.item.GetSprite();
         else
-            size_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            size_Slot_Image.sprite = emptyItem;
         if(requested_Material != null)
             material_Slot_Image.sprite = requested_Material.item.GetSprite();
         else
-            material_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            material_Slot_Image.sprite = emptyItem;
         if(requested_Type != null)
             type_Slot_Image.sprite = requested_Type.item.GetSprite();
         else
-            type_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            type_Slot_Image.sprite = emptyItem;
     }
 
     void SetPreview()
     {
         if(requested_Size == null || requested_Type == null || requested_Material == null)
         {
-            preview_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            preview_Slot_Image.sprite = emptyItem;
             return;
         }
         CraftDatabase craftDatabase = globalData.craftDatabase;
@@ -298,7 +270,7 @@ public class CftCtrlBhv : StateInterface
         }
         else
         {
-            preview_Slot_Image.sprite = Resources.Load<Sprite>("Sprites/Items/EmptyItem");
+            preview_Slot_Image.sprite = emptyItem;
         }
     }
 
