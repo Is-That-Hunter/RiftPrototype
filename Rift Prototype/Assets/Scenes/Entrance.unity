@@ -583,18 +583,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd518224e112b1849938d17b3cde12e4, type: 3}
---- !u!114 &147580749 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 326148869912238800}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7a3cbe75b4cdcd4085e5699153fc4b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &152996922
 GameObject:
   m_ObjectHideFlags: 0
@@ -6856,11 +6844,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 326148868993688596, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: globalData
-      value: 
-      objectReference: {fileID: 147580749}
     - target: {fileID: 326148869071905241, guid: 7b57628c691af854ca7d2638439e02bf,
         type: 3}
       propertyPath: m_Name
@@ -6931,96 +6914,6 @@ PrefabInstance:
       propertyPath: characters.Array.data[2].character
       value: 
       objectReference: {fileID: 1577590026}
-    - target: {fileID: 326148869071905244, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: activeSequences.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[0]
-      value: Police Uniform
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[1]
-      value: Fake ID
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[3]
-      value: Ladder
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[4]
-      value: Plank
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[5]
-      value: Acid
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[6]
-      value: Cannon
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[7]
-      value: Cannonball
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[8]
-      value: Lighter
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: startingItems.Array.data[9]
-      value: Ladder
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.data[0].objectName
-      value: CrossingPlankParent
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.data[1].objectName
-      value: PadlockParent
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.data[2].objectName
-      value: CannonParent
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.data[0].objectState
-      value: Ghost
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.data[1].objectState
-      value: ToBeDestroyed
-      objectReference: {fileID: 0}
-    - target: {fileID: 326148869071905246, guid: 7b57628c691af854ca7d2638439e02bf,
-        type: 3}
-      propertyPath: sceneData.Array.data[2].objectState
-      value: Ghost
-      objectReference: {fileID: 0}
     - target: {fileID: 930702295360536784, guid: 7b57628c691af854ca7d2638439e02bf,
         type: 3}
       propertyPath: m_LocalPosition.z

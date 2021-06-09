@@ -78,6 +78,10 @@ public class GlobalData : MonoBehaviour
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
         loadingSceneOverlay.Active(true);
+        if(endGame == 1)
+        {
+            loadingSceneOverlay.Finish(true);
+        }
         loadingSceneOverlay.UpdateBar(0);
         //Debug.Log("Pro :" + asyncOperation.progress);
         //When the load is still in progress, output the Text and progress bar
@@ -153,10 +157,13 @@ public class GlobalData : MonoBehaviour
         foreach(objectData objData in sceneData)
         {
             GameObject obj = GameObject.Find(objData.objectName);
-            ItemTag[] tags = obj.GetComponentsInChildren<ItemTag>();
-            foreach(ItemTag tag in tags)
+            if(obj != null)
             {
-                tag.setState(objData.objectState, objData.objectChoice);
+                ItemTag[] tags = obj.GetComponentsInChildren<ItemTag>();
+                foreach(ItemTag tag in tags)
+                {
+                    tag.setState(objData.objectState, objData.objectChoice);
+                }
             }
         }
     }
@@ -165,10 +172,13 @@ public class GlobalData : MonoBehaviour
         foreach(objectData objData in sceneData)
         {
             GameObject obj = GameObject.Find(objData.objectName);
-            ItemTag[] tags = obj.GetComponentsInChildren<ItemTag>();
-            foreach(ItemTag tag in tags)
+            if(obj != null)
             {
-                objData.objectState = tag.itemState;
+                ItemTag[] tags = obj.GetComponentsInChildren<ItemTag>();
+                foreach(ItemTag tag in tags)
+                {
+                    objData.objectState = tag.itemState;
+                }
             }
         }
     }

@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class LoadProgressBar : MonoBehaviour
 {
-    public Text m_Text;
-    public bool isActive;
+    //public Text m_Text;
+    public GameObject endText;
     public Image image;
     
     public void UpdateBar(float progress) {
@@ -14,7 +14,11 @@ public class LoadProgressBar : MonoBehaviour
     } 
     public void Active(bool active)
     {
-        isActive = active;
         image.enabled = active;
+    }
+    public void Finish(bool active)
+    {
+        Active(active);
+        endText.SetActive(active);
     }
 }
