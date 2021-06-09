@@ -120,6 +120,21 @@
                 "type":"RemoveItem",
                 "targetObj": "Fake ID"
             }
+        },
+        {
+            "triggerType":"Inventory",
+            "triggerInfo":{
+                "pid":-1,
+                "onAction":"Craft Success Item",
+                "tree":"",
+                "once":true
+            },
+            "triggerAction":{
+                "type":"Dialogue",
+                "pid":14,
+                "tree":"Tutorial",
+                "targetObj":""
+            }
         }
     ]   
 }

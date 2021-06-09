@@ -55,6 +55,37 @@ public class DialogueScript : StateInterface, IPointerClickHandler
             }
         }
     }
+    /*
+    public void OnPointerEnter(PointerEventData eventData) {
+        Debug.Log("Entered");
+        TMP_Text pTextMeshPro = this.dialogueText.GetComponent<TMP_Text>();
+        int linkIndex = TMP_TextUtilities.FindIntersectingLink(pTextMeshPro, eventData.position, null);  // If you are not in a Canvas using Screen Overlay, put your camera instead of null
+        if (linkIndex != -1) {
+            Debug.Log("Highlight link");
+            TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
+            for( int i = 0; i < linkInfo.linkTextLength; i++ ) { // for each character in the link string
+                int characterIndex = linkInfo.linkTextfirstCharacterIndex + i; // the character index into the entire text
+                var charInfo = pTextMeshPro.textInfo.characterInfo[characterIndex];
+                int meshIndex = charInfo.materialReferenceIndex; // Get the index of the material / sub text object used by this character.
+                int vertexIndex = charInfo.vertexIndex; // Get the index of the first vertex of this character.
+
+                Color32[] vertexColors = pTextMeshPro.textInfo.meshInfo[meshIndex].colors32; // the colors for this character
+
+                if( charInfo.isVisible ) {
+                    vertexColors[vertexIndex + 0] = Color.white;
+                    vertexColors[vertexIndex + 1] = Color.white;
+                    vertexColors[vertexIndex + 2] = Color.white;
+                    vertexColors[vertexIndex + 3] = Color.white;
+                }
+            }
+            pTextMeshPro.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        Debug.Log("Exited");
+    }
+    */
     void OnEnable()
     {
         if(isActive)

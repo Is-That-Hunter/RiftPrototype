@@ -92,6 +92,7 @@
                 "targetObj":""
             }
         },
+        
         {
             "tid":7,
             "triggerType":"Inventory",

@@ -6,7 +6,7 @@
         {
             "character": "Angela",
             "zoom": true,
-            "text": "ANGELA: \"258 Ott Street huh, don't come down to this side of town often, don't know where else to look though. Strange things been following me my whole life, but this is something else.\"\n[[Next Box]]\n",
+            "text": "ANGELA: \"258 Ott Street huh, never was the friendliest place. Strange things been following me my whole life, but this is something else.\"\n[[Next Box]]\n",
             "links": [
                 {
                     "leave": false,
@@ -21,7 +21,7 @@
         {
             "character": "Angela",
             "zoom": true,
-            "text": "ANGELA: Woah! One use only on these things huh. \n\n[[ Next box ]]",
+            "text": "ANGELA: *Lights up her smoke*\n\"Something seems off around here.\"\n[[ Next box ]]",
             "links": [
                 {
                     "leave": false,
@@ -36,7 +36,7 @@
         {
             "character": "Angela",
             "zoom": true,
-            "text": "ANGELA: \"Ever since that... thing came crashing throuhg Mosley's it's gotten worse.\" \n[[Next 1]]\n\n",
+            "text": "ANGELA: \"Ever since that... thing came crashing through Mosley's it's gotten worse.\" \n[[Next 1]]\n\n",
             "links": [
                 {
                     "leave": false,
@@ -189,6 +189,21 @@
             "text": "Press Space to Craft Item\n[[Okay->Make a lighter - Crafting Tutorial]]",
             "name": "Tutorial 5",
             "pid": "13",
+            "links": [
+                {
+                    "leave": true,
+                    "name": "Okay",
+                    "link": "Make a lighter - Crafting Tutorial",
+                    "pid": "2"
+                }
+            ]
+        },
+        {
+            "character": "Angela",
+            "zoom": false,
+            "text": "Press Q to leave your Inventory.\n[[Okay->Make a lighter - Crafting Tutorial]]",
+            "name": "Tutorial 6",
+            "pid": "14",
             "links": [
                 {
                     "leave": true,

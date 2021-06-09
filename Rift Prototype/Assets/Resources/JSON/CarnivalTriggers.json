@@ -318,7 +318,7 @@
             },
             "triggerAction":{
                 "type": "ChangeSavedData",
-                "itemName": "Cannon",
+                "itemName": "Cannonball",
                 "targetObj": "CannonParent",
                 "itemState": "Filled"
             }

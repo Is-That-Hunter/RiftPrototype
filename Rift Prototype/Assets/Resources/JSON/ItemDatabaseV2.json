@@ -126,7 +126,7 @@
        "itemType":"Sturdy",
        "itemMaterial":"Plastic",
        "itemDescription":"A simple folding chair, best used for slacking off at work or breaking over the back of a wrestler.",
-       "spriteName":"hammer",
+       "spriteName":"Chair",
        "craftable":true,
        "placeable":false
     },
@@ -162,11 +162,11 @@
     },
     {
        "itemName":"Jackhammer",
-       "itemSize":"Large",
-       "itemType":"Loud",
+       "itemSize":"Medium",
+       "itemType":"Heavy",
        "itemMaterial":"Metal",
        "itemDescription":"A surprisingly good upper-body workout.",
-       "spriteName":"hammer",
+       "spriteName":"Jackhammer",
        "craftable":true,
        "placeable":false
     },
@@ -186,7 +186,7 @@
        "itemType":"Authoritative",
        "itemMaterial":"Wood",
        "itemDescription":"A 'Keep Out' sign would work just as well.",
-       "spriteName":"hammer",
+       "spriteName":"RoadBarrier",
        "craftable":true,
        "placeable":false
     },
@@ -196,7 +196,7 @@
        "itemType":"Sturdy",
        "itemMaterial":"Wood",
        "itemDescription":"Perfect for picnics.",
-       "spriteName":"hammer",
+       "spriteName":"Table",
        "craftable":true,
        "placeable":false
     },
@@ -226,7 +226,7 @@
        "itemType":"Sturdy",
        "itemMaterial":"Wood",
        "itemDescription":"A long, splintery piece of wood, best handled with gloves or extremely calloused hands.",
-       "spriteName":"hammer",
+       "spriteName":"WoodenPlank",
        "craftable":true,
        "placeable":true
     },
@@ -276,7 +276,7 @@
        "itemType":"Sharp",
        "itemMaterial":"Metal",
        "itemDescription":"I like to believe I'm as tough as these.",
-       "spriteName":"hammer",
+       "spriteName":"Nails",
        "craftable":true,
        "placeable":false
     },
@@ -332,11 +332,11 @@
     },
     {
        "itemName":"Cannon",
-       "itemSize":"Medium",
-       "itemType":"Heavy",
+       "itemSize":"Large",
+       "itemType":"Loud",
        "itemMaterial":"Metal",
        "itemDescription":"KABOOM!!!",
-       "spriteName":"hammer",
+       "spriteName":"Cannon",
        "craftable":true,
        "placeable":true
     },

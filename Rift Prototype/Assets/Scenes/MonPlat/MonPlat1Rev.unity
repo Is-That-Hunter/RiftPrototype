@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1 &248892431
@@ -349,6 +354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1001 &493223051
@@ -418,6 +428,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1 &570159791
@@ -460,8 +475,9 @@ AudioSource:
   m_GameObject: {fileID: 570159791}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 075e858e23641674da81ca631fad0356, type: 3}
+  OutputAudioMixerGroup: {fileID: 2734207181980697337, guid: 7ea7ce93c440f454480ecc8b0b8cf31a,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5037b9e0297e1dc4aa29bdf4f08bf30c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.55
   m_Pitch: 1
@@ -628,6 +644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1001 &666451927
@@ -700,12 +721,22 @@ PrefabInstance:
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeGone
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeSolid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingIn
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingOut
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa45a6a9f488341c78073b0f8fafd5de, type: 3}
@@ -781,6 +812,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1001 &902995753
@@ -853,11 +889,21 @@ PrefabInstance:
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeGone
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeSolid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingOut
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -932,12 +978,22 @@ PrefabInstance:
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeGone
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeSolid
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingIn
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingOut
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa45a6a9f488341c78073b0f8fafd5de, type: 3}
@@ -1011,12 +1067,22 @@ PrefabInstance:
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeGone
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
         type: 3}
       propertyPath: timeSolid
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088047488248871261, guid: fa45a6a9f488341c78073b0f8fafd5de,
+        type: 3}
+      propertyPath: timeFadingOut
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa45a6a9f488341c78073b0f8fafd5de, type: 3}
@@ -1086,6 +1152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SolidPlatform Variant (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
@@ -5909,6 +5980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1001 &1424951276
@@ -5977,6 +6053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SolidPlatform Variant (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
@@ -6247,6 +6328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform Variant (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}
 --- !u!1001 &1735430643
@@ -6315,6 +6401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SolidPlatform Variant (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967076060920400327, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aafc33a5ae84b1eb3e5a8158ba2fc8, type: 3}

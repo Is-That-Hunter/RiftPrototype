@@ -48,7 +48,7 @@
       {
         "character": "Angela",
         "zoom": true,
-        "text": "*Angela throws a rope across the rooftops*\n[[Done->End]]",
+        "text": "*Climbing the ladder Angela makes her way over the wall and into the park*\n[[Done->End]]",
         "links": [
           {
             "leave": true,

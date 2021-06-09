@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3963345458369741140}
   - component: {fileID: 2748053804556197142}
   - component: {fileID: 1781973446765125043}
+  - component: {fileID: 4114875411588722038}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Player
@@ -73,6 +74,18 @@ MonoBehaviour:
   currentCol: {fileID: 0}
   currentItem: {fileID: 0}
   reportBoo: 0
+--- !u!114 &4114875411588722038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429266805160034579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6401980b707d8f7418cc95d0c39c3c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016507150019440180
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4934765016191789234}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4847048560519272110
 MeshFilter:
@@ -175,36 +188,6 @@ MonoBehaviour:
   timeScale: 0
   spinSpanding: 0
   done: 0
---- !u!1 &3538185077768279992
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4102301865011860157}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4102301865011860157
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3538185077768279992}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 14.285715, y: 14.285715, z: 14.285715}
-  m_Children: []
-  m_Father: {fileID: 4934765016191789234}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4934765016191789238
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +225,6 @@ Transform:
   m_Children:
   - {fileID: 5981132476274356358}
   - {fileID: 3310320824143444193}
-  - {fileID: 4102301865011860157}
   - {fileID: 7798997844942471283}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -261,10 +243,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   globalData: {fileID: 0}
-  dialogueTrigger: {fileID: 0}
-  itemTrigger: {fileID: 0}
-  monsterTrigger: {fileID: 0}
-  anim: {fileID: 0}
+  dialogueTrigger: {fileID: 2748053804556197142}
+  itemTrigger: {fileID: 1781973446765125043}
+  monsterTrigger: {fileID: 4114875411588722038}
+  anim: {fileID: 1779883873099532302}
   groundLayers:
     serializedVersion: 2
     m_Bits: 1
